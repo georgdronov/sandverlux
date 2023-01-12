@@ -1,17 +1,17 @@
 <section class="filter">
-  <h3 class="filter__heading heading">Фильтр</h3>
+  <button class="filter__close-button" type="button" aria-expanded="false">
+    <svg class="" width="14" height="14">
+      <use href="images/icons.svg#close" />
+    </svg>
+  </button>
+  @@include('./src/html/include/products-sort.html', {
+  'viewButtons': false
+  })
   <form action="" method="post" id="mse2_filter" class="filter-wrap">
-    <div class="filter__top">
-      <button type="button" class="" aria-expanded="false">
-        <svg class="" width="14" height="14">
-          <use href="images/icons.svg#close" />
-        </svg>
-      </button>
-    </div>
     <div class="filter__body">
       <fieldset class="form__item-wrapper">
         <legend class="form__item-heading">Цена</legend>
-        <div class="mft__items-row">
+        <div class="form__items-row">
           <div class="form__item">
             <span class="form__input-placeholder">от</span>
             <label>
@@ -30,19 +30,70 @@
         <div id="door-price-slider" class="form__slider"></div>
       </fieldset>
       <fieldset class="form__item-wrapper">
-        <legend class="form__item-heading">Система открывания</legend>
+        <legend class="form__item-heading">Цвет</legend>
         <div class="form__item">
           <label class="form__checkbox">
             <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Классическая</span>
+            <span class="form__label">Параметр 1</span>
           </label>
           <label class="form__checkbox">
             <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Раздвижная</span>
+            <span class="form__label">Параметр 1</span>
           </label>
           <label class="form__checkbox">
             <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Складная</span>
+            <span class="form__label">Параметр 1</span>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="form__item-wrapper">
+        <legend class="form__item-heading">Покрытие</legend>
+        <div class="form__item">
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="form__item-wrapper">
+        <legend class="form__item-heading">Наполнение</legend>
+        <div class="form__item">
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="form__item-wrapper">
+        <legend class="form__item-heading">Система открытия</legend>
+        <div class="form__item">
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
+          </label>
+          <label class="form__checkbox">
+            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+            <span class="form__label">Параметр 1</span>
           </label>
         </div>
       </fieldset>

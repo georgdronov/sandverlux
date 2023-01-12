@@ -10,7 +10,13 @@
       'hidden-json-path': '@@popular-json-path'
       })
     </header>
+    <div class="category__sort">
+      @@include('./src/html/include/products-sort.html', {
+      'viewButtons': true
+      })
+    </div>
     @@include('./src/html/include/category-products.html', {
+    'category-url': '@@url',
     'category-title': '@@title'
     })
   </div>

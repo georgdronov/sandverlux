@@ -1,6 +1,8 @@
 <div class="products _filter-top">
   <div class="products__filter">
-    @@include('./src/html/include/products-filter.html')
+    @@include('./src/html/include/products-filter.html', {
+      'page-url': '@@category-url'
+    })
     <aside class="products__promotion">
       <h3 class="sr-only">Акции</h3>
       @@include('./src/html/include/promotion-banner.html', {
@@ -21,6 +23,8 @@
     <div class="products__items row">
       @@loop('./src/html/include/product.html', 'json/products.json')
     </div>
-    @@include('./src/html/include/products-navigation.html')
+    @@include('./src/html/include/products-pagination.html', {
+      'page-url': '@@category-url'
+    })
   </div>
 </div>

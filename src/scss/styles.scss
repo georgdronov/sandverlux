@@ -106,6 +106,7 @@ $container-padding-mobile: 20px;
     }
   }
 }
+@import "_form.scss";
 
 html {
   font-size: calc(0.580208rem + 0.35vw);
@@ -1547,7 +1548,7 @@ label {
     padding: 2.5rem 0.2rem 1.775rem 0.4rem;
   }
 
-  &__item-wrapper {
+  %form-item-wrapper {
     & %form-input {
       font-size: 14px;
       padding-left: 42px;
@@ -1560,22 +1561,6 @@ label {
       @media ($mobile-max) {
         max-width: 127px;
         flex-basis: 127px;
-      }
-    }
-  }
-  &__items-row {
-    display: flex;
-    @include margin-x(-3px);
-
-    @media ($mobile-max) {
-      @include margin-x(-7px);
-    }
-
-    & > * {
-      @include margin-x(3px);
-
-      @media ($mobile-max) {
-        @include margin-x(7px);
       }
     }
   }
@@ -1593,6 +1578,16 @@ label {
     &_shrink {
       flex-grow: 0;
     }
+    & %form-label,
+    & %form-input,
+    & %form-select {
+      @media ($tablet-min) {
+        min-height: 45px;
+      }
+      @media ($mobile-max) {
+        min-height: 40px;
+      }
+    }
     & %form-item {
       display: flex;
 
@@ -1607,10 +1602,6 @@ label {
     & %form-input-placeholder {
       top: 14px;
       left: 12px;
-      color: #8f8f8f;
-      position: absolute;
-      font-size: 14px;
-      line-height: 1.2;
     }
     & %form-input {
       &[type="radio"] + %form-label {
@@ -1633,11 +1624,11 @@ label {
         }
       }
     }
-    & %form-select {
+    %form-select {
       font-size: 14px;
       padding: 0 1.5rem;
     }
-    .form__slider {
+    %form-slider {
       margin-top: 1rem;
 
       @media ($mobile-max) {
@@ -1645,7 +1636,7 @@ label {
       }
     }
   }
-  &__heading {
+  %form-item-heading {
     color: $white;
   }
 }
@@ -1674,6 +1665,16 @@ label {
 
     &_half {
       flex: 0 1 auto;
+    }
+    & %form-label,
+    & %form-input,
+    & %form-select {
+      @media ($tablet-min) {
+        min-height: 45px;
+      }
+      @media ($mobile-max) {
+        min-height: 40px;
+      }
     }
     & %form-item {
       @extend %row-wrapper;
@@ -1756,23 +1757,20 @@ label {
       }
     }
   }
-  &__item-wrapper {
-    &_row {
-      @extend %row-wrapper;
-      align-items: center;
+  %form-item-wrapper {
+    &%form-item-wrapper-row {
       margin-bottom: -$mfb-bottom-gap;
-      @extend %mfb-wrapper-row;
     }
   }
-  &__heading {
+  %form-item-heading {
     margin-bottom: $mfb-bottom-gap;
 
     @media ($mobile-max) {
       margin-bottom: 1.2rem;
     }
-
-    %mfb-wrapper-row & {
-      float: left;
+  }
+  %form-item-wrapper-row {
+    %form-item-heading {
       margin-right: 32px;
     }
   }
@@ -2124,10 +2122,13 @@ label {
   }
 
   &__inner {
+    height: 100%;
     padding: 15px;
+    display: flex;
     transform: translateY(0);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
     transition: transform 0.3s, box-shadow 0.3s;
+    flex-direction: column;
 
     @media ($desktop-min) {
       %product-hover & {
@@ -2157,10 +2158,13 @@ label {
   // }
   // }
   &__content {
+    display: flex;
     position: relative;
+    flex-grow: 1;
     font-size: 16px;
     line-height: 1.2;
     padding-top: 10px;
+    flex-direction: column;
 
     @media ($mobile-max) {
       font-size: 14px;
@@ -2226,6 +2230,7 @@ label {
   &__heading {
     color: $heading-color;
     font-weight: 500;
+    margin-bottom: auto;
     text-decoration: none;
   }
   &__price-wrapper {
@@ -3143,11 +3148,32 @@ label {
 .category {
   padding: 2.2rem 0;
 
-  &__container {
-  }
-  &__header {
-  }
-  &__heading {
+  // &__container {
+  // }
+  // &__header {
+  // }
+  // &__heading {
+  // }
+  &__sort {
+    margin-top: 3.4rem;
+
+    %sort {
+      align-items: center;
+    }
+    %form-item-heading {
+      color: $text-color;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    %form-select {
+      color: $heading-color;
+      font-weight: 600;
+
+      & option {
+        color: $text-color;
+        font-weight: 400;
+      }
+    }
   }
 }
 .subcategories {
@@ -3312,13 +3338,14 @@ label {
   $items-gap: 3.5rem;
 
   display: flex;
+  margin-top: 4rem;
 
-  &._filter-top {
-    margin-top: 5rem;
-  }
   &__filter {
+    top: 90px;
     flex: 1 0 27.125rem;
+    position: sticky;
     max-width: 27.125rem;
+    align-self: flex-start;
   }
   &__promotion {
     margin-top: 30px;
@@ -3330,25 +3357,90 @@ label {
   }
   &__description {
     order: 1;
+    margin: 3rem auto 0;
+    max-width: 80%;
     font-size: 14px;
     line-height: 2.143;
   }
   &__description-heading {
     font-size: 20px;
     text-transform: none;
+
+    & > * {
+      margin-top: 1.5rem;
+    }
   }
   &__items {
+    margin-top: -$items-gap;
+
     %product {
       flex: 1 1 25%;
       max-width: 25%;
+      margin-top: $items-gap;
     }
+  }
+  %pagination {
+    margin-top: 3rem;
   }
 }
 .filter {
   border: 1px solid $items-border;
-  padding: 40px;
+  padding: 33px 41px;
   background-color: $white;
 
+  &__close-button {
+    @media ($desktop-min) {
+      display: none;
+    }
+  }
+  %sort {
+    flex-direction: column;
+
+    @media ($desktop-min) {
+      display: none;
+    }
+  }
+  %form-item-wrapper {
+    border-top: 1px solid $form-grey-color;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+  %form-item-heading {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  %form-items-row {
+    margin-left: -17px;
+
+    & > * {
+      margin-left: 17px;
+    }
+  }
+  %form-slider {
+    margin-top: 25px;
+
+    &%noui-horizontal {
+      height: 4px;
+    }
+    %noui-handle {
+      top: -4.5px;
+      width: 10px;
+      right: -5px;
+      height: 12px;
+      border-radius: 0;
+    }
+  }
+  %form-input-placeholder {
+    top: 12px;
+    left: 17px;
+    font-size: 16px;
+  }
+  %form-input {
+    border: 1px solid $text-color;
+    min-height: 45px;
+    padding-left: 50px;
+    background-color: $white;
+  }
   &__reset {
     color: $primary-color;
     border: none;
@@ -3358,23 +3450,82 @@ label {
     @include link-hover-underline($primary-color);
   }
 }
+.sort {
+  $items-gap: 20px;
+
+  display: flex;
+  margin-top: -$items-gap;
+  margin-left: -$items-gap;
+
+  @extend %sort !optional;
+
+  &__heading {
+    color: $primary-color;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &__item {
+    margin-top: $items-gap;
+    margin-left: $items-gap;
+
+    &_heading {
+      @media ($desktop-min) {
+        display: none;
+      }
+    }
+    &_sort {
+      margin-right: auto;
+    }
+    // &_count {
+    // }
+    // &_limit {
+    // }
+    // &_views {
+    // }
+  }
+  &__products-count {
+    strong {
+      color: $heading-color;
+      font-weight: 600;
+    }
+  }
+  &__views-button {
+    color: $items-border;
+    border: none;
+    padding: 5px;
+    line-height: 1;
+    background-color: transparent;
+
+    @media ($desktop-min) {
+      transform: scale(1);
+      transition: transform 0.2s;
+
+      &:not(.active):hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &.active {
+      color: $heading-color;
+    }
+  }
+}
 .promotion {
   background: url("../images/icons.svg#wave-02") 50% / contain no-repeat
     $promotion-background;
 
   &__inner {
     position: absolute;
-    
   }
   &__heading {
     color: $white;
     font-size: 40px;
     font-weight: 700;
   }
-  &__image-wrapper {
-  }
-  &__image {
-  }
+  // &__image-wrapper {
+  // }
+  // &__image {
+  // }
   &__date {
     background-color: $white;
   }
@@ -3384,409 +3535,51 @@ label {
     font-weight: 700;
   }
 }
+.pagination {
+  @extend %pagination !optional;
 
-%f-item-element {
-  border: none;
-  background-color: $form-grey-color;
-}
-%f-checkbox-pseudo {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  display: block;
-}
+  text-align: center;
 
-.form {
-  &__row {
-    @include margin-x(-7.5px);
-  }
-  &__item-wrapper {
-    margin: 0;
-    border: none;
-    padding: 0;
-  }
-  &__item-heading {
-    padding: 0;
-    display: block;
-    font-weight: 500;
-    line-height: 1.25;
-    margin-bottom: 13px;
-
-    @media ($desktop-max) and ($tablet-min) {
-      font-size: 1.2rem;
-    }
-    @media ($mobile-max) {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-    }
-  }
-  &__item {
-    position: relative;
-    @extend %form-item;
-
-    & %form-label,
-    & %form-input,
-    & %form-select {
-      @media ($tablet-min) {
-        min-height: 45px;
-      }
-      @media ($mobile-max) {
-        min-height: 40px;
-      }
-    }
-  }
-  &__label {
-    font-size: 14px;
-    line-height: 1.375;
-    @extend %form-label !optional;
-
-    &[aria-hidden="true"] {
-      display: none;
-    }
-    &_placeholder {
-      position: absolute;
-      font-size: 14px;
-      color: $text-color;
-      top: 14px;
-      left: 25px;
-      cursor: default;
-      user-select: none;
-      pointer-events: none;
-      transform-origin: left top;
-      transition: transform $transition3, color $transition3;
-      transform: translate(0, 0) scale(1);
-
-      &_active {
-        color: $white;
-        transform: translate(-22px, -34px) scale(0.75);
-      }
-    }
-  }
-  &__input {
-    width: 100%;
-    color: $text-color;
-    @extend %f-item-element;
-    @extend %form-input;
-
-    @media ($tablet-max) {
-      font-size: 15px;
-    }
-    @media ($tablet-min) {
-      padding: 0 17px;
-    }
-    @media ($mobile-max) {
-      font-size: 14px;
-    }
-    &[aria-hidden="true"] {
-      width: 1px;
-    }
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    &[type="number"] {
-      -moz-appearance: textfield;
-      appearance: none
-    }
-    &[type="file"] {
-      & ~ label {
-        width: 100%;
-        color: $text-color;
-        cursor: pointer;
-        display: block;
-        @extend %f-item-element;
-        background: url("../images/form-file-icon.svg") 98% 15px/15px auto
-          no-repeat $white;
-        background-position: right 15px top 18px;
-
-        @media ($tablet-max) {
-          font-size: 15px;
-        }
-        @media ($tablet-min) {
-          padding: 15px 15px 15px 25px;
-        }
-        @media ($mobile-max) {
-          padding: 13px 29px;
-          font-size: 14px;
-        }
-      }
-    }
-    &[type="radio"] {
-      &:focus-visible {
-        & + %form-label {
-          @include focus-styles($color: $white);
-        }
-      }
-    }
-    &_error%form-input {
-      box-shadow: 0 0 10px $required-and-error;
-    }
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &_valid%form-input {
-      background: url("../images/valid-icon.svg") 98% 17px/17px auto no-repeat
-        $white;
-      background-position: right 15px top 18px;
-    }
-    &-placeholder {
-      @extend %form-input-placeholder;
-    }
-
-    &::placeholder {
-      color: $text-color;
-      opacity: 1;
-    }
-    &::-webkit-input-placeholder {
-      color: $text-color;
-      opacity: 1;
-    }
-    &::-moz-placeholder {
-      color: $text-color;
-      opacity: 1;
-    }
-    &:-ms-input-placeholder {
-      color: $text-color;
-      opacity: 1;
-    }
-  }
-  &__select {
-    @extend %f-item-element;
-    width: 100%;
-    color: inherit;
-    padding: 0 17px;
-    appearance: none;
-    background: url("../images/icons.svg#chevron-down") right 15px center/16px
-      auto no-repeat $white;
-
-    @extend %form-select;
-
-    &::-ms-expand {
-      display: none;
-    }
-    & * {
-      width: 100%;
-      border: none;
-      padding: 3px 17px;
-
-      &:hover {
-        background-color: $yellow;
-      }
-    }
-  }
-  & textarea%form-input {
-    margin: 0;
-    resize: none;
-
-    @media ($tablet-min) {
-      min-height: 113px;
-    }
-    @media ($mobile-max) {
-      min-height: 93px;
-    }
-  }
-  &__slider {
-    width: 100%;
-  }
-  &__color-wrapper {
-    margin-right: -26px;
-  }
-  &__color {
-    cursor: pointer;
-    display: inline-block;
-    margin-right: 20px;
-    border-radius: 50%;
-    vertical-align: middle;
-
-    @extend %form-color !optional;
-
-    %form-label {
-      color: transparent;
-      width: 50px;
-      height: 50px;
-      display: block;
-      overflow: hidden;
-      min-height: 0;
-      user-select: none;
-      border-radius: 50%;
-      background-color: #d8b888;
-    }
-    input:checked ~ %form-label {
-      border: 3px solid $primary-color;
-    }
-  }
-  &__checkbox {
-    margin-right: 32px;
-
-    @extend %form-checkbox !optional;
-
-    input {
-      & ~ %form-label {
-        cursor: pointer;
-        display: block;
-        position: relative;
-        min-height: 0;
-        padding-left: 32px;
-
-        &:before {
-          @extend %f-item-element;
-          @extend %f-checkbox-pseudo;
-        }
-        &:after {
-          @extend %f-checkbox-pseudo;
-          opacity: 0;
-          background: url("../images/icons.svg#check") 4px 1px/12px auto
-            no-repeat transparent;
-          transition: opacity $transition3, background-position $transition3;
-        }
-      }
-      &:focus,
-      &:focus-visible {
-        & ~ %form-label {
-          &:before {
-            @include focus-styles;
-          }
-        }
-      }
-      &:focus:not(:focus-visible) {
-        & ~ %form-label {
-          &:before {
-          }
-        }
-      }
-      &:checked {
-        & ~ %form-label {
-          &:after {
-            opacity: 1;
-            background-position: 4px 4px;
-          }
-        }
-      }
-    }
-    &-wrapper--img {
-      margin-right: -15px;
-
-      @extend %form-checkbox-wrapper-img !optional;
-    }
-    &--img {
-      margin-right: 15px;
-
-      @extend %form-checkbox-img !optional;
-
-      input {
-        & ~ %form-label {
-          text-align: center;
-          transition: background-color 0.3s;
-          user-select: none;
-          padding-left: 0;
-          padding-bottom: 12px;
-          background-color: transparent;
-
-          &::before,
-          &::after {
-            width: 74px;
-            height: 74px;
-            margin: 14px 13px 11px;
-            position: relative;
-            background-color: transparent;
-          }
-          &::after {
-            opacity: 1;
-            position: absolute;
-            background-size: contain;
-            background-image: url("../images/icons.svg#door-style-01");
-            background-position: center center;
-          }
-        }
-        &:checked {
-          & ~ %form-label {
-            background-color: $form-grey-color;
-
-            &:after {
-              background-position: center center;
-            }
-          }
-        }
-      }
-    }
-  }
-  &__error-message {
-    font-size: 14px;
-    font-weight: 500;
-    color: $white;
-    text-shadow: 0 1px 3px $required-and-error;
-
-    @media ($mobile-max) {
-      font-size: 13px;
-      margin-bottom: 0;
-      padding-bottom: 3px;
-    }
-
-    &_active {
-      margin: 5px 0 -5px;
-
-      @media ($tablet-max) {
-        margin-bottom: 0;
-      }
-    }
-  }
-  &__button-wrapper {
+  &__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+  }
+  &__list-item {
+    display: inline-block;
+  }
+  &__link {
+    color: $heading-color;
+    display: block;
+    padding: 0 8px;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 600;
+    text-decoration: none;
 
     @media ($desktop-min) {
-      align-items: center;
-    }
-    @media ($tablet-max) {
-      flex-direction: column-reverse;
-    }
-  }
-  &__personal-data {
-    color: $white;
-    font-size: 12px;
+      transform: scale(1);
+      transition: transform 0.2s;
 
-    @media ($tablet-max) {
-      color: #fff;
-      margin: 0 auto;
-      font-size: 12px;
-      max-width: 250px;
-      text-align: center;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: underline;
-
-      @media ($desktop-min) {
-        transition: color $transition3;
-
-        &:hover {
-          color: $white;
-        }
+      &[href]:hover {
+        transform: scale(1.2);
       }
     }
-  }
-  &__button {
-    min-width: 169px;
-    font-size: 14px;
-    flex-shrink: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
 
-    @media ($desktop-min) {
-      margin-right: 20px;
+    &:not([href]) {
+      color: $primary-color;
+      text-decoration: underline;
     }
-    @media ($tablet-max) {
-      margin-top: 25px;
-      align-self: center;
-    }
+  }
+  &__description-wrapper {
+    margin-top: 6px;
+  }
+  &__description {
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
   }
 }
+
 .noUi {
   $handler-size: 15px;
   $handler-size-mobile: 19px;
@@ -3807,6 +3600,8 @@ label {
   }
   &-horizontal {
     height: 2px;
+
+    @extend %noui-horizontal !optional;
 
     %noui-handle {
       width: $handler-size;
@@ -3831,7 +3626,8 @@ label {
     box-shadow: none;
     background: #ecb800;
     border-radius: 50%;
-    @extend %noui-handle;
+
+    @extend %noui-handle !optional;
 
     &:before,
     &:after {
