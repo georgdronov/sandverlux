@@ -6633,6 +6633,28 @@
         event2.currentTarget.classList.add("active");
       })
     );
+    const filterToggleItems = document.querySelectorAll(
+      "[name=filter-toggle-item]"
+    );
+    const filterToggleCheckboxes = document.querySelectorAll(
+      "[name=filter-toggle-checkboxes]"
+    );
+    if (filterToggleItems.length) {
+      filterToggleItems.forEach(
+        (button) => button.addEventListener(
+          "click",
+          (event2) => event2.currentTarget.parentElement.classList.toggle("active")
+        )
+      );
+    }
+    if (filterToggleCheckboxes.length) {
+      filterToggleCheckboxes.forEach(
+        (button) => button.addEventListener("click", (event2) => {
+          event2.currentTarget.previousElementSibling.classList.toggle("active");
+          event2.currentTarget.remove();
+        })
+      );
+    }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {
       const pcSwiper = new core_default(".popular-categories__items-wrapper", {

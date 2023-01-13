@@ -1,102 +1,43 @@
 <section class="filter">
-  <button class="filter__close-button" type="button" aria-expanded="false">
+  <button class="filter__close-button" type="button">
     <svg class="" width="14" height="14">
       <use href="images/icons.svg#close" />
     </svg>
   </button>
   @@include('./src/html/include/products-sort.html', {
-  'viewButtons': false
+  'viewButtons': false,
+  'page-url': '@@page-url'
   })
   <form action="" method="post" id="mse2_filter" class="filter-wrap">
     <div class="filter__body">
-      <fieldset class="form__item-wrapper">
-        <legend class="form__item-heading">Цена</legend>
-        <div class="form__items-row">
-          <div class="form__item">
-            <span class="form__input-placeholder">от</span>
-            <label>
-              <span class="form__label" aria-hidden="true" hidden>минимальная цена</span>
-              <input class="form__input" type="number" name="door-price-min" data-min="0" value="0">
-            </label>
+      <div class="filter__body-item active">
+        <button class="filter__toggle-item" type="button" name="filter-toggle-item">
+          <svg class="" width="22" height="22">
+            <use href="images/icons.svg#chevron-down" />
+          </svg>
+        </button>
+        <fieldset class="form__item-wrapper">
+          <legend class="form__item-heading">Цена</legend>
+          <div class="form__items-row">
+            <div class="form__item">
+              <span class="form__input-placeholder">от</span>
+              <label>
+                <span class="form__label" aria-hidden="true" hidden>минимальная цена</span>
+                <input class="form__input" type="number" name="door-price-min" data-min="0" value="0">
+              </label>
+            </div>
+            <div class="form__item">
+              <span class="form__input-placeholder">до</span>
+              <label>
+                <span class="form__label sr-only" aria-hidden="true" hidden>максимальная цена</span>
+                <input class="form__input" type="number" name="door-price-max" data-max="5000" value="5000">
+              </label>
+            </div>
           </div>
-          <div class="form__item">
-            <span class="form__input-placeholder">до</span>
-            <label>
-              <span class="form__label sr-only" aria-hidden="true" hidden>максимальная цена</span>
-              <input class="form__input" type="number" name="door-price-max" data-max="5000" value="5000">
-            </label>
-          </div>
-        </div>
-        <div id="door-price-slider" class="form__slider"></div>
-      </fieldset>
-      <fieldset class="form__item-wrapper">
-        <legend class="form__item-heading">Цвет</legend>
-        <div class="form__item">
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-        </div>
-      </fieldset>
-      <fieldset class="form__item-wrapper">
-        <legend class="form__item-heading">Покрытие</legend>
-        <div class="form__item">
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-        </div>
-      </fieldset>
-      <fieldset class="form__item-wrapper">
-        <legend class="form__item-heading">Наполнение</legend>
-        <div class="form__item">
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-        </div>
-      </fieldset>
-      <fieldset class="form__item-wrapper">
-        <legend class="form__item-heading">Система открытия</legend>
-        <div class="form__item">
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-          <label class="form__checkbox">
-            <input class="form__input" type="checkbox" name="door-opening-system" hidden>
-            <span class="form__label">Параметр 1</span>
-          </label>
-        </div>
-      </fieldset>
+          <div id="door-price-slider" class="form__slider"></div>
+        </fieldset>
+      </div>
+      @@loop('./src/html/include/products-filter-body-item.html', 'json/products-filter-body-items.json')
     </div>
     <div class="filter__buttons">
       <button class="filter__submit _btn _btn--green" type="submit">Применить</button>

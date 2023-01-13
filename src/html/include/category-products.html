@@ -6,7 +6,7 @@
     <aside class="products__promotion">
       <h3 class="sr-only">Акции</h3>
       @@include('./src/html/include/promotion-banner.html', {
-        'title': 'Акция 😍',
+        'title': 'Акция',
         'date': '22.01.23',
         'door-image-src': 'images/homepage-door-01.jpg'
       })
@@ -20,7 +20,7 @@
         закрытом положении дверного полотна защиту от климатических, шумовых и других воздействий, а также от
         несанкционированного прохода.</p>
     </section>
-    <div class="products__items row">
+    <div class="products__items">
       @@loop('./src/html/include/product.html', 'json/products.json')
     </div>
     @@include('./src/html/include/products-pagination.html', {

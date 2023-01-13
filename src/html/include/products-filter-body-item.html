@@ -1,0 +1,21 @@
+<div class="filter__body-item">
+  <button class="filter__toggle-item" type="button" name="filter-toggle-item">
+    <svg class="" width="22" height="22">
+      <use href="images/icons.svg#chevron-down" />
+    </svg>
+  </button>
+  <fieldset class="form__item-wrapper">
+    <legend class="form__item-heading">@@name</legend>
+    <div class="form__item filter__checkboxes-wrapper">
+      @@for (var i = 1; i <= elementsCount; i++) {
+        <label class="form__checkbox">
+        <input class="form__input" type="checkbox" name="door-opening-system" hidden>
+        <span class="form__label">Параметр `+i+`</span>
+        </label>
+        }
+    </div>
+    @@if (elementsCount > 3) {
+    <button class="filter__toggle-checkboxes" type="button" name="filter-toggle-checkboxes">Показать все</button>
+    }
+  </fieldset>
+</div>

@@ -261,6 +261,31 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   );
 
+  // category filter toggle
+
+  const filterToggleItems = document.querySelectorAll(
+    "[name=filter-toggle-item]"
+  );
+  const filterToggleCheckboxes = document.querySelectorAll(
+    "[name=filter-toggle-checkboxes]"
+  );
+
+  if (filterToggleItems.length) {
+    filterToggleItems.forEach((button) =>
+      button.addEventListener("click", (event) =>
+        event.currentTarget.parentElement.classList.toggle("active")
+      )
+    );
+  }
+  if (filterToggleCheckboxes.length) {
+    filterToggleCheckboxes.forEach((button) =>
+      button.addEventListener("click", (event) => {
+        event.currentTarget.previousElementSibling.classList.toggle("active");
+        event.currentTarget.remove();
+      })
+    );
+  }
+
   // popular categories
 
   const popularCategories = document.querySelectorAll(".popular-categories");

@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Цвет",
+    "elementsCount": 10
+  },
+  {
+    "name": "Покрытие",
+    "elementsCount": 3
+  },
+  {
+    "name": "Наполнение",
+    "elementsCount": 6
+  },
+  {
+    "name": "Система открытия",
+    "elementsCount": 4
+  }
+]
