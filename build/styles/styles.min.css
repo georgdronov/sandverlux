@@ -4205,6 +4205,26 @@ label {
 .category__sort .sort {
   align-items: center;
 }
+@media (min-width: 1200px) {
+  .category__sort .sort__item_heading {
+    display: none;
+  }
+}
+@media (max-width: 1199.98px) {
+  .category__sort .sort__item_heading {
+    margin-right: auto;
+  }
+}
+.category__sort .sort__item_sort {
+  margin-right: auto;
+}
+@media (max-width: 1199.98px) {
+  .category__sort .sort__item_sort,
+.category__sort .sort__item_count,
+.category__sort .sort__item_limit {
+    display: none;
+  }
+}
 .category__sort .form__item-heading {
   color: #585858;
   font-weight: 400;
@@ -4363,6 +4383,19 @@ label {
   max-width: 24.4%;
   align-self: flex-start;
 }
+@media (max-width: 1199.98px) {
+  .products__filter {
+    top: 65px;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+}
 .products__promotion {
   margin-top: 30px;
 }
@@ -4406,7 +4439,7 @@ label {
   padding: 2.0625rem 2.5625rem;
   background-color: #fff;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .filter__close-button {
     display: none;
   }
@@ -4414,10 +4447,20 @@ label {
 .filter .sort {
   flex-direction: column;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .filter .sort {
     display: none;
   }
+}
+.filter__body .form__item-wrapper {
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+}
+.filter__body .form__item-heading {
+  font-size: 18px;
+  transition: margin-bottom 0.3s ease-out;
+  margin-bottom: 0;
 }
 .filter__body-item {
   position: relative;
@@ -4479,16 +4522,6 @@ label {
   margin-top: 3px;
   text-decoration: underline;
   background-color: transparent;
-}
-.filter .form__item-wrapper {
-  max-height: 0;
-  transition: max-height 0.3s ease-out;
-  overflow: hidden;
-}
-.filter .form__item-heading {
-  font-size: 18px;
-  transition: margin-bottom 0.3s ease-out;
-  margin-bottom: 0;
 }
 .filter .form__items-row {
   margin-left: -17px;
@@ -4589,14 +4622,6 @@ label {
 .sort__item {
   margin-top: 20px;
   margin-left: 20px;
-}
-@media (min-width: 992px) {
-  .sort__item_heading {
-    display: none;
-  }
-}
-.sort__item_sort {
-  margin-right: auto;
 }
 .sort__products-count strong {
   color: #2d2d2d;
