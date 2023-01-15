@@ -4359,6 +4359,7 @@ label {
   top: 90px;
   flex: 1 0 24.4%;
   position: sticky;
+  min-width: 310px;
   max-width: 24.4%;
   align-self: flex-start;
 }
@@ -4392,6 +4393,7 @@ label {
 }
 .products__items .product {
   flex: 1 1 calc(25% - 57px);
+  min-width: 210px;
   margin-top: 3.5rem;
   margin-left: 3.5rem;
 }
@@ -4453,7 +4455,7 @@ label {
   overflow: hidden;
   max-height: 110px;
   margin-bottom: 10px;
-  scrollbar-color: #f9c201 #e6ede4;
+  scrollbar-color: #f9c201 #f4f4f4;
   scrollbar-width: thin;
 }
 .filter__checkboxes-wrapper::-webkit-scrollbar {
@@ -4464,7 +4466,7 @@ label {
   background: #f9c201;
 }
 .filter__checkboxes-wrapper::-webkit-scrollbar-track {
-  background: #e6ede4;
+  background: #f4f4f4;
 }
 .filter__checkboxes-wrapper.active {
   overflow-y: auto;
@@ -4637,18 +4639,18 @@ label {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 15px 19px;
+  padding: 0.9375rem 1.1875rem;
   position: absolute;
 }
 .promotion__heading {
   color: #fff;
   z-index: 1;
   position: relative;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 .promotion__heading span {
-  font-size: 31px;
+  font-size: 1.9375rem;
   line-height: 1;
   padding-left: 5px;
   vertical-align: 3px;
