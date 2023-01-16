@@ -517,6 +517,16 @@
   </a>
 </li>
 
+<li class="subcategories__list-item">
+  <a class="subcategories__link" href="/">
+    <div class="subcategories__image-wrapper _image-wrapper">
+      <img class="subcategories__image" src="images/products/our-goods-example.png" alt="Основная подкатегория 1" height="77"
+        width="31">
+    </div>
+    <span class="subcategories__name">Основная подкатегория 1</span>
+  </a>
+</li>
+
     </ul>
   </div>
 </nav>
@@ -602,6 +612,12 @@
     </header>
     <div class="category__sort">
       <div class="sort">
+  <button class="sort__item sort__filter-toggle-button" type="button" name="filter-toggle">
+    <svg class="" width="14" height="14">
+      <use href="images/icons.svg#filter" />
+    </svg>
+    <span>Фильтр</span>
+  </button>
   <div class="sort__item sort__item_heading">
     <h3 class="sort__heading heading">
       <svg width="14" height="14">
@@ -654,19 +670,19 @@
   
   <div class="sort__item sort__item_views">
     <div class="sort__views">
-      <button class="sort__views-button active" id="grid" rel="tooltip" title="Grid">
+      <button class="sort__views-button active" name="sort-view" value="grid" type="button">
         <span class="sr-only">Отобразить в виде сетки</span>
         <svg width="18" height="18">
           <use href="images/icons.svg#view-grid" />
         </svg>
       </button>
-      <button class="sort__views-button" id="grid2" rel="tooltip" title="Grid 2">
+      <button class="sort__views-button" name="sort-view" value="grid2" type="button">
         <span class="sr-only">Отобразить в виде крупной сетки</span>
         <svg width="18" height="18">
           <use href="images/icons.svg#view-grid2" />
         </svg>
       </button>
-      <button class="sort__views-button" id="list" rel="tooltip" title="List">
+      <button class="sort__views-button" name="sort-view" value="list" type="button">
         <span class="sr-only">Отобразить в виде списка</span>
         <svg width="22" height="18">
           <use href="images/icons.svg#view-list" />
@@ -680,12 +696,18 @@
     <div class="products _filter-top">
   <div class="products__filter">
     <section class="filter">
-  <button class="filter__close-button" type="button">
-    <svg class="" width="14" height="14">
+  <button class="filter__close-button" type="button" name="filter-toggle">
+    <svg class="" width="20" height="20">
       <use href="images/icons.svg#close" />
     </svg>
   </button>
   <div class="sort">
+  <button class="sort__item sort__filter-toggle-button" type="button" name="filter-toggle">
+    <svg class="" width="14" height="14">
+      <use href="images/icons.svg#filter" />
+    </svg>
+    <span>Фильтр</span>
+  </button>
   <div class="sort__item sort__item_heading">
     <h3 class="sort__heading heading">
       <svg width="14" height="14">
@@ -737,7 +759,7 @@
   </div>
   
 </div>
-  <form action="" method="post" id="mse2_filter" class="filter-wrap">
+  <form action="" method="post" id="mse2_filter" class="filter__form">
     <div class="filter__body">
       <div class="filter__body-item active">
         <button class="filter__toggle-item" type="button" name="filter-toggle-item">
@@ -962,6 +984,7 @@
 </article>
     </aside>
   </div>
+  <div class="products__filter-background"></div>
   <div class="products__wrapper">
     <section class="products__description">
       <h3 class="products__description-heading heading">SEO-текст</h3>
@@ -970,7 +993,7 @@
         закрытом положении дверного полотна защиту от климатических, шумовых и других воздействий, а также от
         несанкционированного прохода.</p>
     </section>
-    <div class="products__items">
+    <div class="products__items grid">
       <article class="product">
   <div class="product__inner">
     <a href="#" class="product__image-wrapper _image-wrapper">

@@ -285,6 +285,32 @@ document.addEventListener("DOMContentLoaded", function () {
       })
     );
   }
+  myFunctions.addClassOnClick(
+    "[name=filter-toggle]",
+    ".products__filter",
+    "_opened"
+  );
+
+  // category sort views switcher
+
+  const sortViewsButtons = document.querySelectorAll("[name=sort-view]");
+
+  if (sortViewsButtons.length) {
+    sortViewsButtons.forEach((button) =>
+      button.addEventListener("click", (event) => {
+        const defaultClassList = "products__items",
+          target = event.currentTarget,
+          productsWrapper = document.querySelector(`.${defaultClassList}`);
+
+        target.parentElement.childNodes.forEach((sButton) =>
+          sButton.nodeType === 1 ? sButton.classList.remove("active") : null
+        );
+        target.classList.add("active");
+        productsWrapper.classList = defaultClassList;
+        productsWrapper.classList.add(`${target.value}`);
+      })
+    );
+  }
 
   // popular categories
 

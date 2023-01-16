@@ -1,4 +1,10 @@
 <div class="sort">
+  <button class="sort__item sort__filter-toggle-button" type="button" name="filter-toggle">
+    <svg class="" width="14" height="14">
+      <use href="images/icons.svg#filter" />
+    </svg>
+    <span>Фильтр</span>
+  </button>
   <div class="sort__item sort__item_heading">
     <h3 class="sort__heading heading">
       <svg width="14" height="14">
@@ -51,19 +57,19 @@
   @@if (viewButtons == true) {
   <div class="sort__item sort__item_views">
     <div class="sort__views">
-      <button class="sort__views-button active" id="grid" rel="tooltip" title="Grid">
+      <button class="sort__views-button active" name="sort-view" value="grid" type="button">
         <span class="sr-only">Отобразить в виде сетки</span>
         <svg width="18" height="18">
           <use href="images/icons.svg#view-grid" />
         </svg>
       </button>
-      <button class="sort__views-button" id="grid2" rel="tooltip" title="Grid 2">
+      <button class="sort__views-button" name="sort-view" value="grid2" type="button">
         <span class="sr-only">Отобразить в виде крупной сетки</span>
         <svg width="18" height="18">
           <use href="images/icons.svg#view-grid2" />
         </svg>
       </button>
-      <button class="sort__views-button" id="list" rel="tooltip" title="List">
+      <button class="sort__views-button" name="sort-view" value="list" type="button">
         <span class="sr-only">Отобразить в виде списка</span>
         <svg width="22" height="18">
           <use href="images/icons.svg#view-list" />

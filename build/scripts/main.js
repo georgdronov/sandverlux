@@ -3,15 +3,17 @@
   var myPopupOverlay = new popupOverlay();
   var myGallery = new gallery();
   var mySetAnchorsEvents = new setAnchorsEvents();
-  function addClassOnClick(itemClick, classToItem, nameOfClass) {
-    const button = document.querySelector(itemClick);
-    if (!button)
+  function addClassOnClick(itemsClick, classToItem, nameOfClass) {
+    const buttons = document.querySelectorAll(itemsClick);
+    if (!buttons.length)
       return;
-    button.addEventListener("click", () => {
-      document.querySelectorAll(classToItem).forEach((item) => {
-        item.classList.toggle(nameOfClass);
-      });
-    });
+    buttons.forEach(
+      (button) => button.addEventListener("click", () => {
+        document.querySelectorAll(classToItem).forEach((item) => {
+          item.classList.toggle(nameOfClass);
+        });
+      })
+    );
   }
   function addClassOnScroll(item, topOffset, nameOfClass) {
     let scrollState = null;
@@ -6652,6 +6654,25 @@
         (button) => button.addEventListener("click", (event2) => {
           event2.currentTarget.previousElementSibling.classList.toggle("active");
           event2.currentTarget.remove();
+        })
+      );
+    }
+    addClassOnClick(
+      "[name=filter-toggle]",
+      ".products__filter",
+      "_opened"
+    );
+    const sortViewsButtons = document.querySelectorAll("[name=sort-view]");
+    if (sortViewsButtons.length) {
+      sortViewsButtons.forEach(
+        (button) => button.addEventListener("click", (event2) => {
+          const defaultClassList = "products__items", target = event2.currentTarget, productsWrapper = document.querySelector(`.${defaultClassList}`);
+          target.parentElement.childNodes.forEach(
+            (sButton) => sButton.nodeType === 1 ? sButton.classList.remove("active") : null
+          );
+          target.classList.add("active");
+          productsWrapper.classList = defaultClassList;
+          productsWrapper.classList.add(`${target.value}`);
         })
       );
     }

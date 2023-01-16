@@ -2,14 +2,16 @@ export const myPopupOverlay = new popupOverlay();
 export const myGallery = new gallery();
 export const mySetAnchorsEvents = new setAnchorsEvents();
 
-export function addClassOnClick(itemClick, classToItem, nameOfClass) {
-  const button = document.querySelector(itemClick);
-  if (!button) return;
-  button.addEventListener("click", () => {
-    document.querySelectorAll(classToItem).forEach((item) => {
-      item.classList.toggle(nameOfClass);
-    });
-  });
+export function addClassOnClick(itemsClick, classToItem, nameOfClass) {
+  const buttons = document.querySelectorAll(itemsClick);
+  if (!buttons.length) return;
+  buttons.forEach((button) =>
+    button.addEventListener("click", () => {
+      document.querySelectorAll(classToItem).forEach((item) => {
+        item.classList.toggle(nameOfClass);
+      });
+    })
+  );
 }
 
 export function addClassOnScroll(item, topOffset, nameOfClass) {
