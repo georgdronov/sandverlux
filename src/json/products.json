@@ -1,98 +1,122 @@
 [
   {
     "id": "001",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": true,
     "novelty": false,
-    "discount": false
+    "discount": false,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "002",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": true,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "003",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": true,
     "novelty": false,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "004",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": true,
     "novelty": false,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "005",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": true,
     "novelty": true,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "006",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": true,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "007",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": true,
-    "discount": false
+    "discount": false,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "008",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": false,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "005",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": true,
     "novelty": true,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "006",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": true,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "007",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": true,
-    "discount": false
+    "discount": false,
+    "gallery-image-src": "/images/products/product-card-example.png"
   },
   {
     "id": "008",
+    "link": "f24---dinmar",
     "image-src": "images/products/our-goods-example.png",
     "title": "F24 - Динмар",
     "bestseller": false,
     "novelty": false,
-    "discount": true
+    "discount": true,
+    "gallery-image-src": "/images/products/product-card-example.png"
   }
 ]

@@ -1,0 +1,23 @@
+<div class="product-slider">
+  <div class="product-slider__container container">
+    <h2 class="product-slider__heading heading">@@title</h2>
+    <div class="product-slider__slider-wrapper">
+      <div class="product-slider__swiper">
+        <div class="product-slider__swiper-wrapper">
+          @@loop('./src/html/include/product-slider-item.html', 'json/products.json')
+        </div>
+
+        <div class="product-slider__nav-btn product-slider__nav-btn_prev">
+          <svg class="product-slider__prev-icon" width="20" height="10">
+            <use href="/images/icons.svg#chevron-down" />
+          </svg>
+        </div>
+        <div class="product-slider__nav-btn product-slider__nav-btn_next">
+          <svg class="product-slider__next-icon" width="20" height="10">
+            <use href="/images/icons.svg#chevron-down" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

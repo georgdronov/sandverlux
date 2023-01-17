@@ -1,0 +1,42 @@
+[
+  {
+    "bestseller": true,
+    "novelty": false,
+    "discount": false
+  },
+  {
+    "bestseller": false,
+    "novelty": true,
+    "discount": true
+  },
+  {
+    "bestseller": true,
+    "novelty": false,
+    "discount": true
+  },
+  {
+    "bestseller": true,
+    "novelty": false,
+    "discount": true
+  },
+  {
+    "bestseller": true,
+    "novelty": true,
+    "discount": true
+  },
+  {
+    "bestseller": false,
+    "novelty": true,
+    "discount": true
+  },
+  {
+    "bestseller": false,
+    "novelty": true,
+    "discount": false
+  },
+  {
+    "bestseller": false,
+    "novelty": false,
+    "discount": true
+  }
+]

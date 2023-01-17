@@ -6594,6 +6594,7 @@
         slidesPerView: "auto",
         spaceBetween: 60,
         setWrapperSize: true,
+        containerModifierClass: "our-goods__swiper-",
         wrapperClass: "our-goods__swiper-wrapper",
         navigation: {
           nextEl: ".our-goods__nav-btn_next",
@@ -6675,6 +6676,73 @@
           productsWrapper.classList.add(`${target.value}`);
         })
       );
+    }
+    const psSlides = document.querySelectorAll(
+      ".product-slider__swiper-wrapper > *"
+    );
+    if (psSlides.length) {
+      const psSwiper = new core_default(".product-slider__swiper", {
+        modules: [Navigation],
+        loop: false,
+        rewind: false,
+        grabCursor: true,
+        slidesPerView: "auto",
+        spaceBetween: 60,
+        setWrapperSize: true,
+        containerModifierClass: "product-slider__swiper-",
+        wrapperClass: "product-slider__swiper-wrapper",
+        navigation: {
+          nextEl: ".product-slider__nav-btn_next",
+          prevEl: ".product-slider__nav-btn_prev",
+          lockClass: "product-slider__nav-btn_lock",
+          disabledClass: "product-slider__nav-btn_disabled"
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 15
+          },
+          576: {
+            slidesPerView: "auto",
+            spaceBetween: 60
+          }
+        },
+        on: {
+          init: function() {
+            updateSliderLockedState(this);
+          },
+          update: function() {
+            updateSliderLockedState(this);
+          },
+          resize: function() {
+            updateSliderLockedState(this);
+          }
+        }
+      });
+    }
+    const pcsSlides = document.querySelectorAll(
+      ".product-card-slider__swiper-wrapper > *"
+    );
+    if (pcsSlides.length) {
+      const psSwiper = new core_default(".product-card-slider__swiper", {
+        loop: false,
+        rewind: false,
+        grabCursor: true,
+        slidesPerView: "auto",
+        spaceBetween: 60,
+        setWrapperSize: true,
+        wrapperClass: "product-card-slider__swiper-wrapper",
+        breakpoints: {
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 15
+          },
+          576: {
+            slidesPerView: "auto",
+            spaceBetween: 60
+          }
+        }
+      });
     }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {

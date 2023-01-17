@@ -112,8 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // slider //
-
+  // door price slider //
   const doorPriceSlider = document.getElementById("door-price-slider");
 
   if (doorPriceSlider) {
@@ -187,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
       spaceBetween: 60,
       //autoHeight: true,
       setWrapperSize: true,
+      containerModifierClass: "our-goods__swiper-",
       wrapperClass: "our-goods__swiper-wrapper",
 
       //pagination: {
@@ -310,6 +310,82 @@ document.addEventListener("DOMContentLoaded", function () {
         productsWrapper.classList.add(`${target.value}`);
       })
     );
+  }
+
+  // product slider swiper //
+  const psSlides = document.querySelectorAll(
+    ".product-slider__swiper-wrapper > *"
+  );
+
+  if (psSlides.length) {
+    // eslint-disable-next-line no-unused-vars
+    const psSwiper = new Swiper(".product-slider__swiper", {
+      modules: [Navigation],
+      loop: false,
+      rewind: false,
+      grabCursor: true,
+      slidesPerView: "auto",
+      spaceBetween: 60,
+      setWrapperSize: true,
+      containerModifierClass: "product-slider__swiper-",
+      wrapperClass: "product-slider__swiper-wrapper",
+
+      navigation: {
+        nextEl: ".product-slider__nav-btn_next",
+        prevEl: ".product-slider__nav-btn_prev",
+        lockClass: "product-slider__nav-btn_lock",
+        disabledClass: "product-slider__nav-btn_disabled",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        576: {
+          slidesPerView: "auto",
+          spaceBetween: 60,
+        },
+      },
+      on: {
+        init: function () {
+          updateSliderLockedState(this);
+        },
+        update: function () {
+          updateSliderLockedState(this);
+        },
+        resize: function () {
+          updateSliderLockedState(this);
+        },
+      },
+    });
+  }
+
+  // product card slider swiper //
+  const pcsSlides = document.querySelectorAll(
+    ".product-card-slider__swiper-wrapper > *"
+  );
+
+  if (pcsSlides.length) {
+    // eslint-disable-next-line no-unused-vars
+    const psSwiper = new Swiper(".product-card-slider__swiper", {
+      loop: false,
+      rewind: false,
+      grabCursor: true,
+      slidesPerView: "auto",
+      spaceBetween: 60,
+      setWrapperSize: true,
+      wrapperClass: "product-card-slider__swiper-wrapper",
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        576: {
+          slidesPerView: "auto",
+          spaceBetween: 60,
+        },
+      }
+    });
   }
 
   // popular categories

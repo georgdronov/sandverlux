@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Страница со всеми страницами"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+      'json-path': 'json/f24---dinmar-breadcrumbs.json'
+    })
+    @@include('./src/html/product-card.html', {
+      'title': 'Бостон - венге, глухая',
+      'url': 'f24---dinmar'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>

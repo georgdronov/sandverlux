@@ -1,0 +1,71 @@
+<div class="product-card">
+  <div class="product-card__container container">
+    <main class="product-card__main">
+      <h1 class="product-card__heading heading">@@title</h1>
+      <div class="product-card__reviews"></div>
+      <div class="product-card__code"></div>
+      <div class="product-card__price"></div>
+      <div class="product-card__features"></div>
+      <form method="post" class="product__form">
+        <input type="hidden" name="id" value="@@id">
+        <input type="hidden" name="count" value="1">
+        <input type="hidden" name="options" value="[]">
+
+        <button class="product__btn _btn" onclick="alert('товар : @@id')" aria-label="В корзину" type="submit"
+          name="ms2_action" value="cart/add">В корзину</button>
+
+        <fieldset class="product__colors">
+          <legend class="sr-only">Цвета</legend>
+          <label class="product__color-label">
+            <span hidden>цвет номер 1</span>
+            <input type="radio" name="product-color@@id" value="color001" aria-hidden="true" checked hidden>
+            <span class="product__color" style="background-color:#D8B888"></span>
+          </label>
+          <label class="product__color-label">
+            <span hidden>цвет номер 2</span>
+            <input type="radio" name="product-color@@id" value="color002" aria-hidden="true" hidden>
+            <span class="product__color" style="background-color:#737373"></span>
+          </label>
+          <label class="product__color-label">
+            <span hidden>цвет номер 3</span>
+            <input type="radio" name="product-color@@id" value="color003" aria-hidden="true" hidden>
+            <span class="product__color" style="background-color:#8E7248"></span>
+          </label>
+          <label class="product__color-label">
+            <span hidden>цвет номер 4</span>
+            <input type="radio" name="product-color@@id" value="color004" aria-hidden="true" hidden>
+            <span class="product__color" style="background-color:#FFFFFF"></span>
+          </label>
+          <label class="product__color-label active">
+            <span hidden>цвет номер 5</span>
+            <input type="radio" name="product-color@@id" value="color005" aria-hidden="true" hidden>
+            <span class="product__color" style="background-color:#373737"></span>
+          </label>
+        </fieldset>
+      </form>
+    </main>
+    <div class="product-card__full-price">
+
+    </div>
+    <div class="product-card__sliders-wrapper">
+      @@include('./src/html/include/product-card-slider.html', {
+      'title': 'Изображения двери'
+      })
+    </div>
+    <div class="product-card__additional-info">
+
+    </div>
+  </div>
+  <aside class="product-card__bottom-slides">
+    <article class="product-card__similar">
+      @@include('./src/html/product-slider.html', {
+      'title': 'Похожие модели'
+      })
+    </article>
+    <article class="product-card__viewed">
+      @@include('./src/html/product-slider.html', {
+      'title': 'Вы просматривали'
+      })
+    </article>
+  </aside>
+</div>

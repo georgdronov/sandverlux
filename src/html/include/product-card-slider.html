@@ -1,0 +1,15 @@
+<article class="product-card-slider">
+  <h2 class="product-card-slider__heading heading">@@title</h2>
+  <div class="product-card-slider__wrapper">
+    <div class="product-card-slider__swiper">
+      <div class="product-card-slider__swiper-wrapper">
+        @@loop('./src/html/include/product-card-slider-item.html', 'json/products.json')
+      </div>
+    </div>
+    <div class="product-card-slider__swiper product-card-slider__swiper--thumbs">
+      <div class="product-card-slider__swiper-wrapper">
+        @@loop('./src/html/include/product-card-slider-item.html', 'json/products.json')
+      </div>
+    </div>
+  </div>
+</article>
