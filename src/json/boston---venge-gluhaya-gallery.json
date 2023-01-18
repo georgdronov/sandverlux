@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Бостон - венге, глухая 01",
+    "interior-title": "Бостон - венге, глухая в интерьере 01",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "Бостон - венге, глухая 02",
+    "interior-title": "Бостон - венге, глухая в интерьере 02",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "Бостон - венге, глухая 03",
+    "interior-title": "Бостон - венге, глухая в интерьере 03",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "Бостон - венге, глухая 04",
+    "interior-title": "Бостон - венге, глухая в интерьере 04",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "Бостон - венге, глухая 05",
+    "interior-title": "Бостон - венге, глухая в интерьере 05",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "Бостон - венге, глухая 06",
+    "interior-title": "Бостон - венге, глухая в интерьере 06",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "Бостон - венге, глухая 07",
+    "interior-title": "Бостон - венге, глухая в интерьере 07",
+    "image-src": "images/products/product-card-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  }
+]

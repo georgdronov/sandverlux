@@ -1,14 +1,26 @@
-<article class="product-card-slider">
-  <h2 class="product-card-slider__heading heading">@@title</h2>
+<article class="product-card-slider@@if(visible){ active}"@@if(!visible){ aria-hidden="true"}@@if(visible){ aria-hidden="false"}>
+  <h2 class="product-card-slider__heading sr-only">@@title</h2>
   <div class="product-card-slider__wrapper">
-    <div class="product-card-slider__swiper">
+    <div class="product-card-slider__swiper product-card-slider__swiper--main @@additionalClass">
       <div class="product-card-slider__swiper-wrapper">
-        @@loop('./src/html/include/product-card-slider-item.html', 'json/products.json')
+        @@loop('@@slider-url', '@@gallery-url')
       </div>
+      @@if (showBadges) {
+      <div class="product-card-slider__badges">
+        <div class="product-card-slider__badge product-card-slider__badge_discount">Скидка</div>
+        <div class="product-card-slider__badge product-card-slider__badge_novelty">Новинка</div>
+        <div class="product-card-slider__badge product-card-slider__badge_bestseller">
+          <svg class="product-card-slider__badge-icon" width="10" height="11">
+            <use href="/images/icons.svg#hot-sale" />
+          </svg>
+          <span hidden>хит продаж</span>
+        </div>
+      </div>
+      }
     </div>
-    <div class="product-card-slider__swiper product-card-slider__swiper--thumbs">
+    <div class="product-card-slider__swiper product-card-slider__swiper--thumbs @@additionalClass">
       <div class="product-card-slider__swiper-wrapper">
-        @@loop('./src/html/include/product-card-slider-item.html', 'json/products.json')
+        @@loop('@@slider-url', '@@gallery-url')
       </div>
     </div>
   </div>

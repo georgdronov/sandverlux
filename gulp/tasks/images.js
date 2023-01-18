@@ -89,7 +89,7 @@ export const images = () => {
               strip: true,
               quality: [0.6, 0.8],
               dithering: 0.5,
-              verbose: true,
+              verbose: false,
             }),
           ],
           {

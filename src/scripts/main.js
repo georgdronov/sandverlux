@@ -360,35 +360,85 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // product card slider swiper //
-  const pcsSlides = document.querySelectorAll(
-    ".product-card-slider__swiper-wrapper > *"
-  );
+  // product card sliders swiper //
+  const pcsClass = "product-card-slider__",
+    pcsSlidersClasses = ["pcs-slider-01", "pcs-slider-02"];
+  const pcsSlides = document.querySelectorAll(`.${pcsClass}swiper-wrapper > *`);
+  let currentThumbsElement = null;
 
   if (pcsSlides.length) {
-    // eslint-disable-next-line no-unused-vars
-    const psSwiper = new Swiper(".product-card-slider__swiper", {
-      loop: false,
-      rewind: false,
+    const pcsThumbsSwiperConfig = {
+      direction: "vertical",
+      autoHeight: true,
+      spaceBetween: 46,
+      slidesPerView: 4,
+      centeredSlides: true,
+      normalizeSlideIndex: false,
+      centeredSlidesBounds: true,
+      slideToClickedSlide: true,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+      wrapperClass: pcsClass + "swiper-wrapper",
+      slideClass: pcsClass + "slide",
+    };
+    const pcsThumbsSwiper01 = new Swiper(
+      `.${pcsClass}swiper--thumbs.${pcsSlidersClasses[0]}`,
+      pcsThumbsSwiperConfig
+    );
+    const pcsThumbsSwiper02 = new Swiper(
+      `.${pcsClass}swiper--thumbs.${pcsSlidersClasses[1]}`,
+      pcsThumbsSwiperConfig
+    );
+
+    const pcsMainSwiperConfig = {
       grabCursor: true,
-      slidesPerView: "auto",
-      spaceBetween: 60,
-      setWrapperSize: true,
-      wrapperClass: "product-card-slider__swiper-wrapper",
-      breakpoints: {
-        0: {
-          slidesPerView: 2,
-          spaceBetween: 15,
-        },
-        576: {
-          slidesPerView: "auto",
-          spaceBetween: 60,
-        },
-      }
+      slidesPerView: 1,
+      roundLengths: true,
+      wrapperClass: pcsClass + "swiper-wrapper",
+      slideClass: pcsClass + "slide",
+      thumbs: {
+        swiper: currentThumbsElement,
+      },
+    };
+    currentThumbsElement = pcsThumbsSwiper01;
+    const pcsMainSwiper01 = new Swiper(
+      `.${pcsClass}swiper--main.${pcsSlidersClasses[0]}`,
+      pcsMainSwiperConfig
+    );
+    currentThumbsElement = pcsThumbsSwiper02;
+    const pcsMainSwiper02 = new Swiper(
+      `.${pcsClass}swiper--main.${pcsSlidersClasses[1]}`,
+      pcsMainSwiperConfig
+    );
+    currentThumbsElement = null;
+
+    pcsMainSwiper01.on("slideChangeTransitionStart", function () {
+      pcsThumbsSwiper01.slideTo(pcsMainSwiper01.activeIndex);
+    });
+    pcsThumbsSwiper01.on("transitionStart", function () {
+      pcsMainSwiper01.slideTo(pcsThumbsSwiper01.activeIndex);
+    });
+    pcsMainSwiper02.on("slideChangeTransitionStart", function () {
+      pcsThumbsSwiper02.slideTo(pcsMainSwiper02.activeIndex);
+    });
+    pcsThumbsSwiper02.on("transitionStart", function () {
+      pcsMainSwiper02.slideTo(pcsThumbsSwiper02.activeIndex);
     });
   }
 
-  // popular categories
+  // product card sliders swiper //
+
+  const pcsSwitcherButton = document.querySelector("[name=sliders-switcher]");
+  const pcSliders = document.querySelectorAll(".product-card-slider");
+
+  if (pcsSwitcherButton && pcSliders.length) {
+    pcsSwitcherButton.addEventListener("click", (event) => {
+      event.currentTarget.parentElement.classList.toggle("active");
+      pcSliders.forEach((slide) => slide.classList.toggle("active"));
+    });
+  }
+
+  // popular categories //
 
   const popularCategories = document.querySelectorAll(".popular-categories");
 

@@ -47,6 +47,6 @@
     "imagemin-pngquant": "^9.0.2",
     "nouislider": "^15.6.1",
     "sass": "^1.54.8",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.6"
   }
 }

@@ -1202,6 +1202,7 @@ label {
   }
   &__banner-title {
     height: 100%;
+    z-index: 1;
     display: flex;
     position: relative;
     text-align: center;
@@ -4358,6 +4359,230 @@ label {
 
     %ps-nav-btn-hover & {
       transform: rotate(-90deg) scale(1.4);
+    }
+  }
+}
+.product-card {
+  $items-gap: 3.75rem;
+
+  %product-card-item {
+    flex: 1 1 calc(50% - $items-gap);
+    max-width: calc(50% - $items-gap);
+    margin-left: $items-gap;
+  }
+  &__container {
+  }
+  &__wrapper {
+    @extend %row-wrapper;
+    margin-left: -$items-gap;
+  }
+  &__sliders-switcher {
+  }
+  &__main {
+    @extend %product-card-item;
+  }
+  &__heading {
+  }
+  &__reviews {
+  }
+  &__code {
+  }
+  &__price {
+  }
+  &__features {
+  }
+  &__full-price {
+    @extend %product-card-item;
+  }
+  &__sliders-wrapper {
+    order: -1;
+    position: relative;
+    @extend %product-card-item;
+  }
+  &__additional-info {
+  }
+  &__bottom-slides {
+  }
+  &__similar {
+  }
+  &__viewed {
+  }
+}
+.product-card-slider {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity $transition3, visibility $transition3;
+
+  &:not(.active) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+  }
+  &__heading {
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  &__swiper {
+    padding: 0;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    list-style: none;
+    transition: margin 0.3s;
+    margin-left: 0;
+    margin-right: 0;
+
+    &.swiper-vertical {
+      @extend %product-card-swiper-vertical !optional;
+    }
+    &--main {
+      flex: 1 1 70%;
+      max-width: 70%;
+      background-color: $form-grey-color;
+
+      @extend %product-card-slider-main !optional;
+    }
+    &--thumbs {
+      flex: 1 1 calc(30% - 66px);
+      max-width: calc(30% - 66px);
+      margin-right: auto;
+
+      @extend %product-card-slider-thumbs !optional;
+    }
+  }
+  &__swiper-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    position: relative;
+    box-sizing: content-box;
+
+    %product-card-swiper-vertical & {
+      position: absolute;
+      flex-direction: column;
+    }
+  }
+  &__slide {
+    position: relative;
+    flex-shrink: 0;
+    transition-property: transform;
+
+    &.swiper-slide-active {
+      @extend %product-card-slide-active !optional;
+    }
+    %product-card-slider-thumbs & {
+
+    }
+  }
+  &__image-wrapper {
+    %product-card-slider-main & {
+      height: 0;
+      padding-bottom: 100%;
+    }
+    %product-card-slider-thumbs & {
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(132, 168, 120, 0);
+      transition: border-color $transition3;
+    }
+    %product-card-slider-thumbs %product-card-slide-active & {
+      border: 2px solid rgb(132, 168, 120);
+    }
+  }
+  &__image {
+  }
+  &__badges {
+    top: 30px;
+    left: 30px;
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    transition: transform $transition3;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  &__badge {
+    color: $white;
+    padding: 4px 15px;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @media ($mobile-max) {
+      font-size: 10px;
+    }
+
+    & + & {
+      margin-top: 5px;
+    }
+    &_discount {
+      background-color: $yellow;
+    }
+    &_novelty {
+      background-color: $novelty-color;
+    }
+    &_bestseller {
+      background-color: $bestseller-color;
+    }
+  }
+}
+.sliders-switcher {
+  width: 70%;
+  margin-top: 2rem;
+  margin-left: auto;
+  @extend %flex-center;
+
+  &__text {
+    color: $heading-color;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__button-wrapper {
+    margin-left: 30px;
+    @extend %flex-center;
+  }
+  &__label {
+    cursor: default;
+    font-size: 16px;
+  }
+  &__button {
+    margin: 0 10px;
+    cursor: pointer;
+
+    &.active {
+      @extend %sliders-switcher-button-active !optional;
+    }
+  }
+  &__visual {
+    width: 70px;
+    height: 30px;
+    border: 1px solid $items-border;
+    border-radius: 30px;
+
+    &::after {
+      top: 4px;
+      left: 5px;
+      width: 20px;
+      height: 20px;
+      content: "";
+      display: block;
+      position: relative;
+      transform: translateX(0);
+      transition: background-color 0.2s, transform 0.2s;
+      border-radius: 50%;
+      background-color: $bestseller-color;
+
+      %sliders-switcher-button-active & {
+        transform: translateX(37px);
+        background-color: $primary-color;
+      }
     }
   }
 }
