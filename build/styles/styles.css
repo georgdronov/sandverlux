@@ -5474,15 +5474,17 @@ label {
   text-decoration: underline;
 }
 .product-card__buttons {
-  margin-top: 1.4rem;
+  margin-top: -0.4rem;
   margin-left: -1.8rem;
 }
 .product-card__buttons > * {
+  margin-top: 1.8rem;
   margin-left: 1.8rem;
 }
 .product-card__btn {
-  padding: 15px 30px;
-  min-width: 33%;
+  width: 33.3%;
+  padding: 15px 20px;
+  min-width: 200px;
 }
 .product-card__full-price {
   margin-top: 30px;
@@ -5729,7 +5731,7 @@ label {
   z-index: 1030;
   display: block;
   visibility: hidden;
-  background-color: rgba(86, 43, 157, 0.39);
+  background-color: rgba(0, 0, 0, 0.6);
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 .popup-overlay_active {
@@ -5747,7 +5749,6 @@ label {
   overflow: hidden;
   transform: translate(-50%, -50%);
   min-width: 250px;
-  text-align: center;
   visibility: hidden;
   border-radius: 9px;
   background-color: #fff;
@@ -5781,79 +5782,6 @@ label {
 }
 .popup__close:after {
   transform: rotate(45deg);
-}
-
-.thank-you-popup span {
-  margin: 30px;
-  display: block;
-}
-.thank-you-popup hr {
-  border: none;
-  margin: 5px 0 5px;
-  opacity: 0.3;
-  border-bottom: 2px solid #f9c201;
-}
-
-.top-up-popup {
-  max-width: 537px;
-}
-@media (max-width: 991.98px) and (min-width: 576px) {
-  .top-up-popup {
-    min-width: 370px;
-  }
-}
-@media (max-width: 575.98px) {
-  .top-up-popup {
-    width: calc(100% - 30px);
-    padding: 23px 24px 25px;
-    min-width: 290px;
-    max-width: 360px;
-  }
-}
-@media (min-width: 576px) {
-  .top-up-popup__heading {
-    font-size: 22px;
-  }
-}
-@media (max-width: 575.98px) {
-  .top-up-popup__heading {
-    font-size: 18px;
-  }
-}
-@media (min-width: 576px) {
-  .top-up-popup .form {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 575.98px) {
-  .top-up-popup .form {
-    margin-top: 20px;
-  }
-}
-@media (min-width: 992px) {
-  .top-up-popup .form__item_half {
-    flex: 0 1 calc(50% - 15px);
-    max-width: calc(50% - 15px);
-  }
-}
-.top-up-popup .form__input {
-  font-size: 14px;
-  background-color: #f4f4f4;
-}
-.top-up-popup .form__input[type=file] ~ label {
-  text-align: left;
-  background-color: #f4f4f4;
-}
-.top-up-popup .form__input:focus-visible {
-  box-shadow: 0 0 10px #9ab98f !important;
-}
-.top-up-popup .form textarea.form__input {
-  min-height: 95px;
-}
-.top-up-popup .form__button {
-  width: 100%;
-  color: #fff;
-  background-color: #f9c201;
 }
 
 .my-gallery {

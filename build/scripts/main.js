@@ -6453,30 +6453,12 @@
     mapOverlay();
     myGallery;
     mySetAnchorsEvents;
-    const myPopupOverlay2 = myPopupOverlay;
-    const thankYouPopopup = document.querySelector(".thank-you-popup");
-    const topUpPopopup = document.querySelector(".top-up-popup");
+    const popupOverlay2 = myPopupOverlay;
+    const allPopopups = document.querySelectorAll(".popup");
     const popupCloseButtons = document.querySelectorAll(".popup__close");
     const popupClassActive = "popup_active";
-    const forms = document.querySelectorAll("form.form");
     const formElements = document.querySelectorAll(".form__input");
-    const inputMessageClass = "form__error-message";
-    const inputMessageClassActive = `${inputMessageClass}_active`;
-    const inputClass = "form__input";
-    const inputClassError = `${inputClass}_error`;
-    const inputClassValid = `${inputClass}_valid`;
-    const errorMessages = {
-      emptyName: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043C\u044F",
-      emptyPhone: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043B\u0435\u0444\u043E\u043D",
-      emptyWebsite: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043B\u0435\u0444\u043E\u043D",
-      emptyEmail: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 email",
-      wrongPhone: "\u041D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u0442\u0435\u043B\u0435\u0444\u043E\u043D",
-      wrongWebsite: "\u041D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u0442\u0435\u043B\u0435\u0444\u043E\u043D",
-      wrongEmail: "\u041D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 email"
-    };
-    const topUpAccountButton = document.querySelector(
-      "button[name=top-up-account]"
-    );
+    const openPopupButtons = document.querySelectorAll("[data-open-popup]");
     const catalogBannerWrappers = document.querySelectorAll(
       ".catalog__banners-wrapper"
     );
@@ -6507,15 +6489,13 @@
     }
     popupCloseButtons.forEach((elem) => {
       elem.addEventListener("click", () => {
-        myPopupOverlay2.hide();
-        thankYouPopopup.classList.remove(popupClassActive);
-        topUpPopopup.classList.remove(popupClassActive);
+        popupOverlay2.hide();
+        allPopopups.forEach((elem2) => elem2.classList.remove(popupClassActive));
       });
     });
-    myPopupOverlay2.element.addEventListener("click", () => {
-      myPopupOverlay2.hide();
-      thankYouPopopup.classList.remove(popupClassActive);
-      topUpPopopup.classList.remove(popupClassActive);
+    popupOverlay2.element.addEventListener("click", () => {
+      popupOverlay2.hide();
+      allPopopups.forEach((elem) => elem.classList.remove(popupClassActive));
     });
     if (formElements) {
       formElements.forEach((elem) => {
@@ -6856,95 +6836,24 @@
       ".popular",
       "_expanded"
     );
-    const validateEmail = (email) => {
-      return email.match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-    };
-    const validateWebsite = (website) => {
-      return website.match(
-        /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?)/
-      );
-    };
-    if (forms) {
-      forms.forEach((form) => {
-        submitForm(form);
-      });
-    }
-    if (topUpAccountButton) {
-      topUpAccountButton.addEventListener("click", () => {
-        myPopupOverlay2.show();
-        topUpPopopup.classList.add(popupClassActive);
-      });
-    }
-    function submitForm(form) {
-      const formRequiredElements = form.querySelectorAll("[data-required]"), formName = form.name;
-      const phoneElement = form.querySelector(`#${formName}-phone`);
-      if (phoneElement) {
-        validatePhoneNumber(phoneElement);
-      }
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let elemsWithErrors = 0;
-        formRequiredElements.forEach((currentElement) => {
-          const currentElementSiblings = [
-            currentElement.previousElementSibling,
-            currentElement.nextElementSibling
-          ];
-          const emptyParams = [
-            currentElement,
-            currentElementSiblings,
-            inputClassValid,
-            inputClassError
-          ];
-          const errorParams = [
-            currentElement,
-            currentElementSiblings,
-            inputClassError,
-            inputClassValid
-          ];
-          if (!currentElement.value) {
-            setValidationClasses(emptyParams, "empty");
+    if (openPopupButtons.length) {
+      openPopupButtons.forEach((elem) => {
+        elem.addEventListener("click", (event2) => {
+          const currentButton = event2.currentTarget;
+          if (!currentButton)
+            return;
+          const currentPopup = document.getElementById(
+            currentButton.dataset.openPopup
+          );
+          if (!currentPopup) {
+            console.log(
+              `There is no pop-up with this ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
+            );
             return;
           }
-          switch (currentElement.id) {
-            case `${formName}-email`:
-              if (!validateEmail(currentElement.value)) {
-                setValidationClasses(emptyParams, "wrong");
-                break;
-              }
-            case `${formName}-website`:
-              if (!validateWebsite(currentElement.value)) {
-                setValidationClasses(emptyParams, "wrong");
-                break;
-              }
-            default:
-              setValidationClasses(errorParams);
-              break;
-          }
+          popupOverlay2.show();
+          currentPopup.classList.add(popupClassActive);
         });
-        elemsWithErrors = document.querySelectorAll(
-          "[data-required].form__input_error"
-        ).length;
-        if (elemsWithErrors)
-          return;
-        myPopupOverlay2.show();
-        thankYouPopopup.classList.add(popupClassActive);
-        const data = new FormData(form);
-        let dataArray = [];
-        console.info("%c\u0414\u0430\u043D\u043D\u044B\u0435 \u0444\u043E\u0440\u043C\u044B", "color: chartreuse; font-size: 160%");
-        for (const [name, value] of data) {
-          dataArray.push([name, value]);
-          console.log(
-            `\u042D\u043B\u0435\u043C\u0435\u043D\u0442: "${name}"; \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435: %c"${value}"%c.`,
-            "color: burlywood; font-style: italic; font-size: 120%"
-          );
-        }
-        console.info("\u041C\u0430\u0441\u0441\u0438\u0432: ", dataArray);
-        formRequiredElements.forEach((e2) => {
-          e2.classList.remove(inputClassValid);
-        });
-        form.reset();
       });
     }
     function changePlaceholderState(elemValue, label, event2 = "init") {
@@ -6981,81 +6890,6 @@
           e.querySelector(".faq-item__answer-wrapper").removeAttribute("style");
         });
       }
-    }
-    function setValidationClasses(elemParams, errorType = "") {
-      const curEl = elemParams[0];
-      const curElSibl = elemParams[1];
-      const msgRemove = elemParams[2];
-      const msgAdd = elemParams[3];
-      if (curEl.classList.contains(msgRemove))
-        curEl.classList.remove(msgRemove);
-      if (!curEl.classList.contains(msgAdd))
-        curEl.classList.add(msgAdd);
-      curElSibl.forEach((e) => {
-        setErrorMessage(e, curEl, errorType);
-      });
-    }
-    function setErrorMessage(curElLabel, curEl, errorType) {
-      if (curElLabel.classList.contains(inputMessageClassActive) && curEl.classList.contains(inputClassValid) && !errorType) {
-        curElLabel.classList.remove(inputMessageClassActive);
-        curElLabel.textContent = "";
-        return;
-      }
-      const isElemHasClass = curElLabel.classList.contains(inputMessageClass), elementType = curEl.name.split("-")[1];
-      if (isElemHasClass && errorType == "empty") {
-        curElLabel.classList.add(inputMessageClassActive);
-        switch (elementType) {
-          case `name`:
-            curElLabel.textContent = errorMessages.emptyName;
-            break;
-          case `email`:
-            curElLabel.textContent = errorMessages.emptyEmail;
-            break;
-          case `website`:
-            curElLabel.textContent = errorMessages.emptyWebsite;
-            break;
-          case `phone`:
-            curElLabel.textContent = errorMessages.emptyPhone;
-            break;
-        }
-        return;
-      }
-      if (isElemHasClass && errorType == "wrong") {
-        curElLabel.classList.add(inputMessageClassActive);
-        switch (curEl.id) {
-          case `email`:
-            curElLabel.textContent = errorMessages.wrongEmail;
-            break;
-          case `website`:
-            curElLabel.textContent = errorMessages.wrongWebsite;
-            break;
-          case `phone`:
-            curElLabel.textContent = errorMessages.wrongPhone;
-            break;
-        }
-        return;
-      }
-    }
-    function validatePhoneNumber(inputElement) {
-      inputElement.addEventListener("input", (e) => {
-        let y = e.target.value.replace(/((?!\+)\D+)+/g, "");
-        let x1 = y.match(/^(\+\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
-        let phoneArray = "", mre = 1;
-        if (x1 === null || !x1[mre]) {
-          phoneArray = "";
-        } else if (x1[mre] && !x1[mre + 1]) {
-          phoneArray = `${x1[mre]}`;
-        } else if (x1[mre] && x1[mre + 1] && !x1[mre + 2]) {
-          phoneArray = `${x1[mre]} (${x1[mre + 1]}`;
-        } else if (x1[mre] && x1[mre + 1] && x1[mre + 2] && !x1[mre + 3]) {
-          phoneArray = `${x1[mre]} (${x1[mre + 1]}) ${x1[mre + 2]}`;
-        } else if (x1[mre] && x1[mre + 1] && x1[mre + 2] && x1[mre + 3] && !x1[mre + 4]) {
-          phoneArray = `${x1[mre]} (${x1[mre + 1]}) ${x1[mre + 2]}-${x1[mre + 3]}`;
-        } else {
-          phoneArray = `${x1[mre]} (${x1[mre + 1]}) ${x1[mre + 2]}-${x1[mre + 3]}-${x1[mre + 4]}`;
-        }
-        e.target.value = phoneArray;
-      });
     }
     const radioButtons = document.querySelectorAll(".form__radio");
     radioButtons.forEach(

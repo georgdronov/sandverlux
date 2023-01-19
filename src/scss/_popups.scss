@@ -8,7 +8,7 @@
   z-index: 1030;
   display: block;
   visibility: hidden;
-  background-color: rgba(86, 43, 157, 0.39); //rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
   transition: opacity $transition3, visibility $transition3;
 
   &_active {
@@ -26,7 +26,6 @@
   overflow: hidden;
   transform: translate(-50%, -50%);
   min-width: 250px;
-  text-align: center;
   visibility: hidden;
   border-radius: 9px;
   background-color: $white;
@@ -64,78 +63,6 @@
     &:after {
       @extend %my-gallery-close-pseudo;
       transform: rotate(45deg);
-    }
-  }
-}
-.thank-you-popup {
-  span {
-    margin: 30px;
-    display: block;
-  }
-  hr {
-    border: none;
-    margin: 5px 0 5px;
-    opacity: 0.3;
-    border-bottom: 2px solid $yellow;
-  }
-}
-.top-up-popup {
-  max-width: 537px;
-
-  @media ($tablet-max) and ($tablet-min) {
-    min-width: 370px;
-  }
-  @media ($mobile-max) {
-    width: calc(100% - 30px);
-    padding: 23px 24px 25px;
-    min-width: 290px;
-    max-width: 360px;
-  }
-
-  &__heading {
-    @media ($tablet-min) {
-      font-size: 22px;
-    }
-    @media ($mobile-max) {
-      font-size: 18px;
-    }
-  }
-  .form {
-    @media ($tablet-min) {
-      margin-top: 30px;
-    }
-    @media ($mobile-max) {
-      margin-top: 20px;
-    }
-
-    &__item {
-      &_half {
-        @media ($desktop-min) {
-          @include column-size(50%, 7.5px);
-        }
-      }
-    }
-    &__input {
-      font-size: 14px;
-      background-color: $form-grey-color;
-
-      &[type="file"] {
-        & ~ label {
-          text-align: left;
-          background-color: $form-grey-color;
-        }
-      }
-      &:focus-visible {
-        box-shadow: 0 0 10px $secondary-color !important;
-      }
-    }
-    & textarea%form-input {
-      min-height: 95px;
-    }
-    &__button {
-      width: 100%;
-      color: $white;
-      background-color: $yellow;
     }
   }
 }

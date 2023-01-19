@@ -4510,16 +4510,19 @@ label {
   &__buttons {
     $items-gap: 1.8rem;
 
-    margin-top: 1.4rem;
+    // margin-top: 1.4rem;
+    margin-top: calc(1.4rem - $items-gap);
     margin-left: -$items-gap;
 
     & > * {
+      margin-top: $items-gap;
       margin-left: $items-gap;
     }
   }
   &__btn {
-    padding: 15px 30px;
-    min-width: 33%;
+    width: 33.3%;
+    padding: 15px 20px;
+    min-width: 200px;
   }
   &__full-price {
     margin-top: 30px;
