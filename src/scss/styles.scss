@@ -4441,16 +4441,14 @@ label {
       @extend %product-card-swiper-vertical !optional;
     }
     &--main {
-      flex: 1 1 70%;
-      max-width: 70%;
+      flex: 1 1 0%;
       background-color: $form-grey-color;
 
       @extend %product-card-slider-main !optional;
     }
     &--thumbs {
-      flex: 1 1 calc(30% - 66px);
-      max-width: calc(30% - 66px);
-      margin-right: auto;
+      flex: 0 1 calc(19.8% - 40px);
+      margin-right: 66px;
 
       @extend %product-card-slider-thumbs !optional;
     }
