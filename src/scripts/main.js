@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (formElements) {
     formElements.forEach((elem) => {
       const elemLabel = elem.previousElementSibling || elem.nextElementSibling;
+      if (!elemLabel) return;
       if (!elemLabel.classList.contains("form__label_placeholder")) return;
 
       changePlaceholderState(elem.value, elemLabel);
