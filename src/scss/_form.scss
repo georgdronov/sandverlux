@@ -314,51 +314,67 @@
         }
       }
     }
+
+    $items-img-gap: 15px;
+
     &-wrapper--img {
-      margin-right: -15px;
+      margin-right: -$items-img-gap;
 
       @extend %form-checkbox-wrapper-img !optional;
     }
     &--img {
-      margin-right: 15px;
+      margin-right: $items-img-gap;
 
       @extend %form-checkbox-img !optional;
 
       input {
         & ~ %form-label {
+          padding: 8px 10px 11px;
           text-align: center;
           transition: background-color 0.3s;
           user-select: none;
-          padding-left: 0;
-          padding-bottom: 12px;
           background-color: transparent;
 
           &::before,
           &::after {
-            width: 74px;
-            height: 74px;
-            margin: 14px 13px 11px;
-            position: relative;
-            background-color: transparent;
+            content: normal;
           }
-          &::after {
-            opacity: 1;
-            position: absolute;
-            background-size: contain;
-            background-image: url("../images/icons.svg#door-style-01");
-            background-position: center center;
+          svg {
+            stroke-width: 0.5px;
+          }
+          span {
+            display: block;
+            margin-top: 11px;
           }
         }
         &:checked {
           & ~ %form-label {
             background-color: $form-grey-color;
-
-            &:after {
-              background-position: center center;
-            }
           }
         }
       }
+    }
+  }
+  &__counter {
+    height: 45px;
+    border: 1px solid $form-grey-color;
+    display: flex;
+
+    &-button {
+      color: $heading-color;
+      width: 42px;
+      border: none;
+      height: 100%;
+      font-size: 16px;
+      background-color: $form-grey-color;
+    }
+    %form-input {
+      width: 40px;
+      height: 100%;
+      padding: 0;
+      font-size: 18px;
+      text-align: center;
+      background-color: $white;
     }
   }
   &__error-message {

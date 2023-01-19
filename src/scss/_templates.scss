@@ -161,12 +161,7 @@ button,
 }
 strong,
 b {
-  &._fw600 {
-    font-weight: 600;
-  }
-  &:not(._fw600) {
-    font-weight: 700;
-  }
+  font-weight: 600;
 }
 ._hover-to-open {
   position: relative;
