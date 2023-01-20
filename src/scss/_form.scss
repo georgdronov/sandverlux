@@ -241,6 +241,8 @@
   }
   &__color-wrapper {
     margin-right: -26px;
+
+    @extend %form-color-wrapper !optional;
   }
   &__color {
     cursor: pointer;
@@ -258,12 +260,15 @@
       display: block;
       overflow: hidden;
       min-height: 0;
+      transition: box-shadow 0.2s;
+      box-shadow: 0 0 0 2px $form-grey-color;
       user-select: none;
       border-radius: 50%;
-      background-color: #d8b888;
+      background-color: $promotion-background;
     }
     input:checked ~ %form-label {
-      border: 3px solid $primary-color;
+      box-shadow: 0 0 0 3px $primary-color;
+      // border: 3px solid $primary-color;
     }
   }
   &__checkbox {

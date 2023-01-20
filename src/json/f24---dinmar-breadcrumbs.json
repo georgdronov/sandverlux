@@ -1,0 +1,20 @@
+[
+  {
+    "number": "1",
+    "name": "Главная",
+    "link": "/",
+    "current": false
+  },
+  {
+    "number": "2",
+    "name": "Межкомнатные двери",
+    "link": "/interior-doors",
+    "current": false
+  },
+  {
+    "number": "3",
+    "name": "F24 - Динмар",
+    "link": "",
+    "current": true
+  }
+]

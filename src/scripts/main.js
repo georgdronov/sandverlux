@@ -416,6 +416,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // toggle content //
+
+  const toggleContainers = document.querySelectorAll("[data-toggle-container]");
+
+  if (toggleContainers.length) {
+    toggleContainers.forEach((container) => {
+      const toggleButtons = container.querySelectorAll("[data-toggle]");
+      if (!toggleButtons.length) return;
+
+      toggleButtons.forEach((button) =>
+        button.addEventListener("click", (event) => {
+          toggleButtons.forEach((button) =>
+            button.setAttribute("aria-expanded", false)
+          );
+          event.currentTarget.setAttribute("aria-expanded", true);
+        })
+      );
+    });
+  }
+
   // popular categories //
 
   const popularCategories = document.querySelectorAll(".popular-categories");
@@ -507,8 +527,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "_expanded"
   );
 
-  // form validation //
-
   if (openPopupButtons.length) {
     openPopupButtons.forEach((elem) => {
       elem.addEventListener("click", (event) => {
@@ -519,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         if (!currentPopup) {
           console.log(
-            `There is no pop-up with this ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
+            `There is no pop-up with current ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
           );
           return;
         }

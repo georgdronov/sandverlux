@@ -1,7 +1,7 @@
 <div class="product-card">
   <div class="product-card__container container">
     <div class="product-card__wrapper">
-      <div class="product-card__right-side">
+      <div class="product-card__item">
         <main class="product-card__main">
           <h1 class="product-card__heading heading">@@title</h1>
           <div class="product-card__review">
@@ -111,63 +111,60 @@
               </div>
               <a href="#" class="product-card__installment-terms">Условия рассрочки</a>
             </section>
-            <fieldset class="form__item-wrapper form__item-wrapper_row">
-              <legend class="form__item-heading">Цвета</legend>
-              <div class="form__item form__color-wrapper">
-                <label class="form__color">
-                  <span hidden>цвет номер 1</span>
-                  <input type="radio" name="product-color@@id" value="color001" aria-hidden="true" checked hidden>
-                  <span class="form__label" style="background-color:#D8B888"></span>
-                </label>
-                <label class="form__color">
-                  <span hidden>цвет номер 2</span>
-                  <input type="radio" name="product-color@@id" value="color002" aria-hidden="true" hidden>
-                  <span class="form__label" style="background-color:#737373"></span>
-                </label>
-                <label class="form__color">
-                  <span hidden>цвет номер 3</span>
-                  <input type="radio" name="product-color@@id" value="color003" aria-hidden="true" hidden>
-                  <span class="form__label" style="background-color:#8E7248"></span>
-                </label>
-                <label class="form__color">
-                  <span hidden>цвет номер 4</span>
-                  <input type="radio" name="product-color@@id" value="color004" aria-hidden="true" hidden>
-                  <span class="form__label" style="background-color:#FFFFFF"></span>
-                </label>
-                <label class="form__color active">
-                  <span hidden>цвет номер 5</span>
-                  <input type="radio" name="product-color@@id" value="color005" aria-hidden="true" hidden>
-                  <span class="form__label" style="background-color:#373737"></span>
-                </label>
-              </div>
-            </fieldset>
-            <fieldset class="form__item-wrapper form__item-wrapper_row">
-              <legend class="form__item-heading">Цвета</legend>
-              <div class="form__item form__color-wrapper">
-                <label class="form__color">
-                  <span hidden>цвет номер 1</span>
-                  <input type="radio" name="product-color@@id" value="color001" aria-hidden="true" checked hidden>
-                  <span class="form__label" style="background-color:#D8B888"></span>
-                </label>
-                <label class="form__color">
-                  <span hidden>цвет номер 2</span>
-                  <input type="radio" name="product-color@@id" value="color002" aria-hidden="true" hidden>
-                  <span class="form__label" style="background-color:#737373"></span>
-                </label>
-                <label class="form__color">
-                  <span hidden>цвет номер 3</span>
-                  <input type="radio" name="product-color@@id" value="color003" aria-hidden="true" hidden>
-                  <span class="form__label" style="background-color:#8E7248"></span>
-                </label>
-              </div>
-            </fieldset>
+            <div class="product-card__colors">
+              <fieldset class="form__item-wrapper form__item-wrapper_row">
+                <legend class="form__item-heading">Цвета</legend>
+                <div class="form__item form__color-wrapper">
+                  <label class="form__color">
+                    <span hidden>цвет номер 1</span>
+                    <input type="radio" name="product-color@@id" value="color001" aria-hidden="true" checked hidden>
+                    <span class="form__label" style="background-color:#D8B888"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 2</span>
+                    <input type="radio" name="product-color@@id" value="color002" aria-hidden="true" hidden>
+                    <span class="form__label" style="background-color:#737373"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 3</span>
+                    <input type="radio" name="product-color@@id" value="color003" aria-hidden="true" hidden>
+                    <span class="form__label" style="background-color:#8E7248"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 4</span>
+                    <input type="radio" name="product-color@@id" value="color004" aria-hidden="true" hidden>
+                    <span class="form__label" style="background-color:#FFFFFF"></span>
+                  </label>
+                  <label class="form__color active">
+                    <span hidden>цвет номер 5</span>
+                    <input type="radio" name="product-color@@id" value="color005" aria-hidden="true" hidden>
+                    <span class="form__label" style="background-color:#373737"></span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="form__item-wrapper form__item-wrapper_row">
+                <legend class="form__item-heading">Стекло</legend>
+                <div class="form__item form__color-wrapper">
+                  <label class="form__color">
+                    <span hidden>цвет номер 1</span>
+                    <input type="radio" name="product-glass@@id" value="color001" aria-hidden="true" checked hidden>
+                    <span class="form__label" style="background-color:#D8B888"></span>
+                  </label>
+                  <label class="form__color">
+                    <span hidden>цвет номер 2</span>
+                    <input type="radio" name="product-glass@@id" value="color002" aria-hidden="true" hidden>
+                    <span class="form__label" style="background-color:#737373"></span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
           </form>
         </main>
         <div class="product-card__full-price">
           @@include('./src/html/include/full-price.html')
         </div>
       </div>
-      <div class="product-card__sliders-wrapper">
+      <div class="product-card__item product-card__sliders-wrapper">
         @@include('./src/html/include/product-card-slider.html', {
         'slider-url': './src/html/include/product-card-slider-item.html',
         'gallery-url': '@@gallery-url',
@@ -189,7 +186,7 @@
         </div>
       </div>
       <div class="product-card__additional-info">
-
+        @@include('./src/html/include/product-card-additional-info.html')
       </div>
     </div>
   </div>

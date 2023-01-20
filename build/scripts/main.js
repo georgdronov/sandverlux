@@ -46,7 +46,7 @@
         const linkTarget = document.getElementById(link.substring(1));
         if (!linkTarget)
           return;
-        const currentScrollTop = window.scrollY, targetScrollTop = linkTarget.offsetTop - 50;
+        const currentScrollTop = window.scrollY, targetScrollTop = linkTarget.offsetTop - 100;
         const burgerElem = document.querySelector("._menu-opened");
         if (burgerElem)
           burgerElem.classList.remove("_menu-opened");
@@ -6770,6 +6770,22 @@
         pcSliders.forEach((slide) => slide.classList.toggle("active"));
       });
     }
+    const toggleContainers = document.querySelectorAll("[data-toggle-container]");
+    if (toggleContainers.length) {
+      toggleContainers.forEach((container) => {
+        const toggleButtons = container.querySelectorAll("[data-toggle]");
+        if (!toggleButtons.length)
+          return;
+        toggleButtons.forEach(
+          (button) => button.addEventListener("click", (event2) => {
+            toggleButtons.forEach(
+              (button2) => button2.setAttribute("aria-expanded", false)
+            );
+            event2.currentTarget.setAttribute("aria-expanded", true);
+          })
+        );
+      });
+    }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {
       const pcSwiper = new core_default(".popular-categories__items-wrapper", {
@@ -6847,7 +6863,7 @@
           );
           if (!currentPopup) {
             console.log(
-              `There is no pop-up with this ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
+              `There is no pop-up with current ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
             );
             return;
           }

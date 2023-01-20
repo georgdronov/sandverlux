@@ -1,0 +1,75 @@
+<div class="additional-info">
+  <div class="additional-info__left-column">
+    <section class="additional-info__characteristics-and-reviews">
+      <header class="additional-info__header">
+        <h3 class="sr-only">Характеристики и отзывы</h3>
+        <nav class="additional-info__navigation">
+          <ol class="additional-info__list">
+            <li class="additional-info__list-item">
+              <a class="additional-info__link _btn _btn--white active" href="#characteristics">Характеристики</a>
+            </li>
+            <li class="additional-info__list-item">
+              <a class="additional-info__link _btn _btn--white" href="#product-card-reviews">Отзывы</a>
+            </li>
+          </ol>
+        </nav>
+      </header>
+      <section id="characteristics" class="characteristics">
+        <h4 class="characteristics__heading additional-info__heading heading">Характеристики</h4>
+        <table class="characteristics__table">
+          <tbody>
+            @@loop('./src/html/include/characteristics-item.html', 'json/characteristics.json')
+          </tbody>
+        </table>
+        <div class="characteristics__description">
+          <p>Дверь — элемент стеновой конструкции, предназначенный для заполнения дверных проемов и состоящий из
+            дверного блока, крепления дверного блока к проему, монтажных швов, системы уплотнений и облицовки и
+            обеспечивающий при закрытом положении дверного полотна защиту от климатических, шумовых и других
+            воздействий, а также от несанкционированного прохода.</p>
+        </div>
+      </section>
+      <section id="product-card-reviews" class="product-card-reviews">
+        <h4 class="product-card-reviews__heading additional-info__heading heading">Отзывы</h4>
+        <div class="product-card-reviews__wrapper _full-review">
+          @@loop('./src/html/include/reviews-item.html', 'json/product-card-reviews.json')
+        </div>
+        <button class="product-card-reviews__button _btn" data-open-popup="leave-a-review" type="button">Оставить
+          отзыв</button>
+      </section>
+    </section>
+  </div>
+  <div class="additional-info__right-column">
+    <section class="payment-and-delivery" data-toggle-container="">
+      <h3 class="sr-only">Оплата, замер и доставка</h3>
+      <nav class="payment-and-delivery__navigation">
+        <button class="payment-and-delivery__tab" data-toggle="#payment" type="button"
+          aria-expanded="true">Оплата</button>
+        <button class="payment-and-delivery__tab" data-toggle="#delivery" type="button" aria-expanded="false">Замер и
+          доставка</button>
+      </nav>
+      <div class="payment-and-delivery__content-wrapper">
+        <div id="payment" class="payment-and-delivery__item active">
+          <ul class="payment-and-delivery__list">
+            <li class="payment-and-delivery__list-item">Наличными курьеру во время доставки (только по г. Минску)</li>
+            <li class="payment-and-delivery__list-item">Онлайн на сайте</li>
+            <li class="payment-and-delivery__list-item">Безналичным перечислением в банке или ЕРИП по реквизитам</li>
+            <li class="payment-and-delivery__list-item">Картой или наличными в нашем магазине</li>
+          </ul>
+          <a href="#" class="payment-and-delivery__link">Подробнее</a>
+        </div>
+        <div id="delivery" class="payment-and-delivery__item">
+          <ul class="payment-and-delivery__list">
+            <li class="payment-and-delivery__list-item">Выезд специалиста на замер осуществляется бесплатно (при
+              оформлении заказа) от двух межкомнатных дверей в Минске</li>
+            <div class="payment-and-delivery__button-wrapper">
+              <button class="payment-and-delivery__btn _btn _btn--green">Вызвать замерщика</button>
+            </div>
+            <li class="payment-and-delivery__list-item">Доставка дверей осуществляется <strong>БЕСПЛАТНО</strong> в
+              Минске и пределах 5 км от МКАД</li>
+          </ul>
+          <a href="#" class="payment-and-delivery__link">Подробнее</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

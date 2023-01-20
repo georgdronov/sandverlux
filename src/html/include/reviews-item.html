@@ -1,33 +1,32 @@
-<div class="reviews__item">
-  <article class="reviews__inner">
-    <header class="reviews__top">
-      <p class="reviews__author">@@author</p>
-      <div class="reviews__rating">
-        <svg class="reviews__star @@if(rating>0){active}" width="20" height="20">
-          <use href="/images/icons.svg#star" />
-        </svg>
-        <svg class="reviews__star @@if(rating>1){active}" width="20" height="20">
-          <use href="/images/icons.svg#star" />
-        </svg>
-        <svg class="reviews__star @@if(rating>2){active}" width="20" height="20">
-          <use href="/images/icons.svg#star" />
-        </svg>
-        <svg class="reviews__star @@if(rating>3){active}" width="20" height="20">
-          <use href="/images/icons.svg#star" />
-        </svg>
-        <svg class="reviews__star @@if(rating>4){active}" width="20" height="20">
-          <use href="/images/icons.svg#star" />
-        </svg>
-      </div>
-      <time class="reviews__time">@@date</time>
-    </header>
-    <div class="reviews__bottom">
-      <div class="reviews__text _custom-content">
-        @@text
-      </div>
-      <div class="reviews__button-wrapper">
-        <a href="#" class="reviews__link">Читать полностью</a>
-      </div>
+<article class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">
+  <header class="review__top">
+    <p class="review__author" itemprop="author">@@author</p>
+    <div class="review__rating">
+      <span itemprop="reviewRating" hidden>@@rating</span>
+      <svg class="review__star @@if(rating>0){active}" width="20" height="20">
+        <use href="/images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>1){active}" width="20" height="20">
+        <use href="/images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>2){active}" width="20" height="20">
+        <use href="/images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>3){active}" width="20" height="20">
+        <use href="/images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>4){active}" width="20" height="20">
+        <use href="/images/icons.svg#star" />
+      </svg>
     </div>
-  </article>
-</div>
+    <time class="review__time" itemprop="datePublished" content="@@date">@@date</time>
+  </header>
+  <div class="review__bottom">
+    <div class="review__text _custom-content" itemprop="reviewBody">
+      @@text
+    </div>
+    <div class="review__button-wrapper">
+      <a href="#" class="review__link">Читать полностью</a>
+    </div>
+  </div>
+</article>

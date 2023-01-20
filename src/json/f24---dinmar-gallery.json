@@ -1,0 +1,44 @@
+[
+  {
+    "title": "F24 - Динмар 01",
+    "interior-title": "F24 - Динмар в интерьере 01",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "F24 - Динмар 02",
+    "interior-title": "F24 - Динмар в интерьере 02",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "F24 - Динмар 03",
+    "interior-title": "F24 - Динмар в интерьере 03",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "F24 - Динмар 04",
+    "interior-title": "F24 - Динмар в интерьере 04",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "F24 - Динмар 05",
+    "interior-title": "F24 - Динмар в интерьере 05",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "F24 - Динмар 06",
+    "interior-title": "F24 - Динмар в интерьере 06",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  },
+  {
+    "title": "F24 - Динмар 07",
+    "interior-title": "F24 - Динмар в интерьере 07",
+    "image-src": "images/products/our-goods-example.png",
+    "interior-image-src": "images/products/product-card-interior-example.jpg"
+  }
+]

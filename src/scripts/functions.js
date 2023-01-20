@@ -49,7 +49,7 @@ function setAnchorsEvents() {
       if (!linkTarget) return;
 
       const currentScrollTop = window.scrollY,
-        targetScrollTop = linkTarget.offsetTop - 50;
+        targetScrollTop = linkTarget.offsetTop - 100;
 
       const burgerElem = document.querySelector("._menu-opened");
       if (burgerElem) burgerElem.classList.remove("_menu-opened");
