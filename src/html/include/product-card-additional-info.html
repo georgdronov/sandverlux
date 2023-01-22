@@ -48,7 +48,7 @@
           доставка</button>
       </nav>
       <div class="payment-and-delivery__content-wrapper">
-        <div id="payment" class="payment-and-delivery__item active">
+        <div id="payment" class="payment-and-delivery__item active" data-target="">
           <ul class="payment-and-delivery__list">
             <li class="payment-and-delivery__list-item">Наличными курьеру во время доставки (только по г. Минску)</li>
             <li class="payment-and-delivery__list-item">Онлайн на сайте</li>
@@ -57,12 +57,13 @@
           </ul>
           <a href="#" class="payment-and-delivery__link">Подробнее</a>
         </div>
-        <div id="delivery" class="payment-and-delivery__item">
+        <div id="delivery" class="payment-and-delivery__item" data-target="">
           <ul class="payment-and-delivery__list">
             <li class="payment-and-delivery__list-item">Выезд специалиста на замер осуществляется бесплатно (при
               оформлении заказа) от двух межкомнатных дверей в Минске</li>
             <div class="payment-and-delivery__button-wrapper">
-              <button class="payment-and-delivery__btn _btn _btn--green">Вызвать замерщика</button>
+              <button class="payment-and-delivery__btn _btn _btn--green" data-open-popup="order-a-measurement"
+                type="button">Вызвать замерщика</button>
             </div>
             <li class="payment-and-delivery__list-item">Доставка дверей осуществляется <strong>БЕСПЛАТНО</strong> в
               Минске и пределах 5 км от МКАД</li>

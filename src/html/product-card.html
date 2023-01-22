@@ -22,9 +22,9 @@
                 <use href="/images/icons.svg#star" />
               </svg>
             </div>
-            <button class="product-card__to-reviews" name="to-reviews" type="button">
+            <a href="#product-card-reviews" class="product-card__to-reviews">
               <span class="product-card__reviews-number">5</span> отзывов
-            </button>
+            </a>
           </div>
           <div class="product-card__code">
             <span class="product-card__code-heading">Код товара:</span>
@@ -38,10 +38,10 @@
             <p class="product-card__availability-content product-card__availability-content_not-available">Нет в наличии</p> -->
           </div>
           <div class="product-card__price">
-            <p class="product-card__price-heading">цена за комлпект</p>
+            <p class="product-card__price-heading">цена за комплект</p>
             <strong class="product-card__price-value">250 руб.</strong>
-            <button class="product-card__price-button _btn _btn--white" name="is-there-cheaper" type="button">Нашли
-              дешевле?</button>
+            <button class="product-card__price-button _btn _btn--white" data-open-popup="found-cheaper"
+              type="button">Нашли дешевле?</button>
           </div>
           <div class="product-card__features">
             <button class="product-card__features-button" type="button" name="product-wish">
@@ -58,7 +58,7 @@
               <span class="sr-only">Добавить </span>
               <span class="product-card__features-heading">в сравнение</span>
             </button>
-            <button class="product-card__features-button" type="button" name="product-measure">
+            <button class="product-card__features-button" type="button" data-open-popup="order-a-measurement">
               <svg width="20" height="20">
                 <use href="/images/icons.svg#ruler" />
               </svg>
@@ -73,23 +73,22 @@
             <fieldset class="product-card__buttons form__item-wrapper form__item-wrapper_row">
               <fieldset class="form__item-wrapper form__item-wrapper_row">
                 <legend hidden>Количество добавляемых продуктов</legend>
-                <div class="form__item form__counter">
-                  <button class="form__counter-button" name="form-minus-button" type="button">
+                <div class="form__item form__counter" data-counter-container="">
+                  <button class="form__counter-button" data-action="minus" type="button">
                     -<span class="sr-only">Уменьшить на еденицу</span>
                   </button>
                   <label>
                     <span class="sr-only">Количество</span>
                     <input class="form__input" type="number" name="count" id="product_price" min="1" max="999" step="1"
-                      value="1">
+                      value="1" data-target="">
                   </label>
-                  <button class="form__counter-button" name="form-plus-button" type="button">
+                  <button class="form__counter-button" data-action="plus" type="button">
                     +<span class="sr-only">Увеличить на еденицу</span>
                   </button>
                 </div>
               </fieldset>
-              <button class="product-card__btn _btn" onclick="alert('товар : @@id')" type="submit" name="ms2_action"
-                value="cart/add">В корзину</button>
-              <button class="product-card__btn _btn _btn--green" data-open-popup="buy-in-one-click" type="button">Купить
+              <button class="product-card__btn _btn" type="submit" name="ms2_action" value="cart/add">В корзину</button>
+              <button class="product-card__btn _btn _btn--green" data-open-popup="checkout" type="button">Купить
                 в 1 клик</button>
             </fieldset>
             <section class="product-card__installment">
@@ -117,27 +116,27 @@
                 <div class="form__item form__color-wrapper">
                   <label class="form__color">
                     <span hidden>цвет номер 1</span>
-                    <input type="radio" name="product-color@@id" value="color001" aria-hidden="true" checked hidden>
+                    <input type="radio" name="product-color@@id" value="color001" checked hidden>
                     <span class="form__label" style="background-color:#D8B888"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 2</span>
-                    <input type="radio" name="product-color@@id" value="color002" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color@@id" value="color002" hidden>
                     <span class="form__label" style="background-color:#737373"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 3</span>
-                    <input type="radio" name="product-color@@id" value="color003" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color@@id" value="color003" hidden>
                     <span class="form__label" style="background-color:#8E7248"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 4</span>
-                    <input type="radio" name="product-color@@id" value="color004" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color@@id" value="color004" hidden>
                     <span class="form__label" style="background-color:#FFFFFF"></span>
                   </label>
                   <label class="form__color active">
                     <span hidden>цвет номер 5</span>
-                    <input type="radio" name="product-color@@id" value="color005" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color@@id" value="color005" hidden>
                     <span class="form__label" style="background-color:#373737"></span>
                   </label>
                 </div>
@@ -147,12 +146,12 @@
                 <div class="form__item form__color-wrapper">
                   <label class="form__color">
                     <span hidden>цвет номер 1</span>
-                    <input type="radio" name="product-glass@@id" value="color001" aria-hidden="true" checked hidden>
+                    <input type="radio" name="product-glass@@id" value="color001" checked hidden>
                     <span class="form__label" style="background-color:#D8B888"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 2</span>
-                    <input type="radio" name="product-glass@@id" value="color002" aria-hidden="true" hidden>
+                    <input type="radio" name="product-glass@@id" value="color002" hidden>
                     <span class="form__label" style="background-color:#737373"></span>
                   </label>
                 </div>

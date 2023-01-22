@@ -51,8 +51,8 @@
         if (burgerElem)
           burgerElem.classList.remove("_menu-opened");
         animate({
-          duration: 600,
-          timing: easeOut,
+          duration: 1e3,
+          timing: easeOutQuart,
           draw: function(progress) {
             window.scrollTo(
               0,
@@ -137,8 +137,8 @@
     scrollTopElement.addEventListener("click", () => {
       let currentScrollTop = window.scrollY;
       animate({
-        duration: 600,
-        timing: easeOut,
+        duration: 1e3,
+        timing: easeOutQuart,
         draw: function(progress) {
           window.scrollTo(0, currentScrollTop - currentScrollTop * progress);
         }
@@ -163,8 +163,8 @@
       }
     });
   }
-  function easeOut(timeFraction) {
-    return Math.pow(timeFraction, 1 / 5);
+  function easeOutQuart(timeFraction) {
+    return timeFraction === 1 ? 1 : 1 - Math.pow(2, -10 * timeFraction);
   }
   function myLazyLoad() {
     const lazyObjects = document.querySelectorAll("[data-lazyload]");
@@ -6718,7 +6718,21 @@
         watchSlidesProgress: true,
         watchSlidesVisibility: true,
         wrapperClass: pcsClass + "swiper-wrapper",
-        slideClass: pcsClass + "slide"
+        slideClass: pcsClass + "slide",
+        breakpoints: {
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 15
+          },
+          576: {
+            spaceBetween: 30,
+            slidesPerView: 4
+          },
+          1200: {
+            spaceBetween: 46,
+            slidesPerView: 4
+          }
+        }
       };
       const pcsThumbsSwiper01 = new core_default(
         `.${pcsClass}swiper--thumbs.${pcsSlidersClasses[0]}`,
@@ -6774,7 +6788,8 @@
     if (toggleContainers.length) {
       toggleContainers.forEach((container) => {
         const toggleButtons = container.querySelectorAll("[data-toggle]");
-        if (!toggleButtons.length)
+        const toggleTargets = container.querySelectorAll("[data-target]");
+        if (!toggleButtons.length && !toggleTargets.length)
           return;
         toggleButtons.forEach(
           (button) => button.addEventListener("click", (event2) => {
@@ -6782,9 +6797,69 @@
               (button2) => button2.setAttribute("aria-expanded", false)
             );
             event2.currentTarget.setAttribute("aria-expanded", true);
+            toggleTargets.forEach(
+              (target) => target.id === button.dataset.toggle.substring(1) ? target.classList.add("active") : target.classList.remove("active")
+            );
           })
         );
       });
+    }
+    const counterContainers = document.querySelectorAll(
+      "[data-counter-container]"
+    );
+    if (counterContainers.length) {
+      counterContainers.forEach((container) => {
+        const counterButtons = container.querySelectorAll("[data-action]");
+        const counterTarget = container.querySelector("[data-target]");
+        if (!counterButtons.length && !counterTarget)
+          return;
+        counterButtons.forEach(
+          (button) => button.addEventListener("click", (event2) => {
+            switch (event2.currentTarget.dataset.action) {
+              case "plus":
+                counterTarget.value = parseInt(counterTarget.value) + 1;
+                break;
+              case "minus":
+                if (parseInt(counterTarget.value) <= 1)
+                  break;
+                counterTarget.value = parseInt(counterTarget.value) - 1;
+                break;
+            }
+          })
+        );
+      });
+    }
+    const productWishButtons = document.querySelectorAll("[name=product-wish]");
+    const productCompareButtons = document.querySelectorAll(
+      "[name=product-compare]"
+    );
+    if (productWishButtons.length) {
+      const productWishCounter = document.querySelectorAll(".wishlist-count");
+      productWishButtons.forEach(
+        (button) => button.addEventListener(
+          "click",
+          () => productWishCounter.forEach((counter) => {
+            counter.textContent = parseInt(counter.textContent) + 1;
+          }),
+          {
+            once: true
+          }
+        )
+      );
+    }
+    if (productCompareButtons.length) {
+      const productCompareCounter = document.querySelectorAll(".comparison-count");
+      productCompareButtons.forEach(
+        (button) => button.addEventListener(
+          "click",
+          () => productCompareCounter.forEach((counter) => {
+            counter.textContent = parseInt(counter.textContent) + 1;
+          }),
+          {
+            once: true
+          }
+        )
+      );
     }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {

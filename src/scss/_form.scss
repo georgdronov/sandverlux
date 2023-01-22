@@ -80,9 +80,6 @@
     line-height: 1.375;
     @extend %form-label !optional;
 
-    &[aria-hidden="true"] {
-      display: none;
-    }
     &_placeholder {
       position: absolute;
       font-size: 14px;
@@ -184,19 +181,19 @@
 
     &::placeholder {
       color: $text-color;
-      opacity: 1;
+      opacity: 0.8;
     }
     &::-webkit-input-placeholder {
       color: $text-color;
-      opacity: 1;
+      opacity: 0.8;
     }
     &::-moz-placeholder {
       color: $text-color;
-      opacity: 1;
+      opacity: 0.8;
     }
     &:-ms-input-placeholder {
       color: $text-color;
-      opacity: 1;
+      opacity: 0.8;
     }
   }
   &__select {
@@ -261,14 +258,13 @@
       overflow: hidden;
       min-height: 0;
       transition: box-shadow 0.2s;
-      box-shadow: 0 0 0 2px $form-grey-color;
+      box-shadow: inset 0 0 0 0 $form-grey-color;
       user-select: none;
       border-radius: 50%;
       background-color: $promotion-background;
     }
     input:checked ~ %form-label {
-      box-shadow: 0 0 0 3px $primary-color;
-      // border: 3px solid $primary-color;
+      box-shadow: inset 0 0 0 3px $primary-color;
     }
   }
   &__checkbox {
@@ -402,7 +398,7 @@
       }
     }
   }
-  &__button-wrapper {
+  &__buttons-wrapper {
     display: flex;
     justify-content: space-between;
 
@@ -439,18 +435,10 @@
     }
   }
   &__button {
-    min-width: 169px;
-    font-size: 14px;
+    min-width: 15.25rem;
+    margin-top: 0.6rem;
     flex-shrink: 0;
     padding-top: 15px;
     padding-bottom: 15px;
-
-    @media ($desktop-min) {
-      margin-right: 20px;
-    }
-    @media ($tablet-max) {
-      margin-top: 25px;
-      align-self: center;
-    }
   }
 }

@@ -12,6 +12,7 @@
       'json-path': 'json/boston---venge-gluhaya-breadcrumbs.json'
     })
     @@include('./src/html/product-card.html', {
+      'id': '001',
       'title': 'Бостон - венге, глухая',
       'url': 'boston---venge-gluhaya',
       'gallery-url': 'json/boston---venge-gluhaya-gallery.json',
@@ -19,7 +20,12 @@
     })
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html")
+  @@include("./src/html/body-bottom.html", {
+    'checkout': true,
+    'foundCheaper': true,
+    'leaveAReview': true,
+    'orderAMeasurement': true
+  })
 </body>
 
 </html>

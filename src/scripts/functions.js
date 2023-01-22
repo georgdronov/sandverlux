@@ -55,8 +55,8 @@ function setAnchorsEvents() {
       if (burgerElem) burgerElem.classList.remove("_menu-opened");
 
       animate({
-        duration: 600,
-        timing: easeOut,
+        duration: 1000,
+        timing: easeOutQuart,
         draw: function (progress) {
           window.scrollTo(
             0,
@@ -152,8 +152,8 @@ export function scrollToTop() {
   scrollTopElement.addEventListener("click", () => {
     let currentScrollTop = window.scrollY;
     animate({
-      duration: 600,
-      timing: easeOut,
+      duration: 1000,
+      timing: easeOutQuart,
       draw: function (progress) {
         window.scrollTo(0, currentScrollTop - currentScrollTop * progress);
       },
@@ -186,7 +186,11 @@ function linear(timeFraction) {
 }
 // eslint-disable-next-line no-unused-vars
 function easeOut(timeFraction) {
-  return Math.pow(timeFraction, 1 / 5);
+  return Math.pow(timeFraction, 1 / 1.99);
+}
+// eslint-disable-next-line no-unused-vars
+function easeOutQuart(timeFraction) {
+  return timeFraction === 1 ? 1 : 1 - Math.pow(2, -10 * timeFraction);
 }
 
 export function myLazyLoad() {

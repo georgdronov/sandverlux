@@ -12,6 +12,7 @@
       'json-path': 'json/f24---dinmar-breadcrumbs.json'
     })
     @@include('./src/html/product-card.html', {
+      'id': '002',
       'title': 'F24 - Динмар',
       'url': 'f24---dinmar',
       'gallery-url': 'json/f24---dinmar-gallery.json',
@@ -19,7 +20,12 @@
     })
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html")
+  @@include("./src/html/body-bottom.html", {
+    'checkout': true,
+    'foundCheaper': true,
+    'leaveAReview': true,
+    'orderAMeasurement': true
+  })
 </body>
 
 </html>

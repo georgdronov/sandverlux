@@ -37,6 +37,10 @@ button,
 *:focus {
   outline: none;
 }
+*::selection {
+  color: $white;
+  background-color: $yellow;
+}
 *:focus-visible {
   outline: none;
   border-radius: 3px;
@@ -49,6 +53,7 @@ button,
   display: inline-block;
   position: relative;
   font-size: 16px;
+  transform: translateY(0);
   text-align: center;
   line-height: 1;
   font-weight: 600;
@@ -57,8 +62,8 @@ button,
   background-color: $button-background;
 
   @media ($desktop-min) {
-    transition: color $transition3, background-color $transition3,
-      opacity $transition3;
+    transition-duration: 0.3s;
+    transition-property: color, background-color, opacity, box-shadow;
 
     &:hover {
       background-color: $button-background-hover;
@@ -79,6 +84,9 @@ button,
   }
   &:disabled {
     background-color: $form-grey-color;
+  }
+  &:active {
+    transform: translateY(2px);
   }
 
   &--green {
@@ -163,6 +171,9 @@ strong,
 b {
   font-weight: 600;
 }
+label {
+  display: inline-block;
+}
 ._hover-to-open {
   position: relative;
   @extend %hover-to-open !optional;
@@ -217,30 +228,30 @@ b {
     }
   }
 }
-._wheel-to-hide {
-  &::before {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 50;
-    opacity: 0;
-    content: "";
-    display: block;
-    position: absolute;
-    animation: wheel-to-hide 2s infinite;
-    visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s;
-    background: url("../images/icons/mouse-wheel.png") 50% 50%/30px auto
-      no-repeat rgba(255, 255, 255, 0.5);
-  }
-  &.active {
-    &::before {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-}
+// ._wheel-to-hide {
+//   &::before {
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     z-index: 50;
+//     opacity: 0;
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     animation: wheel-to-hide 2s infinite;
+//     visibility: hidden;
+//     transition: opacity 0.5s, visibility 0.5s;
+//     background: url("../images/icons/mouse-wheel.png") 50% 50%/30px auto
+//       no-repeat rgba(255, 255, 255, 0.5);
+//   }
+//   &.active {
+//     &::before {
+//       opacity: 1;
+//       visibility: visible;
+//     }
+//   }
+// }
 %hide-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -282,6 +293,63 @@ b {
 @media ($tablet-min) {
   ._mobile-only {
     display: none !important;
+  }
+}
+
+%row-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+@mixin margin-x($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+@mixin padding-x($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+@mixin column-size($size, $margin: 15px) {
+  flex: 0 1 calc($size - $margin * 2);
+  max-width: calc($size - $margin * 2);
+}
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+%link-indent {
+  margin: -5px;
+  padding: 5px;
+}
+@mixin link-hover-underline($color: $white) {
+  display: inline-block;
+  position: relative;
+  transform: translateY(0);
+  transition: transform $transition3;
+  @extend %link-indent;
+
+  @media ($desktop-min) {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 5px;
+      right: 5px;
+      bottom: 4px;
+      height: 1px;
+      opacity: 0;
+      transform: translateY(0);
+      transition: transform $transition3, opacity $transition3;
+      background-color: $color;
+    }
+    &:hover {
+      transform: translateY(-2px);
+
+      &::after {
+        opacity: 1;
+        transform: translateY(2px);
+      }
+    }
   }
 }
 

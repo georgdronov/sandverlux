@@ -358,6 +358,20 @@ document.addEventListener("DOMContentLoaded", function () {
       watchSlidesVisibility: true,
       wrapperClass: pcsClass + "swiper-wrapper",
       slideClass: pcsClass + "slide",
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        576: {
+          spaceBetween: 30,
+          slidesPerView: 4,
+        },
+        1200: {
+          spaceBetween: 46,
+          slidesPerView: 4,
+        },
+      },
     };
     const pcsThumbsSwiper01 = new Swiper(
       `.${pcsClass}swiper--thumbs.${pcsSlidersClasses[0]}`,
@@ -423,7 +437,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (toggleContainers.length) {
     toggleContainers.forEach((container) => {
       const toggleButtons = container.querySelectorAll("[data-toggle]");
-      if (!toggleButtons.length) return;
+      const toggleTargets = container.querySelectorAll("[data-target]");
+      if (!toggleButtons.length && !toggleTargets.length) return;
 
       toggleButtons.forEach((button) =>
         button.addEventListener("click", (event) => {
@@ -431,9 +446,81 @@ document.addEventListener("DOMContentLoaded", function () {
             button.setAttribute("aria-expanded", false)
           );
           event.currentTarget.setAttribute("aria-expanded", true);
+          toggleTargets.forEach((target) =>
+            target.id === button.dataset.toggle.substring(1)
+              ? target.classList.add("active")
+              : target.classList.remove("active")
+          );
         })
       );
     });
+  }
+
+  // toggle content //
+
+  const counterContainers = document.querySelectorAll(
+    "[data-counter-container]"
+  );
+
+  if (counterContainers.length) {
+    counterContainers.forEach((container) => {
+      const counterButtons = container.querySelectorAll("[data-action]");
+      const counterTarget = container.querySelector("[data-target]");
+      if (!counterButtons.length && !counterTarget) return;
+
+      counterButtons.forEach((button) =>
+        button.addEventListener("click", (event) => {
+          switch (event.currentTarget.dataset.action) {
+            case "plus":
+              counterTarget.value = parseInt(counterTarget.value) + 1;
+              break;
+            case "minus":
+              if (parseInt(counterTarget.value) <= 1) break;
+              counterTarget.value = parseInt(counterTarget.value) - 1;
+              break;
+          }
+        })
+      );
+    });
+  }
+
+  // features fake functionality //
+
+  const productWishButtons = document.querySelectorAll("[name=product-wish]");
+  const productCompareButtons = document.querySelectorAll(
+    "[name=product-compare]"
+  );
+
+  if (productWishButtons.length) {
+    const productWishCounter = document.querySelectorAll(".wishlist-count");
+    productWishButtons.forEach((button) =>
+      button.addEventListener(
+        "click",
+        () =>
+          productWishCounter.forEach((counter) => {
+            counter.textContent = parseInt(counter.textContent) + 1;
+          }),
+        {
+          once: true,
+        }
+      )
+    );
+  }
+  if (productCompareButtons.length) {
+    const productCompareCounter =
+      document.querySelectorAll(".comparison-count");
+    productCompareButtons.forEach((button) =>
+      button.addEventListener(
+        "click",
+        () =>
+          productCompareCounter.forEach((counter) => {
+            counter.textContent = parseInt(counter.textContent) + 1;
+          }),
+        {
+          once: true,
+        }
+      )
+    );
   }
 
   // popular categories //

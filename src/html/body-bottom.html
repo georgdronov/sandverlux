@@ -1,8 +1,44 @@
 <div class="popup-overlay"></div>
-@@include("./src/html/popup.html", {
-  'id': 'buy-in-one-click',
-  'title': 'Оформить заказ',
-  'form-src': './src/html/top-up-form.html'
-})
+<section class="popups-wrapper">
+  <h3 class="sr-only">Всплывающие окна</h3>
+  @@include("./src/html/popup.html", {
+  'id': 'request-a-call',
+  'title': 'Заказать звонок',
+  'form-src': './src/html/forms/request-a-call.html'
+  })
+  @@include("./src/html/popup.html", {
+  'id': 'online-payment',
+  'title': 'Оплата онлайн',
+  'form-src': './src/html/forms/online-payment.html'
+  })
+  @@if (checkout) {
+    @@include("./src/html/popup.html", {
+    'id': 'checkout',
+    'title': 'Оформить заказ',
+    'form-src': './src/html/forms/checkout.html'
+    })
+  }
+  @@if (foundCheaper) {
+    @@include("./src/html/popup.html", {
+    'id': 'found-cheaper',
+    'title': 'Нашли дешевле?',
+    'form-src': './src/html/forms/found-cheaper.html'
+    })
+  }
+  @@if (leaveAReview) {
+    @@include("./src/html/popup.html", {
+    'id': 'leave-a-review',
+    'title': 'Оставить отзыв',
+    'form-src': './src/html/forms/leave-a-review.html'
+    })
+  }
+  @@if (orderAMeasurement) {
+    @@include("./src/html/popup.html", {
+    'id': 'order-a-measurement',
+    'title': 'Заказать замер',
+    'form-src': './src/html/forms/request-a-call.html'
+    })
+  }
+</section>
 @@include("./src/html/scroll-top.html")
 <script src="scripts/main.js"></script>

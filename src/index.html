@@ -19,7 +19,12 @@
     @@include('./src/html/our-shops.html')
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html")
+  @@include("./src/html/body-bottom.html", {
+    'checkout': false,
+    'foundCheaper': false,
+    'leaveAReview': false,
+    'orderAMeasurement': false
+  })
 </body>
 
 </html>

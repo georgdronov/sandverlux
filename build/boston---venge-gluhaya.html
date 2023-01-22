@@ -18,6 +18,7 @@
   <meta name="msapplication-TileColor" content="#a2d08c">
   <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description"
     content='Огромный выбор дверей производства России и Беларуси со склада и под заказ на сайте sandverlux.by. Салоны дверей Сандверлюкс 🚪 в Минске - это 📏 Бесплатный замер, ⌛ Оперативная доставка и установка!'>
   <link media="screen" rel="stylesheet" href="styles/styles.min.css">
@@ -74,7 +75,7 @@
     </div>
   </article>
   <article class="header__navigation">
-    <h3 class="sr-only">Шапка сайта для настольного пк</h3>
+    <h3 class="sr-only">Шапка сайта настольного пк</h3>
     <div class="header__item">
       <nav class="header-top container">
   <div class="header-top__item">
@@ -186,7 +187,7 @@
 </div>
   </div>
   <div class="header-middle__item">
-    <button class="header-middle__call-request _btn" type="button" name="call-request">Заказать звонок</button>
+    <button class="header-middle__call-request _btn" type="button" data-open-popup="request-a-call">Заказать звонок</button>
   </div>
 </div>
     </div>
@@ -395,7 +396,7 @@
     <div class="header-bottom__search">
       <form class="search-form">
         <label class="search-form__label">
-          <span class="sr-only" aria-hidden="true">Поиск</span>
+          <span class="sr-only">Поиск</span>
           <input class="search-form__input header-search" type="search" name="header-search" placeholder="Поиск">
         </label>
         <button class="search-form__button" type="submit" name="header-search-button">
@@ -503,9 +504,9 @@
                 <use href="/images/icons.svg#star" />
               </svg>
             </div>
-            <button class="product-card__to-reviews" name="to-reviews" type="button">
+            <a href="#product-card-reviews" class="product-card__to-reviews">
               <span class="product-card__reviews-number">5</span> отзывов
-            </button>
+            </a>
           </div>
           <div class="product-card__code">
             <span class="product-card__code-heading">Код товара:</span>
@@ -519,10 +520,10 @@
             <p class="product-card__availability-content product-card__availability-content_not-available">Нет в наличии</p> -->
           </div>
           <div class="product-card__price">
-            <p class="product-card__price-heading">цена за комлпект</p>
+            <p class="product-card__price-heading">цена за комплект</p>
             <strong class="product-card__price-value">250 руб.</strong>
-            <button class="product-card__price-button _btn _btn--white" name="is-there-cheaper" type="button">Нашли
-              дешевле?</button>
+            <button class="product-card__price-button _btn _btn--white" data-open-popup="found-cheaper"
+              type="button">Нашли дешевле?</button>
           </div>
           <div class="product-card__features">
             <button class="product-card__features-button" type="button" name="product-wish">
@@ -539,7 +540,7 @@
               <span class="sr-only">Добавить </span>
               <span class="product-card__features-heading">в сравнение</span>
             </button>
-            <button class="product-card__features-button" type="button" name="product-measure">
+            <button class="product-card__features-button" type="button" data-open-popup="order-a-measurement">
               <svg width="20" height="20">
                 <use href="/images/icons.svg#ruler" />
               </svg>
@@ -547,30 +548,29 @@
             </button>
           </div>
           <form method="post" class="product-card__form form">
-            <input type="hidden" name="id" value="@@id">
+            <input type="hidden" name="id" value="001">
             <input type="hidden" name="count" value="1">
             <input type="hidden" name="options" value="[]">
 
             <fieldset class="product-card__buttons form__item-wrapper form__item-wrapper_row">
               <fieldset class="form__item-wrapper form__item-wrapper_row">
                 <legend hidden>Количество добавляемых продуктов</legend>
-                <div class="form__item form__counter">
-                  <button class="form__counter-button" name="form-minus-button" type="button">
+                <div class="form__item form__counter" data-counter-container="">
+                  <button class="form__counter-button" data-action="minus" type="button">
                     -<span class="sr-only">Уменьшить на еденицу</span>
                   </button>
                   <label>
                     <span class="sr-only">Количество</span>
                     <input class="form__input" type="number" name="count" id="product_price" min="1" max="999" step="1"
-                      value="1">
+                      value="1" data-target="">
                   </label>
-                  <button class="form__counter-button" name="form-plus-button" type="button">
+                  <button class="form__counter-button" data-action="plus" type="button">
                     +<span class="sr-only">Увеличить на еденицу</span>
                   </button>
                 </div>
               </fieldset>
-              <button class="product-card__btn _btn" onclick="alert('товар : @@id')" type="submit" name="ms2_action"
-                value="cart/add">В корзину</button>
-              <button class="product-card__btn _btn _btn--green" data-open-popup="buy-in-one-click" type="button">Купить
+              <button class="product-card__btn _btn" type="submit" name="ms2_action" value="cart/add">В корзину</button>
+              <button class="product-card__btn _btn _btn--green" data-open-popup="checkout" type="button">Купить
                 в 1 клик</button>
             </fieldset>
             <section class="product-card__installment">
@@ -598,27 +598,27 @@
                 <div class="form__item form__color-wrapper">
                   <label class="form__color">
                     <span hidden>цвет номер 1</span>
-                    <input type="radio" name="product-color@@id" value="color001" aria-hidden="true" checked hidden>
+                    <input type="radio" name="product-color001" value="color001" checked hidden>
                     <span class="form__label" style="background-color:#D8B888"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 2</span>
-                    <input type="radio" name="product-color@@id" value="color002" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color001" value="color002" hidden>
                     <span class="form__label" style="background-color:#737373"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 3</span>
-                    <input type="radio" name="product-color@@id" value="color003" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color001" value="color003" hidden>
                     <span class="form__label" style="background-color:#8E7248"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 4</span>
-                    <input type="radio" name="product-color@@id" value="color004" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color001" value="color004" hidden>
                     <span class="form__label" style="background-color:#FFFFFF"></span>
                   </label>
                   <label class="form__color active">
                     <span hidden>цвет номер 5</span>
-                    <input type="radio" name="product-color@@id" value="color005" aria-hidden="true" hidden>
+                    <input type="radio" name="product-color001" value="color005" hidden>
                     <span class="form__label" style="background-color:#373737"></span>
                   </label>
                 </div>
@@ -628,12 +628,12 @@
                 <div class="form__item form__color-wrapper">
                   <label class="form__color">
                     <span hidden>цвет номер 1</span>
-                    <input type="radio" name="product-glass@@id" value="color001" aria-hidden="true" checked hidden>
+                    <input type="radio" name="product-glass001" value="color001" checked hidden>
                     <span class="form__label" style="background-color:#D8B888"></span>
                   </label>
                   <label class="form__color">
                     <span hidden>цвет номер 2</span>
-                    <input type="radio" name="product-glass@@id" value="color002" aria-hidden="true" hidden>
+                    <input type="radio" name="product-glass001" value="color002" hidden>
                     <span class="form__label" style="background-color:#737373"></span>
                   </label>
                 </div>
@@ -1008,7 +1008,7 @@
           доставка</button>
       </nav>
       <div class="payment-and-delivery__content-wrapper">
-        <div id="payment" class="payment-and-delivery__item active">
+        <div id="payment" class="payment-and-delivery__item active" data-target="">
           <ul class="payment-and-delivery__list">
             <li class="payment-and-delivery__list-item">Наличными курьеру во время доставки (только по г. Минску)</li>
             <li class="payment-and-delivery__list-item">Онлайн на сайте</li>
@@ -1017,12 +1017,13 @@
           </ul>
           <a href="#" class="payment-and-delivery__link">Подробнее</a>
         </div>
-        <div id="delivery" class="payment-and-delivery__item">
+        <div id="delivery" class="payment-and-delivery__item" data-target="">
           <ul class="payment-and-delivery__list">
             <li class="payment-and-delivery__list-item">Выезд специалиста на замер осуществляется бесплатно (при
               оформлении заказа) от двух межкомнатных дверей в Минске</li>
             <div class="payment-and-delivery__button-wrapper">
-              <button class="payment-and-delivery__btn _btn _btn--green">Вызвать замерщика</button>
+              <button class="payment-and-delivery__btn _btn _btn--green" data-open-popup="order-a-measurement"
+                type="button">Вызвать замерщика</button>
             </div>
             <li class="payment-and-delivery__list-item">Доставка дверей осуществляется <strong>БЕСПЛАТНО</strong> в
               Минске и пределах 5 км от МКАД</li>
@@ -1088,27 +1089,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color001" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color001" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color001" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color001" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color001" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color001" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1173,27 +1174,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color002" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color002" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color002" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color002" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color002" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color002" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1255,27 +1256,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color003" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color003" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color003" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color003" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color003" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color003" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1342,27 +1343,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color004" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color004" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color004" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color004" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color004" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color004" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1429,27 +1430,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color005" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color005" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color005" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color005" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color005" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1518,27 +1519,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color006" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color006" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color006" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color006" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color006" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1598,27 +1599,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color007" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color007" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color007" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color007" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color007" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1678,27 +1679,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color008" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color008" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color008" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color008" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color008" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1758,27 +1759,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color005" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color005" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color005" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color005" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color005" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1847,27 +1848,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color006" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color006" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color006" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color006" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color006" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -1927,27 +1928,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color007" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color007" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color007" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color007" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color007" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2007,27 +2008,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color008" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color008" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color008" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color008" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color008" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2110,27 +2111,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color001" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color001" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color001" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color001" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color001" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color001" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color001" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2195,27 +2196,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color002" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color002" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color002" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color002" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color002" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color002" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color002" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2277,27 +2278,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color003" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color003" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color003" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color003" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color003" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color003" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color003" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2364,27 +2365,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color004" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color004" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color004" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color004" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color004" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color004" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color004" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2451,27 +2452,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color005" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color005" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color005" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color005" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color005" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2540,27 +2541,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color006" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color006" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color006" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color006" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color006" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2620,27 +2621,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color007" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color007" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color007" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color007" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color007" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2700,27 +2701,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color008" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color008" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color008" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color008" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color008" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2780,27 +2781,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color005" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color005" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color005" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color005" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color005" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2869,27 +2870,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color006" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color006" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color006" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color006" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color006" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -2949,27 +2950,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color007" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color007" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color007" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color007" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color007" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -3029,27 +3030,27 @@
         <legend class="sr-only">Цвета</legend>
         <label class="product__color-label">
           <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color008" value="color001" aria-hidden="true" checked hidden>
+          <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color008" value="color002" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color008" value="color003" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
         <label class="product__color-label">
           <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color008" value="color004" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
         <label class="product__color-label active">
           <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color008" value="color005" aria-hidden="true" hidden>
+          <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
         </label>
       </fieldset>
@@ -3243,7 +3244,7 @@
   </div>
 </div>
           <div class="footer__btn-wrapper">
-            <a href="#" class="footer__btn _btn">Оплата онлайн</a>
+            <button class="footer__btn _btn" data-open-popup="online-payment" type="button">Оплата онлайн</button>
           </div>
           <div class="footer__payment">
             <img src="images/paypal.png" alt="paypal метод оплаты" class="footer__payment-item" width="45" height="35">
@@ -3257,20 +3258,187 @@
 </footer>
   </div>
   <div class="popup-overlay"></div>
-<div id="buy-in-one-click" class="popup">
-  <button class="popup__close" type="button" name="popup-close">
-    <span class="sr-only">Закрыть</span>
-  </button>
-  <h3 class="popup__heading heading">Оформить заказ</h3>
-  <form class="form" name="top-up" novalidate>
+<section class="popups-wrapper">
+  <h3 class="sr-only">Всплывающие окна</h3>
+  <article id="request-a-call" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Заказать звонок</h3>
+    <form class="form" name="request-a-call" novalidate>
   <div class="form__item">
     <label>
       <span class="form__label">Ваше имя</span>
-      <input class="form__input" type="text" name="name">
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
     </label>
   </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Телефон</span>
+      <input class="form__input" type="text" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <button class="form__button _btn" type="submit" name="request-a-call-submit">Отправить</button>
+  </div>
 </form>
-</div>
+  </div>
+</article>
+  <article id="online-payment" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Оплата онлайн</h3>
+    <form class="form" name="request-a-call" novalidate>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваше имя</span>
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Телефон</span>
+      <input class="form__input" type="text" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Сумма заказа</span>
+      <input class="form__input" type="text" name="cost" placeholder="Сумма заказа">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Номер заказа</span>
+      <input class="form__input" type="text" name="orderID" placeholder="Номер заказа">
+    </label>
+  </div>
+  <div class="form__item">
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="request-a-call-submit">Отправить</button>
+    </div>
+  </div>
+</form>
+  </div>
+</article>
+  
+    <article id="checkout" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Оформить заказ</h3>
+    <form class="form" name="checkout" novalidate>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваше имя</span>
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Телефон</span>
+      <input class="form__input" type="text" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Сумма заказа</span>
+      <input class="form__input" type="text" name="cost" placeholder="Сумма заказа">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Номер заказа</span>
+      <input class="form__input" type="text" name="orderID" placeholder="Номер заказа">
+    </label>
+  </div>
+  <div class="form__item">
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="checkout-submit">Отправить</button>
+    </div>
+  </div>
+</form>
+  </div>
+</article>
+  
+  
+    <article id="found-cheaper" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Нашли дешевле?</h3>
+    <form class="form" name="request-a-call" novalidate>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваше имя</span>
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Телефон</span>
+      <input class="form__input" type="text" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Cсылка на товар конкурента</span>
+      <input class="form__input" type="text" name="cost" placeholder="Адрес">
+    </label>
+  </div>
+  <div class="form__item">
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="request-a-call-submit">Отправить</button>
+    </div>
+  </div>
+</form>
+  </div>
+</article>
+  
+  
+    <article id="leave-a-review" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Оставить отзыв</h3>
+    
+  </div>
+</article>
+  
+  
+    <article id="order-a-measurement" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Заказать замер</h3>
+    <form class="form" name="request-a-call" novalidate>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваше имя</span>
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Телефон</span>
+      <input class="form__input" type="text" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <button class="form__button _btn" type="submit" name="request-a-call-submit">Отправить</button>
+  </div>
+</form>
+  </div>
+</article>
+  
+</section>
 <button class="scroll-top">
   <span class="sr-only">scroll top</span>
   <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
