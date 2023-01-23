@@ -364,10 +364,14 @@ document.addEventListener("DOMContentLoaded", function () {
           spaceBetween: 15,
         },
         576: {
-          spaceBetween: 30,
+          spaceBetween: 20,
           slidesPerView: 4,
         },
         1200: {
+          spaceBetween: 30,
+          slidesPerView: 4,
+        },
+        1366: {
           spaceBetween: 46,
           slidesPerView: 4,
         },
@@ -383,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     const pcsMainSwiperConfig = {
-      grabCursor: true,
+      grabCursor: false,
       slidesPerView: 1,
       roundLengths: true,
       wrapperClass: pcsClass + "swiper-wrapper",
@@ -456,7 +460,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // toggle content //
+  // counter group elements //
 
   const counterContainers = document.querySelectorAll(
     "[data-counter-container]"
@@ -481,6 +485,11 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         })
       );
+      counterTarget.addEventListener("change", (event) => {
+        const target = event.currentTarget;
+        if (parseInt(target.value) >= target.dataset.min) return;
+        target.value = 1;
+      });
     });
   }
 

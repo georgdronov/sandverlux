@@ -2900,6 +2900,9 @@ body {
     margin-top: 2.4rem;
   }
 
+  %product-card + & {
+    margin-top: 4.6rem;
+  }
   // &__container {
   // }
   &__items {
@@ -4162,6 +4165,8 @@ body {
   padding: 4.6875rem 0;
   overflow: hidden;
 
+  @extend %product-slider !optional;
+
   @media ($tablet-mad) {
     padding: 2.4rem 0 2rem;
   }
@@ -4309,26 +4314,35 @@ body {
   }
 }
 $product-card-gap: 3.75rem;
+$product-card-tablet-gap: 2.5rem;
 .product-card {
   $sides-padding: 5.9375rem;
   $sides-padding-tablet: 3rem;
 
-  padding: 2.8rem 0;
+  padding: 2.8rem 0 0;
 
-  %product-card-item {
-    flex: 1 1 0%;
-    padding-left: $product-card-gap;
-  }
+  @extend %product-card !optional;
+
   // &__container {
   // }
   &__wrapper {
     @extend %row-wrapper;
     margin-left: -$product-card-gap;
+
+    @media ($desktop-max) {
+      margin-left: -$product-card-tablet-gap;
+    }
   }
   // &__sliders-switcher {
   // }
   &__item {
-    @extend %product-card-item;
+    flex: 1 1 0%;
+    max-width: 100%;
+    padding-left: $product-card-gap;
+
+    @media ($desktop-max) {
+      padding-left: $product-card-tablet-gap;
+    }
   }
   &__main {
     padding: 1.875rem $sides-padding 2.3rem;
@@ -4338,6 +4352,9 @@ $product-card-gap: 3.75rem;
     @media ($desktop-mad-xl) and ($tablet-min) {
       padding-left: $sides-padding-tablet;
       padding-right: $sides-padding-tablet;
+    }
+    @media ($tablet-mad) {
+      margin-top: 3rem;
     }
   }
   &__heading {
@@ -4540,7 +4557,12 @@ $product-card-gap: 3.75rem;
       margin-left: $colors-gap;
     }
     %form-item-heading {
+      font-size: 16px;
       margin-right: 2rem;
+
+      @media ($desktop-max) {
+        font-size: 14px;
+      }
     }
     %form-color-wrapper {
       margin-right: -1rem;
@@ -4582,22 +4604,26 @@ $product-card-gap: 3.75rem;
     order: -1;
     position: relative;
 
-    @media ($desktop-min-xl) {
+    @media ($tablet-mid) {
       max-width: 50%;
-    }
-    @media ($desktop-max) {
-      max-width: 40%;
     }
   }
   &__additional-info {
     margin-top: 6.3rem;
   }
-  // &__bottom-slides {
-  // }
-  // &__similar {
-  // }
-  // &__viewed {
-  // }
+  &__bottom-slides {
+    margin-top: 4.7rem;
+  }
+  &__similar {
+    %product-slider {
+      padding: 2.5rem 0;
+    }
+  }
+  &__viewed {
+    %product-slider {
+      padding: 2.5rem 0;
+    }
+  }
 }
 .product-card-slider {
   opacity: 1;
@@ -4611,6 +4637,10 @@ $product-card-gap: 3.75rem;
     opacity: 0;
     position: absolute;
     visibility: hidden;
+
+    @media ($desktop-max) {
+      left: $product-card-tablet-gap;
+    }
   }
   // &__heading {
   // }
@@ -4642,6 +4672,14 @@ $product-card-gap: 3.75rem;
       margin-right: $product-card-gap;
 
       @extend %product-card-slider-thumbs !optional;
+
+      @media ($desktop-mad-xl) and ($desktop-min-xl) {
+        flex-basis: calc(20% - 29px);
+      }
+      @media ($desktop-max) {
+        flex-basis: calc(20% - 19px);
+        margin-right: $product-card-tablet-gap;
+      }
     }
   }
   &__swiper-wrapper {
@@ -4669,6 +4707,8 @@ $product-card-gap: 3.75rem;
     // }
   }
   &__image-wrapper {
+    cursor: pointer;
+
     %product-card-slider-main & {
       height: 0;
       padding-bottom: 100%;
@@ -4695,6 +4735,11 @@ $product-card-gap: 3.75rem;
     align-items: flex-start;
     pointer-events: none;
     flex-direction: column;
+
+    @media ($desktop-max) {
+      top: 1.3rem;
+      left: 1.4rem;
+    }
   }
   &__badge {
     color: $white;
@@ -4704,12 +4749,20 @@ $product-card-gap: 3.75rem;
     font-weight: 700;
     text-transform: uppercase;
 
+    @media ($desktop-max) {
+      padding: 4px 10px;
+      font-size: 1.2rem;
+    }
     @media ($mobile-max) {
       font-size: 10px;
     }
 
     & + & {
       margin-top: 10px;
+
+      @media ($desktop-max) {
+        margin-top: 5px;
+      }
     }
     &_discount {
       background-color: $yellow;
@@ -4727,22 +4780,43 @@ $product-card-gap: 3.75rem;
   }
 }
 .sliders-switcher {
-  margin-top: 2.3rem;
-  margin-left: calc(20% - 40px + $product-card-gap);
+  $ss-gap: 2rem;
+
+  flex-wrap: wrap;
+  margin-top: calc(2.3rem - $ss-gap/2);
+  margin-left: calc(20% - 40px + calc($product-card-gap - $ss-gap));
   @extend %flex-center;
 
+  @media ($desktop-mad-xl) and ($desktop-min-xl) {
+    margin-left: calc(20% - 29px + calc($product-card-gap - $ss-gap));
+  }
+  @media ($desktop-max) {
+    margin-left: calc(20% - 29px + calc($product-card-tablet-gap - $ss-gap));
+  }
+
+  & > * {
+    margin-top: calc($ss-gap/2);
+    margin-left: $ss-gap;
+  }
   &__text {
     color: $heading-color;
     font-size: 16px;
     font-weight: 500;
+
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
   }
   &__button-wrapper {
-    margin-left: 2rem;
     @extend %flex-center;
   }
   &__label {
     cursor: default;
     font-size: 16px;
+
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
   }
   &__button {
     margin: 0 10px;
@@ -4758,6 +4832,11 @@ $product-card-gap: 3.75rem;
     border: 1px solid $items-border;
     border-radius: 30px;
 
+    @media ($desktop-max) {
+      width: 57px;
+      height: 25px;
+    }
+
     &::after {
       top: 4px;
       left: 5px;
@@ -4771,9 +4850,18 @@ $product-card-gap: 3.75rem;
       border-radius: 50%;
       background-color: $bestseller-color;
 
+      @media ($desktop-max) {
+        width: 15px;
+        height: 15px;
+      }
+
       %sliders-switcher-button-active & {
         transform: translateX(37px);
         background-color: $primary-color;
+
+        @media ($desktop-max) {
+          transform: translateX(29px);
+        }
       }
     }
   }
@@ -4847,9 +4935,16 @@ $product-card-gap: 3.75rem;
   @extend %row-wrapper;
 
   &__left-column {
-    flex: 1 1 50%;
+    flex: 2 1 0%;
     max-width: 50%;
     margin-left: $product-card-gap;
+
+    @media ($desktop-max) {
+      margin-left: $product-card-tablet-gap;
+    }
+    @media ($tablet-mad) {
+      flex-basis: 100%;
+    }
   }
   // &__characteristics-and-reviews {
   // }
@@ -4880,17 +4975,26 @@ $product-card-gap: 3.75rem;
     padding: 14px 30px;
     font-size: 18px;
 
+    @media ($desktop-max) {
+      font-size: 16px;
+    }
+
     &.active {
       color: $white;
       background-color: $primary-color;
     }
   }
   &__right-column {
-    flex: 1 1 calc(50% - $product-card-gap);
-    max-width: calc(50% - $product-card-gap);
+    flex: 1 1 0%;
+    max-width: 100%;
   }
 }
 .characteristics {
+  font-size: 16px;
+
+  @media ($desktop-max) {
+    font-size: 14px;
+  }
   // &__heading {
   // }
   &__table {
@@ -4910,19 +5014,15 @@ $product-card-gap: 3.75rem;
   &__th {
     color: $heading-color;
     padding: 10px 15px 10px 3.3%;
-    font-size: 16px;
-    min-width: 12.5%;
     text-align: left;
     font-weight: 500;
   }
   &__td {
     padding: 10px 9.2% 10px 15px;
-    font-size: 16px;
     text-align: right;
   }
   &__description {
     color: $heading-color;
-    font-size: 16px;
     margin-top: 1.9rem;
     font-weight: 300;
     line-height: 1.875;
@@ -4945,6 +5045,7 @@ $product-card-gap: 3.75rem;
 }
 .payment-and-delivery {
   $tabs-gap: 5rem;
+  $tabs-tablet-gap: 3rem;
 
   top: 110px;
   margin: 0 5.625rem;
@@ -4954,9 +5055,22 @@ $product-card-gap: 3.75rem;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
   background-color: $white;
 
+  @media ($desktop-mad-xl) and ($tablet-min) {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  @media ($desktop-max) {
+    padding: 1.9rem 1.8rem 1.9rem 2.1rem;
+    font-size: 14px;
+  }
+
   &__navigation {
     @extend %row-wrapper;
     margin-left: -$tabs-gap;
+
+    @media ($desktop-mad-xl) and ($tablet-min) {
+      margin-left: -$tabs-tablet-gap;
+    }
   }
   &__tab {
     color: $heading-color;
@@ -4968,6 +5082,13 @@ $product-card-gap: 3.75rem;
     margin-left: $tabs-gap;
     transition: color 0.2s;
     background-color: transparent;
+
+    @media ($desktop-mad-xl) and ($tablet-min) {
+      margin-left: $tabs-tablet-gap;
+    }
+    @media ($desktop-max) {
+      font-size: 16px;
+    }
 
     &[aria-expanded="true"] {
       color: $primary-color;
@@ -5013,6 +5134,10 @@ $product-card-gap: 3.75rem;
 
     & > :first-child ~ * {
       margin-top: 1.55rem;
+
+      @media ($desktop-max) {
+        margin-top: 1rem;
+      }
     }
     &-item {
       position: relative;
@@ -5042,8 +5167,12 @@ $product-card-gap: 3.75rem;
   }
   // &__button-wrapper {
   // }
-  // &__btn {
-  // }
+  &__btn {
+    @media ($desktop-max) {
+      font-size: 14px;
+      padding: 15px 30px;
+    }
+  }
 }
 
 .noUi {
