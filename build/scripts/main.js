@@ -6721,20 +6721,16 @@
         slideClass: pcsClass + "slide",
         breakpoints: {
           0: {
-            slidesPerView: 2,
             spaceBetween: 15
           },
           576: {
-            spaceBetween: 20,
-            slidesPerView: 4
+            spaceBetween: 20
           },
           1200: {
-            spaceBetween: 30,
-            slidesPerView: 4
+            spaceBetween: 30
           },
           1366: {
-            spaceBetween: 46,
-            slidesPerView: 4
+            spaceBetween: 46
           }
         }
       };

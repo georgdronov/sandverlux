@@ -354,7 +354,7 @@ label {
     display: none !important;
   }
 }
-.payment-and-delivery__navigation, .additional-info__list, .additional-info, .full-price__bottom, .full-price__top, .product-card__colors, .product-card__installment, .product-card__price, .product-card__wrapper, .subcategories__list, .footer__payment, .reviews__items, .how-we-work__items, .our-goods__filter, .product__color-label, .product__colors, .mfb__item .form__item, .mfb, .mft, .main-filter__items, .row, .form__item-wrapper_row {
+.payment-and-delivery__navigation, .additional-info__list, .additional-info, .full-price__bottom, .full-price__top, .product-card__colors, .product-card__installment, .product-card__features, .product-card__price, .product-card__wrapper, .subcategories__list, .footer__payment, .reviews__items, .how-we-work__items, .our-goods__filter, .product__color-label, .product__colors, .mfb__item .form__item, .mfb, .mft, .main-filter__items, .row, .form__item-wrapper_row {
   display: flex;
   flex-wrap: wrap;
 }
@@ -5353,6 +5353,11 @@ body {
 .product-card {
   padding: 2.8rem 0 0;
 }
+@media (max-width: 575.98px) {
+  .product-card {
+    padding-top: 1.1rem;
+  }
+}
 .product-card__wrapper {
   margin-left: -3.75rem;
 }
@@ -5387,6 +5392,11 @@ body {
     margin-top: 3rem;
   }
 }
+@media (max-width: 575.98px) {
+  .product-card__main {
+    padding: 3.175rem 1.5rem 2.3rem;
+  }
+}
 .product-card__heading + * {
   margin-top: 0.5rem;
 }
@@ -5412,6 +5422,7 @@ body {
   color: #585858;
   border: none;
   padding: 5px 0;
+  font-size: 16px;
   margin-left: 20px;
   text-decoration: underline;
   background-color: transparent;
@@ -5422,6 +5433,11 @@ body {
   }
   .product-card__to-reviews:hover {
     color: #84a878;
+  }
+}
+@media (max-width: 1199.98px) {
+  .product-card__to-reviews {
+    font-size: 14px;
   }
 }
 .product-card__code {
@@ -5607,6 +5623,11 @@ body {
     max-width: 50%;
   }
 }
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .product-card__sliders-wrapper {
+    max-width: 40%;
+  }
+}
 .product-card__additional-info {
   margin-top: 6.3rem;
 }
@@ -5695,6 +5716,11 @@ body {
   height: 0;
   padding-bottom: 100%;
 }
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .product-card-slider__swiper--main .product-card-slider__image-wrapper {
+    padding-bottom: 140%;
+  }
+}
 .product-card-slider__swiper--thumbs .product-card-slider__image-wrapper {
   width: 100%;
   height: 100%;
@@ -5777,6 +5803,11 @@ body {
     margin-left: calc(20% - 29px + 0.5rem);
   }
 }
+@media (max-width: 575.98px) {
+  .sliders-switcher {
+    margin-left: -2rem;
+  }
+}
 .sliders-switcher > * {
   margin-top: 1rem;
   margin-left: 2rem;
@@ -5784,6 +5815,7 @@ body {
 .sliders-switcher__text {
   color: #2d2d2d;
   font-size: 16px;
+  text-align: center;
   font-weight: 500;
 }
 @media (max-width: 1199.98px) {
@@ -5909,6 +5941,7 @@ body {
 }
 @media (max-width: 767.98px) {
   .additional-info__left-column {
+    max-width: 100%;
     flex-basis: 100%;
   }
 }
@@ -5923,10 +5956,12 @@ body {
   margin-top: 1.7rem;
 }
 .additional-info__navigation {
+  margin-top: -1.5rem;
   margin-left: -1.5rem;
 }
 .additional-info__list-item {
   display: inline-block;
+  margin-top: 1.5rem;
   margin-left: 1.5rem;
 }
 .additional-info__link {
@@ -5945,6 +5980,16 @@ body {
 .additional-info__right-column {
   flex: 1 1 0%;
   max-width: 100%;
+}
+@media (max-width: 767.98px) {
+  .additional-info__right-column {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .additional-info__right-column {
+    margin-left: 2.5rem;
+  }
 }
 
 .characteristics {
@@ -5992,7 +6037,11 @@ body {
   width: 18.375rem;
   padding: 16px 30px;
   font-size: 14px;
-  margin-top: 1.9rem;
+}
+@media (min-width: 768px) {
+  .product-card-reviews__button {
+    margin-top: 1.9rem;
+  }
 }
 
 .payment-and-delivery {
@@ -6014,6 +6063,11 @@ body {
   .payment-and-delivery {
     padding: 1.9rem 1.8rem 1.9rem 2.1rem;
     font-size: 14px;
+  }
+}
+@media (max-width: 575.98px) {
+  .payment-and-delivery {
+    margin: 0;
   }
 }
 .payment-and-delivery__navigation {
