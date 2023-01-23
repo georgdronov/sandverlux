@@ -4311,12 +4311,12 @@ body {
 $product-card-gap: 3.75rem;
 .product-card {
   $sides-padding: 5.9375rem;
+  $sides-padding-tablet: 3rem;
 
   padding: 2.8rem 0;
 
   %product-card-item {
-    flex: 1 1 50%;
-    max-width: 50%;
+    flex: 1 1 0%;
     padding-left: $product-card-gap;
   }
   // &__container {
@@ -4334,6 +4334,11 @@ $product-card-gap: 3.75rem;
     padding: 1.875rem $sides-padding 2.3rem;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
     background-color: $white;
+
+    @media ($desktop-mad-xl) and ($tablet-min) {
+      padding-left: $sides-padding-tablet;
+      padding-right: $sides-padding-tablet;
+    }
   }
   &__heading {
     & + * {
@@ -4483,6 +4488,13 @@ $product-card-gap: 3.75rem;
     justify-content: space-between;
     background-color: $primary-color;
 
+    @media ($desktop-mad-xl) and ($tablet-min) {
+      margin-left: -$sides-padding-tablet;
+      margin-right: -$sides-padding-tablet;
+      padding-right: $sides-padding-tablet;
+      padding-left: calc($sides-padding-tablet - $installment-gap);
+    }
+
     & > * {
       margin-top: $installment-gap;
       margin-left: $installment-gap;
@@ -4569,6 +4581,13 @@ $product-card-gap: 3.75rem;
   &__sliders-wrapper {
     order: -1;
     position: relative;
+
+    @media ($desktop-min-xl) {
+      max-width: 50%;
+    }
+    @media ($desktop-max) {
+      max-width: 40%;
+    }
   }
   &__additional-info {
     margin-top: 6.3rem;
@@ -4620,7 +4639,7 @@ $product-card-gap: 3.75rem;
     }
     &--thumbs {
       flex: 0 1 calc(20% - 40px);
-      margin-right: 66px;
+      margin-right: $product-card-gap;
 
       @extend %product-card-slider-thumbs !optional;
     }
@@ -4709,7 +4728,7 @@ $product-card-gap: 3.75rem;
 }
 .sliders-switcher {
   margin-top: 2.3rem;
-  margin-left: calc(20% - 40px + 66px);
+  margin-left: calc(20% - 40px + $product-card-gap);
   @extend %flex-center;
 
   &__text {
