@@ -12,7 +12,9 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 .wrapper {
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
 
   @media ($desktop-min-xl) {
     padding-top: $header-top-height + $header-middle-height +

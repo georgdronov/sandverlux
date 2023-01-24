@@ -1,0 +1,55 @@
+.filler {
+  padding: 8rem 0;
+  flex-grow: 1;
+  @extend %flex-center;
+  background: url("../images/icons.svg#filler-background") center / cover no-repeat
+    transparent;
+
+  @extend %filler !optional;
+
+  @media ($mobile-max) {
+    padding: 6rem 0;
+  }
+
+  &._404 {
+    @extend %filler-404 !optional;
+  }
+  // &__container {
+  // }
+  &__inner {
+    text-align: center;
+
+    @media ($mobile-max) {
+      max-width: 280px;
+
+      %filler-404 & {
+        max-width: 240px;
+      }
+    }
+  }
+  &__heading {
+    color: $primary-color;
+    font-size: 2.875rem;
+    font-weight: 700;
+
+    %filler-404 & {
+      font-size: 7.5rem;
+    }
+    & + * {
+      margin-top: 1.75rem;
+    }
+  }
+  &__description {
+    color: $heading-color;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    @media ($mobile-max) {
+      font-size: 14px;
+    }
+  }
+  &__btn {
+    margin-top: 1.7rem;
+  }
+}

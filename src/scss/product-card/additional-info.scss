@@ -21,11 +21,22 @@
   &__header {
     & ~ * {
       margin-top: 3.1rem;
+
+      @media ($mobile-max) {
+        margin-top: 2.8rem;
+      }
     }
   }
   &__heading {
     font-size: 20px;
     font-weight: 500;
+
+    @media ($desktop-max) and ($tablet-min) {
+      font-size: 18px;
+    }
+    @media ($mobile-max) {
+      font-size: 16px;
+    }
 
     & + * {
       margin-top: 1.7rem;
@@ -49,6 +60,10 @@
 
     @media ($desktop-max) {
       font-size: 16px;
+    }
+    @media ($mobile-max) {
+      padding: 14px 24px;
+      font-size: 14px;
     }
 
     &.active {

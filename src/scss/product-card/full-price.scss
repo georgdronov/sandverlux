@@ -4,6 +4,13 @@
   font-size: 16px;
   background-color: $full-price-background;
 
+  @media ($desktop-max) {
+    font-size: 14px;
+  }
+  @media ($mobile-max) {
+    padding: 2rem 1.5rem;
+  }
+
   &__top {
     $fp-top-gap: 1rem;
 
@@ -36,6 +43,10 @@
     margin-left: -$fp-bottom-gap;
     justify-content: space-evenly;
 
+    @media ($mobile-max) {
+      margin-top: 0;
+    }
+
     & > * {
       margin-top: $fp-bottom-gap;
       margin-left: $fp-bottom-gap;
@@ -48,14 +59,31 @@
       color: $primary-color;
     }
   }
+  &__separator {
+    align-self: center;
+
+    svg {
+      width: 1.5625rem;
+      height: auto;
+      min-width: 15px;
+    }
+  }
   &__icon {
     svg {
       width: auto;
       height: 4.0625rem;
+      min-height: 50px;
     }
   }
   &__title {
-    margin-top: 0.5rem;
+    margin: 0.5rem auto 0;
+
+    @media ($desktop-max) and ($tablet-min) {
+      max-width: 75px;
+    }
+    @media ($mobile-max) {
+      max-width: 70px;
+    }
   }
   &__price {
     font-weight: 600;

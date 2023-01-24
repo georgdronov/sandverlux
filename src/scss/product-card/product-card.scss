@@ -366,6 +366,10 @@
   }
   &__additional-info {
     margin-top: 6.3rem;
+
+    @media ($mobile-max) {
+      margin-top: 4.7rem;
+    }
   }
   &__bottom-slides {
     margin-top: 4.7rem;

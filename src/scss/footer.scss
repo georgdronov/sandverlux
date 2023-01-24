@@ -11,6 +11,9 @@
   %product-card + & {
     margin-top: 4.6rem;
   }
+  %filler + & {
+    margin-top: 0;
+  }
   // &__container {
   // }
   &__items {

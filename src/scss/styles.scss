@@ -1,56 +1,10 @@
-$white: #fff;
-$black: #000;
-$yellow: #f9c201;
-$yellow-accent: #efd167;
-$text-color: #585858;
-$text-color-lighter: #898989;
-$primary-color: #84a878;
-$primary-hover: #6e8d64;
-$heading-color: #2d2d2d;
-$secondary-color: #9ab98f;
-$marker-green-color: #50b22f;
-$form-grey-color: #f4f4f4;
-$body-background: $white;
-$required-and-error: #b65c5c;
-$bestseller-color: #e85020;
-$novelty-color: #4bb748;
-$items-border: #d1d1d1;
-$catalog-background: #e6ede4;
-$promotion-background: #d8b888;
-$full-price-background: #f4f5fb;
+@import "utility/index";
 
-$desktop-mad-xl: "max-width: 1365.98px";
-$desktop-min-xl: "min-width: 1200px";
-$desktop-max: "max-width: 1199.98px";
-$desktop-min: "min-width: 992px";
-$tablet-max: "max-width: 991.98px";
-$tablet-mid: "min-width: 768px";
-$tablet-mad: "max-width: 767.98px";
-$tablet-min: "min-width: 576px";
-$mobile-max: "max-width: 575.98px";
-
-$font-family: "Montserrat", sans-serif;
-
-$transition3: 0.3s ease-out;
-
-$header-top-height: 60px;
-$header-middle-height: 110px;
-$header-bottom-height: 70px;
-
-$header-height-mobile: 65px;
-
-$container-padding-desktop: 70px;
-$container-padding-tablet: 40px;
-$container-padding-mobile: 20px;
-
-@import "nullstyle";
-@import "fonts";
-@import "templates";
-@import "nouislider"; //source
-@import "noui";       //custom
+@import "nouislider"; //noui source
+@import "noui";       //noui custom
 @import "form";
 
-@import "page-basics";
+@import "basics";
 @import "header/index";
 @import "main-banner";
 @import "main-filter";
@@ -65,6 +19,7 @@ $container-padding-mobile: 20px;
 @import "our-shops";
 @import "footer";
 @import "product-slider";
+@import "filler";
 
 @import "category/index";
 @import "product-card/index";

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Купить двери в Минске по цене производителя — каталог дверей Sandverlux"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./src/html/header.html')
+    @@include('./src/html/filler.html', {
+    'heading': '404',
+    'heading-class': '_404',
+    'description': 'Запрашиваемая страница не найдена!'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': false
+  })
+</body>
+
+</html>
