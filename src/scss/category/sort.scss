@@ -1,0 +1,96 @@
+.sort {
+  $items-gap: 20px;
+
+  display: flex;
+  position: relative;
+  margin-left: -$items-gap;
+
+  @extend %sort !optional;
+
+  &__filter-toggle-button {
+    color: $primary-color;
+    border: none;
+    padding: 0;
+    display: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: transparent;
+
+    @extend %sort-filter-toggle-button !optional;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+  &__heading {
+    color: $primary-color;
+    font-size: 14px;
+    font-weight: 600;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+  &__item {
+    margin-left: $items-gap;
+
+    @extend %sort-item !optional;
+
+    &_heading {
+      @extend %sort-heading !optional;
+    }
+    &_sort {
+      @extend %sort-sort !optional;
+    }
+    &_count {
+      @extend %sort-count !optional;
+    }
+    &_limit {
+      @extend %sort-limit !optional;
+    }
+    &_views {
+      @extend %sort-views !optional;
+    }
+  }
+  &__products-count {
+    text-transform: uppercase;
+
+    @extend %sort-products-count !optional;
+
+    strong {
+      color: $heading-color;
+      font-weight: 600;
+      margin-left: 11px;
+    }
+  }
+  &__views-button {
+    color: $items-border;
+    border: none;
+    padding: 5px;
+    transition: color 0.2s;
+    line-height: 1;
+    background-color: transparent;
+
+    @media ($desktop-min) {
+      transform: scale(1);
+      transition: transform 0.2s, color 0.2s;
+
+      &:not(.active):hover {
+        transform: scale(1.2);
+      }
+    }
+    @media ($mobile-max) {
+      padding: 7px;
+
+      svg {
+        width: auto;
+        height: 16px;
+      }
+    }
+
+    &.active {
+      color: $heading-color;
+    }
+  }
+}

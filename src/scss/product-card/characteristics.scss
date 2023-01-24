@@ -1,0 +1,39 @@
+.characteristics {
+  font-size: 16px;
+
+  @media ($desktop-max) {
+    font-size: 14px;
+  }
+  // &__heading {
+  // }
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  &__tr {
+    height: 2.8125rem;
+
+    &:nth-child(2n + 1) {
+      background-color: $white;
+    }
+    &:nth-child(2n) {
+      background-color: $form-grey-color;
+    }
+  }
+  &__th {
+    color: $heading-color;
+    padding: 10px 15px 10px 3.3%;
+    text-align: left;
+    font-weight: 500;
+  }
+  &__td {
+    padding: 10px 9.2% 10px 15px;
+    text-align: right;
+  }
+  &__description {
+    color: $heading-color;
+    margin-top: 1.9rem;
+    font-weight: 300;
+    line-height: 1.875;
+  }
+}

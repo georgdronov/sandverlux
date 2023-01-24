@@ -1,0 +1,136 @@
+.payment-and-delivery {
+  $tabs-gap: 5rem;
+  $tabs-tablet-gap: 3rem;
+
+  top: 110px;
+  margin: 0 5.625rem;
+  padding: 1.9rem 3.8rem 1.9rem 4.1rem;
+  position: sticky;
+  font-size: 16px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
+  background-color: $white;
+
+  @media ($desktop-mad-xl) and ($tablet-min) {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  @media ($desktop-max) {
+    padding: 1.9rem 1.8rem 1.9rem 2.1rem;
+    font-size: 14px;
+  }
+  @media ($mobile-max) {
+    margin: 0;
+  }
+
+  &__navigation {
+    @extend %row-wrapper;
+    margin-left: -$tabs-gap;
+
+    @media ($desktop-mad-xl) and ($tablet-min) {
+      margin-left: -$tabs-tablet-gap;
+    }
+  }
+  &__tab {
+    color: $heading-color;
+    border: none;
+    padding: 4px 0;
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: $tabs-gap;
+    transition: color 0.2s;
+    background-color: transparent;
+
+    @media ($desktop-mad-xl) and ($tablet-min) {
+      margin-left: $tabs-tablet-gap;
+    }
+    @media ($desktop-max) {
+      font-size: 16px;
+    }
+
+    &[aria-expanded="true"] {
+      color: $primary-color;
+
+      &::after {
+        border-color: $primary-color;
+      }
+    }
+    &::after {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      position: absolute;
+      transition: border-color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+  }
+  &__content-wrapper {
+    display: flex;
+    margin-top: 2.1rem;
+  }
+  &__item {
+    flex: 1 0 100%;
+    opacity: 0;
+    max-width: 100%;
+    max-height: 0;
+    visibility: hidden;
+    transition: opacity $transition3, visibility $transition3,
+      max-height $transition3 0.3s;
+
+    &:nth-child(n + 2) {
+      margin-left: -100%;
+    }
+    &.active {
+      opacity: 1;
+      max-height: 50vh;
+      visibility: visible;
+      transition: opacity $transition3, visibility $transition3,
+        max-height $transition3;
+    }
+  }
+  &__list {
+    color: $heading-color;
+
+    & > :first-child ~ * {
+      margin-top: 1.55rem;
+
+      @media ($desktop-max) {
+        margin-top: 1rem;
+      }
+    }
+    &-item {
+      position: relative;
+      line-height: 1.5625;
+      padding-left: 0.6rem;
+
+      &::before {
+        top: 0;
+        left: 0;
+        content: "-";
+        position: absolute;
+      }
+    }
+  }
+  &__link {
+    color: inherit;
+    display: inline-block;
+    margin-top: 2rem;
+
+    @media ($desktop-min) {
+      transition: color 0.2s;
+
+      &:hover {
+        color: $heading-color;
+      }
+    }
+  }
+  // &__button-wrapper {
+  // }
+  &__btn {
+    @media ($desktop-max) {
+      font-size: 14px;
+      padding: 15px 30px;
+    }
+  }
+}

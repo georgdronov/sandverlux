@@ -1,0 +1,216 @@
+.catalog {
+  $row-width: 300px;
+  $column-height: 500px;
+
+  @extend %catalog !optional;
+
+  // &__title {
+  // }
+  // &__list {
+  // }
+  &__list-inner {
+    overflow-y: auto;
+    overflow-x: hidden;
+    @include small-scrollbar($secondary-color, $catalog-background);
+
+    @extend %catalog-list-inner !optional;
+
+    @media ($desktop-min-xl) {
+      height: $column-height;
+    }
+    @media ($mobile-max) {
+      & + & {
+        margin-top: 1rem;
+      }
+    }
+  }
+  &__list-heading:not(:empty) {
+    color: $text-color-lighter;
+    cursor: default;
+    display: block;
+    padding: 10px 0 20px 30px;
+    font-size: 15px;
+    font-weight: 300;
+
+    @media ($mobile-max) {
+      color: $yellow;
+      padding: 10px 0 10px 20px;
+      font-weight: 500;
+    }
+  }
+  &__list-item {
+    @media ($desktop-min-xl) {
+      width: $row-width;
+      position: static;
+
+      &:hover > %catalog-link,
+      &:hover > %catalog-buttons-wrapper > %catalog-link {
+        color: $primary-color;
+      }
+    }
+  }
+  &__buttons-wrapper {
+    position: relative;
+
+    @extend %catalog-buttons-wrapper !optional;
+  }
+  &__link {
+    color: inherit;
+    display: flex;
+    padding: 10px 20px 10px 30px;
+    font-size: 15px;
+    font-weight: 500;
+    align-items: center;
+    text-decoration: none;
+    transition: color $transition3, background-color $transition3;
+
+    @extend %catalog-link !optional;
+
+    @media ($desktop-max) {
+      color: $white;
+    }
+    @media ($mobile-max) {
+      padding-left: 20px;
+    }
+    %hover-to-open-hover > %catalog-buttons-wrapper > & {
+      @media ($desktop-min-xl) {
+        background-color: $white;
+      }
+    }
+    %catalog-buttons-wrapper & {
+      padding-right: 50px;
+    }
+  }
+  &__link-image {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    margin-right: 15px;
+
+    @media ($desktop-max) {
+      display: none;
+    }
+  }
+  &__name {
+    line-height: 1.25;
+  }
+  &__list-wrapper {
+    top: 0;
+    left: $row-width;
+    display: flex;
+
+    @media ($desktop-min-xl) {
+      background-color: $white;
+    }
+    @media ($desktop-max) {
+      flex-direction: column;
+    }
+
+    & > %catalog-list-inner {
+      flex-shrink: 0;
+
+      @media ($desktop-min-xl) {
+        width: $row-width;
+        padding: 20px 0;
+      }
+
+      &%catalog-banners-wrapper {
+        padding: 0;
+        width: auto;
+      }
+    }
+    %catalog-link {
+      font-weight: 400;
+    }
+  }
+  &__banners-wrapper {
+    display: flex;
+    position: relative;
+    overflow-x: auto;
+    @include small-scrollbar($secondary-color, $catalog-background);
+
+    @extend %catalog-banners-wrapper !optional;
+
+    @media ($desktop-max) {
+      display: none;
+    }
+    %catalog &:focus-visible {
+      @include focus-styles;
+    }
+  }
+  &__banner {
+    width: $column-height;
+    height: inherit;
+    position: relative;
+    flex-shrink: 0;
+  }
+  &__banner-link {
+    color: $white;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+
+    @extend %catalog-banner-link !optional;
+
+    &:hover {
+      @extend %catalog-banner-link-hover !optional;
+    }
+    &:not(:hover) {
+      @extend %catalog-banner-link-not-hover !optional;
+    }
+  }
+  &__banner-image-wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+
+    &::after {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.31);
+    }
+  }
+  &__banner-image {
+    transition: transform $transition3;
+
+    %catalog-banner-link-not-hover & {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+  &__banner-title {
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  &__banner-heading {
+    color: inherit;
+    max-width: 70%;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+    transform: scale(1);
+    transition: transform $transition3;
+
+    %catalog-banner-link-hover & {
+      transform: scale(1.1);
+    }
+    %catalog-banner-link:focus-visible & {
+      @include focus-styles;
+    }
+  }
+  *:focus-visible {
+    @include focus-styles($inset: true);
+  }
+}

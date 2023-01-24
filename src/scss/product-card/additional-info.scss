@@ -1,0 +1,70 @@
+.additional-info {
+  $additional-info-gap: 1.5rem;
+
+  @extend %row-wrapper;
+
+  &__left-column {
+    flex: 2 1 0%;
+    max-width: 50%;
+    margin-left: $product-card-gap;
+
+    @media ($desktop-max) {
+      margin-left: $product-card-tablet-gap;
+    }
+    @media ($tablet-mad) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+  // &__characteristics-and-reviews {
+  // }
+  &__header {
+    & ~ * {
+      margin-top: 3.1rem;
+    }
+  }
+  &__heading {
+    font-size: 20px;
+    font-weight: 500;
+
+    & + * {
+      margin-top: 1.7rem;
+    }
+  }
+  &__navigation {
+    margin-top: -$additional-info-gap;
+    margin-left: -$additional-info-gap;
+  }
+  &__list {
+    @extend %row-wrapper;
+  }
+  &__list-item {
+    display: inline-block;
+    margin-top: $additional-info-gap;
+    margin-left: $additional-info-gap;
+  }
+  &__link {
+    padding: 14px 30px;
+    font-size: 18px;
+
+    @media ($desktop-max) {
+      font-size: 16px;
+    }
+
+    &.active {
+      color: $white;
+      background-color: $primary-color;
+    }
+  }
+  &__right-column {
+    flex: 1 1 0%;
+    max-width: 100%;
+
+    @media ($tablet-mad) {
+      margin-top: 4rem;
+    }
+    @media ($mobile-max) {
+      margin-left: $product-card-tablet-gap;
+    }
+  }
+}

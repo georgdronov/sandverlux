@@ -1,0 +1,113 @@
+.header-bottom {
+  display: flex;
+  min-height: 70px;
+  justify-content: space-between;
+  background-color: $primary-color;
+
+  @media ($desktop-min-xl) {
+    align-items: center;
+  }
+  @media ($desktop-max) {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    flex-direction: column-reverse;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    & + & {
+      @media ($desktop-min-xl) {
+        margin-left: 30px;
+      }
+    }
+    &:last-child {
+      flex-grow: 1;
+    }
+  }
+  &__links {
+    @media ($desktop-max) {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+  &__links-list {
+    display: flex;
+    line-height: 1;
+
+    @media ($desktop-min-xl) {
+      align-items: center;
+    }
+    @media ($desktop-max) {
+      flex-direction: column;
+    }
+  }
+  &__list-item {
+    & + & {
+      @media ($desktop-min-xl) {
+        margin-left: 33px;
+      }
+      @media ($desktop-max) {
+        margin-top: 15px;
+      }
+    }
+  }
+  &__link {
+    // font-size: 15px;
+    text-align: center;
+    @extend %header-top-links;
+    @include link-hover-underline();
+  }
+  &__buttons-wrapper {
+    position: relative;
+  }
+  %hover-to-open {
+    &::after {
+      height: 25px;
+    }
+  }
+  &__catalog {
+    display: flex;
+    align-items: center;
+    color: $yellow;
+    transition-property: color, transform;
+
+    @media ($desktop-min-xl) {
+      %hover-to-open-hover & {
+        color: $white;
+      }
+    }
+  }
+  &__catalog-burger {
+    @extend %header-burger;
+  }
+  &__menu {
+    left: -$container-padding-desktop;
+    max-width: 100vw;
+    transform: translate(0, 30px);
+
+    @media ($desktop-min-xl) {
+      background-color: $catalog-background;
+    }
+
+    @media ($desktop-min-xl) {
+      %hover-to-open-hover & {
+        transform: translate(0, 20px);
+      }
+    }
+    @media ($desktop-max) {
+      %hover-to-open.active & {
+        transform: translate(0);
+      }
+    }
+  }
+  &__search {
+    flex-grow: 1;
+    max-width: 588px;
+    margin-left: auto;
+  }
+  &__features {
+    margin-left: 25px;
+  }
+}

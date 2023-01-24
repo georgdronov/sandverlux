@@ -1,0 +1,159 @@
+.popular {
+  $items-gap-top: 2.125rem;
+  $items-gap-left: 2.375rem;
+  $items-gap-top-mobile: 8px;
+  $items-gap-left-mobile: 13px;
+
+  padding: 1.5625rem 2.125rem;
+  margin-top: 2.5rem;
+  background-color: $form-grey-color;
+
+  @media ($mobile-max) {
+    padding: 13px 17px;
+  }
+
+  &._expanded {
+    @extend %popular-expanded !optional;
+  }
+
+  &__heading {
+    color: $heading-color;
+    display: inline-block;
+    font-size: 1.125rem;
+    margin-top: $items-gap-top;
+    font-weight: 500;
+    margin-left: $items-gap-left;
+    vertical-align: bottom;
+
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
+    @media ($mobile-max) {
+      margin-top: $items-gap-top-mobile;
+      margin-left: $items-gap-left-mobile;
+    }
+  }
+  &__list-wrapper {
+    margin-top: -$items-gap-top;
+    margin-left: -$items-gap-left;
+
+    @media ($mobile-max) {
+      margin-top: -$items-gap-top-mobile;
+      margin-left: -$items-gap-left-mobile;
+    }
+  }
+  &__list {
+    display: inline;
+    vertical-align: middle;
+  }
+  &__list-item {
+    display: inline-block;
+    margin-top: $items-gap-top;
+    margin-left: $items-gap-left;
+
+    @media ($mobile-max) {
+      margin-top: $items-gap-top-mobile;
+      margin-left: $items-gap-left-mobile;
+    }
+  }
+  &__hidden-items {
+    display: none;
+
+    %popular-expanded & {
+      display: inline;
+    }
+  }
+  &__link {
+    color: $text-color;
+    font-size: 1.125rem;
+
+    @media ($desktop-min) {
+      transition: color 0.2s;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
+  }
+  &__button {
+    color: $primary-color;
+    border: none;
+    padding: 0;
+    font-size: 1.125rem;
+    margin-top: $items-gap-top;
+    font-weight: 700;
+    margin-left: $items-gap-left;
+    vertical-align: bottom;
+    background-color: transparent;
+
+    @media ($desktop-min) {
+      transition: color 0.3s;
+
+      &:hover {
+        @extend %popular-button-hover !optional;
+
+        color: $secondary-color;
+      }
+    }
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
+    @media ($mobile-max) {
+      width: 100%;
+      width: calc(100% - $items-gap-left-mobile);
+      margin-top: $items-gap-top-mobile;
+      margin-left: $items-gap-left-mobile;
+    }
+
+    &::before {
+      content: attr(data-title);
+      vertical-align: middle;
+
+      %popular-expanded & {
+        content: attr(data-second-title);
+      }
+    }
+  }
+  // &__button-title {
+  // }
+  &__button-icon {
+    width: 30px;
+    color: $white;
+    height: 30px;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    background-color: $primary-color;
+
+    @media ($desktop-min) {
+      transform: scale(1);
+      transition: transform 0.3s, background-color 0.3s;
+
+      %popular-button-hover & {
+        transform: scale(1.15);
+        background-color: $secondary-color;
+      }
+    }
+    @media ($mobile-max) {
+      width: 23px;
+      height: 23px;
+      font-size: 16px;
+      margin-left: 5px;
+      line-height: 23px;
+    }
+
+    &::before {
+      content: "+";
+
+      %popular-expanded & {
+        content: "-";
+      }
+    }
+  }
+}

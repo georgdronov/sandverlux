@@ -1,0 +1,118 @@
+.how-we-work {
+  padding: 4.6875rem 0;
+
+  @media ($tablet-mad) {
+    padding: 2.4rem 0;
+  }
+
+  // &__container {
+  // }
+  // &__heading {
+  // }
+  &__items {
+    @extend %row-wrapper;
+
+    @media ($tablet-mid) {
+      @include margin-x(-0.9375rem);
+      margin-bottom: -1.875rem;
+    }
+    @media ($tablet-mad) {
+      @include margin-x(-0.6rem);
+      margin-bottom: -1.2rem;
+    }
+  }
+  &__item {
+    @media ($desktop-min-xl) {
+      flex: 0 0 16.6666%;
+      max-width: 16.6666%;
+    }
+    @media ($desktop-max) and ($tablet-mid) {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+    }
+    @media ($tablet-mid) {
+      @include padding-x(0.9375rem);
+      margin-bottom: 1.875rem;
+    }
+    @media ($tablet-mad) {
+      flex: 0 0 50%;
+      max-width: 50%;
+      @include padding-x(0.6rem);
+      margin-bottom: 1.2rem;
+    }
+
+    &:nth-child(2n + 1) {
+      @extend %hww-odd-item;
+    }
+    &:nth-child(2n) {
+      @extend %hww-even-item;
+    }
+  }
+  &__item-inner {
+    height: 100%;
+    border: 1px solid $items-border;
+    padding: 2.4375rem 0.9375rem 1.6875rem;
+    transform: translateY(0);
+    text-align: center;
+    transition: transform 0.3s;
+    background-color: $white;
+
+    @media ($mobile-max) {
+      padding-top: 2rem;
+    }
+
+    &:hover {
+      transform: translateY(-0.625rem);
+      @extend %hww-inner-hover;
+    }
+  }
+  &__image-wrapper {
+    margin: 0 auto;
+    display: inline-block;
+    overflow: visible;
+    transform: scale(1);
+    transition: transform 0.3s;
+    user-select: none;
+
+    %hww-inner-hover & {
+      transform: scale(1.2);
+    }
+  }
+  &__image {
+    width: 4.0625rem;
+    height: 4.0625rem;
+    margin: 0 auto;
+
+    %hww-even-item & {
+      color: $yellow;
+    }
+    %hww-odd-item & {
+      color: $primary-color;
+    }
+  }
+  &__image-dollar {
+    top: 0.3125rem;
+    right: -1.0625rem;
+    width: 0.75rem;
+    height: 1.375rem;
+    position: absolute;
+
+    %hww-even-item & {
+      color: $primary-color;
+    }
+    %hww-odd-item & {
+      color: $yellow;
+    }
+  }
+  &__title {
+    margin-top: 2rem;
+    line-height: 1.25;
+
+    @media ($tablet-mad) {
+      font-size: 1.15rem;
+    }
+    @media ($mobile-max) {
+      margin-top: 1rem;
+    }
+  }
+}

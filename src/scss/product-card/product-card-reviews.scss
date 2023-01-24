@@ -1,0 +1,18 @@
+.product-card-reviews {
+  // &__heading {
+  // }
+  &__wrapper {
+    %review + %review {
+      margin-top: 2rem;
+    }
+  }
+  &__button {
+    width: 18.375rem;
+    padding: 16px 30px;
+    font-size: 14px;
+
+    @media ($tablet-mid) {
+      margin-top: 1.9rem;
+    }
+  }
+}

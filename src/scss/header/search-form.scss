@@ -1,0 +1,39 @@
+.search-form {
+  color: $white;
+  position: relative;
+
+  &__label {
+    width: 100%;
+  }
+  &__input {
+    color: inherit;
+    width: 100%;
+    border: none;
+    padding: 13px 50px 12px 35px;
+    font-size: 12px;
+    min-width: 200px;
+    line-height: 1.25;
+    background-color: #9ab98f;
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.05);
+
+    &::placeholder {
+      color: inherit;
+      opacity: 1;
+    }
+  }
+  &__button {
+    top: 0;
+    right: 0;
+    width: 50px;
+    color: inherit;
+    height: 100%;
+    border: none;
+    padding: 0;
+    position: absolute;
+    background-color: transparent;
+  }
+  &__button-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

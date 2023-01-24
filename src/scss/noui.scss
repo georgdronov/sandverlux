@@ -1,0 +1,59 @@
+.noUi {
+  $handler-size: 15px;
+  $handler-size-mobile: 19px;
+
+  &-connects {
+    border-radius: 0;
+  }
+  &-target {
+    border: none;
+    padding-left: calc($handler-size / 2);
+    border-radius: 0;
+    padding-right: calc($handler-size / 2);
+
+    @media ($mobile-max) {
+      padding-left: calc($handler-size-mobile / 2);
+      padding-right: calc($handler-size-mobile / 2);
+    }
+  }
+  &-horizontal {
+    height: 2px;
+
+    @extend %noui-horizontal !optional;
+
+    %noui-handle {
+      width: $handler-size;
+      height: $handler-size;
+      right: calc($handler-size / -2);
+      top: calc($handler-size / -2);
+      transition: box-shadow $transition3;
+
+      @media ($mobile-max) {
+        width: $handler-size-mobile;
+        height: $handler-size-mobile;
+        right: calc($handler-size-mobile / -2);
+        top: calc($handler-size-mobile / -2);
+      }
+      &:focus-visible {
+        @include focus-styles($color: $white);
+      }
+    }
+  }
+  &-connect {
+    background: $yellow;
+  }
+  &-handle {
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    background: #ecb800;
+    border-radius: 50%;
+
+    @extend %noui-handle !optional;
+
+    &:before,
+    &:after {
+      content: normal;
+    }
+  }
+}

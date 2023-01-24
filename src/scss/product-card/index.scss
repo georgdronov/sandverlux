@@ -1,0 +1,11 @@
+$product-card-gap: 3.75rem;
+$product-card-tablet-gap: 2.5rem;
+
+@import "product-card";
+@import "product-card-slider";
+@import "sliders-switcher";
+@import "full-price";
+@import "additional-info";
+@import "characteristics";
+@import "product-card-reviews";
+@import "payment-and-delivery";

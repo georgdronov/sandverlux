@@ -1,0 +1,58 @@
+.category {
+  padding: 2.2rem 0;
+
+  @media ($mobile-max) {
+    padding: 0.6rem 0 2rem;
+  }
+
+  // &__container {
+  // }
+  // &__header {
+  // }
+  // &__heading {
+  // }
+  &__sort {
+    margin-top: 4.7rem;
+
+    @media ($mobile-max) {
+      margin-top: 18px;
+    }
+
+    %sort {
+      align-items: center;
+    }
+    %sort-filter-toggle-button {
+      @media ($desktop-max) {
+        display: inline-block;
+        margin-right: auto;
+      }
+    }
+    %sort-heading {
+      display: none;
+    }
+    %sort-sort {
+      margin-right: auto;
+    }
+    %sort-sort,
+    %sort-count,
+    %sort-limit {
+      @media ($desktop-max) {
+        display: none;
+      }
+    }
+    %form-item-heading {
+      color: $text-color;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    %form-select {
+      color: $heading-color;
+      font-weight: 600;
+
+      & option {
+        color: $text-color;
+        font-weight: 400;
+      }
+    }
+  }
+}
