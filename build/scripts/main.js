@@ -46,7 +46,7 @@
         const linkTarget = document.getElementById(link.substring(1));
         if (!linkTarget)
           return;
-        const currentScrollTop = window.scrollY, targetScrollTop = linkTarget.offsetTop - 100;
+        const currentScrollTop = window.scrollY, targetScrollTop = linkTarget.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
         const burgerElem = document.querySelector("._menu-opened");
         if (burgerElem)
           burgerElem.classList.remove("_menu-opened");
@@ -77,31 +77,6 @@
       }
     });
   }
-  function wheelToHide() {
-    const elements = document.querySelectorAll("._wheel-to-hide");
-    if (!elements.length)
-      return;
-    elements.forEach((element) => {
-      if (element.scrollWidth <= element.clientWidth || document.cookie.includes("wheelToHideHidden")) {
-        element.classList.remove("active");
-        setTimeout(() => element.classList.remove("_wheel-to-hide"), 500);
-        return;
-      }
-      element.scrollLeft = 0;
-      element.classList.add("active");
-      element.addEventListener("scroll", (event2) => hide(event2.target), {
-        once: true
-      });
-      element.addEventListener("click", (event2) => hide(event2.target), {
-        once: true
-      });
-    });
-    function hide(element) {
-      element.classList.remove("active");
-      document.cookie = "wheelToHideHidden=; max-age=604800; samesite=lax";
-      setTimeout(() => element.classList.remove("_wheel-to-hide"), 500);
-    }
-  }
   function mapOverlay() {
     const maps = document.querySelectorAll(".map");
     if (!maps.length)
@@ -126,13 +101,36 @@
   }
   function scrollToTop() {
     const scrollTopElement = document.querySelector(".scroll-top");
+    const scrollTopPath = scrollTopElement.querySelector(".scroll-top__path");
+    let scrollTopPathLength = 0;
+    let documentHeight = document.documentElement.offsetHeight - window.innerHeight;
+    if (scrollTopPath) {
+      scrollTopPathLength = scrollTopPath.getTotalLength();
+      window.addEventListener("load", function() {
+        documentHeight = document.documentElement.offsetHeight - window.innerHeight;
+        setPreloaderPath(
+          scrollTopPath,
+          scrollTopPathLength,
+          document.documentElement.scrollTop * 100 / documentHeight
+        );
+      });
+    }
+    let hasClass3 = scrollTopElement.classList.contains("_active"), isScrolled = scrollY > 35;
     window.addEventListener("scroll", function() {
-      let hasClass3 = scrollTopElement.classList.contains("_active"), isScrolled = scrollY > 35;
+      hasClass3 = scrollTopElement.classList.contains("_active");
+      isScrolled = scrollY > 35;
       if (isScrolled && !hasClass3) {
         scrollTopElement.classList.add("_active");
       } else if (!isScrolled && hasClass3) {
         scrollTopElement.classList.remove("_active");
       }
+      if (!scrollTopPath)
+        return;
+      setPreloaderPath(
+        scrollTopPath,
+        scrollTopPathLength,
+        document.documentElement.scrollTop * 100 / documentHeight
+      );
     });
     scrollTopElement.addEventListener("click", () => {
       let currentScrollTop = window.scrollY;
@@ -146,6 +144,9 @@
     });
     if (scrollY > 35 && !scrollTopElement.classList.contains("_active")) {
       scrollTopElement.classList.add("_active");
+    }
+    function setPreloaderPath(path, pathLength, value) {
+      path.style.strokeDashoffset = pathLength + 0.01 * pathLength * value;
     }
   }
   function animate({ timing, draw, duration }) {
@@ -6994,7 +6995,16 @@
         button.click();
       })
     );
-    wheelToHide();
+    const activeLabes = document.querySelectorAll("label[role=button]");
+    if (activeLabes.length) {
+      activeLabes.forEach(
+        (label) => label.addEventListener("keydown", (e) => {
+          if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+            label.click();
+          }
+        })
+      );
+    }
   });
 })();
 //# sourceMappingURL=main.js.map

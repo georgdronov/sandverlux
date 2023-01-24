@@ -221,8 +221,10 @@
     }
   }
   & textarea%form-input {
-    margin: 0;
+    // margin: 0;
     resize: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
 
     @media ($tablet-min) {
       min-height: 113px;
@@ -315,6 +317,13 @@
         }
       }
     }
+    &:focus-visible {
+      box-shadow: none;
+
+      %form-label::before {
+        @include focus-styles;
+      }
+    }
 
     $items-img-gap: 15px;
 
@@ -332,7 +341,7 @@
         & ~ %form-label {
           padding: 8px 10px 11px;
           text-align: center;
-          transition: background-color 0.3s;
+          transition: background-color 0.3s, box-shadow $transition3;
           user-select: none;
           background-color: transparent;
 
@@ -354,12 +363,19 @@
           }
         }
       }
+      &:focus-visible {
+        %form-label {
+          @include focus-styles;
+        }
+      }
     }
   }
   &__counter {
     height: 45px;
     border: 1px solid $form-grey-color;
     display: flex;
+
+    @extend %form-counter !optional;
 
     &-button {
       color: $heading-color;
@@ -368,6 +384,8 @@
       height: 100%;
       font-size: 16px;
       background-color: $form-grey-color;
+
+      // @extend %form-counter-button !optional;
     }
     %form-input {
       width: 40px;
@@ -398,15 +416,15 @@
       }
     }
   }
+  $fbw-gap: 1rem;
   &__buttons-wrapper {
-    display: flex;
-    justify-content: space-between;
+    @extend %row-wrapper;
+    margin-top: calc(0rem - $fbw-gap + 0.6rem);
+    align-items: center;
+    margin-left: -$fbw-gap;
 
-    @media ($desktop-min) {
-      align-items: center;
-    }
-    @media ($tablet-max) {
-      flex-direction: column-reverse;
+    @media ($mobile-max) {
+      justify-content: flex-end;
     }
   }
   &__personal-data {
@@ -436,7 +454,9 @@
   }
   &__button {
     min-width: 15.25rem;
-    margin-top: 0.6rem;
+    // margin-top: 0.6rem;
+    margin-top: $fbw-gap;
+    margin-left: $fbw-gap;
     flex-shrink: 0;
     padding-top: 15px;
     padding-bottom: 15px;

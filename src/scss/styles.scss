@@ -139,6 +139,7 @@ body {
 }
 .logo {
   display: inline-block;
+  position: relative;
   @extend %link-indent;
 
   @media ($desktop-min) {
@@ -963,6 +964,8 @@ body {
   $row-width: 300px;
   $column-height: 500px;
 
+  @extend %catalog !optional;
+
   // &__title {
   // }
   // &__list {
@@ -1093,6 +1096,9 @@ body {
     @media ($desktop-max) {
       display: none;
     }
+    %catalog &:focus-visible {
+      @include focus-styles;
+    }
   }
   &__banner {
     width: $column-height;
@@ -1105,6 +1111,8 @@ body {
     height: 100%;
     display: block;
     text-decoration: none;
+
+    @extend %catalog-banner-link !optional;
 
     &:hover {
       @extend %catalog-banner-link-hover !optional;
@@ -1160,6 +1168,12 @@ body {
     %catalog-banner-link-hover & {
       transform: scale(1.1);
     }
+    %catalog-banner-link:focus-visible & {
+      @include focus-styles;
+    }
+  }
+  *:focus-visible {
+    @include focus-styles($inset: true);
   }
 }
 .search-form {
@@ -1534,9 +1548,6 @@ body {
       & label {
         flex: 1 1 0%;
         display: flex;
-
-        // &:focus-visible {
-        // }
       }
     }
     & %form-input-placeholder {
@@ -1706,6 +1717,10 @@ body {
   &__button {
     width: 100%;
     padding: 15px 30px;
+
+    &:focus-visible {
+      @include focus-styles($color: $primary-color);
+    }
   }
 }
 .popular-categories {
@@ -1767,7 +1782,6 @@ body {
     text-decoration: none;
     background-color: transparent;
     transition: box-shadow 0.3s, background-color 0.3s;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
 
     @media ($tablet-min) {
       &:hover {
@@ -1869,6 +1883,7 @@ body {
 }
 .product {
   width: 310px;
+  height: 100%;
 
   @media ($tablet-max) and ($tablet-min) {
     width: 240px;
@@ -1952,6 +1967,9 @@ body {
       background-color: $primary-color;
 
       %product-hover & {
+        transform: translateY(0);
+      }
+      &:focus-within {
         transform: translateY(0);
       }
     }
@@ -2048,6 +2066,10 @@ body {
       padding: 8px 30px;
       font-size: 12px;
       margin-top: 11px;
+    }
+
+    &:focus-within {
+      @include focus-styles($color: $primary-color);
     }
   }
   &__colors {
@@ -2234,7 +2256,6 @@ body {
     box-sizing: content-box;
   }
   &__slide {
-    height: 100%;
     position: relative;
     flex-shrink: 0;
     transition-property: transform;
@@ -3301,6 +3322,7 @@ body {
     margin-top: $items-gap-top;
     font-weight: 500;
     margin-left: $items-gap-left;
+    vertical-align: bottom;
 
     @media ($desktop-max) {
       font-size: 14px;
@@ -3363,6 +3385,7 @@ body {
     margin-top: $items-gap-top;
     font-weight: 700;
     margin-left: $items-gap-left;
+    vertical-align: bottom;
     background-color: transparent;
 
     @media ($desktop-min) {
@@ -4213,7 +4236,6 @@ body {
     box-sizing: content-box;
   }
   &__slide {
-    height: 100%;
     position: relative;
     flex-shrink: 0;
     transition-property: transform;
@@ -4477,19 +4499,31 @@ $product-card-tablet-gap: 2.5rem;
       padding: 11px 24px;
       font-weight: 400;
       text-decoration: underline;
+
+      @media ($mobile-max) {
+        width: 100%;
+      }
     }
   }
   &__features {
     $features-gap: 1.6rem;
+    $features-top-gap: 0.6rem;
 
     @extend %row-wrapper;
-    margin-top: 1.4rem;
+    margin-top: calc(1.4rem - $features-top-gap);
     margin-left: -$features-gap;
+
+    @media ($mobile-max) {
+      margin-top: calc(3rem - $features-top-gap);
+      align-items: flex-start;
+      flex-direction: column;
+    }
 
     &-button {
       color: $yellow;
       border: none;
       padding: 5px 0;
+      margin-top: $features-top-gap;
       margin-left: $features-gap;
       background-color: transparent;
     }
@@ -4523,6 +4557,10 @@ $product-card-tablet-gap: 2.5rem;
       padding-right: $sides-padding-tablet;
       padding-left: calc($sides-padding-tablet - $installment-gap);
     }
+    @media ($mobile-max) {
+      margin: 2.5rem -1.5rem 0;
+      padding: 0.7rem calc(1.5rem - $installment-gap) 1.6rem;
+    }
 
     & > * {
       margin-top: $installment-gap;
@@ -4543,6 +4581,10 @@ $product-card-tablet-gap: 2.5rem;
         font-size: 14px;
         min-width: 100px;
         background-position: right 8px center;
+
+        @media ($mobile-max) {
+          height: 40px;
+        }
       }
     }
     &-price {
@@ -4568,36 +4610,74 @@ $product-card-tablet-gap: 2.5rem;
       margin-top: $colors-gap;
       margin-left: $colors-gap;
     }
+    %form-item-wrapper {
+      margin-top: calc($colors-gap - 1.5rem);
+      margin-left: calc($colors-gap - 2rem);
+
+      @media ($mobile-max) {
+        margin-top: calc($colors-gap - 1.5rem + 1rem);
+      }
+
+      & > * {
+        margin-top: 1.5rem;
+        margin-left: 2rem;
+      }
+    }
     %form-item-heading {
       font-size: 16px;
-      margin-right: 2rem;
 
       @media ($desktop-max) {
         font-size: 14px;
       }
     }
     %form-color-wrapper {
+      margin-top: calc(1.5rem - 1rem);
       margin-right: -1rem;
+
+      @media ($desktop-max) {
+        margin-right: -2rem;
+      }
+
+      & > * {
+        margin-top: 1rem;
+        margin-right: 1rem;
+
+        @media ($desktop-max) {
+          margin-right: 2rem;
+        }
+      }
     }
     %form-color {
-      margin-right: 1rem;
-
       %form-label {
         width: 3.125rem;
         height: 3.125rem;
+
+        @media ($mobile-max) {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }
   &__buttons {
     $buttons-gap: 1.8rem;
+    $buttons-mobile-gap: 1.1rem;
 
     // margin-top: 1.4rem;
     margin-top: calc(1.4rem - $buttons-gap);
     margin-left: -$buttons-gap;
 
+    @media ($mobile-max) {
+      margin-top: calc(2.2rem - $buttons-mobile-gap);
+    }
+
     & > * {
       margin-top: $buttons-gap;
       margin-left: $buttons-gap;
+
+      @media ($mobile-max) {
+        margin-top: $buttons-mobile-gap;
+      }
     }
   }
   &__btn {
@@ -5157,7 +5237,7 @@ $product-card-tablet-gap: 2.5rem;
     max-height: 0;
     visibility: hidden;
     transition: opacity $transition3, visibility $transition3,
-      max-height $transition3;
+      max-height $transition3 0.3s;
 
     &:nth-child(n + 2) {
       margin-left: -100%;
@@ -5166,6 +5246,8 @@ $product-card-tablet-gap: 2.5rem;
       opacity: 1;
       max-height: 50vh;
       visibility: visible;
+      transition: opacity $transition3, visibility $transition3,
+        max-height $transition3;
     }
   }
   &__list {
@@ -5213,6 +5295,42 @@ $product-card-tablet-gap: 2.5rem;
     }
   }
 }
+.popup-product {
+  $pp-gap: 1.8rem;
+
+  @extend %row-wrapper;
+  margin-top: -$pp-gap;
+  margin-left: -$pp-gap;
+  align-items: center;
+  margin-bottom: 1.85rem;
+
+  & > * {
+    margin-top: $pp-gap;
+    margin-left: $pp-gap;
+  }
+  &__image-wrapper {
+    height: 0;
+    width: 126px;
+    height: 126px;
+  }
+  // &__image {
+  // }
+  // &__content {
+  // }
+  &__heading {
+    font-size: 16px;
+
+    & + * {
+      margin-top: 1.5rem;
+    }
+  }
+  &__price {
+    color: $heading-color;
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 1.6rem;
+  }
+}
 
 .noUi {
   $handler-size: 15px;
@@ -5242,12 +5360,16 @@ $product-card-tablet-gap: 2.5rem;
       height: $handler-size;
       right: calc($handler-size / -2);
       top: calc($handler-size / -2);
+      transition: box-shadow $transition3;
 
       @media ($mobile-max) {
         width: $handler-size-mobile;
         height: $handler-size-mobile;
         right: calc($handler-size-mobile / -2);
         top: calc($handler-size-mobile / -2);
+      }
+      &:focus-visible {
+        @include focus-styles($color: $white);
       }
     }
   }

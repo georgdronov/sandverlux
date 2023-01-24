@@ -24,11 +24,20 @@
   opacity: 0;
   z-index: 1000;
   display: flex;
-  padding: 50px $container-padding-mobile $container-padding-mobile;
   position: fixed;
   overflow-y: auto;
   visibility: hidden;
   transition: opacity $transition3, visibility $transition3;
+
+  @media ($desktop-min-xl) {
+    padding: 50px $container-padding-desktop $container-padding-desktop;
+  }
+  @media ($desktop-max) and ($tablet-min) {
+    padding: 50px $container-padding-tablet $container-padding-tablet;
+  }
+  @media ($mobile-max) {
+    padding: 50px $container-padding-mobile $container-padding-mobile;
+  }
 
   &_active {
     z-index: 1050;
@@ -42,8 +51,11 @@
     position: relative;
     max-width: 100%;
     min-width: 250px;
-    border-radius: 9px;
     background-color: $white;
+
+    @media ($mobile-max) {
+      padding: 2.5rem;
+    }
   }
   &__close {
     position: absolute;
@@ -56,7 +68,7 @@
     background-color: transparent;
     @extend %flex-center;
     // filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
-    
+
     @media ($desktop-min) {
       transform: scale(1);
       transition: transform 0.2s;
@@ -83,7 +95,7 @@
       transform: rotate(45deg);
     }
   }
-  form label {
+  form %form-item:not(%form-counter) label {
     width: 100%;
   }
   &__heading {
@@ -109,5 +121,11 @@
     font-size: 14px;
     min-height: 45px;
     margin-top: 0.5rem;
+  }
+  %form-counter %form-input {
+    padding: 0;
+    font-size: 16px;
+    margin-top: 0;
+    min-height: 0;
   }
 }

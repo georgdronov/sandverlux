@@ -49,7 +49,10 @@ function setAnchorsEvents() {
       if (!linkTarget) return;
 
       const currentScrollTop = window.scrollY,
-        targetScrollTop = linkTarget.offsetTop - 100;
+        targetScrollTop =
+          linkTarget.getBoundingClientRect().top +
+          document.documentElement.scrollTop -
+          100;
 
       const burgerElem = document.querySelector("._menu-opened");
       if (burgerElem) burgerElem.classList.remove("_menu-opened");
@@ -140,14 +143,41 @@ export function mapOverlay() {
 
 export function scrollToTop() {
   const scrollTopElement = document.querySelector(".scroll-top");
+  const scrollTopPath = scrollTopElement.querySelector(".scroll-top__path");
+  let scrollTopPathLength = 0;
+  let documentHeight =
+    document.documentElement.offsetHeight - window.innerHeight;
+
+  if (scrollTopPath) {
+    scrollTopPathLength = scrollTopPath.getTotalLength();
+
+    window.addEventListener("load", function () {
+      documentHeight =
+        document.documentElement.offsetHeight - window.innerHeight;
+      setPreloaderPath(
+        scrollTopPath,
+        scrollTopPathLength,
+        (document.documentElement.scrollTop * 100) / documentHeight
+      );
+    });
+  }
+  let hasClass = scrollTopElement.classList.contains("_active"),
+    isScrolled = scrollY > 35;
   window.addEventListener("scroll", function () {
-    let hasClass = scrollTopElement.classList.contains("_active"),
-      isScrolled = scrollY > 35;
+    hasClass = scrollTopElement.classList.contains("_active");
+    isScrolled = scrollY > 35;
     if (isScrolled && !hasClass) {
       scrollTopElement.classList.add("_active");
     } else if (!isScrolled && hasClass) {
       scrollTopElement.classList.remove("_active");
     }
+
+    if (!scrollTopPath) return;
+    setPreloaderPath(
+      scrollTopPath,
+      scrollTopPathLength,
+      (document.documentElement.scrollTop * 100) / documentHeight
+    );
   });
   scrollTopElement.addEventListener("click", () => {
     let currentScrollTop = window.scrollY;
@@ -161,6 +191,10 @@ export function scrollToTop() {
   });
   if (scrollY > 35 && !scrollTopElement.classList.contains("_active")) {
     scrollTopElement.classList.add("_active");
+  }
+
+  function setPreloaderPath(path, pathLength, value) {
+    path.style.strokeDashoffset = pathLength + 0.01 * pathLength * value;
   }
 }
 

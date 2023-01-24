@@ -689,7 +689,20 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   );
 
-  myFunctions.wheelToHide();
+  // interaction on label //
+
+  const activeLabes = document.querySelectorAll("label[role=button]");
+  if (activeLabes.length) {
+    activeLabes.forEach((label) =>
+      label.addEventListener("keydown", (e) => {
+        if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+          label.click();
+        }
+      })
+    );
+  }
+
+  // myFunctions.wheelToHide();
 });
 
 import * as myFunctions from "./functions.js";

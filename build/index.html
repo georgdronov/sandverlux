@@ -22,6 +22,7 @@
   <meta name="description"
     content='Огромный выбор дверей производства России и Беларуси со склада и под заказ на сайте sandverlux.by. Салоны дверей Сандверлюкс 🚪 в Минске - это 📏 Бесплатный замер, ⌛ Оперативная доставка и установка!'>
   <link media="screen" rel="stylesheet" href="styles/styles.min.css">
+  <link rel="preload" as="image" href="images/placeholder.png">
 </head>
 
 <body>
@@ -450,7 +451,7 @@
     <div class="main-banner__container container">
       <div class="main-banner__content">
         <h1 class="main-banner__heading heading">Двери для любых интерьеров</h1>
-        <a class="main-banner__button _btn _btn--transparent" href="#">Перейти в каталог</a>
+        <a class="main-banner__button _btn _btn--transparent" href="/interior-doors">Перейти в каталог</a>
         <div class="main-banner__progress row">
           <div class="main-banner__progress-item">
             <p class="main-banner__progress-content"><span class="main-banner__progress-value">80 000</span>
@@ -490,11 +491,11 @@
     <fieldset class="form__item-wrapper">
       <legend class="form__item-heading">Я ищу двери</legend>
       <div class="form__item">
-        <label class="form__radio" tabindex="0">
+        <label class="form__radio" role="button" tabindex="0">
           <input class="form__input" type="radio" name="door-type" value="interior" checked hidden>
           <span class="form__label">Межкомнатные</span>
         </label>
-        <label class="form__radio" tabindex="0">
+        <label class="form__radio" role="button" tabindex="0">
           <input class="form__input" type="radio" name="door-type" value="entrance" hidden>
           <span class="form__label">Входные</span>
         </label>
@@ -552,15 +553,15 @@
     <fieldset class="form__item-wrapper form__item-wrapper_row">
       <legend class="form__item-heading">Цвета</legend>
       <div class="form__item form__color-wrapper">
-        <label class="form__color">
+        <label class="form__color" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-color" value="color001" checked hidden>
           <span class="form__label" style="background-color:rgb(210, 105, 30);">Светлый коричневый</span>
         </label>
-        <label class="form__color">
+        <label class="form__color" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-color" value="color002" hidden>
           <span class="form__label" style="background-color:rgb(82, 59, 42);">Тёмный коричневый</span>
         </label>
-        <label class="form__color">
+        <label class="form__color" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-color" value="color003" hidden>
           <span class="form__label" style="background-color:rgb(218, 184, 161);">Ольха</span>
         </label>
@@ -601,15 +602,15 @@
     <fieldset class="form__item-wrapper form__item-wrapper_row">
       <legend class="form__item-heading">Система открывания</legend>
       <div class="form__item">
-        <label class="form__checkbox">
+        <label class="form__checkbox" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-opening-system" hidden>
           <span class="form__label">Классическая</span>
         </label>
-        <label class="form__checkbox">
+        <label class="form__checkbox" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-opening-system" hidden>
           <span class="form__label">Раздвижная</span>
         </label>
-        <label class="form__checkbox">
+        <label class="form__checkbox" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-opening-system" hidden>
           <span class="form__label">Складная</span>
         </label>
@@ -620,7 +621,7 @@
     <fieldset class="form__item-wrapper">
       <legend class="form__item-heading">Стиль двери</legend>
       <div class="form__item form__checkbox-wrapper--img">
-        <label class="form__checkbox form__checkbox--img">
+        <label class="form__checkbox form__checkbox--img" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-style" hidden>
           <span class="form__label">
             <svg width="80" height="80">
@@ -629,7 +630,7 @@
             <span>Хай-тек</span>
           </span>
         </label>
-        <label class="form__checkbox form__checkbox--img">
+        <label class="form__checkbox form__checkbox--img" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-style" hidden>
           <span class="form__label">
             <svg width="80" height="80">
@@ -638,7 +639,7 @@
             <span>Хай-тек</span>
           </span>
         </label>
-        <label class="form__checkbox form__checkbox--img">
+        <label class="form__checkbox form__checkbox--img" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-style" hidden>
           <span class="form__label">
             <svg width="80" height="80">
@@ -647,7 +648,7 @@
             <span>Хай-тек</span>
           </span>
         </label>
-        <label class="form__checkbox form__checkbox--img">
+        <label class="form__checkbox form__checkbox--img" role="button" tabindex="0">
           <input class="form__input" type="checkbox" name="door-style" hidden>
           <span class="form__label">
             <svg width="80" height="80">
@@ -774,12 +775,12 @@
 </div>
       </div>
 
-      <div class="popular-categories__nav-btn popular-categories__nav-btn_prev">
+      <div class="popular-categories__nav-btn popular-categories__nav-btn_prev" role="button" tabindex="0">
         <svg class="popular-categories__prev-icon" width="20" height="10">
           <use href="/images/icons.svg#chevron-down" />
         </svg>
       </div>
-      <div class="popular-categories__nav-btn popular-categories__nav-btn_next">
+      <div class="popular-categories__nav-btn popular-categories__nav-btn_next" role="button" tabindex="0">
         <svg class="popular-categories__next-icon" width="20" height="10">
           <use href="/images/icons.svg#chevron-down" />
         </svg>
@@ -840,27 +841,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color001" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color001" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color001" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color001" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color001" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -925,27 +926,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color002" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color002" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color002" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color002" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color002" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1007,27 +1008,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color003" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color003" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color003" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color003" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color003" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1094,27 +1095,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color004" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color004" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color004" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color004" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color004" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1181,27 +1182,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1270,27 +1271,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1350,27 +1351,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1430,27 +1431,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1510,27 +1511,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1599,27 +1600,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1679,27 +1680,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1759,27 +1760,27 @@
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label">
+        <label class="product__color-label" role="button" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active">
+        <label class="product__color-label active" role="button" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1797,9 +1798,7 @@
 </article>
 </div>
         </div>
-
-        <!-- <div class="swiper-pagination"></div> -->
-
+        
         <div class="our-goods__nav-btn our-goods__nav-btn_prev">
           <svg class="our-goods__prev-icon" width="20" height="10">
             <use href="/images/icons.svg#chevron-down" />
@@ -1810,8 +1809,7 @@
             <use href="/images/icons.svg#chevron-down" />
           </svg>
         </div>
-
-        <!-- <div class="swiper-scrollbar"></div> -->
+        
       </div>
     </div>
   </div>
@@ -2172,8 +2170,8 @@
             <strong>Телефон:</strong>
             <a href="tel:+375445332522">+375 44 533 25 22</a>
           </p>
-          <button class="our-shops__button" type="button" value="CCUrvYwMcD" name="our-shops-set-marker">Смотреть на
-            карте</button>
+          
+          <a href="#our-shops-map" class="our-shops__button">Смотреть на карте</a>
         </div>
       </div>
       <div class="our-shops__item">
@@ -2187,8 +2185,8 @@
             <strong>Телефон:</strong>
             <a href="tel:+375445332522">+375 44 533 25 22</a>
           </p>
-          <button class="our-shops__button" type="button" value="CCUrv4ThSD" name="our-shops-set-marker">Смотреть на
-            карте</button>
+          
+          <a href="#our-shops-map" class="our-shops__button">Смотреть на карте</a>
         </div>
       </div>
     </div>
@@ -2197,8 +2195,7 @@
         <div class="map__overlay">
           <p class="map__message">Нажмите, чтобы взаимодействовать</p>
         </div>
-        <!-- <iframe id="our-shops-map" src="https://yandex.by/map-widget/v1/-/CCUrvBuUOA" width="1780" height="445"
-          allowfullscreen="true"></iframe> -->
+        
         <iframe id="our-shops-map" width="100%" height="445" loading="lazy"
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A28e2e91a91eb207316af2cae827e1825e63ca573cb080ad7c020de7d1c9e5a84&amp;source=constructor"></iframe>
       </div>
@@ -2401,7 +2398,9 @@
     </label>
   </div>
   <div class="form__item">
-    <button class="form__button _btn" type="submit" name="request-a-call-submit">Отправить</button>
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="request-a-call-submit">Отправить</button>
+    </div>
   </div>
 </form>
   </div>
@@ -2452,6 +2451,12 @@
 </section>
 <button class="scroll-top">
   <span class="sr-only">scroll top</span>
+  <svg class="scroll-top__progress" width="37" height="37" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="scroll-top__path"
+      d="M29 2C25.4543 2 21.9433 2.69838 18.6676 4.05525C15.3918 5.41213 12.4153 7.40094 9.90812 9.90812C7.40094 12.4153 5.41213 15.3918 4.05525 18.6675C2.69838 21.9433 2 25.4543 2 29C2 32.5457 2.69837 36.0567 4.05525 39.3325C5.41213 42.6082 7.40093 45.5847 9.90812 48.0919C12.4153 50.5991 15.3918 52.5879 18.6675 53.9447C21.9433 55.3016 25.4543 56 29 56C32.5457 56 36.0567 55.3016 39.3325 53.9447C42.6082 52.5879 45.5847 50.5991 48.0919 48.0919C50.5991 45.5847 52.5879 42.6082 53.9447 39.3325C55.3016 36.0567 56 32.5457 56 29C56 25.4543 55.3016 21.9433 53.9447 18.6675C52.5879 15.3918 50.5991 12.4153 48.0919 9.90812C45.5847 7.40094 42.6082 5.41213 39.3325 4.05525C36.0567 2.69838 32.5457 2 29 2L29 2Z"
+      stroke="#84a878" stroke-width="3" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"
+      stroke-dasharray="170" stroke-dashoffset="170" />
+  </svg>
   <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 23L9 1L7 1L7 23L9 23Z" fill="#84a878"/>
 </svg>

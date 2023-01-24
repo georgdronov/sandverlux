@@ -1,4 +1,31 @@
 <form class="form" name="checkout" novalidate>
+  <div class="popup-product">
+    <div class="popup-product__image-wrapper _image-wrapper">
+      <img class="popup-product__image _bkgr-image _bkgr-image--contain" src="images/products/our-goods-example.png"
+        alt="Бостон - венге, глухая">
+    </div>
+    <div class="popup-product__content">
+      <h4 class="popup-product__heading heading">Бостон - венге, глухая</h4>
+      <div class="form__item-wrapper form__item-wrapper_row">
+        <fieldset class="form__item-wrapper form__item-wrapper_row">
+          <legend hidden>Количество добавляемых продуктов</legend>
+          <div class="form__item form__counter" data-counter-container="">
+            <button class="form__counter-button" data-action="minus" type="button">
+              -<span class="sr-only">Уменьшить на еденицу</span>
+            </button>
+            <label>
+              <span class="sr-only">Количество</span>
+              <input class="form__input" type="number" name="count" min="1" max="999" step="1" value="1" data-target="">
+            </label>
+            <button class="form__counter-button" data-action="plus" type="button">
+              +<span class="sr-only">Увеличить на еденицу</span>
+            </button>
+          </div>
+        </fieldset>
+        <span class="popup-product__price">601.00 р.</span>
+      </div>
+    </div>
+  </div>
   <div class="form__item">
     <label>
       <span class="form__label">Ваше имя</span>
@@ -13,14 +40,14 @@
   </div>
   <div class="form__item">
     <label>
-      <span class="form__label">Сумма заказа</span>
-      <input class="form__input" type="text" name="cost" placeholder="Сумма заказа">
+      <span class="form__label">Адрес</span>
+      <input class="form__input" type="text" name="cost" placeholder="Адрес">
     </label>
   </div>
   <div class="form__item">
     <label>
-      <span class="form__label">Номер заказа</span>
-      <input class="form__input" type="text" name="orderID" placeholder="Номер заказа">
+      <span class="form__label">Комментарий</span>
+      <textarea class="form__input" name="comment" placeholder="Комментарий"></textarea>
     </label>
   </div>
   <div class="form__item">
