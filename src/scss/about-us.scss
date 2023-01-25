@@ -43,6 +43,10 @@
 
     & * + * {
       margin-top: 2em;
+
+      @media ($mobile-max) {
+        margin-top: 1.8em;
+      }
     }
   }
   &__image-wrapper {

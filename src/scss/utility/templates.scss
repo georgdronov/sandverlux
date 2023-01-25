@@ -151,6 +151,7 @@ button,
   position: fixed;
   visibility: hidden;
   box-shadow: 0 0 20px rgba(132, 168, 120, 0.28);
+  border-radius: 50%;
   background-color: $white;
   transition: opacity $transition3, visibility $transition3;
 

@@ -318,6 +318,11 @@
         margin-right: 1.75rem;
       }
 
+      svg {
+        width: auto;
+        height: 5rem;
+        min-height: 63px;
+      }
       %form-label {
         @media ($mobile-max) {
           font-size: 12px;
@@ -350,7 +355,7 @@
     margin-bottom: $mfb-bottom-gap;
 
     @media ($mobile-max) {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.3rem;
     }
   }
   %form-item-wrapper-row {

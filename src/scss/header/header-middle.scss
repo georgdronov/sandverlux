@@ -34,7 +34,7 @@
     width: 235px;
     max-width: 100%;
 
-    @media ($desktop-mad-xl) and ($desktop-min-xl) {
+    @media ($desktop-max-xl) and ($desktop-min-xl) {
       width: auto;
       padding: 12px 25px;
       max-width: min-content;

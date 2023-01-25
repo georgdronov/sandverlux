@@ -79,7 +79,7 @@
     }
   }
   &__image {
-    width: 4.0625rem;
+    width: auto;
     height: 4.0625rem;
     margin: 0 auto;
 
@@ -112,6 +112,7 @@
       font-size: 1.15rem;
     }
     @media ($mobile-max) {
+      font-size: 12px;
       margin-top: 1rem;
     }
   }

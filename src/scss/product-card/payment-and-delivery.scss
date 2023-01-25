@@ -10,7 +10,7 @@
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
   background-color: $white;
 
-  @media ($desktop-mad-xl) and ($tablet-min) {
+  @media ($desktop-max-xl) and ($tablet-min) {
     margin-left: 3rem;
     margin-right: 3rem;
   }
@@ -26,7 +26,7 @@
     @extend %row-wrapper;
     margin-left: -$tabs-gap;
 
-    @media ($desktop-mad-xl) and ($tablet-min) {
+    @media ($desktop-max-xl) and ($tablet-min) {
       margin-left: -$tabs-tablet-gap;
     }
   }
@@ -41,7 +41,7 @@
     transition: color 0.2s;
     background-color: transparent;
 
-    @media ($desktop-mad-xl) and ($tablet-min) {
+    @media ($desktop-max-xl) and ($tablet-min) {
       margin-left: $tabs-tablet-gap;
     }
     @media ($desktop-max) {

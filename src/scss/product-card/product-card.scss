@@ -36,7 +36,7 @@
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
     background-color: $white;
 
-    @media ($desktop-mad-xl) and ($tablet-min) {
+    @media ($desktop-max-xl) and ($tablet-min) {
       padding-left: $sides-padding-tablet;
       padding-right: $sides-padding-tablet;
     }
@@ -212,7 +212,7 @@
     justify-content: space-between;
     background-color: $primary-color;
 
-    @media ($desktop-mad-xl) and ($tablet-min) {
+    @media ($desktop-max-xl) and ($tablet-min) {
       margin-left: -$sides-padding-tablet;
       margin-right: -$sides-padding-tablet;
       padding-right: $sides-padding-tablet;

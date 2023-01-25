@@ -345,6 +345,10 @@
           user-select: none;
           background-color: transparent;
 
+          @media ($mobile-max) {
+            padding: 7px 9px 8px;
+          }
+
           &::before,
           &::after {
             content: normal;
@@ -355,6 +359,10 @@
           span {
             display: block;
             margin-top: 11px;
+
+            @media ($mobile-max) {
+              margin-top: 9px;
+            }
           }
         }
         &:checked {

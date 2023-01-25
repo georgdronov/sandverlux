@@ -10,8 +10,13 @@
 
   // &__container {
   // }
-  // &__heading {
-  // }
+  &__heading {
+    & + * {
+      @media ($mobile-max) {
+        margin-top: 1.7em;
+      }
+    }
+  }
   &__items {
     @extend %row-wrapper;
 
@@ -21,20 +26,27 @@
     @media ($desktop-max) {
       margin-left: -$items-tablet-gap;
     }
-    @media ($tablet-mad) {
+    @media ($tablet-max) {
       margin-bottom: -2rem;
     }
 
     %review {
+      width: 100%;
+
       @media ($desktop-min-xl) {
+        flex: 1 1 calc(33.3333% - $items-gap);
+        max-width: calc(33.3333% - $items-gap);
         margin-left: $items-gap;
+      }
+      @media ($desktop-max) and ($desktop-min) {
+        flex: 1 1 calc(33.3333% - $items-tablet-gap);
+        max-width: calc(33.3333% - $items-tablet-gap);
       }
       @media ($desktop-max) {
         margin-left: $items-tablet-gap;
       }
-      @media ($tablet-mid) {
-        flex: 1 1 calc(33.3333% - $items-gap);
-        max-width: calc(33.3333% - $items-gap);
+      @media ($tablet-max) {
+        margin-bottom: 2rem;
       }
     }
   }

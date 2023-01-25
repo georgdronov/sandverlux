@@ -64,6 +64,7 @@ export const svgSprite = () => {
     )
     .pipe(
       gulpSVGSprite({
+        dest: app.path.build.images,
         mode: {
           stack: {
             sprite: "../icons.svg",
@@ -73,6 +74,10 @@ export const svgSprite = () => {
         shape: {
           spacing: {
             padding: 0,
+          },
+          dimension: {
+            maxWidth: 10,
+            maxHeight: 10,
           },
         },
       })

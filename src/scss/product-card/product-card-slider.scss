@@ -46,7 +46,7 @@
 
       @extend %product-card-slider-thumbs !optional;
 
-      @media ($desktop-mad-xl) and ($desktop-min-xl) {
+      @media ($desktop-max-xl) and ($desktop-min-xl) {
         flex-basis: calc(20% - 29px);
       }
       @media ($desktop-max) {
