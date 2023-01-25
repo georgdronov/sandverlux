@@ -3162,7 +3162,6 @@ body {
 
 .product {
   width: 310px;
-  height: 100%;
 }
 @media (max-width: 991.98px) and (min-width: 576px) {
   .product {
