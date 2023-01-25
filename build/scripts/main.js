@@ -6498,6 +6498,7 @@
       popupOverlay2.hide();
       allPopopups.forEach((elem) => elem.classList.remove(popupClassActive));
     });
+    addClassOnClick(".form__rating > label", "this", "active");
     if (formElements) {
       formElements.forEach((elem) => {
         const elemLabel = elem.previousElementSibling || elem.nextElementSibling;

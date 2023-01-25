@@ -12,15 +12,29 @@
     </label>
   </div>
   <div class="form__item">
-    <label>
-      <span class="form__label">Адрес</span>
-      <input class="form__input" type="text" name="rating" placeholder="Адрес">
-    </label>
+    <fieldset class="form__item-wrapper">
+      <legend class="form__item-heading">Рейтинг</legend>
+      <div class="form__rating">
+        <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 1</span>
+          <input class="form__input" type="radio" name="rating" value="1" checked hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+        </label>
+        @@for (var i = 2; i <= 5; i++) {
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка `+i+`</span>
+          <input class="form__input" type="radio" name="rating" value="`+i+`" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          }
+      </div>
+    </fieldset>
   </div>
   <div class="form__item">
-    <fieldset class="form__item-wrapper">
-      
-    </fieldset>
     <label>
       <span class="form__label">Ваш отзыв</span>
       <textarea class="form__input" name="review" placeholder="Ваш отзыв"></textarea>

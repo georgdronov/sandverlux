@@ -269,6 +269,29 @@
       box-shadow: inset 0 0 0 3px $primary-color;
     }
   }
+  &__rating {
+    @extend %row-wrapper;
+    margin-left: -0.45rem;
+
+    & > * {
+      margin-left: 0.45rem;
+    }
+    svg {
+      width: auto;
+      color: $form-grey-color;
+      height: 40px;
+    }
+    label {
+      cursor: pointer;
+    }
+    %form-input {
+      &:checked {
+        & ~ svg {
+          color: $yellow;
+        }
+      }
+    }
+  }
   &__checkbox {
     margin-right: 32px;
 

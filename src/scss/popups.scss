@@ -95,7 +95,7 @@
       transform: rotate(45deg);
     }
   }
-  form %form-item:not(%form-counter) label {
+  form %form-item:not(%form-counter) > label {
     width: 100%;
   }
   &__heading {
@@ -110,7 +110,8 @@
       margin-top: 1.25rem;
     }
   }
-  %form-label {
+  %form-label,
+  %form-item-heading {
     color: $heading-color;
     font-size: 13px;
     font-weight: 600;

@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
     allPopopups.forEach((elem) => elem.classList.remove(popupClassActive));
   });
 
+  myFunctions.addClassOnClick(".form__rating > label", "this", "active");
+
   // "contacts" form placeholder state movement //
 
   if (formElements) {

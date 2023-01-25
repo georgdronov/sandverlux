@@ -163,27 +163,29 @@
           @@include('./src/html/include/full-price.html')
         </div>
       </div>
-      <div class="product-card__item product-card__sliders-wrapper">
-        @@include('./src/html/include/product-card-slider.html', {
-        'slider-url': './src/html/include/product-card-slider-item.html',
-        'slider-thumb-url': './src/html/include/product-card-slider-item-thumb.html',
-        'gallery-url': '@@gallery-url',
-        'title': 'Изображения двери',
-        'additionalClass': 'pcs-slider-01',
-        'showBadges': true,
-        'visible': true
-        })
-        @@include('./src/html/include/product-card-slider.html', {
-        'slider-url': './src/html/include/product-card-slider-interior-item.html',
-        'slider-thumb-url': './src/html/include/product-card-slider-interior-item-thumb.html',
-        'gallery-url': '@@gallery-url',
-        'title': 'Изображения двери в интерьере',
-        'additionalClass': 'pcs-slider-02',
-        'showBadges': false,
-        'visible': false
-        })
-        <div class="product-card__sliders-switcher">
-          @@include('./src/html/include/sliders-switcher.html')
+      <div class="product-card__item product-card__item_sliders">
+        <div class="product-card__sliders-wrapper">
+          @@include('./src/html/include/product-card-slider.html', {
+          'slider-url': './src/html/include/product-card-slider-item.html',
+          'slider-thumb-url': './src/html/include/product-card-slider-item-thumb.html',
+          'gallery-url': '@@gallery-url',
+          'title': 'Изображения двери',
+          'additionalClass': 'pcs-slider-01',
+          'showBadges': true,
+          'visible': true
+          })
+          @@include('./src/html/include/product-card-slider.html', {
+          'slider-url': './src/html/include/product-card-slider-interior-item.html',
+          'slider-thumb-url': './src/html/include/product-card-slider-interior-item-thumb.html',
+          'gallery-url': '@@gallery-url',
+          'title': 'Изображения двери в интерьере',
+          'additionalClass': 'pcs-slider-02',
+          'showBadges': false,
+          'visible': false
+          })
+          <div class="product-card__sliders-switcher">
+            @@include('./src/html/include/sliders-switcher.html')
+          </div>
         </div>
       </div>
       <div class="product-card__additional-info">

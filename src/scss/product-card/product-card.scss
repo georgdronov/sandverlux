@@ -30,6 +30,18 @@
     @media ($desktop-max) {
       padding-left: $product-card-tablet-gap;
     }
+
+    &_sliders {
+      order: -1;
+      position: relative;
+
+      @media ($tablet-mid) {
+        max-width: 50%;
+      }
+      @media ($tablet-max) and ($tablet-mid) {
+        max-width: 40%;
+      }
+    }
   }
   &__main {
     padding: 1.875rem $sides-padding 2.3rem;
@@ -354,15 +366,8 @@
     margin-top: 30px;
   }
   &__sliders-wrapper {
-    order: -1;
-    position: relative;
-
-    @media ($tablet-mid) {
-      max-width: 50%;
-    }
-    @media ($tablet-max) and ($tablet-mid) {
-      max-width: 40%;
-    }
+    top: 100px;
+    position: sticky;
   }
   &__additional-info {
     margin-top: 6.3rem;

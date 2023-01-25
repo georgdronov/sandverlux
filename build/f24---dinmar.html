@@ -705,8 +705,9 @@
 </section>
         </div>
       </div>
-      <div class="product-card__item product-card__sliders-wrapper">
-        <article class="product-card-slider active" aria-hidden="false">
+      <div class="product-card__item product-card__item_sliders">
+        <div class="product-card__sliders-wrapper">
+          <article class="product-card-slider active" aria-hidden="false">
   <h2 class="product-card-slider__heading sr-only">Изображения двери</h2>
   <div class="product-card-slider__wrapper">
     <div class="product-card-slider__swiper product-card-slider__swiper--main pcs-slider-01">
@@ -803,7 +804,7 @@
     </div>
   </div>
 </article>
-        <article class="product-card-slider" aria-hidden="true">
+          <article class="product-card-slider" aria-hidden="true">
   <h2 class="product-card-slider__heading sr-only">Изображения двери в интерьере</h2>
   <div class="product-card-slider__wrapper">
     <div class="product-card-slider__swiper product-card-slider__swiper--main pcs-slider-02">
@@ -889,8 +890,8 @@
     </div>
   </div>
 </article>
-        <div class="product-card__sliders-switcher">
-          <section class="sliders-switcher">
+          <div class="product-card__sliders-switcher">
+            <section class="sliders-switcher">
   <p class="sliders-switcher__text">Посмотреть двери в интерьере</з>
   <div class="sliders-switcher__button-wrapper">
     <span class="sliders-switcher__label">Выкл</span>
@@ -902,6 +903,7 @@
     <span class="sliders-switcher__label">Вкл</span>
   </div>
 </section>
+          </div>
         </div>
       </div>
       <div class="product-card__additional-info">
@@ -3452,15 +3454,53 @@
     </label>
   </div>
   <div class="form__item">
-    <label>
-      <span class="form__label">Адрес</span>
-      <input class="form__input" type="text" name="rating" placeholder="Адрес">
-    </label>
+    <fieldset class="form__item-wrapper">
+      <legend class="form__item-heading">Рейтинг</legend>
+      <div class="form__rating">
+        <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 1</span>
+          <input class="form__input" type="radio" name="rating" value="1" checked hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+        </label>
+        
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 2</span>
+          <input class="form__input" type="radio" name="rating" value="2" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 3</span>
+          <input class="form__input" type="radio" name="rating" value="3" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 4</span>
+          <input class="form__input" type="radio" name="rating" value="4" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 5</span>
+          <input class="form__input" type="radio" name="rating" value="5" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+      </div>
+    </fieldset>
   </div>
   <div class="form__item">
-    <fieldset class="form__item-wrapper">
-      
-    </fieldset>
     <label>
       <span class="form__label">Ваш отзыв</span>
       <textarea class="form__input" name="review" placeholder="Ваш отзыв"></textarea>
