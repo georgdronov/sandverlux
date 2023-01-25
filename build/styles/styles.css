@@ -1079,6 +1079,8 @@ label {
 }
 .form__rating {
   margin-left: -0.45rem;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 .form__rating > * {
   margin-left: 0.45rem;
@@ -1086,12 +1088,16 @@ label {
 .form__rating svg {
   width: auto;
   color: #f4f4f4;
-  height: 40px;
+  height: 2.5rem;
+  min-height: 30px;
 }
 .form__rating label {
   cursor: pointer;
 }
-.form__rating .form__input:checked ~ svg {
+.form__rating label.active svg {
+  color: #f9c201;
+}
+.form__rating label.active ~ label svg {
   color: #f9c201;
 }
 .form__checkbox {
@@ -6716,15 +6722,16 @@ body {
 .popup .form__label,
 .popup .form__item-heading {
   color: #2d2d2d;
+  display: inline-block;
   font-size: 13px;
   font-weight: 600;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 .popup .form__input {
   padding: 0 30px;
   font-size: 14px;
   min-height: 45px;
-  margin-top: 0.5rem;
 }
 .popup .form__counter .form__input {
   padding: 0;

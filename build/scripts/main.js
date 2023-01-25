@@ -114,6 +114,9 @@
           document.documentElement.scrollTop * 100 / documentHeight
         );
       });
+      window.addEventListener("resize", function() {
+        documentHeight = document.documentElement.offsetHeight - window.innerHeight;
+      });
     }
     let hasClass3 = scrollTopElement.classList.contains("_active"), isScrolled = scrollY > 35;
     window.addEventListener("scroll", function() {
@@ -6498,7 +6501,15 @@
       popupOverlay2.hide();
       allPopopups.forEach((elem) => elem.classList.remove(popupClassActive));
     });
-    addClassOnClick(".form__rating > label", "this", "active");
+    const ratingButtons = document.querySelectorAll(".form__rating > label");
+    if (ratingButtons.length) {
+      ratingButtons.forEach(
+        (button) => button.addEventListener("click", (event2) => {
+          ratingButtons.forEach((elem) => elem.classList.remove("active"));
+          event2.currentTarget.classList.add("active");
+        })
+      );
+    }
     if (formElements) {
       formElements.forEach((elem) => {
         const elemLabel = elem.previousElementSibling || elem.nextElementSibling;

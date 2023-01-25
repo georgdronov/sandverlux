@@ -160,6 +160,10 @@ export function scrollToTop() {
         (document.documentElement.scrollTop * 100) / documentHeight
       );
     });
+    window.addEventListener("resize", function () {
+      documentHeight =
+        document.documentElement.offsetHeight - window.innerHeight;
+    });
   }
   let hasClass = scrollTopElement.classList.contains("_active"),
     isScrolled = scrollY > 35;

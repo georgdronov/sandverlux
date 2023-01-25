@@ -113,15 +113,16 @@
   %form-label,
   %form-item-heading {
     color: $heading-color;
+    display: inline-block;
     font-size: 13px;
     font-weight: 600;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
   }
   %form-input {
     padding: 0 30px;
     font-size: 14px;
     min-height: 45px;
-    margin-top: 0.5rem;
   }
   %form-counter %form-input {
     padding: 0;

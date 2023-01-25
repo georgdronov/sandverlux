@@ -71,7 +71,16 @@ document.addEventListener("DOMContentLoaded", function () {
     allPopopups.forEach((elem) => elem.classList.remove(popupClassActive));
   });
 
-  myFunctions.addClassOnClick(".form__rating > label", "this", "active");
+  const ratingButtons = document.querySelectorAll(".form__rating > label");
+
+  if (ratingButtons.length) {
+    ratingButtons.forEach((button) =>
+      button.addEventListener("click", (event) => {
+        ratingButtons.forEach((elem) => elem.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+      })
+    );
+  }
 
   // "contacts" form placeholder state movement //
 
