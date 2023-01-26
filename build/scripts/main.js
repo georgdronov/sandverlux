@@ -70,10 +70,16 @@
     });
   }
   function toHorizontalScroll(element) {
-    element.addEventListener("wheel", (event2) => {
-      event2.preventDefault();
-      element.scrollLeft += event2.deltaY / 2;
-    });
+    element.addEventListener(
+      "wheel",
+      (event2) => {
+        event2.preventDefault();
+        element.scrollLeft += event2.deltaY / 2;
+      },
+      {
+        passive: true
+      }
+    );
   }
   function onKeydownAction(element, customFunction) {
     element.addEventListener("keydown", (e) => {
@@ -92,16 +98,22 @@
       if (!overlay)
         return;
       let timer = null;
-      overlay.addEventListener("wheel", () => {
-        if (timer !== null)
-          return;
-        overlay.classList.add("active");
-        timer = setTimeout(function() {
-          overlay.classList.remove("active");
-          clearTimeout(timer);
-          timer = null;
-        }, 2e3);
-      });
+      overlay.addEventListener(
+        "wheel",
+        () => {
+          if (timer !== null)
+            return;
+          overlay.classList.add("active");
+          timer = setTimeout(function() {
+            overlay.classList.remove("active");
+            clearTimeout(timer);
+            timer = null;
+          }, 2e3);
+        },
+        {
+          passive: true
+        }
+      );
       overlay.addEventListener("click", () => overlay.remove());
     });
   }
@@ -120,9 +132,15 @@
           document.documentElement.scrollTop * 100 / documentHeight
         );
       });
-      window.addEventListener("resize", function() {
-        documentHeight = document.documentElement.offsetHeight - window.innerHeight;
-      });
+      window.addEventListener(
+        "resize",
+        function() {
+          documentHeight = document.documentElement.offsetHeight - window.innerHeight;
+        },
+        {
+          passive: true
+        }
+      );
     }
     let hasClass3 = scrollTopElement.classList.contains("_active"), isScrolled = scrollY > 35;
     window.addEventListener(

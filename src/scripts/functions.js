@@ -78,10 +78,16 @@ function setAnchorsEvents() {
 }
 
 export function toHorizontalScroll(element) {
-  element.addEventListener("wheel", (event) => {
-    event.preventDefault();
-    element.scrollLeft += event.deltaY / 2;
-  });
+  element.addEventListener(
+    "wheel",
+    (event) => {
+      event.preventDefault();
+      element.scrollLeft += event.deltaY / 2;
+    },
+    {
+      passive: true,
+    }
+  );
 }
 
 export function onKeydownAction(element, customFunction) {
@@ -134,16 +140,22 @@ export function mapOverlay() {
     if (!overlay) return;
 
     let timer = null;
-    overlay.addEventListener("wheel", () => {
-      if (timer !== null) return;
+    overlay.addEventListener(
+      "wheel",
+      () => {
+        if (timer !== null) return;
 
-      overlay.classList.add("active");
-      timer = setTimeout(function () {
-        overlay.classList.remove("active");
-        clearTimeout(timer);
-        timer = null;
-      }, 2000);
-    });
+        overlay.classList.add("active");
+        timer = setTimeout(function () {
+          overlay.classList.remove("active");
+          clearTimeout(timer);
+          timer = null;
+        }, 2000);
+      },
+      {
+        passive: true,
+      }
+    );
     overlay.addEventListener("click", () => overlay.remove());
   });
 }
@@ -167,10 +179,16 @@ export function scrollToTop() {
         (document.documentElement.scrollTop * 100) / documentHeight
       );
     });
-    window.addEventListener("resize", function () {
-      documentHeight =
-        document.documentElement.offsetHeight - window.innerHeight;
-    });
+    window.addEventListener(
+      "resize",
+      function () {
+        documentHeight =
+          document.documentElement.offsetHeight - window.innerHeight;
+      },
+      {
+        passive: true,
+      }
+    );
   }
   let hasClass = scrollTopElement.classList.contains("_active"),
     isScrolled = scrollY > 35;

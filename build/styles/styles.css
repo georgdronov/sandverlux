@@ -3334,6 +3334,11 @@ body {
     font-size: 12px;
   }
 }
+.product__form {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
 .product__btn {
   width: 100%;
   padding: 12px 30px;
