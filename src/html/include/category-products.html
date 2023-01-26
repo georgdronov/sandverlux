@@ -22,7 +22,7 @@
         несанкционированного прохода.</p>
     </section>
     <div class="products__items grid">
-      @@loop('./src/html/include/product.html', 'json/products.json')
+      @@loop('./src/html/include/product.html', '../json/products.json')
     </div>
     @@include('./src/html/include/products-pagination.html', {
       'page-url': '@@category-url'

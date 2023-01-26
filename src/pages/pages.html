@@ -2,22 +2,19 @@
 <html lang="ru">
 
 @@include('./src/html/head.html', {
-"title": "Отзывы | Sandverlux"
+"title": "Страница со всеми страницами | Sandverlux"
 })
 
 <body>
   <div class="wrapper">
     @@include('./src/html/header.html')
-    @@include('./src/html/breadcrumbs.html', {
-      'json-path': 'json/breadcrumbs/reviews.json'
-    })
-
+    @@include('./src/html/pages.html')
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html", {
     'checkout': false,
     'foundCheaper': false,
-    'leaveAReview': true,
+    'leaveAReview': false,
     'orderAMeasurement': false
   })
 </body>

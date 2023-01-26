@@ -2,16 +2,21 @@
 <html lang="ru">
 
 @@include('./src/html/head.html', {
-"title": "Избранное | Sandverlux"
+"title": "Межкомнатные двери | Sandverlux"
 })
 
 <body>
   <div class="wrapper">
     @@include('./src/html/header.html')
     @@include('./src/html/breadcrumbs.html', {
-      'json-path': 'json/breadcrumbs/wishlist.json'
+      'json-path': '../json/breadcrumbs/interior-doors.json'
     })
-    @@include('./src/html/wishlist.html')
+    @@include('./src/html/category.html', {
+      'url': 'interior-doors',
+      'title': 'Межкомнатные двери',
+      'subcategories-json-path': '../json/interior-doors-subcategories.json',
+      'popular-json-path': '../json/interior-doors-popular.json'
+    })
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html", {

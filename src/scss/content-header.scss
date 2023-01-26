@@ -1,0 +1,52 @@
+.content-header {
+  margin: 1.55rem 0;
+  padding: 2.7rem 0 3.2rem;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: rgba(0,0,0,0.24);
+  }
+  &__container {
+    position: relative;
+  }
+  &__heading {
+    color: $white;
+
+    & + * {
+      margin-top: 3rem;
+
+      @media ($mobile-max) {
+        margin-top: 2.4rem;
+      }
+    }
+  }
+  &__subheading {
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    & + * {
+      margin-top: 1rem;
+
+      @media ($mobile-max) {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+  &__text {
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+}

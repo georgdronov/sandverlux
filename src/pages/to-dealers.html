@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Дилерам | Sandverlux"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+      'json-path': '../json/breadcrumbs/to-dealers.json'
+    })
+    @@include('./src/html/content-header.html', {
+      'title': 'Дилерам',
+      'subtitle': 'Начините бизнес с Дверным Раем!',
+      'text': 'Мы приложим все усилия, чтобы Ваш бизнес с нами был удобным и прибыльным',
+      'background-image': 'images/dealers-header.jpg'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': false
+  })
+</body>
+
+</html>

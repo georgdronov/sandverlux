@@ -1,0 +1,14 @@
+[
+  {
+    "number": "1",
+    "name": "Главная",
+    "link": "/",
+    "current": false
+  },
+  {
+    "number": "2",
+    "name": "Дилерам",
+    "link": "",
+    "current": true
+  }
+]

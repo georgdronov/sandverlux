@@ -18,7 +18,7 @@
         <h4 class="characteristics__heading additional-info__heading heading">Характеристики</h4>
         <table class="characteristics__table">
           <tbody>
-            @@loop('./src/html/include/characteristics-item.html', 'json/characteristics.json')
+            @@loop('./src/html/include/characteristics-item.html', '../json/characteristics.json')
           </tbody>
         </table>
         <div class="characteristics__description">
@@ -31,7 +31,7 @@
       <section id="product-card-reviews" class="product-card-reviews">
         <h4 class="product-card-reviews__heading additional-info__heading heading">Отзывы</h4>
         <div class="product-card-reviews__wrapper">
-          @@loop('./src/html/include/reviews-item.html', 'json/product-card-reviews.json')
+          @@loop('./src/html/include/reviews-item.html', '../json/product-card-reviews.json')
         </div>
         <div class="product-card-reviews__buttons-wrapper">
           <button class="product-card-reviews__button _btn" data-open-popup="leave-a-review" type="button">Оставить

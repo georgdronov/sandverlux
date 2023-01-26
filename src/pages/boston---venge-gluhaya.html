@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Бостон - венге, глухая | Sandverlux"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+      'json-path': '../json/breadcrumbs/boston---venge-gluhaya.json'
+    })
+    @@include('./src/html/product-card.html', {
+      'id': '001',
+      'title': 'Бостон - венге, глухая',
+      'url': 'boston---venge-gluhaya',
+      'gallery-url': '../json/boston---venge-gluhaya-gallery.json',
+      'rating': 5
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+    'checkout': true,
+    'foundCheaper': true,
+    'leaveAReview': true,
+    'orderAMeasurement': true
+  })
+</body>
+
+</html>
