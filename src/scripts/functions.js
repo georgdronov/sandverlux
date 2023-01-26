@@ -16,18 +16,24 @@ export function addClassOnClick(itemsClick, classToItem, nameOfClass) {
 
 export function addClassOnScroll(item, topOffset, nameOfClass) {
   let scrollState = null;
-  window.addEventListener("scroll", function () {
-    if (scrollY > topOffset && scrollState !== "scrolled") {
-      document.querySelector(item).classList.add(nameOfClass);
-      scrollState = "scrolled";
-      return;
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (scrollY > topOffset && scrollState !== "scrolled") {
+        document.querySelector(item).classList.add(nameOfClass);
+        scrollState = "scrolled";
+        return;
+      }
+      if (scrollY <= topOffset && scrollState !== "not-scrolled") {
+        document.querySelector(item).classList.remove(nameOfClass);
+        scrollState = "not-scrolled";
+        return;
+      }
+    },
+    {
+      passive: true,
     }
-    if (scrollY <= topOffset && scrollState !== "not-scrolled") {
-      document.querySelector(item).classList.remove(nameOfClass);
-      scrollState = "not-scrolled";
-      return;
-    }
-  });
+  );
   if (scrollY > topOffset && scrollState !== "scrolled") {
     document.querySelector(item).classList.add(nameOfClass);
     scrollState = "scrolled";
@@ -105,6 +111,7 @@ export function wheelToHide() {
     element.classList.add("active");
     element.addEventListener("scroll", (event) => hide(event.target), {
       once: true,
+      passive: true,
     });
     element.addEventListener("click", (event) => hide(event.target), {
       once: true,
@@ -167,22 +174,28 @@ export function scrollToTop() {
   }
   let hasClass = scrollTopElement.classList.contains("_active"),
     isScrolled = scrollY > 35;
-  window.addEventListener("scroll", function () {
-    hasClass = scrollTopElement.classList.contains("_active");
-    isScrolled = scrollY > 35;
-    if (isScrolled && !hasClass) {
-      scrollTopElement.classList.add("_active");
-    } else if (!isScrolled && hasClass) {
-      scrollTopElement.classList.remove("_active");
-    }
+  window.addEventListener(
+    "scroll",
+    function () {
+      hasClass = scrollTopElement.classList.contains("_active");
+      isScrolled = scrollY > 35;
+      if (isScrolled && !hasClass) {
+        scrollTopElement.classList.add("_active");
+      } else if (!isScrolled && hasClass) {
+        scrollTopElement.classList.remove("_active");
+      }
 
-    if (!scrollTopPath) return;
-    setPreloaderPath(
-      scrollTopPath,
-      scrollTopPathLength,
-      (document.documentElement.scrollTop * 100) / documentHeight
-    );
-  });
+      if (!scrollTopPath) return;
+      setPreloaderPath(
+        scrollTopPath,
+        scrollTopPathLength,
+        (document.documentElement.scrollTop * 100) / documentHeight
+      );
+    },
+    {
+      passive: true,
+    }
+  );
   scrollTopElement.addEventListener("click", () => {
     let currentScrollTop = window.scrollY;
     animate({

@@ -17,18 +17,24 @@
   }
   function addClassOnScroll(item, topOffset, nameOfClass) {
     let scrollState = null;
-    window.addEventListener("scroll", function() {
-      if (scrollY > topOffset && scrollState !== "scrolled") {
-        document.querySelector(item).classList.add(nameOfClass);
-        scrollState = "scrolled";
-        return;
+    window.addEventListener(
+      "scroll",
+      function() {
+        if (scrollY > topOffset && scrollState !== "scrolled") {
+          document.querySelector(item).classList.add(nameOfClass);
+          scrollState = "scrolled";
+          return;
+        }
+        if (scrollY <= topOffset && scrollState !== "not-scrolled") {
+          document.querySelector(item).classList.remove(nameOfClass);
+          scrollState = "not-scrolled";
+          return;
+        }
+      },
+      {
+        passive: true
       }
-      if (scrollY <= topOffset && scrollState !== "not-scrolled") {
-        document.querySelector(item).classList.remove(nameOfClass);
-        scrollState = "not-scrolled";
-        return;
-      }
-    });
+    );
     if (scrollY > topOffset && scrollState !== "scrolled") {
       document.querySelector(item).classList.add(nameOfClass);
       scrollState = "scrolled";
@@ -119,22 +125,28 @@
       });
     }
     let hasClass3 = scrollTopElement.classList.contains("_active"), isScrolled = scrollY > 35;
-    window.addEventListener("scroll", function() {
-      hasClass3 = scrollTopElement.classList.contains("_active");
-      isScrolled = scrollY > 35;
-      if (isScrolled && !hasClass3) {
-        scrollTopElement.classList.add("_active");
-      } else if (!isScrolled && hasClass3) {
-        scrollTopElement.classList.remove("_active");
+    window.addEventListener(
+      "scroll",
+      function() {
+        hasClass3 = scrollTopElement.classList.contains("_active");
+        isScrolled = scrollY > 35;
+        if (isScrolled && !hasClass3) {
+          scrollTopElement.classList.add("_active");
+        } else if (!isScrolled && hasClass3) {
+          scrollTopElement.classList.remove("_active");
+        }
+        if (!scrollTopPath)
+          return;
+        setPreloaderPath(
+          scrollTopPath,
+          scrollTopPathLength,
+          document.documentElement.scrollTop * 100 / documentHeight
+        );
+      },
+      {
+        passive: true
       }
-      if (!scrollTopPath)
-        return;
-      setPreloaderPath(
-        scrollTopPath,
-        scrollTopPathLength,
-        document.documentElement.scrollTop * 100 / documentHeight
-      );
-    });
+    );
     scrollTopElement.addEventListener("click", () => {
       let currentScrollTop = window.scrollY;
       animate({
