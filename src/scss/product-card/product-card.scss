@@ -378,6 +378,17 @@
   }
   &__bottom-slides {
     margin-top: 4.7rem;
+
+    @media ($tablet-max) and ($tablet-min) {
+      margin-top: 3.5rem;
+    }
+    @media ($mobile-max) {
+      margin-top: 2.1rem;
+
+      %product-slider-wrapper {
+        margin-top: 0.5rem;
+      }
+    }
   }
   &__similar {
     %product-slider {

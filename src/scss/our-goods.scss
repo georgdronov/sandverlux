@@ -79,8 +79,10 @@
     box-sizing: content-box;
   }
   &__slide {
+    display: flex;
     position: relative;
     flex-shrink: 0;
+    flex-direction: column;
     transition-property: transform;
 
     %our-goods-not-initialized & {
@@ -91,6 +93,8 @@
     }
 
     %product {
+      flex-grow: 1;
+
       @media ($desktop-min) {
         @include margin-x(-15px);
       }

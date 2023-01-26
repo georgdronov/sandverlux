@@ -10,6 +10,10 @@
 
   %product-card + & {
     margin-top: 4.6rem;
+
+    @media ($mobile-max) {
+      margin-top: 1.6rem;
+    }
   }
   %filler + & {
     margin-top: 0;

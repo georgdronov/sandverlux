@@ -30,11 +30,13 @@
       </section>
       <section id="product-card-reviews" class="product-card-reviews">
         <h4 class="product-card-reviews__heading additional-info__heading heading">Отзывы</h4>
-        <div class="product-card-reviews__wrapper _full-review">
+        <div class="product-card-reviews__wrapper">
           @@loop('./src/html/include/reviews-item.html', 'json/product-card-reviews.json')
         </div>
-        <button class="product-card-reviews__button _btn" data-open-popup="leave-a-review" type="button">Оставить
-          отзыв</button>
+        <div class="product-card-reviews__buttons-wrapper">
+          <button class="product-card-reviews__button _btn" data-open-popup="leave-a-review" type="button">Оставить
+            отзыв</button>
+        </div>
       </section>
     </section>
   </div>

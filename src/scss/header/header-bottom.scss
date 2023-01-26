@@ -1,6 +1,6 @@
 .header-bottom {
   display: flex;
-  min-height: 70px;
+  min-height: $header-bottom-height;
   justify-content: space-between;
   background-color: $primary-color;
 

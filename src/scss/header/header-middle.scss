@@ -1,6 +1,6 @@
 .header-middle {
   display: flex;
-  min-height: 110px;
+  min-height: $header-middle-height;
   padding-top: 11px;
   justify-content: space-between;
   background-color: $primary-color;

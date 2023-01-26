@@ -44,8 +44,11 @@
     @media ($desktop-max-xl) and ($tablet-min) {
       margin-left: $tabs-tablet-gap;
     }
-    @media ($desktop-max) {
+    @media ($desktop-max) and ($tablet-min) {
       font-size: 16px;
+    }
+    @media ($mobile-max) {
+      font-size: 14px;
     }
 
     &[aria-expanded="true"] {
@@ -66,7 +69,7 @@
     }
   }
   &__content-wrapper {
-    display: flex;
+    @extend %row-wrapper;
     margin-top: 2.1rem;
   }
   &__item {

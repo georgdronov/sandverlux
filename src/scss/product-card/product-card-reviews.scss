@@ -6,10 +6,21 @@
       margin-top: 2rem;
     }
   }
+  &__buttons-wrapper {
+    margin-top: 1.9rem;
+
+    @media ($mobile-max) {
+      text-align: center;
+    }
+  }
   &__button {
     width: 18.375rem;
     padding: 16px 30px;
     font-size: 14px;
-    margin-top: 1.9rem;
+
+    @media ($mobile-max) {
+      width: 23rem;
+      padding: 14px 30px;
+    }
   }
 }

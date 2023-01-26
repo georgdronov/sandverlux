@@ -713,10 +713,58 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // additional info buttons highlighting
+
+  const aILinks = document.querySelectorAll(".additional-info__link");
+
+  if (aILinks.length) {
+    class aIChain {
+      constructor(link, target) {
+        this.link = link;
+        this.target = target;
+      }
+    }
+    let aITargets = [];
+
+    aILinks.forEach((link) => {
+      aITargets.push(
+        new aIChain(
+          link,
+          document.getElementById(link.getAttribute("href").substring(1))
+        )
+      );
+    });
+    if (!aITargets.length) return;
+
+    if ("IntersectionObserver" in window) {
+      const options = {
+        rootMargin: "65px 0px 0px 0px",
+        threshold: 0.85,
+      };
+
+      aITargets.forEach((item) => {
+        const observer = new IntersectionObserver(manageIntersection, options);
+        observer.observe(item.target);
+
+        function manageIntersection(entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              item.link.classList.add("active");
+            } else {
+              item.link.classList.remove("active");
+            }
+            return;
+          });
+        }
+      });
+
+      return true;
+    }
+  }
+
   // myFunctions.wheelToHide();
 });
 
 import * as myFunctions from "./functions.js";
 import noUiSlider from "nouislider/dist/nouislider.mjs";
-// eslint-disable-next-line no-unused-vars
-import Swiper, { Navigation, Pagination } from "swiper";
+import Swiper, { Navigation } from "swiper";
