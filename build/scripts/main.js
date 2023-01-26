@@ -6848,37 +6848,38 @@
         });
       });
     }
-    const productWishButtons = document.querySelectorAll("[name=product-wish]");
-    const productCompareButtons = document.querySelectorAll(
-      "[name=product-compare]"
-    );
-    if (productWishButtons.length) {
+    const wishButtons = document.querySelectorAll("[name=product-wish]");
+    const compareButtons = document.querySelectorAll("[name=product-compare]");
+    if (wishButtons.length) {
       const productWishCounter = document.querySelectorAll(".wishlist-count");
-      productWishButtons.forEach(
+      wishButtons.forEach(
         (button) => button.addEventListener(
           "click",
-          () => productWishCounter.forEach((counter) => {
-            counter.textContent = parseInt(counter.textContent) + 1;
-          }),
-          {
-            once: true
-          }
+          (event2) => fakeButtonsActivation(event2, productWishCounter)
         )
       );
     }
-    if (productCompareButtons.length) {
+    if (compareButtons.length) {
       const productCompareCounter = document.querySelectorAll(".comparison-count");
-      productCompareButtons.forEach(
+      compareButtons.forEach(
         (button) => button.addEventListener(
           "click",
-          () => productCompareCounter.forEach((counter) => {
-            counter.textContent = parseInt(counter.textContent) + 1;
-          }),
-          {
-            once: true
-          }
+          (event2) => fakeButtonsActivation(event2, productCompareCounter)
         )
       );
+    }
+    function fakeButtonsActivation(event2, counter) {
+      if (!event2.currentTarget.classList.contains("active")) {
+        counter.forEach((counter2) => {
+          counter2.textContent = parseInt(counter2.textContent) + 1;
+        });
+        event2.currentTarget.classList.add("active");
+      } else {
+        counter.forEach((counter2) => {
+          counter2.textContent = parseInt(counter2.textContent) - 1;
+        });
+        event2.currentTarget.classList.remove("active");
+      }
     }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {

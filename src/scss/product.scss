@@ -97,14 +97,13 @@
     padding: 0;
     min-width: 25px;
     min-height: 25px;
+    transition: background-color 0.2s;
     border-radius: 0;
     background-color: $white;
 
     @extend %product-features-button !optional;
 
     @media ($desktop-min) {
-      transition: background-color 0.2s;
-
       &:hover {
         background-color: $yellow;
 
@@ -112,21 +111,29 @@
       }
     }
 
+    &.active {
+      background-color: $yellow;
+
+      @extend %product-features-button-active !optional;
+    }
     & + & {
       margin-left: 7px;
     }
   }
   &__features-button-icon {
     color: $yellow;
+    transition: color 0.2s;
 
     @extend %product-features-button-icon !optional;
 
     @media ($desktop-min) {
-      transition: color 0.2s;
-
       %product-features-button-hover & {
         color: $white;
       }
+    }
+
+    %product-features-button-active & {
+      color: $white;
     }
   }
   &__heading {

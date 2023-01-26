@@ -502,41 +502,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // features fake functionality //
 
-  const productWishButtons = document.querySelectorAll("[name=product-wish]");
-  const productCompareButtons = document.querySelectorAll(
-    "[name=product-compare]"
-  );
+  const wishButtons = document.querySelectorAll("[name=product-wish]");
+  const compareButtons = document.querySelectorAll("[name=product-compare]");
 
-  if (productWishButtons.length) {
+  if (wishButtons.length) {
     const productWishCounter = document.querySelectorAll(".wishlist-count");
-    productWishButtons.forEach((button) =>
-      button.addEventListener(
-        "click",
-        () =>
-          productWishCounter.forEach((counter) => {
-            counter.textContent = parseInt(counter.textContent) + 1;
-          }),
-        {
-          once: true,
-        }
+    wishButtons.forEach((button) =>
+      button.addEventListener("click", (event) =>
+        fakeButtonsActivation(event, productWishCounter)
       )
     );
   }
-  if (productCompareButtons.length) {
+  if (compareButtons.length) {
     const productCompareCounter =
       document.querySelectorAll(".comparison-count");
-    productCompareButtons.forEach((button) =>
-      button.addEventListener(
-        "click",
-        () =>
-          productCompareCounter.forEach((counter) => {
-            counter.textContent = parseInt(counter.textContent) + 1;
-          }),
-        {
-          once: true,
-        }
+    compareButtons.forEach((button) =>
+      button.addEventListener("click", (event) =>
+        fakeButtonsActivation(event, productCompareCounter)
       )
     );
+  }
+  function fakeButtonsActivation(event, counter) {
+    if (!event.currentTarget.classList.contains("active")) {
+      counter.forEach((counter) => {
+        counter.textContent = parseInt(counter.textContent) + 1;
+      });
+      event.currentTarget.classList.add("active");
+    } else {
+      counter.forEach((counter) => {
+        counter.textContent = parseInt(counter.textContent) - 1;
+      });
+      event.currentTarget.classList.remove("active");
+    }
   }
 
   // popular categories //

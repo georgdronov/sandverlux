@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница со всеми страницами | Sandverlux</title>
+  <title>Отзывы | Sandverlux</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
@@ -443,24 +443,36 @@
   </article>
   <!-- <div class="header__background"></div> -->
 </header>
-    <section class="pages" style="padding: 5rem 0;">
-  <div class="pages__container container">
-    <h1 class="pages__heading heading">Все страницы сайта</h1>
-    <nav class="pages__navigation">
-      <ul class="pages__list">
-        <li class="pages__list-item">
-          <a href="/" class="pages__link">Главная</a>
-        </li>
-        <li class="pages__list-item">
-          <a href="/catalog" class="pages__link">Каталог</a>
-        </li>
-        <li class="pages__list-item">
-          <a href="/interior-doors" class="pages__link">Межкомнатные двери</a>
-        </li>
-      </ul>
-    </nav>
+    <nav class="breadcrumbs">
+  <div class="breadcrumbs__container container">
+    <div class="breadcrumbs__list-wrapper">
+      <ol class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        
+<li class="breadcrumbs__list-item" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+  
+  <a class="breadcrumbs__link" href="/" itemprop="item">
+    <span itemprop="name">Главная</span>
+    <meta itemprop="position" content="1" />
+  </a>
+  
+  
+</li>
+
+<li class="breadcrumbs__list-item" itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
+  
+  
+  <span class="breadcrumbs__link" itemprop="name">
+    Отзывы
+    <meta itemprop="position" content="2" />
+  </span>
+  
+</li>
+
+      </ol>
+    </div>
   </div>
-</section>
+</nav>
+
     <footer class="footer">
   <div class="footer__container container">
     <div class="footer__items row not-default-row">
@@ -705,6 +717,87 @@
 </article>
   
   
+  
+    <article id="leave-a-review" class="popup">
+  <div class="popup__inner">
+    <button class="popup__close" type="button" name="popup-close">
+      <span class="sr-only">Закрыть</span>
+    </button>
+    <h3 class="popup__heading heading">Оставить отзыв</h3>
+    <form class="form" name="leave-a-review" novalidate>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваше имя</span>
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">E-mail</span>
+      <input class="form__input" type="text" name="email" placeholder="E-mail">
+    </label>
+  </div>
+  <div class="form__item">
+    <fieldset class="form__item-wrapper">
+      <legend class="form__item-heading">Рейтинг</legend>
+      <div class="form__rating">
+        <label class="form__radio active" role="button" tabindex="0">
+          <span class="sr-only">Оценка 5</span>
+          <input class="form__input" type="radio" name="rating" value="5" checked hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+        </label>
+        
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 4</span>
+          <input class="form__input" type="radio" name="rating" value="4" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 3</span>
+          <input class="form__input" type="radio" name="rating" value="3" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 2</span>
+          <input class="form__input" type="radio" name="rating" value="2" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+          <label class="form__radio" role="button" tabindex="0">
+          <span class="sr-only">Оценка 1</span>
+          <input class="form__input" type="radio" name="rating" value="1" hidden>
+          <svg width="40" height="40">
+            <use href="images/icons.svg#star" />
+          </svg>
+          </label>
+          
+      </div>
+    </fieldset>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваш отзыв</span>
+      <textarea class="form__input" name="review" placeholder="Ваш отзыв"></textarea>
+    </label>
+  </div>
+  <div class="form__item">
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="leave-a-review-submit">Отправить</button>
+    </div>
+  </div>
+</form>
+  </div>
+</article>
   
   
 </section>
