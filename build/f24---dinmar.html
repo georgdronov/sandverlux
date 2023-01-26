@@ -452,7 +452,7 @@
   
   <a class="breadcrumbs__link" href="/" itemprop="item">
     <span itemprop="name">Главная</span>
-    <meta itemprop="position" content="1" />
+    <meta itemprop="position" content="1">
   </a>
   
   
@@ -462,7 +462,7 @@
   
   <a class="breadcrumbs__link" href="/interior-doors" itemprop="item">
     <span itemprop="name">Межкомнатные двери</span>
-    <meta itemprop="position" content="2" />
+    <meta itemprop="position" content="2">
   </a>
   
   
@@ -473,7 +473,7 @@
   
   <span class="breadcrumbs__link" itemprop="name">
     F24 - Динмар
-    <meta itemprop="position" content="3" />
+    <meta itemprop="position" content="3">
   </span>
   
 </li>
@@ -895,7 +895,7 @@
   <p class="sliders-switcher__text">Посмотреть двери в интерьере</з>
   <div class="sliders-switcher__button-wrapper">
     <span class="sliders-switcher__label">Выкл</span>
-    <label role="button" class="sliders-switcher__button" tabindex="0">
+    <label class="sliders-switcher__button" tabindex="0">
       <span class="sr-only">Кнопка переключения галереи</span>
       <input type="checkbox" name="sliders-switcher" hidden>
       <div class="sliders-switcher__visual"></div>
@@ -1027,10 +1027,12 @@
           <ul class="payment-and-delivery__list">
             <li class="payment-and-delivery__list-item">Выезд специалиста на замер осуществляется бесплатно (при
               оформлении заказа) от двух межкомнатных дверей в Минске</li>
-            <div class="payment-and-delivery__button-wrapper">
-              <button class="payment-and-delivery__btn _btn _btn--green" data-open-popup="order-a-measurement"
-                type="button">Вызвать замерщика</button>
-            </div>
+            <li class="_custom-content">
+              <div class="payment-and-delivery__button-wrapper">
+                <button class="payment-and-delivery__btn _btn _btn--green" data-open-popup="order-a-measurement"
+                  type="button">Вызвать замерщика</button>
+              </div>
+            </li>
             <li class="payment-and-delivery__list-item">Доставка дверей осуществляется <strong>БЕСПЛАТНО</strong> в
               Минске и пределах 5 км от МКАД</li>
           </ul>
@@ -1059,61 +1061,64 @@
       <img src="images/products/product-card-example.png" alt="Бостон - венге, глухая" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="boston---venge-gluhaya" class="product__heading">Бостон - венге, глухая</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="001">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="boston---venge-gluhaya" class="product__heading-link">
+          <h3 class="product__heading heading">Бостон - венге, глухая</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 001')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color001" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color001" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color001" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color001" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color001" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1142,63 +1147,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="002">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 002')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color002" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color002" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color002" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color002" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color002" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1224,63 +1232,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="003">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 003')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color003" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color003" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color003" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color003" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color003" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1311,63 +1322,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="004">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 004')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color004" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color004" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color004" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color004" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color004" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1398,63 +1412,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="005">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 005')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1487,63 +1504,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="006">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 006')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1569,61 +1589,64 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="007">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 007')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1647,63 +1670,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="008">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 008')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1727,63 +1753,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="005">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 005')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1816,63 +1845,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="006">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 006')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1898,61 +1930,64 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="007">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 007')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -1976,63 +2011,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="008">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 008')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2081,61 +2119,64 @@
       <img src="images/products/product-card-example.png" alt="Бостон - венге, глухая" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="boston---venge-gluhaya" class="product__heading">Бостон - венге, глухая</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="001">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="boston---venge-gluhaya" class="product__heading-link">
+          <h3 class="product__heading heading">Бостон - венге, глухая</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 001')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color001" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color001" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color001" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color001" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color001" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2164,63 +2205,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="002">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 002')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color002" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color002" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color002" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color002" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color002" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2246,63 +2290,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="003">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 003')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color003" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color003" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color003" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color003" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color003" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2333,63 +2380,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="004">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 004')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color004" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color004" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color004" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color004" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color004" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2420,63 +2470,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="005">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 005')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2509,63 +2562,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="006">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 006')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2591,61 +2647,64 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="007">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 007')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2669,63 +2728,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="008">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 008')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2749,63 +2811,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="005">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 005')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color005" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color005" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color005" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color005" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color005" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2838,63 +2903,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="006">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 006')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color006" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color006" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color006" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color006" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color006" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2920,61 +2988,64 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="007">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 007')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color007" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color007" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color007" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color007" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color007" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -2998,63 +3069,66 @@
       <img src="images/products/our-goods-example.png" alt="F24 - Динмар" class="product__image _bkgr-image _bkgr-image--contain" width="308"
         height="308" loading="lazy">
     </a>
-    <div class="product__content">
-      <div class="product__features">
-        <div class="product__features-inner">
-          <button class="product__features-button" type="button" name="product-compare">
-            <svg class="product__features-button-icon" width="20.15" height="15">
-              <use href="images/icons.svg#scales" />
-            </svg>
-            <span class="sr-only">Добавить в список сравнения</span>
-          </button>
-          <button class="product__features-button" type="button" name="product-wish">
-            <svg class="product__features-button-icon" width="16.08" height="15">
-              <use href="images/icons.svg#heart" />
-            </svg>
-            <span class="sr-only">Добавить в список желаемого</span>
-          </button>
-        </div>
-      </div>
-      <a href="f24---dinmar" class="product__heading">F24 - Динмар</a>
-      <div class="product__price-wrapper">
-        
-        <span class="product__price_old">601.00 р.</span>
-        
-        <span class="product__price">601.00 р.</span>
-      </div>
-      <div class="product__installment">Рассрочка от 150 руб/мес</div>
-    </div>
     <form method="post" class="product__form">
       <input type="hidden" name="id" value="008">
       <input type="hidden" name="count" value="1">
       <input type="hidden" name="options" value="[]">
+
+      <div class="product__content">
+        <div class="product__features">
+          <div class="product__features-inner">
+            <button class="product__features-button" type="button" name="product-compare">
+              <svg class="product__features-button-icon" width="20.15" height="15">
+                <use href="images/icons.svg#scales" />
+              </svg>
+              <span class="sr-only">Добавить в список сравнения</span>
+            </button>
+            <button class="product__features-button" type="button" name="product-wish">
+              <svg class="product__features-button-icon" width="16.08" height="15">
+                <use href="images/icons.svg#heart" />
+              </svg>
+              <span class="sr-only">Добавить в список желаемого</span>
+            </button>
+          </div>
+        </div>
+        <a href="f24---dinmar" class="product__heading-link">
+          <h3 class="product__heading heading">F24 - Динмар</h3>
+        </a>
+        <div class="product__price-wrapper">
+          
+          <span class="product__price_old">601.00 р.</span>
+          
+          <span class="product__price">601.00 р.</span>
+        </div>
+        <div class="product__installment">Рассрочка от 150 руб/мес</div>
+      </div>
 
       <button class="product__btn _btn" onclick="alert('товар : 008')" aria-label="В корзину" type="submit"
         name="ms2_action" value="cart/add">В корзину</button>
 
       <fieldset class="product__colors">
         <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 1</span>
           <input type="radio" name="product-color008" value="color001" checked hidden>
           <span class="product__color" style="background-color:#D8B888"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 2</span>
           <input type="radio" name="product-color008" value="color002" hidden>
           <span class="product__color" style="background-color:#737373"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 3</span>
           <input type="radio" name="product-color008" value="color003" hidden>
           <span class="product__color" style="background-color:#8E7248"></span>
         </label>
-        <label class="product__color-label" role="button" tabindex="0">
+        <label class="product__color-label" tabindex="0">
           <span hidden>цвет номер 4</span>
           <input type="radio" name="product-color008" value="color004" hidden>
           <span class="product__color" style="background-color:#FFFFFF"></span>
         </label>
-        <label class="product__color-label active" role="button" tabindex="0">
+        <label class="product__color-label active" tabindex="0">
           <span hidden>цвет номер 5</span>
           <input type="radio" name="product-color008" value="color005" hidden>
           <span class="product__color" style="background-color:#373737"></span>
@@ -3459,7 +3533,7 @@
     <fieldset class="form__item-wrapper">
       <legend class="form__item-heading">Рейтинг</legend>
       <div class="form__rating">
-        <label class="form__radio active" role="button" tabindex="0">
+        <label class="form__radio active" tabindex="0">
           <span class="sr-only">Оценка 5</span>
           <input class="form__input" type="radio" name="rating" value="5" checked hidden>
           <svg width="40" height="40">
@@ -3467,7 +3541,7 @@
           </svg>
         </label>
         
-          <label class="form__radio" role="button" tabindex="0">
+          <label class="form__radio" tabindex="0">
           <span class="sr-only">Оценка 4</span>
           <input class="form__input" type="radio" name="rating" value="4" hidden>
           <svg width="40" height="40">
@@ -3475,7 +3549,7 @@
           </svg>
           </label>
           
-          <label class="form__radio" role="button" tabindex="0">
+          <label class="form__radio" tabindex="0">
           <span class="sr-only">Оценка 3</span>
           <input class="form__input" type="radio" name="rating" value="3" hidden>
           <svg width="40" height="40">
@@ -3483,7 +3557,7 @@
           </svg>
           </label>
           
-          <label class="form__radio" role="button" tabindex="0">
+          <label class="form__radio" tabindex="0">
           <span class="sr-only">Оценка 2</span>
           <input class="form__input" type="radio" name="rating" value="2" hidden>
           <svg width="40" height="40">
@@ -3491,7 +3565,7 @@
           </svg>
           </label>
           
-          <label class="form__radio" role="button" tabindex="0">
+          <label class="form__radio" tabindex="0">
           <span class="sr-only">Оценка 1</span>
           <input class="form__input" type="radio" name="rating" value="1" hidden>
           <svg width="40" height="40">

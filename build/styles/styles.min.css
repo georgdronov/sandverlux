@@ -3296,11 +3296,14 @@ body {
 .product__features-button.active .product__features-button-icon {
   color: #fff;
 }
-.product__heading {
-  color: #2d2d2d;
-  font-weight: 500;
+.product__heading-link {
   margin-bottom: auto;
   text-decoration: none;
+}
+.product__heading {
+  font-size: inherit;
+  font-weight: 500;
+  text-transform: none;
 }
 .product__price-wrapper {
   margin-top: 6px;
@@ -5281,7 +5284,7 @@ body {
 .products .products__items.list .product__features-button-icon {
   color: #fff;
 }
-.products .products__items.list .product__heading {
+.products .products__items.list .product__heading-link {
   flex-grow: 1;
   margin-right: 15px;
   margin-bottom: 0;

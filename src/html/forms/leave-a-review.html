@@ -15,7 +15,7 @@
     <fieldset class="form__item-wrapper">
       <legend class="form__item-heading">Рейтинг</legend>
       <div class="form__rating">
-        <label class="form__radio active" role="button" tabindex="0">
+        <label class="form__radio active" tabindex="0">
           <span class="sr-only">Оценка 5</span>
           <input class="form__input" type="radio" name="rating" value="5" checked hidden>
           <svg width="40" height="40">
@@ -23,7 +23,7 @@
           </svg>
         </label>
         @@for (var i = 4; i >= 1; i--) {
-          <label class="form__radio" role="button" tabindex="0">
+          <label class="form__radio" tabindex="0">
           <span class="sr-only">Оценка `+i+`</span>
           <input class="form__input" type="radio" name="rating" value="`+i+`" hidden>
           <svg width="40" height="40">

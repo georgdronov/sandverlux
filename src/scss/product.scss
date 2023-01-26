@@ -136,13 +136,16 @@
       color: $white;
     }
   }
-  &__heading {
-    color: $heading-color;
-    font-weight: 500;
+  &__heading-link {
     margin-bottom: auto;
     text-decoration: none;
 
-    @extend %product-heading !optional;
+    @extend %product-heading-link !optional;
+  }
+  &__heading {
+    font-size: inherit;
+    font-weight: 500;
+    text-transform: none;
   }
   &__price-wrapper {
     margin-top: 6px;
