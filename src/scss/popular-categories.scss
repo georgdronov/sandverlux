@@ -106,7 +106,9 @@
   &__nav-btn {
     top: 0;
     bottom: 0;
+    border: none;
     opacity: 1;
+    padding: 0;
     z-index: 10;
     @extend %flex-center;
     position: absolute;

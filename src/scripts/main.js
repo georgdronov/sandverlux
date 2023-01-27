@@ -126,6 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
           return parseInt(value);
         },
       },
+      handleAttributes: [
+          { 'aria-label': 'Минимальная цена' },
+          { 'aria-label': 'Максимальная цена' },
+      ],
       connect: true,
       range: {
         min: +doorPriceMinInput.dataset.min || 0,

@@ -23,6 +23,20 @@ body {
   @media ($desktop-max) {
     padding-top: $header-height-mobile;
   }
+
+  &._inner-page {
+    @extend %inner-page !optional;
+  }
+  ._inner-content {
+    @extend %inner-content !optional;
+
+    h2%heading {
+      font-size: 1.25rem;
+    }
+    & > * {
+      padding: 1.3rem 0;
+    }
+  }
 }
 .container {
   margin: 0 auto;
@@ -79,6 +93,8 @@ body {
   line-height: 1.25;
   font-family: $font-family;
   text-transform: uppercase;
+
+  @extend %heading !optional;
 
   & + * {
     margin-top: 2.5rem;

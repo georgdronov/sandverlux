@@ -1,0 +1,17 @@
+@@if (imageSrc != "" && text != "") {
+<div class="cards__item">
+  <div class="cards__item-inner">
+    <div class="cards__image">
+      <svg width="65" height="65">
+        <use href="@@imageSrc">
+      </svg>
+    </div>
+    <div class="cards__text">
+      @@text
+    </div>
+  </div>
+</div>
+}
+@@if (imageSrc === "" && text === "") {
+  <div class="cards__arrow"><div></div></div>
+}

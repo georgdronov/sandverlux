@@ -1,0 +1,22 @@
+[
+  {
+    "imageSrc": "images/icons.svg#document",
+    "text": "заполнить анкету"
+  },
+  {
+    "imageSrc": "",
+    "text": ""
+  },
+  {
+    "imageSrc": "images/icons.svg#worker",
+    "text": "созвониться с менеджером, приехать на встречу"
+  },
+  {
+    "imageSrc": "",
+    "text": ""
+  },
+  {
+    "imageSrc": "images/icons.svg#discount",
+    "text": "подписать договор"
+  }
+]

@@ -1,0 +1,37 @@
+.form-block {
+  margin: 4rem 0;
+  padding: 4rem 0;
+  position: relative;
+  background: url("../images/icons.svg#form-block-background") center / 100%
+    auto no-repeat transparent;
+
+  &::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+        0deg,
+        #fff 0%,
+        transparent 10%,
+        transparent 90%,
+        #fff 100%
+      )
+      center / cover no-repeat transparent;
+  }
+  // &__container {
+  // }
+  &__wrapper {
+    width: 860px;
+    margin: 0 auto;
+    padding: 3.3rem 6.7rem;
+    max-width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
+    background-color: $white;
+  }
+  %heading {
+    text-align: center;
+  }
+}

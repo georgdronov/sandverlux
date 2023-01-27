@@ -1,0 +1,59 @@
+<form class="form" name="checkout" novalidate>
+  <h2 class="heading">Заявка на сотрудничество</h2>
+  <div class="form__item">
+    <span class="form__item-heading">Укажите регион или город, в котором планируете продажи дверей:</span>
+    <select class="form__select" name="country">
+      <option value="" disabled>Выберите страну</option>
+      <option value="belarus">Республика Беларусь</option>
+      <option value="russia">Российская Федерация</option>
+      <option value="other">Другая</option>
+    </select>
+  </div>
+  <div class="form__item">
+    <div class="form__item-heading">Область</div>
+    <select class="form__select" name="region">
+      <option value="">Выберите область</option>
+      <option value="Брестская область">Брестская область</option>
+      <option value="Витебская область">Витебская область</option>
+      <option value="Гомельская область">Гомельская область</option>
+      <option value="Гродненская область">Гродненская область</option>
+      <option value="Минская область">Минская область</option>
+      <option value="Могилевская область">Могилевская область</option>
+    </select>
+  </div>
+  <div class="form__item">
+    <label>
+      <div class="form__item-heading">Регион</div>
+      <input class="form__input" type="text" name="region" placeholder="Регион">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Ваше имя</span>
+      <input class="form__input" type="text" name="name" placeholder="Ваше имя">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Телефон</span>
+      <input class="form__input" type="text" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Адрес</span>
+      <input class="form__input" type="text" name="cost" placeholder="Адрес">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__label">Комментарий</span>
+      <textarea class="form__input" name="comment" placeholder="Комментарий"></textarea>
+    </label>
+  </div>
+  <div class="form__item">
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="checkout-submit">Отправить</button>
+    </div>
+  </div>
+</form>

@@ -776,16 +776,18 @@
 </div>
       </div>
 
-      <div class="popular-categories__nav-btn popular-categories__nav-btn_prev" role="button" tabindex="0">
+      <button class="popular-categories__nav-btn popular-categories__nav-btn_prev">
         <svg class="popular-categories__prev-icon" width="20" height="10">
           <use href="images/icons.svg#chevron-down" />
         </svg>
-      </div>
-      <div class="popular-categories__nav-btn popular-categories__nav-btn_next" role="button" tabindex="0">
+        <span class="sr-only">Предыдущая категория</span>
+      </button>
+      <button class="popular-categories__nav-btn popular-categories__nav-btn_next">
         <svg class="popular-categories__next-icon" width="20" height="10">
           <use href="images/icons.svg#chevron-down" />
         </svg>
-      </div>
+        <span class="sr-only">Следующая категория</span>
+      </button>
     </div>
   </div>
 </section>
@@ -1836,16 +1838,18 @@
 </div>
         </div>
         
-        <div class="our-goods__nav-btn our-goods__nav-btn_prev">
+        <button class="our-goods__nav-btn our-goods__nav-btn_prev">
           <svg class="our-goods__prev-icon" width="20" height="10">
             <use href="images/icons.svg#chevron-down" />
           </svg>
-        </div>
-        <div class="our-goods__nav-btn our-goods__nav-btn_next">
+          <span class="sr-only">Предыдущий</span>
+        </button>
+        <button class="our-goods__nav-btn our-goods__nav-btn_next">
           <svg class="our-goods__next-icon" width="20" height="10">
             <use href="images/icons.svg#chevron-down" />
           </svg>
-        </div>
+          <span class="sr-only">Следующий</span>
+        </button>
         
       </div>
     </div>
@@ -1974,6 +1978,7 @@
 </section>
     <section class="our-virtues">
   <div class="our-virtues__container container">
+    
     <div class="our-virtues__items row not-default-row">
       <div class="our-virtues__item">
   <div class="our-virtues__inner">
@@ -2233,7 +2238,7 @@
           <p class="map__message">Нажмите, чтобы взаимодействовать</p>
         </div>
         
-        <iframe id="our-shops-map" width="100%" height="445" loading="lazy"
+        <iframe id="our-shops-map" width="100%" height="445" loading="lazy" title="Наши магазины (карта)"
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A28e2e91a91eb207316af2cae827e1825e63ca573cb080ad7c020de7d1c9e5a84&amp;source=constructor"></iframe>
       </div>
     </div>

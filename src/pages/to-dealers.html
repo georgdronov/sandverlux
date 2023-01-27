@@ -6,16 +6,30 @@
 })
 
 <body>
-  <div class="wrapper">
+  <div class="wrapper _inner-page">
     @@include('./src/html/header.html')
     @@include('./src/html/breadcrumbs.html', {
-      'json-path': '../json/breadcrumbs/to-dealers.json'
+    'json-path': '../json/breadcrumbs/to-dealers.json'
     })
-    @@include('./src/html/content-header.html', {
-      'title': 'Дилерам',
-      'subtitle': 'Начините бизнес с Дверным Раем!',
-      'text': 'Мы приложим все усилия, чтобы Ваш бизнес с нами был удобным и прибыльным',
-      'background-image': 'images/dealers-header.jpg'
+    @@include('./src/html/inner-blocks/content-header.html', {
+    'title': 'Дилерам',
+    'subtitle': 'Начините бизнес с Дверным Раем!',
+    'text': 'Мы приложим все усилия, чтобы Ваш бизнес с нами был удобным и прибыльным',
+    'background-image': 'images/dealers-header.jpg'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/to-dealers-content-01.json')
+      @@include('./src/html/our-virtues.html', {
+      'title': 'Причины выбрать дверной рай в качестве партнера'
+      })
+      @@include('./src/html/inner-blocks/cards.html', {
+      'title': 'Как стать дилером дверной компании “дверной рай”?',
+      'text': '',
+      'cards-json': '../json/inner-content/to-dealers-cards.json'
+      })
+    </div>
+    @@include('./src/html/inner-blocks/form-block.html', {
+    'form-src': './src/html/forms/to-dealers-cooperation.html'
     })
     @@include('./src/html/footer.html')
   </div>
