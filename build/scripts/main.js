@@ -6845,7 +6845,7 @@
             );
             event2.currentTarget.setAttribute("aria-expanded", true);
             toggleTargets.forEach(
-              (target) => target.id === button.dataset.toggle.substring(1) ? target.classList.add("active") : target.classList.remove("active")
+              (target) => target.dataset.target === button.dataset.toggle ? target.classList.add("active") : target.classList.remove("active")
             );
           })
         );

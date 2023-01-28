@@ -1,4 +1,6 @@
 .cards {
+  $card-items-gap: 1.875rem;
+
   // &__container {
   // }
   // &__heading {
@@ -10,6 +12,7 @@
   }
   &__items {
     @extend %row-wrapper;
+    margin-left: -$card-items-gap;
     justify-content: space-between;
   }
   &__arrow {
@@ -19,7 +22,11 @@
     min-width: 3rem;
     align-self: center;
     border-top: 3px solid $primary-color;
+    margin-right: calc(3.5rem - $card-items-gap);
 
+    &:nth-child(4n+2) {
+      @extend %cards-arrow-4n !optional;
+    }
     & div {
       &::before,
       &::after {
@@ -44,12 +51,16 @@
   &__item {
     flex: 2 0 0%;
     max-width: 420px;
+    margin-left: $card-items-gap;
 
     &:nth-child(2n) {
       @extend %cards-odd-items !optional;
     }
     &:nth-child(2n + 1) {
       @extend %cards-even-items !optional;
+    }
+    %cards-arrow-4n + & {
+      @extend %cards-items-next-to-arrows !optional;
     }
     &:last-child {
       @extend %cards-last-item !optional;
@@ -67,11 +78,12 @@
     }
   }
   &__image {
-    %cards-odd-items & {
-      color: $yellow;
-    }
     %cards-even-items & {
       color: $primary-color;
+    }
+    %cards-odd-items &,
+    %cards-items-next-to-arrows & {
+      color: $yellow;
     }
   }
   &__text {

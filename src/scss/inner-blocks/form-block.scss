@@ -33,5 +33,29 @@
   }
   %heading {
     text-align: center;
+
+    & + * {
+      margin-top: 2.25rem;
+    }
   }
+  %form-item {
+    display: flex;
+    flex-direction: column;
+
+    & + %form-item {
+      margin-top: 35px;
+    }
+  }
+  %form-item-heading {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  %form-select,
+  %form-input {
+    min-height: 45px;
+    background-color: $form-grey-color; 
+  }
+
 }

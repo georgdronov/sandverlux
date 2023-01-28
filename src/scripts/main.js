@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
       handleAttributes: [
-          { 'aria-label': 'Минимальная цена' },
-          { 'aria-label': 'Максимальная цена' },
+        { "aria-label": "Минимальная цена" },
+        { "aria-label": "Максимальная цена" },
       ],
       connect: true,
       range: {
@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
           );
           event.currentTarget.setAttribute("aria-expanded", true);
           toggleTargets.forEach((target) =>
-            target.id === button.dataset.toggle.substring(1)
+            target.dataset.target === button.dataset.toggle
               ? target.classList.add("active")
               : target.classList.remove("active")
           );

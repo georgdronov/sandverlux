@@ -142,6 +142,9 @@ button,
   font-weight: 300;
   line-height: 1.875;
 
+  & > * {
+    margin: 0;
+  }
   & > * + * {
     margin-top: 1em;
   }
@@ -434,21 +437,21 @@ label {
     opacity: 0;
   }
 }
-@keyframes wheel-to-hide {
-  30% {
-    background-position: 50% 45%;
-    // transform: translateY(-10px);
-  }
-  40% {
-    background-position: 50% 54%;
-    // transform: translateY(8px);
-  }
-  55% {
-    background-position: 50% 42.5%;
-    // transform: translateY(-5px);
-  }
-  75% {
-    background-position: 50% 50.5%;
-    // transform: translateY(1px);
-  }
-}
+// @keyframes wheel-to-hide {
+//   30% {
+//     background-position: 50% 45%;
+//     // transform: translateY(-10px);
+//   }
+//   40% {
+//     background-position: 50% 54%;
+//     // transform: translateY(8px);
+//   }
+//   55% {
+//     background-position: 50% 42.5%;
+//     // transform: translateY(-5px);
+//   }
+//   75% {
+//     background-position: 50% 50.5%;
+//     // transform: translateY(1px);
+//   }
+// }
