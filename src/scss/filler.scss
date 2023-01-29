@@ -2,8 +2,8 @@
   padding: 8rem 0;
   flex-grow: 1;
   @extend %flex-center;
-  background: url("../images/icons.svg#filler-background") center / cover no-repeat
-    transparent;
+  background: url("../images/icons.svg#filler-background") center / cover
+    no-repeat transparent;
 
   @extend %filler !optional;
 
@@ -31,12 +31,10 @@
     color: $primary-color;
     font-size: 2.875rem;
     font-weight: 700;
+    margin-bottom: 1.75rem;
 
     %filler-404 & {
       font-size: 7.5rem;
-    }
-    & + * {
-      margin-top: 1.75rem;
     }
   }
   &__description {

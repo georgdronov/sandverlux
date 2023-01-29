@@ -43,14 +43,11 @@
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.225;
+    margin-bottom: 3.875rem;
     text-transform: none;
 
-    & + * {
-      margin-top: 3.875rem;
-
-      @media ($tablet-mad) {
-        margin-top: 1.575rem;
-      }
+    @media ($tablet-mad) {
+      margin-bottom: 1.575rem;
     }
   }
   &__button {

@@ -11,10 +11,8 @@
   // &__container {
   // }
   &__heading {
-    & + * {
-      @media ($mobile-max) {
-        margin-top: 1.7em;
-      }
+    @media ($mobile-max) {
+      margin-bottom: 1.7em;
     }
   }
   &__items {

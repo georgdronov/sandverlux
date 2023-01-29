@@ -1,25 +1,25 @@
-<article class="review" itemprop="review" itemscope itemtype="https://schema.org/Review">
+<article class="review" itemscope itemtype="https://schema.org/Review">
   <header class="review__top">
-    <p class="review__author" itemprop="author">@@author</p>
+    <h4 class="review__author" itemprop="author">@@author</h4>
     <div class="review__rating">
       <span itemprop="reviewRating" hidden>@@rating</span>
-      <svg class="review__star @@if(rating>0){active}" width="20" height="20">
+      <svg class="review__star @@if(rating>0){active}" width="20" height="20" aria-hidden="true">
         <use href="images/icons.svg#star" />
       </svg>
-      <svg class="review__star @@if(rating>1){active}" width="20" height="20">
+      <svg class="review__star @@if(rating>1){active}" width="20" height="20" aria-hidden="true">
         <use href="images/icons.svg#star" />
       </svg>
-      <svg class="review__star @@if(rating>2){active}" width="20" height="20">
+      <svg class="review__star @@if(rating>2){active}" width="20" height="20" aria-hidden="true">
         <use href="images/icons.svg#star" />
       </svg>
-      <svg class="review__star @@if(rating>3){active}" width="20" height="20">
+      <svg class="review__star @@if(rating>3){active}" width="20" height="20" aria-hidden="true">
         <use href="images/icons.svg#star" />
       </svg>
-      <svg class="review__star @@if(rating>4){active}" width="20" height="20">
+      <svg class="review__star @@if(rating>4){active}" width="20" height="20" aria-hidden="true">
         <use href="images/icons.svg#star" />
       </svg>
     </div>
-    <time class="review__time" itemprop="datePublished" content="@@date">@@date</time>
+    <time class="review__time" itemprop="datePublished" datetime="@@date-format">@@date</time>
   </header>
   <div class="review__bottom">
     <div class="review__text _custom-content" itemprop="reviewBody">

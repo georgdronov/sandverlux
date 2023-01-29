@@ -3,19 +3,29 @@
   var myPopupOverlay = new popupOverlay();
   var myGallery = new gallery();
   var mySetAnchorsEvents = new setAnchorsEvents();
-  function addClassOnClick(itemsClick, classToItem, nameOfClass) {
+  function toggleClassOnClick(itemsClick, classToItem, nameOfClass) {
     const buttons = document.querySelectorAll(itemsClick);
     if (!buttons.length)
       return;
     buttons.forEach(
       (button) => button.addEventListener("click", () => {
-        document.querySelectorAll(classToItem).forEach((item) => {
-          item.classList.toggle(nameOfClass);
-        });
+        switch (classToItem) {
+          case "parent":
+            button.parentElement.classList.toggle(nameOfClass);
+            break;
+          case "previous":
+            button.previousElementSibling.classList.toggle(nameOfClass);
+            break;
+          default:
+            document.querySelectorAll(classToItem).forEach((item) => {
+              item.classList.toggle(nameOfClass);
+            });
+            break;
+        }
       })
     );
   }
-  function addClassOnScroll(item, topOffset, nameOfClass) {
+  function toggleClassOnScroll(item, topOffset, nameOfClass) {
     let scrollState = null;
     window.addEventListener(
       "scroll",
@@ -39,6 +49,60 @@
       document.querySelector(item).classList.add(nameOfClass);
       scrollState = "scrolled";
       return;
+    }
+  }
+  function toggleElements() {
+    const toggleContainers = document.querySelectorAll("[data-toggle-container]");
+    if (!toggleContainers.length)
+      return;
+    toggleContainers.forEach((container) => {
+      const toggleElements2 = container.querySelectorAll("[data-toggle]");
+      const toggleTargets = container.querySelectorAll("[data-target]");
+      if (!toggleElements2.length && !toggleTargets.length)
+        return;
+      toggleElements2.forEach((elem) => {
+        switch (elem.tagName.toLowerCase()) {
+          case "select":
+            toggleContent(elem, toggleTargets);
+            elem.addEventListener("change", (event2) => {
+              toggleContent(event2.target, toggleTargets);
+            });
+            break;
+          case "input":
+            toggleContent(elem, toggleTargets, toggleElements2, elem.checked);
+            elem.addEventListener("click", (event2) => {
+              toggleContent(event2.target, toggleTargets);
+            });
+            break;
+          default:
+            elem.addEventListener("click", (event2) => {
+              toggleContent(event2.currentTarget, toggleTargets, toggleElements2);
+            });
+            break;
+        }
+      });
+    });
+    function toggleContent(current, targets, buttons = null, state = true) {
+      if (state !== true)
+        return;
+      const tag = current.tagName.toLowerCase(), value = toggleValue(tag, current);
+      targets.forEach((target) => toggleClass2(target, value, state));
+      if (buttons === null)
+        return;
+      buttons.forEach((button) => button.setAttribute("aria-expanded", false));
+      current.setAttribute("aria-expanded", true);
+    }
+    function toggleValue(tag, element) {
+      if (tag === "select")
+        return element.value;
+      return element.dataset.toggle;
+    }
+    function toggleClass2(target, value) {
+      if (target.dataset.target === value) {
+        target.classList.add("active");
+        return;
+      }
+      target.classList.remove("active");
     }
   }
   function setAnchorsEvents() {
@@ -70,16 +134,10 @@
     });
   }
   function toHorizontalScroll(element) {
-    element.addEventListener(
-      "wheel",
-      (event2) => {
-        event2.preventDefault();
-        element.scrollLeft += event2.deltaY / 2;
-      },
-      {
-        passive: true
-      }
-    );
+    element.addEventListener("wheel", (event2) => {
+      event2.preventDefault();
+      element.scrollLeft += event2.deltaY / 2;
+    });
   }
   function onKeydownAction(element, customFunction) {
     element.addEventListener("keydown", (e) => {
@@ -124,6 +182,9 @@
     let documentHeight = document.documentElement.offsetHeight - window.innerHeight;
     if (scrollTopPath) {
       scrollTopPathLength = scrollTopPath.getTotalLength();
+      const resizeObserver = new ResizeObserver(function() {
+        documentHeight = document.documentElement.offsetHeight - window.innerHeight;
+      });
       window.addEventListener("load", function() {
         documentHeight = document.documentElement.offsetHeight - window.innerHeight;
         setPreloaderPath(
@@ -141,6 +202,7 @@
           passive: true
         }
       );
+      resizeObserver.observe(document.body);
     }
     let hasClass3 = scrollTopElement.classList.contains("_active"), isScrolled = scrollY > 35;
     window.addEventListener(
@@ -206,6 +268,7 @@
       return;
     if ("IntersectionObserver" in window) {
       const options = {
+        // root: document.querySelector( '#viewport' ),
         rootMargin: "50px",
         threshold: [0, 0.5]
       };
@@ -490,179 +553,182 @@
     }
     return xPct[j - 1] + closest(value - xPct[j - 1], xSteps[j - 1]);
   }
-  var Spectrum = function() {
-    function Spectrum2(entry, snap, singleStep) {
-      this.xPct = [];
-      this.xVal = [];
-      this.xSteps = [];
-      this.xNumSteps = [];
-      this.xHighestCompleteStep = [];
-      this.xSteps = [singleStep || false];
-      this.xNumSteps = [false];
-      this.snap = snap;
-      var index2;
-      var ordered = [];
-      Object.keys(entry).forEach(function(index3) {
-        ordered.push([asArray(entry[index3]), index3]);
-      });
-      ordered.sort(function(a, b) {
-        return a[0][0] - b[0][0];
-      });
-      for (index2 = 0; index2 < ordered.length; index2++) {
-        this.handleEntryPoint(ordered[index2][1], ordered[index2][0]);
+  var Spectrum = (
+    /** @class */
+    function() {
+      function Spectrum2(entry, snap, singleStep) {
+        this.xPct = [];
+        this.xVal = [];
+        this.xSteps = [];
+        this.xNumSteps = [];
+        this.xHighestCompleteStep = [];
+        this.xSteps = [singleStep || false];
+        this.xNumSteps = [false];
+        this.snap = snap;
+        var index2;
+        var ordered = [];
+        Object.keys(entry).forEach(function(index3) {
+          ordered.push([asArray(entry[index3]), index3]);
+        });
+        ordered.sort(function(a, b) {
+          return a[0][0] - b[0][0];
+        });
+        for (index2 = 0; index2 < ordered.length; index2++) {
+          this.handleEntryPoint(ordered[index2][1], ordered[index2][0]);
+        }
+        this.xNumSteps = this.xSteps.slice(0);
+        for (index2 = 0; index2 < this.xNumSteps.length; index2++) {
+          this.handleStepPoint(index2, this.xNumSteps[index2]);
+        }
       }
-      this.xNumSteps = this.xSteps.slice(0);
-      for (index2 = 0; index2 < this.xNumSteps.length; index2++) {
-        this.handleStepPoint(index2, this.xNumSteps[index2]);
-      }
-    }
-    Spectrum2.prototype.getDistance = function(value) {
-      var distances = [];
-      for (var index2 = 0; index2 < this.xNumSteps.length - 1; index2++) {
-        distances[index2] = fromPercentage(this.xVal, value, index2);
-      }
-      return distances;
-    };
-    Spectrum2.prototype.getAbsoluteDistance = function(value, distances, direction) {
-      var xPct_index = 0;
-      if (value < this.xPct[this.xPct.length - 1]) {
-        while (value > this.xPct[xPct_index + 1]) {
+      Spectrum2.prototype.getDistance = function(value) {
+        var distances = [];
+        for (var index2 = 0; index2 < this.xNumSteps.length - 1; index2++) {
+          distances[index2] = fromPercentage(this.xVal, value, index2);
+        }
+        return distances;
+      };
+      Spectrum2.prototype.getAbsoluteDistance = function(value, distances, direction) {
+        var xPct_index = 0;
+        if (value < this.xPct[this.xPct.length - 1]) {
+          while (value > this.xPct[xPct_index + 1]) {
+            xPct_index++;
+          }
+        } else if (value === this.xPct[this.xPct.length - 1]) {
+          xPct_index = this.xPct.length - 2;
+        }
+        if (!direction && value === this.xPct[xPct_index + 1]) {
           xPct_index++;
         }
-      } else if (value === this.xPct[this.xPct.length - 1]) {
-        xPct_index = this.xPct.length - 2;
-      }
-      if (!direction && value === this.xPct[xPct_index + 1]) {
-        xPct_index++;
-      }
-      if (distances === null) {
-        distances = [];
-      }
-      var start_factor;
-      var rest_factor = 1;
-      var rest_rel_distance = distances[xPct_index];
-      var range_pct = 0;
-      var rel_range_distance = 0;
-      var abs_distance_counter = 0;
-      var range_counter = 0;
-      if (direction) {
-        start_factor = (value - this.xPct[xPct_index]) / (this.xPct[xPct_index + 1] - this.xPct[xPct_index]);
-      } else {
-        start_factor = (this.xPct[xPct_index + 1] - value) / (this.xPct[xPct_index + 1] - this.xPct[xPct_index]);
-      }
-      while (rest_rel_distance > 0) {
-        range_pct = this.xPct[xPct_index + 1 + range_counter] - this.xPct[xPct_index + range_counter];
-        if (distances[xPct_index + range_counter] * rest_factor + 100 - start_factor * 100 > 100) {
-          rel_range_distance = range_pct * start_factor;
-          rest_factor = (rest_rel_distance - 100 * start_factor) / distances[xPct_index + range_counter];
-          start_factor = 1;
-        } else {
-          rel_range_distance = distances[xPct_index + range_counter] * range_pct / 100 * rest_factor;
-          rest_factor = 0;
+        if (distances === null) {
+          distances = [];
         }
+        var start_factor;
+        var rest_factor = 1;
+        var rest_rel_distance = distances[xPct_index];
+        var range_pct = 0;
+        var rel_range_distance = 0;
+        var abs_distance_counter = 0;
+        var range_counter = 0;
         if (direction) {
-          abs_distance_counter = abs_distance_counter - rel_range_distance;
-          if (this.xPct.length + range_counter >= 1) {
-            range_counter--;
+          start_factor = (value - this.xPct[xPct_index]) / (this.xPct[xPct_index + 1] - this.xPct[xPct_index]);
+        } else {
+          start_factor = (this.xPct[xPct_index + 1] - value) / (this.xPct[xPct_index + 1] - this.xPct[xPct_index]);
+        }
+        while (rest_rel_distance > 0) {
+          range_pct = this.xPct[xPct_index + 1 + range_counter] - this.xPct[xPct_index + range_counter];
+          if (distances[xPct_index + range_counter] * rest_factor + 100 - start_factor * 100 > 100) {
+            rel_range_distance = range_pct * start_factor;
+            rest_factor = (rest_rel_distance - 100 * start_factor) / distances[xPct_index + range_counter];
+            start_factor = 1;
+          } else {
+            rel_range_distance = distances[xPct_index + range_counter] * range_pct / 100 * rest_factor;
+            rest_factor = 0;
+          }
+          if (direction) {
+            abs_distance_counter = abs_distance_counter - rel_range_distance;
+            if (this.xPct.length + range_counter >= 1) {
+              range_counter--;
+            }
+          } else {
+            abs_distance_counter = abs_distance_counter + rel_range_distance;
+            if (this.xPct.length - range_counter >= 1) {
+              range_counter++;
+            }
+          }
+          rest_rel_distance = distances[xPct_index + range_counter] * rest_factor;
+        }
+        return value + abs_distance_counter;
+      };
+      Spectrum2.prototype.toStepping = function(value) {
+        value = toStepping(this.xVal, this.xPct, value);
+        return value;
+      };
+      Spectrum2.prototype.fromStepping = function(value) {
+        return fromStepping(this.xVal, this.xPct, value);
+      };
+      Spectrum2.prototype.getStep = function(value) {
+        value = getStep(this.xPct, this.xSteps, this.snap, value);
+        return value;
+      };
+      Spectrum2.prototype.getDefaultStep = function(value, isDown, size) {
+        var j = getJ(value, this.xPct);
+        if (value === 100 || isDown && value === this.xPct[j - 1]) {
+          j = Math.max(j - 1, 1);
+        }
+        return (this.xVal[j] - this.xVal[j - 1]) / size;
+      };
+      Spectrum2.prototype.getNearbySteps = function(value) {
+        var j = getJ(value, this.xPct);
+        return {
+          stepBefore: {
+            startValue: this.xVal[j - 2],
+            step: this.xNumSteps[j - 2],
+            highestStep: this.xHighestCompleteStep[j - 2]
+          },
+          thisStep: {
+            startValue: this.xVal[j - 1],
+            step: this.xNumSteps[j - 1],
+            highestStep: this.xHighestCompleteStep[j - 1]
+          },
+          stepAfter: {
+            startValue: this.xVal[j],
+            step: this.xNumSteps[j],
+            highestStep: this.xHighestCompleteStep[j]
+          }
+        };
+      };
+      Spectrum2.prototype.countStepDecimals = function() {
+        var stepDecimals = this.xNumSteps.map(countDecimals);
+        return Math.max.apply(null, stepDecimals);
+      };
+      Spectrum2.prototype.hasNoSize = function() {
+        return this.xVal[0] === this.xVal[this.xVal.length - 1];
+      };
+      Spectrum2.prototype.convert = function(value) {
+        return this.getStep(this.toStepping(value));
+      };
+      Spectrum2.prototype.handleEntryPoint = function(index2, value) {
+        var percentage;
+        if (index2 === "min") {
+          percentage = 0;
+        } else if (index2 === "max") {
+          percentage = 100;
+        } else {
+          percentage = parseFloat(index2);
+        }
+        if (!isNumeric(percentage) || !isNumeric(value[0])) {
+          throw new Error("noUiSlider: 'range' value isn't numeric.");
+        }
+        this.xPct.push(percentage);
+        this.xVal.push(value[0]);
+        var value1 = Number(value[1]);
+        if (!percentage) {
+          if (!isNaN(value1)) {
+            this.xSteps[0] = value1;
           }
         } else {
-          abs_distance_counter = abs_distance_counter + rel_range_distance;
-          if (this.xPct.length - range_counter >= 1) {
-            range_counter++;
-          }
+          this.xSteps.push(isNaN(value1) ? false : value1);
         }
-        rest_rel_distance = distances[xPct_index + range_counter] * rest_factor;
-      }
-      return value + abs_distance_counter;
-    };
-    Spectrum2.prototype.toStepping = function(value) {
-      value = toStepping(this.xVal, this.xPct, value);
-      return value;
-    };
-    Spectrum2.prototype.fromStepping = function(value) {
-      return fromStepping(this.xVal, this.xPct, value);
-    };
-    Spectrum2.prototype.getStep = function(value) {
-      value = getStep(this.xPct, this.xSteps, this.snap, value);
-      return value;
-    };
-    Spectrum2.prototype.getDefaultStep = function(value, isDown, size) {
-      var j = getJ(value, this.xPct);
-      if (value === 100 || isDown && value === this.xPct[j - 1]) {
-        j = Math.max(j - 1, 1);
-      }
-      return (this.xVal[j] - this.xVal[j - 1]) / size;
-    };
-    Spectrum2.prototype.getNearbySteps = function(value) {
-      var j = getJ(value, this.xPct);
-      return {
-        stepBefore: {
-          startValue: this.xVal[j - 2],
-          step: this.xNumSteps[j - 2],
-          highestStep: this.xHighestCompleteStep[j - 2]
-        },
-        thisStep: {
-          startValue: this.xVal[j - 1],
-          step: this.xNumSteps[j - 1],
-          highestStep: this.xHighestCompleteStep[j - 1]
-        },
-        stepAfter: {
-          startValue: this.xVal[j],
-          step: this.xNumSteps[j],
-          highestStep: this.xHighestCompleteStep[j]
-        }
+        this.xHighestCompleteStep.push(0);
       };
-    };
-    Spectrum2.prototype.countStepDecimals = function() {
-      var stepDecimals = this.xNumSteps.map(countDecimals);
-      return Math.max.apply(null, stepDecimals);
-    };
-    Spectrum2.prototype.hasNoSize = function() {
-      return this.xVal[0] === this.xVal[this.xVal.length - 1];
-    };
-    Spectrum2.prototype.convert = function(value) {
-      return this.getStep(this.toStepping(value));
-    };
-    Spectrum2.prototype.handleEntryPoint = function(index2, value) {
-      var percentage;
-      if (index2 === "min") {
-        percentage = 0;
-      } else if (index2 === "max") {
-        percentage = 100;
-      } else {
-        percentage = parseFloat(index2);
-      }
-      if (!isNumeric(percentage) || !isNumeric(value[0])) {
-        throw new Error("noUiSlider: 'range' value isn't numeric.");
-      }
-      this.xPct.push(percentage);
-      this.xVal.push(value[0]);
-      var value1 = Number(value[1]);
-      if (!percentage) {
-        if (!isNaN(value1)) {
-          this.xSteps[0] = value1;
+      Spectrum2.prototype.handleStepPoint = function(i, n) {
+        if (!n) {
+          return;
         }
-      } else {
-        this.xSteps.push(isNaN(value1) ? false : value1);
-      }
-      this.xHighestCompleteStep.push(0);
-    };
-    Spectrum2.prototype.handleStepPoint = function(i, n) {
-      if (!n) {
-        return;
-      }
-      if (this.xVal[i] === this.xVal[i + 1]) {
-        this.xSteps[i] = this.xHighestCompleteStep[i] = this.xVal[i];
-        return;
-      }
-      this.xSteps[i] = fromPercentage([this.xVal[i], this.xVal[i + 1]], n, 0) / subRangeRatio(this.xPct[i], this.xPct[i + 1]);
-      var totalSteps = (this.xVal[i + 1] - this.xVal[i]) / this.xNumSteps[i];
-      var highestStep = Math.ceil(Number(totalSteps.toFixed(3)) - 1);
-      var step = this.xVal[i] + this.xNumSteps[i] * highestStep;
-      this.xHighestCompleteStep[i] = step;
-    };
-    return Spectrum2;
-  }();
+        if (this.xVal[i] === this.xVal[i + 1]) {
+          this.xSteps[i] = this.xHighestCompleteStep[i] = this.xVal[i];
+          return;
+        }
+        this.xSteps[i] = fromPercentage([this.xVal[i], this.xVal[i + 1]], n, 0) / subRangeRatio(this.xPct[i], this.xPct[i + 1]);
+        var totalSteps = (this.xVal[i + 1] - this.xVal[i]) / this.xNumSteps[i];
+        var highestStep = Math.ceil(Number(totalSteps.toFixed(3)) - 1);
+        var step = this.xVal[i] + this.xNumSteps[i] * highestStep;
+        this.xHighestCompleteStep[i] = step;
+      };
+      return Spectrum2;
+    }()
+  );
   var defaultFormatter = {
     to: function(value) {
       return value === void 0 ? "" : value.toFixed(2);
@@ -1501,6 +1567,8 @@
       event2.stopPropagation();
       var listeners = [];
       var moveEvent = attachEvent(actions.move, scope_DocumentElement, eventMove, {
+        // The event target has changed so we need to propagate the original one so that we keep
+        // relying on it to extract target touches.
         target: event2.target,
         handle,
         connect: data.connect,
@@ -1703,12 +1771,19 @@
         if (eventName === eventType) {
           scope_Events[targetEvent].forEach(function(callback) {
             callback.call(
+              // Use the slider public API as the scope ('this')
               scope_Self,
+              // Return values as array, so arg_1[arg_2] is always valid.
               scope_Values.map(options.format.to),
+              // Handle index, 0 or 1
               handleNumber,
+              // Un-formatted slider values
               scope_Values.slice(),
+              // Event is fired by tap, true or false
               tap || false,
+              // Left offset of the handle, in relation to the slider
               scope_Locations.slice(),
+              // add the slider public API to an accessible parameter when this is unavailable
               scope_Self
             );
           });
@@ -2037,6 +2112,7 @@
       set: valueSet,
       setHandle: valueSetHandle,
       reset: valueReset,
+      // Exposed for unit testing, don't use this in your application.
       __moveHandles: function(upward, proposal, handleNumbers) {
         moveHandles(upward, proposal, scope_Locations, handleNumbers);
       },
@@ -2055,6 +2131,7 @@
         return scope_Handles;
       },
       pips
+      // Issue #594
     };
     return scope_Self;
   }
@@ -2071,7 +2148,10 @@
     return api;
   }
   var nouislider_default = {
+    // Exposed for unit testing, don't use this in your application.
     __spectrum: Spectrum,
+    // A reference to the default classes, allows global changes.
+    // Use the cssClasses option for changes to one slider.
     cssClasses,
     create: initialize
   };
@@ -3121,6 +3201,7 @@
         let supportsPassive = false;
         try {
           const opts = Object.defineProperty({}, "passive", {
+            // eslint-disable-next-line
             get() {
               supportsPassive = true;
             }
@@ -5659,19 +5740,30 @@
     createElements: false,
     enabled: true,
     focusableElements: "input, select, option, textarea, button, video, label",
+    // Overrides
     width: null,
     height: null,
+    //
     preventInteractionOnTransition: false,
+    // ssr
     userAgent: null,
     url: null,
+    // To support iOS's swipe-to-go-back gesture (when being used in-app).
     edgeSwipeDetection: false,
     edgeSwipeThreshold: 20,
+    // Autoheight
     autoHeight: false,
+    // Set wrapper width
     setWrapperSize: false,
+    // Virtual Translate
     virtualTranslate: false,
+    // Effects
     effect: "slide",
+    // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
+    // Breakpoints
     breakpoints: void 0,
     breakpointsBase: "window",
+    // Slides grid
     spaceBetween: 0,
     slidesPerView: 1,
     slidesPerGroup: 1,
@@ -5680,11 +5772,16 @@
     centeredSlides: false,
     centeredSlidesBounds: false,
     slidesOffsetBefore: 0,
+    // in px
     slidesOffsetAfter: 0,
+    // in px
     normalizeSlideIndex: true,
     centerInsufficientSlides: false,
+    // Disable swiper and hide navigation when container not overflow
     watchOverflow: true,
+    // Round length
     roundLengths: false,
+    // Touches
     touchRatio: 1,
     touchAngle: 45,
     simulateTouch: true,
@@ -5699,32 +5796,45 @@
     touchStartPreventDefault: true,
     touchStartForcePreventDefault: false,
     touchReleaseOnEdges: false,
+    // Unique Navigation Elements
     uniqueNavElements: true,
+    // Resistance
     resistance: true,
     resistanceRatio: 0.85,
+    // Progress
     watchSlidesProgress: false,
+    // Cursor
     grabCursor: false,
+    // Clicks
     preventClicks: true,
     preventClicksPropagation: true,
     slideToClickedSlide: false,
+    // Images
     preloadImages: true,
     updateOnImagesReady: true,
+    // loop
     loop: false,
     loopAdditionalSlides: 0,
     loopedSlides: null,
     loopedSlidesLimit: true,
     loopFillGroupWithBlank: false,
     loopPreventsSlide: true,
+    // rewind
     rewind: false,
+    // Swiping/no swiping
     allowSlidePrev: true,
     allowSlideNext: true,
     swipeHandler: null,
+    // '.swipe-handler',
     noSwiping: true,
     noSwipingClass: "swiper-no-swiping",
     noSwipingSelector: null,
+    // Passive Listeners
     passiveListeners: true,
     maxBackfaceHiddenSlides: 10,
+    // NS
     containerModifierClass: "swiper-",
+    // NEW
     slideClass: "swiper-slide",
     slideBlankClass: "swiper-slide-invisible-blank",
     slideActiveClass: "swiper-slide-active",
@@ -5736,7 +5846,9 @@
     slidePrevClass: "swiper-slide-prev",
     slideDuplicatePrevClass: "swiper-slide-duplicate-prev",
     wrapperClass: "swiper-wrapper",
+    // Callbacks
     runCallbacksOnInit: true,
+    // Internals
     _emitClasses: false
   };
 
@@ -5854,28 +5966,36 @@
       Object.assign(swiper, {
         enabled: swiper.params.enabled,
         el,
+        // Classes
         classNames: [],
+        // Slides
         slides: dom_default(),
         slidesGrid: [],
         snapGrid: [],
         slidesSizesGrid: [],
+        // isDirection
         isHorizontal() {
           return swiper.params.direction === "horizontal";
         },
         isVertical() {
           return swiper.params.direction === "vertical";
         },
+        // Indexes
         activeIndex: 0,
         realIndex: 0,
+        //
         isBeginning: true,
         isEnd: false,
+        // Props
         translate: 0,
         previousTranslate: 0,
         progress: 0,
         velocity: 0,
         animating: false,
+        // Locks
         allowSlideNext: swiper.params.allowSlideNext,
         allowSlidePrev: swiper.params.allowSlidePrev,
+        // Touch Events
         touchEvents: function touchEvents() {
           const touch = ["touchstart", "touchmove", "touchend", "touchcancel"];
           const desktop = ["pointerdown", "pointermove", "pointerup"];
@@ -5901,15 +6021,20 @@
           currentTranslate: void 0,
           startTranslate: void 0,
           allowThresholdMove: void 0,
+          // Form elements to match
           focusableElements: swiper.params.focusableElements,
+          // Last click time
           lastClickTime: now(),
           clickTimeout: void 0,
+          // Velocities
           velocities: [],
           allowMomentumBounce: void 0,
           isTouchEvent: void 0,
           startMoving: void 0
         },
+        // Clicks
         allowClick: true,
+        // Touches
         allowTouchMove: swiper.params.allowTouchMove,
         touches: {
           startX: 0,
@@ -5918,6 +6043,7 @@
           currentY: 0,
           diff: 0
         },
+        // Images
         imagesToLoad: [],
         imagesLoaded: 0
       });
@@ -6161,6 +6287,7 @@
         $wrapperEl,
         wrapperEl: $wrapperEl[0],
         mounted: true,
+        // RTL
         rtl: el.dir.toLowerCase() === "rtl" || $el.css("direction") === "rtl",
         rtlTranslate: swiper.params.direction === "horizontal" && (el.dir.toLowerCase() === "rtl" || $el.css("direction") === "rtl"),
         wrongRTL: $wrapperEl.css("display") === "-webkit-box"
@@ -6480,11 +6607,12 @@
 
   // src/scripts/main.js
   document.addEventListener("DOMContentLoaded", function() {
-    addClassOnScroll(".header", 170, "_scrolled");
-    addClassOnClick(".burger", ".header", "_menu-opened");
+    toggleClassOnScroll(".header", 170, "_scrolled");
+    toggleClassOnClick(".burger", ".header", "_menu-opened");
     myLazyLoad();
     scrollToTop();
     mapOverlay();
+    toggleElements();
     myGallery;
     mySetAnchorsEvents;
     const popupOverlay2 = myPopupOverlay;
@@ -6497,6 +6625,19 @@
       ".catalog__banners-wrapper"
     );
     catalogBannerWrappers.forEach((elem) => {
+      window.addEventListener(
+        "resize",
+        () => {
+          if (window.innerWidth >= 1200) {
+            elem.style.maxWidth = `${window.innerWidth - elem.getBoundingClientRect().left}px`;
+          }
+        },
+        {
+          passive: true
+        }
+      );
+      if (window.innerWidth < 1200)
+        return;
       elem.style.maxWidth = `${window.innerWidth - elem.getBoundingClientRect().left}px`;
       toHorizontalScroll(elem);
     });
@@ -6618,13 +6759,19 @@
       const ogSwiper = new core_default(".our-goods__swiper", {
         modules: [Navigation],
         loop: false,
+        // loopAdditionalSlides: 2,
         rewind: false,
         grabCursor: true,
         slidesPerView: "auto",
+        //5,
         spaceBetween: 60,
+        //autoHeight: true,
         setWrapperSize: true,
         containerModifierClass: "our-goods__swiper-",
         wrapperClass: "our-goods__swiper-wrapper",
+        //pagination: {
+        //  el: '.swiper-pagination',
+        //},
         navigation: {
           nextEl: ".our-goods__nav-btn_next",
           prevEl: ".our-goods__nav-btn_prev",
@@ -6641,12 +6788,35 @@
             spaceBetween: 60
           }
         },
+        // breakpoints: {
+        //   320: {
+        //     slidesPerView: 1,
+        //   },
+        //   576: {
+        //     slidesPerView: 2,
+        //   },
+        //   768: {
+        //     slidesPerView: 3,
+        //   },
+        //   992: {
+        //     slidesPerView: 4,
+        //   },
+        //   1200: {
+        //     slidesPerView: 5,
+        //   },
+        // },
         on: {
           init: function() {
             updateSliderLockedState(this);
             ogSlides = this.slides;
             showCorrectCategory("bestseller");
           },
+          // observerUpdate: function () {
+          //   console.log("observerUpdate");
+          // },
+          // lock: function () {
+          //   console.log("lock");
+          // },
           update: function() {
             updateSliderLockedState(this);
           },
@@ -6665,32 +6835,20 @@
         event2.currentTarget.classList.add("active");
       })
     );
-    const filterToggleItems = document.querySelectorAll(
-      "[name=filter-toggle-item]"
-    );
-    const filterToggleCheckboxes = document.querySelectorAll(
-      "[name=filter-toggle-checkboxes]"
-    );
-    if (filterToggleItems.length) {
-      filterToggleItems.forEach(
-        (button) => button.addEventListener(
-          "click",
-          (event2) => event2.currentTarget.parentElement.classList.toggle("active")
-        )
-      );
-    }
-    if (filterToggleCheckboxes.length) {
-      filterToggleCheckboxes.forEach(
-        (button) => button.addEventListener("click", (event2) => {
-          event2.currentTarget.previousElementSibling.classList.toggle("active");
-          event2.currentTarget.remove();
-        })
-      );
-    }
-    addClassOnClick(
+    toggleClassOnClick(
       "[name=filter-toggle]",
       ".products__filter",
       "_opened"
+    );
+    toggleClassOnClick(
+      "[name=filter-toggle-item]",
+      "parent",
+      "active"
+    );
+    toggleClassOnClick(
+      "[name=filter-toggle-checkboxes]",
+      "previous",
+      "active"
     );
     const sortViewsButtons = document.querySelectorAll("[name=sort-view]");
     if (sortViewsButtons.length) {
@@ -6831,26 +6989,6 @@
         pcSliders.forEach((slide) => slide.classList.toggle("active"));
       });
     }
-    const toggleContainers = document.querySelectorAll("[data-toggle-container]");
-    if (toggleContainers.length) {
-      toggleContainers.forEach((container) => {
-        const toggleButtons = container.querySelectorAll("[data-toggle]");
-        const toggleTargets = container.querySelectorAll("[data-target]");
-        if (!toggleButtons.length && !toggleTargets.length)
-          return;
-        toggleButtons.forEach(
-          (button) => button.addEventListener("click", (event2) => {
-            toggleButtons.forEach(
-              (button2) => button2.setAttribute("aria-expanded", false)
-            );
-            event2.currentTarget.setAttribute("aria-expanded", true);
-            toggleTargets.forEach(
-              (target) => target.dataset.target === button.dataset.toggle ? target.classList.add("active") : target.classList.remove("active")
-            );
-          })
-        );
-      });
-    }
     const counterContainers = document.querySelectorAll(
       "[data-counter-container]"
     );
@@ -6976,7 +7114,7 @@
     function updateSliderLockedState(slider) {
       slider.isLocked ? slider.el.classList.add("locked") : slider.el.classList.remove("locked");
     }
-    addClassOnClick(
+    toggleClassOnClick(
       "button[name=popular-collapse-button]",
       ".popular",
       "_expanded"
@@ -6998,6 +7136,9 @@
           }
           popupOverlay2.show();
           currentPopup.classList.add(popupClassActive);
+          setTimeout(() => {
+            currentPopup.querySelector("input:not(disabled):not(hidden):not(.sr-only)").focus();
+          }, 300);
         });
       });
     }
@@ -7042,11 +7183,12 @@
         button.click();
       })
     );
-    const activeLabes = document.querySelectorAll("label[role=button]");
+    const activeLabes = document.querySelectorAll("label[tabindex]");
     if (activeLabes.length) {
       activeLabes.forEach(
         (label) => label.addEventListener("keydown", (e) => {
           if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+            e.preventDefault();
             label.click();
           }
         })
@@ -7092,6 +7234,12 @@
         });
         return true;
       }
+    }
+    const dateMin = document.querySelectorAll("input[type='date'][min]");
+    if (dateMin.length) {
+      dateMin.forEach((date) => {
+        date.min = new Date().toISOString().split("T")[0];
+      });
     }
   });
 })();

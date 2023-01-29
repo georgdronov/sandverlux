@@ -41,10 +41,6 @@
     }
   }
   // &__image {
-  // transition: transform 0.3s;
-  // &:hover {
-  //   transform: translate(-50%, -50%) scale(0.95);
-  // }
   // }
   &__content {
     display: flex;
@@ -159,9 +155,11 @@
   &__price {
     color: $primary-color;
     font-weight: 700;
+    white-space: nowrap;
 
     &_old {
       color: $text-color-lighter;
+      white-space: nowrap;
       margin-right: 5px;
       text-decoration: line-through;
     }
@@ -185,17 +183,24 @@
 
     @extend %product-form !optional;
   }
+  &__bottom {
+    margin-top: 14px;
+
+    @extend %product-bottom !optional;
+
+    @media ($mobile-max) {
+      margin-top: 11px;
+    }
+  }
   &__btn {
     width: 100%;
     padding: 12px 30px;
-    margin-top: 14px;
 
     @extend %product-button !optional;
 
     @media ($mobile-max) {
       padding: 8px 30px;
       font-size: 12px;
-      margin-top: 11px;
     }
 
     &:focus-within {

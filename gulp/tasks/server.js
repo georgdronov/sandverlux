@@ -9,6 +9,8 @@ export const server = () => {
         },
       },
       port: 3000,
+      ui: false,
+      ghostMode: false,
     },
     function (err, bs) {
       bs.addMiddleware("*", function (req, res) {

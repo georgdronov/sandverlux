@@ -8,6 +8,7 @@
       @@include('./src/html/include/promotion-banner.html', {
         'title': 'Акция',
         'date': '22.01.23',
+        'date-format': '2023-01-22',
         'door-image-src': 'images/homepage-door-01.jpg'
       })
     </aside>
@@ -24,7 +25,7 @@
     <div class="products__items grid">
       @@loop('./src/html/include/product.html', '../json/products.json')
     </div>
-    @@include('./src/html/include/products-pagination.html', {
+    @@include('./src/html/include/pagination.html', {
       'page-url': '@@category-url'
     })
   </div>

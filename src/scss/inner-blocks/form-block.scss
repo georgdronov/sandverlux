@@ -2,8 +2,13 @@
   margin: 4rem 0;
   padding: 4rem 0;
   position: relative;
-  background: url("../images/icons.svg#form-block-background") center / 100%
-    auto no-repeat transparent;
+  background: url("../images/icons.svg#form-block-background") center / auto
+    100% no-repeat transparent;
+
+  @media ($mobile-max) {
+    margin: 0;
+    padding-bottom: 2rem;
+  }
 
   &::before {
     top: 0;
@@ -15,47 +20,179 @@
     background: linear-gradient(
         0deg,
         #fff 0%,
-        transparent 10%,
-        transparent 90%,
+        transparent 3rem,
+        transparent calc(100% - 3rem),
         #fff 100%
       )
       center / cover no-repeat transparent;
+
+    @media ($mobile-max) {
+      background-image: linear-gradient(
+        0deg,
+        #fff 0%,
+        transparent 3rem,
+        transparent calc(100% - 1rem),
+        #fff 100%
+      );
+    }
   }
   // &__container {
   // }
   &__wrapper {
     width: 860px;
     margin: 0 auto;
-    padding: 3.3rem 6.7rem;
+    padding: 3.3rem 6.7rem 2.7rem;
     max-width: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
     background-color: $white;
+
+    @media ($desktop-max) and ($desktop-min) {
+      width: 740px;
+      padding: 3.3rem 4.7rem 2.7rem;
+    }
+    @media ($tablet-max) and ($tablet-mid) {
+      width: 650px;
+      padding: 3.3rem 3.7rem 2.7rem;
+    }
+    @media ($tablet-mad) and ($tablet-min) {
+      width: 550px;
+      padding: 3.3rem 2.7rem 2.7rem;
+    }
+    @media ($mobile-max) {
+      padding: 2.9rem 1.7rem 2.7rem;
+    }
+  }
+  &__item-wrapper {
+    margin: 0 -5px;
+    opacity: 0;
+    padding: 0 5px;
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+
+    &.active {
+      opacity: 1;
+      max-height: none;
+      visibility: visible;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
   }
   %heading {
     text-align: center;
+    margin-bottom: 0.7rem;
+  }
+  %form-item-wrapper {
+    label {
+      cursor: pointer;
+      margin-top: 14px;
+    }
+  }
+  %form-radio,
+  %form-checkbox {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin: 0 11px 0 0;
+    border: 1px solid $text-color;
+    padding: 0.125em;
+    display: inline-block;
+    position: relative;
+    appearance: none;
+    text-align: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    line-height: 1em;
+    border-radius: 50%;
+    vertical-align: -2px;
+    background-color: $white;
 
-    & + * {
-      margin-top: 2.25rem;
+    &:checked {
+      border-color: $yellow;
+    }
+    &:focus {
+      box-shadow: 0 0 0 2px $yellow;
+    }
+    &:checked:focus {
+      border-color: $text-color;
+    }
+    &:before {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      content: "";
+      display: block;
+      position: relative;
+      transition: opacity 0.3s;
+      border-radius: 50%;
+      background-color: $yellow;
+    }
+    &:checked:before {
+      opacity: 1;
+    }
+    @media ($desktop-min) {
+      & + %form-label {
+        font-size: 15px;
+      }
+    }
+  }
+  %form-checkbox {
+    border-radius: 0;
+
+    &::before {
+      top: -4px;
+      left: 0;
+      color: $yellow;
+      content: "✔";
+      position: absolute;
+      font-size: 20px;
+      background-color: transparent;
     }
   }
   %form-item {
     display: flex;
+    margin-top: 10px;
     flex-direction: column;
-
-    & + %form-item {
-      margin-top: 35px;
-    }
   }
   %form-item-heading {
     font-size: 14px;
+    margin-top: 1.53rem;
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: uppercase;
+
+    @media ($tablet-max) {
+      font-size: 12px;
+    }
+    @media ($mobile-max) {
+      margin-top: 1rem;
+      margin-bottom: 10px;
+    }
+
+    & + label {
+      margin-top: 5px;
+    }
   }
   %form-select,
   %form-input {
-    min-height: 45px;
-    background-color: $form-grey-color; 
-  }
+    height: 2.8125rem;
+    padding: 0 2.9rem 0 1.9rem;
+    font-size: 14px;
+    min-height: 40px;
+    text-overflow: ellipsis;
+    background-position-x: right 1.5625rem;
+    background-color: $form-grey-color;
 
+    @media ($tablet-max) {
+      font-size: 13px;
+    }
+  }
+  %form-input[type="date"] {
+    padding-right: 20px;
+  }
+  %form-buttons-wrapper {
+    margin-top: 0.8rem;
+  }
+  %form-button {
+    width: calc(100% - 1rem);
+  }
 }

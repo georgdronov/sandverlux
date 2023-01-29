@@ -1,6 +1,6 @@
 <section class="filter">
-  <button class="filter__close-button" type="button" name="filter-toggle">
-    <svg class="" width="20" height="20">
+  <button class="filter__close-button" type="button" name="filter-toggle" aria-label="Показать/скрыть фильтр">
+    <svg class="" width="20" height="20" aria-hidden="true">
       <use href="images/icons.svg#close" />
     </svg>
   </button>
@@ -8,11 +8,11 @@
   'viewButtons': false,
   'page-url': '@@page-url'
   })
-  <form action="" method="post" id="mse2_filter" class="filter__form">
+  <form action="/@@page-url" method="post" id="mse2_filter" class="filter__form">
     <div class="filter__body">
       <div class="filter__body-item active">
-        <button class="filter__toggle-item" type="button" name="filter-toggle-item">
-          <svg class="" width="22" height="22">
+        <button class="filter__toggle-item" type="button" name="filter-toggle-item" aria-label="Развернуть/Свернуть">
+          <svg class="" width="22" height="22" aria-hidden="true">
             <use href="images/icons.svg#chevron-down" />
           </svg>
         </button>

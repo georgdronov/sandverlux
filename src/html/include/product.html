@@ -37,38 +37,38 @@
         </div>
         <div class="product__installment">Рассрочка от 150 руб/мес</div>
       </div>
-
-      <button class="product__btn _btn" onclick="alert('товар : @@id')" aria-label="В корзину" type="submit"
-        name="ms2_action" value="cart/add">В корзину</button>
-
-      <fieldset class="product__colors">
-        <legend class="sr-only">Цвета</legend>
-        <label class="product__color-label" tabindex="0">
-          <span hidden>цвет номер 1</span>
-          <input type="radio" name="product-color@@id" value="color001" checked hidden>
-          <span class="product__color" style="background-color:#D8B888"></span>
-        </label>
-        <label class="product__color-label" tabindex="0">
-          <span hidden>цвет номер 2</span>
-          <input type="radio" name="product-color@@id" value="color002" hidden>
-          <span class="product__color" style="background-color:#737373"></span>
-        </label>
-        <label class="product__color-label" tabindex="0">
-          <span hidden>цвет номер 3</span>
-          <input type="radio" name="product-color@@id" value="color003" hidden>
-          <span class="product__color" style="background-color:#8E7248"></span>
-        </label>
-        <label class="product__color-label" tabindex="0">
-          <span hidden>цвет номер 4</span>
-          <input type="radio" name="product-color@@id" value="color004" hidden>
-          <span class="product__color" style="background-color:#FFFFFF"></span>
-        </label>
-        <label class="product__color-label active" tabindex="0">
-          <span hidden>цвет номер 5</span>
-          <input type="radio" name="product-color@@id" value="color005" hidden>
-          <span class="product__color" style="background-color:#373737"></span>
-        </label>
-      </fieldset>
+      <div class="product__bottom">
+        <button class="product__btn _btn" onclick="alert('товар : @@id')" aria-label="В корзину" type="submit"
+          name="ms2_action" value="cart/add">В корзину</button>
+        <fieldset class="product__colors">
+          <legend class="sr-only">Цвета</legend>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 1</span>
+            <input type="radio" name="product-color@@id" value="color001" checked hidden>
+            <span class="product__color" style="background-color:#D8B888"></span>
+          </label>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 2</span>
+            <input type="radio" name="product-color@@id" value="color002" hidden>
+            <span class="product__color" style="background-color:#737373"></span>
+          </label>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 3</span>
+            <input type="radio" name="product-color@@id" value="color003" hidden>
+            <span class="product__color" style="background-color:#8E7248"></span>
+          </label>
+          <label class="product__color-label" tabindex="0">
+            <span hidden>цвет номер 4</span>
+            <input type="radio" name="product-color@@id" value="color004" hidden>
+            <span class="product__color" style="background-color:#FFFFFF"></span>
+          </label>
+          <label class="product__color-label active" tabindex="0">
+            <span hidden>цвет номер 5</span>
+            <input type="radio" name="product-color@@id" value="color005" hidden>
+            <span class="product__color" style="background-color:#373737"></span>
+          </label>
+        </fieldset>
+      </div>
     </form>
     <div class="product__badges">
       @@if (discount == true) {

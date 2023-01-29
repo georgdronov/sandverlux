@@ -32,10 +32,13 @@
     font-size: 15px;
     font-weight: 300;
 
-    @media ($mobile-max) {
+    @media ($desktop-max) {
       color: $yellow;
-      padding: 10px 0 10px 20px;
       font-weight: 500;
+      padding-bottom: 10px;
+    }
+    @media ($mobile-max) {
+      padding: 10px 0 10px 20px;
     }
   }
   &__list-item {

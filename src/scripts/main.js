@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  myFunctions.addClassOnScroll(".header", 170, "_scrolled");
-  myFunctions.addClassOnClick(".burger", ".header", "_menu-opened");
+  myFunctions.toggleClassOnScroll(".header", 170, "_scrolled");
+  myFunctions.toggleClassOnClick(".burger", ".header", "_menu-opened");
   myFunctions.myLazyLoad();
   myFunctions.scrollToTop();
   myFunctions.mapOverlay();
+  myFunctions.toggleElements();
   myFunctions.myGallery;
   myFunctions.mySetAnchorsEvents;
   const popupOverlay = myFunctions.myPopupOverlay;
@@ -22,6 +23,21 @@ document.addEventListener("DOMContentLoaded", function () {
     ".catalog__banners-wrapper"
   );
   catalogBannerWrappers.forEach((elem) => {
+    window.addEventListener(
+      "resize",
+      () => {
+        if (window.innerWidth >= 1200) {
+          elem.style.maxWidth = `${
+            window.innerWidth - elem.getBoundingClientRect().left
+          }px`;
+        }
+      },
+      {
+        passive: true,
+      }
+    );
+    if (window.innerWidth < 1200) return;
+
     elem.style.maxWidth = `${
       window.innerWidth - elem.getBoundingClientRect().left
     }px`;
@@ -256,32 +272,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // category filter toggle
 
-  const filterToggleItems = document.querySelectorAll(
-    "[name=filter-toggle-item]"
-  );
-  const filterToggleCheckboxes = document.querySelectorAll(
-    "[name=filter-toggle-checkboxes]"
-  );
-
-  if (filterToggleItems.length) {
-    filterToggleItems.forEach((button) =>
-      button.addEventListener("click", (event) =>
-        event.currentTarget.parentElement.classList.toggle("active")
-      )
-    );
-  }
-  if (filterToggleCheckboxes.length) {
-    filterToggleCheckboxes.forEach((button) =>
-      button.addEventListener("click", (event) => {
-        event.currentTarget.previousElementSibling.classList.toggle("active");
-        event.currentTarget.remove();
-      })
-    );
-  }
-  myFunctions.addClassOnClick(
+  myFunctions.toggleClassOnClick(
     "[name=filter-toggle]",
     ".products__filter",
     "_opened"
+  );
+  myFunctions.toggleClassOnClick(
+    "[name=filter-toggle-item]",
+    "parent",
+    "active"
+  );
+  myFunctions.toggleClassOnClick(
+    "[name=filter-toggle-checkboxes]",
+    "previous",
+    "active"
   );
 
   // category sort views switcher
@@ -445,32 +449,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // toggle content //
-
-  const toggleContainers = document.querySelectorAll("[data-toggle-container]");
-
-  if (toggleContainers.length) {
-    toggleContainers.forEach((container) => {
-      const toggleButtons = container.querySelectorAll("[data-toggle]");
-      const toggleTargets = container.querySelectorAll("[data-target]");
-      if (!toggleButtons.length && !toggleTargets.length) return;
-
-      toggleButtons.forEach((button) =>
-        button.addEventListener("click", (event) => {
-          toggleButtons.forEach((button) =>
-            button.setAttribute("aria-expanded", false)
-          );
-          event.currentTarget.setAttribute("aria-expanded", true);
-          toggleTargets.forEach((target) =>
-            target.dataset.target === button.dataset.toggle
-              ? target.classList.add("active")
-              : target.classList.remove("active")
-          );
-        })
-      );
-    });
-  }
-
   // counter group elements //
 
   const counterContainers = document.querySelectorAll(
@@ -625,7 +603,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // popular tags for catalog page
 
-  myFunctions.addClassOnClick(
+  myFunctions.toggleClassOnClick(
     "button[name=popular-collapse-button]",
     ".popular",
     "_expanded"
@@ -647,6 +625,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         popupOverlay.show();
         currentPopup.classList.add(popupClassActive);
+        setTimeout(() => {
+          currentPopup
+            .querySelector("input:not(disabled):not(hidden):not(.sr-only)")
+            .focus();
+        }, 300);
       });
     });
   }
@@ -703,11 +686,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // interaction on label //
 
-  const activeLabes = document.querySelectorAll("label[role=button]");
+  const activeLabes = document.querySelectorAll("label[tabindex]");
   if (activeLabes.length) {
     activeLabes.forEach((label) =>
       label.addEventListener("keydown", (e) => {
         if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+          e.preventDefault();
           label.click();
         }
       })
@@ -763,6 +747,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // min date if min attr presented //
+
+  const dateMin = document.querySelectorAll("input[type='date'][min]");
+
+  if (dateMin.length) {
+    dateMin.forEach((date) => {
+      date.min = new Date().toISOString().split("T")[0];
+    });
+  }
   // myFunctions.wheelToHide();
 });
 

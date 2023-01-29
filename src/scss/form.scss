@@ -200,6 +200,7 @@
     @extend %f-item-element;
     width: 100%;
     color: inherit;
+    cursor: pointer;
     padding: 0 37px 0 17px;
     appearance: none;
     background: url("../images/icons.svg#chevron-down") right 15px center/16px
@@ -232,6 +233,9 @@
     @media ($mobile-max) {
       min-height: 93px;
     }
+  }
+  &__radio {
+    @extend %form-radio !optional;
   }
   &__slider {
     width: 100%;
@@ -461,6 +465,8 @@
     align-items: center;
     margin-left: -$fbw-gap;
 
+    @extend %form-buttons-wrapper !optional;
+
     @media ($mobile-max) {
       justify-content: flex-end;
     }
@@ -498,5 +504,7 @@
     flex-shrink: 0;
     padding-top: 15px;
     padding-bottom: 15px;
+
+    @extend %form-button !optional;
   }
 }

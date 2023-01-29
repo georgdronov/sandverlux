@@ -1,5 +1,6 @@
 .cards {
   $card-items-gap: 1.875rem;
+  $arrow-gap: 2.2rem;
 
   // &__container {
   // }
@@ -12,19 +13,37 @@
   }
   &__items {
     @extend %row-wrapper;
+    margin-top: -$card-items-gap;
     margin-left: -$card-items-gap;
     justify-content: space-between;
+
+    @media ($mobile-max) {
+      flex-direction: column;
+    }
   }
   &__arrow {
     flex: 0.1 1 0%;
-    margin: 0 3.5rem;
+    margin: $arrow-gap calc(3.5rem - $card-items-gap)
+      calc($arrow-gap - $card-items-gap) 3.5rem;
     position: relative;
     min-width: 3rem;
     align-self: center;
     border-top: 3px solid $primary-color;
-    margin-right: calc(3.5rem - $card-items-gap);
 
-    &:nth-child(4n+2) {
+    @media ($desktop-max) and ($tablet-mid) {
+      margin: $arrow-gap calc(1.5rem - $card-items-gap)
+        calc($arrow-gap - $card-items-gap) 1.5rem;
+    }
+    @media ($tablet-mad) and ($tablet-min) {
+      margin: $arrow-gap calc(1rem - $card-items-gap)
+        calc($arrow-gap - $card-items-gap) 1rem;
+      min-width: 2rem;
+    }
+    @media ($mobile-max) {
+      transform: rotate(90deg);
+    }
+
+    &:nth-child(4n + 2) {
       @extend %cards-arrow-4n !optional;
     }
     & div {
@@ -51,7 +70,14 @@
   &__item {
     flex: 2 0 0%;
     max-width: 420px;
+    margin-top: $card-items-gap;
     margin-left: $card-items-gap;
+
+    @media ($mobile-max) {
+      width: calc(100% - $card-items-gap);
+      max-width: 330px;
+      align-self: center;
+    }
 
     &:nth-child(2n) {
       @extend %cards-odd-items !optional;
@@ -78,6 +104,12 @@
     }
   }
   &__image {
+    svg {
+      width: 4.0625rem;
+      height: 4.0625rem;
+      min-width: 38px;
+      min-height: 38px;
+    }
     %cards-even-items & {
       color: $primary-color;
     }
@@ -86,9 +118,18 @@
       color: $yellow;
     }
   }
-  &__text {
+  &__title {
     font-size: 18px;
     margin-top: 1rem;
     line-height: 1.22;
+
+    @media ($desktop-max) and ($tablet-mid) {
+      font-size: 16px;
+    }
+    @media ($tablet-mad) {
+      margin: 1rem auto 0;
+      font-size: 14px;
+      max-width: 250px;
+    }
   }
 }

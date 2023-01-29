@@ -8,15 +8,18 @@
   &__list {
     @extend %row-wrapper;
   }
-  // &__list-item {
-  // }
+  &__list-item {
+    flex: 1 1 auto;
+    max-width: 21rem;
+  }
   &__link {
-    @extend %flex-center;
     color: $heading-color;
     border: 1px solid $primary-color;
+    display: flex;
     padding: 0.625rem 0.9375rem;
     margin-top: $items-gap;
     font-weight: 500;
+    align-items: center;
     margin-left: $items-gap;
     text-transform: uppercase;
     text-decoration: none;
@@ -36,6 +39,7 @@
   &__image-wrapper {
     height: 4.8125rem;
     min-height: 49px;
+    flex-shrink: 0;
   }
   &__image {
     width: auto;

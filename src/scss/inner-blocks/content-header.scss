@@ -4,7 +4,7 @@
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 58.2%;
 
   &::before {
     top: 0;
@@ -14,33 +14,32 @@
     content: "";
     display: block;
     position: absolute;
-    background-color: rgba(0,0,0,0.24);
+    background-color: rgba(0, 0, 0, 0.24);
   }
   &__container {
     position: relative;
   }
   &__heading {
     color: $white;
+    margin-bottom: 3.2rem;
 
-    & + * {
-      margin-top: 3rem;
-
-      @media ($mobile-max) {
-        margin-top: 2.4rem;
-      }
+    @media ($mobile-max) {
+      font-size: 20px;
+      margin-bottom: 2.4rem;
     }
   }
   &__subheading {
     color: $white;
     font-size: 1.5rem;
+    line-height: 1.1;
     font-weight: 700;
+    margin-bottom: 1rem;
 
-    & + * {
-      margin-top: 1rem;
-
-      @media ($mobile-max) {
-        margin-top: 1.5rem;
-      }
+    @media ($tablet-mad) {
+      font-size: 18px;
+    }
+    @media ($mobile-max) {
+      margin-bottom: 1.3rem;
     }
   }
   &__text {
@@ -48,5 +47,9 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.25;
+
+    @media ($mobile-max) {
+      font-size: 16px;
+    }
   }
 }

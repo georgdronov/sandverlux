@@ -2,19 +2,29 @@ export const myPopupOverlay = new popupOverlay();
 export const myGallery = new gallery();
 export const mySetAnchorsEvents = new setAnchorsEvents();
 
-export function addClassOnClick(itemsClick, classToItem, nameOfClass) {
+export function toggleClassOnClick(itemsClick, classToItem, nameOfClass) {
   const buttons = document.querySelectorAll(itemsClick);
   if (!buttons.length) return;
   buttons.forEach((button) =>
     button.addEventListener("click", () => {
-      document.querySelectorAll(classToItem).forEach((item) => {
-        item.classList.toggle(nameOfClass);
-      });
+      switch (classToItem) {
+        case "parent":
+          button.parentElement.classList.toggle(nameOfClass);
+          break;
+        case "previous":
+          button.previousElementSibling.classList.toggle(nameOfClass);
+          break;
+        default:
+          document.querySelectorAll(classToItem).forEach((item) => {
+            item.classList.toggle(nameOfClass);
+          });
+          break;
+      }
     })
   );
 }
 
-export function addClassOnScroll(item, topOffset, nameOfClass) {
+export function toggleClassOnScroll(item, topOffset, nameOfClass) {
   let scrollState = null;
   window.addEventListener(
     "scroll",
@@ -38,6 +48,64 @@ export function addClassOnScroll(item, topOffset, nameOfClass) {
     document.querySelector(item).classList.add(nameOfClass);
     scrollState = "scrolled";
     return;
+  }
+}
+
+export function toggleElements() {
+  const toggleContainers = document.querySelectorAll("[data-toggle-container]");
+  if (!toggleContainers.length) return;
+
+  toggleContainers.forEach((container) => {
+    const toggleElements = container.querySelectorAll("[data-toggle]");
+    const toggleTargets = container.querySelectorAll("[data-target]");
+    if (!toggleElements.length && !toggleTargets.length) return;
+
+    toggleElements.forEach((elem) => {
+      switch (elem.tagName.toLowerCase()) {
+        case "select":
+          toggleContent(elem, toggleTargets);
+          elem.addEventListener("change", (event) => {
+            toggleContent(event.target, toggleTargets);
+          });
+          break;
+        case "input":
+          toggleContent(elem, toggleTargets, toggleElements, elem.checked);
+          elem.addEventListener("click", (event) => {
+            toggleContent(event.target, toggleTargets);
+          });
+          break;
+        default:
+          elem.addEventListener("click", (event) => {
+            toggleContent(event.currentTarget, toggleTargets, toggleElements);
+          });
+          break;
+      }
+    });
+  });
+
+  function toggleContent(current, targets, buttons = null, state = true) {
+    if (state !== true) return;
+    const tag = current.tagName.toLowerCase(),
+      value = toggleValue(tag, current);
+
+    targets.forEach((target) => toggleClass(target, value, state));
+
+    if (buttons === null) return;
+
+    buttons.forEach((button) => button.setAttribute("aria-expanded", false));
+    current.setAttribute("aria-expanded", true);
+  }
+
+  function toggleValue(tag, element) {
+    if (tag === "select") return element.value;
+    return element.dataset.toggle;
+  }
+  function toggleClass(target, value) {
+    if (target.dataset.target === value) {
+      target.classList.add("active");
+      return;
+    }
+    target.classList.remove("active");
   }
 }
 
@@ -78,16 +146,10 @@ function setAnchorsEvents() {
 }
 
 export function toHorizontalScroll(element) {
-  element.addEventListener(
-    "wheel",
-    (event) => {
-      event.preventDefault();
-      element.scrollLeft += event.deltaY / 2;
-    },
-    {
-      passive: true,
-    }
-  );
+  element.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    element.scrollLeft += event.deltaY / 2;
+  });
 }
 
 export function onKeydownAction(element, customFunction) {
@@ -169,6 +231,10 @@ export function scrollToTop() {
 
   if (scrollTopPath) {
     scrollTopPathLength = scrollTopPath.getTotalLength();
+    const resizeObserver = new ResizeObserver(function () {
+      documentHeight =
+        document.documentElement.offsetHeight - window.innerHeight;
+    });
 
     window.addEventListener("load", function () {
       documentHeight =
@@ -189,6 +255,7 @@ export function scrollToTop() {
         passive: true,
       }
     );
+    resizeObserver.observe(document.body);
   }
   let hasClass = scrollTopElement.classList.contains("_active"),
     isScrolled = scrollY > 35;
@@ -248,7 +315,6 @@ function animate({ timing, draw, duration }) {
     }
   });
 }
-
 // eslint-disable-next-line no-unused-vars
 function linear(timeFraction) {
   return timeFraction;

@@ -98,6 +98,8 @@
     &.active {
       overflow-y: auto;
       max-height: 200px;
+
+      @extend %filter-checkboxes-wrapper-active !optional;
     }
   }
   &__toggle-checkboxes {
@@ -110,6 +112,10 @@
 
     @media ($desktop-max) {
       font-size: 14px;
+    }
+
+    %filter-checkboxes-wrapper-active + & {
+      display: none;
     }
   }
   %form-items-row {
