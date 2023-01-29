@@ -1,0 +1,22 @@
+[
+  {
+    "imageSrc": "images/icons.svg#document",
+    "text": "сертифицированная фабричная продукция",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#worker",
+    "text": "профессиональные замерщики, опытные монтажники",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#discount",
+    "text": "накопительная система скидок",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#staff",
+    "text": "гибкий подход к каждому заказу",
+    "greenBorder": false
+  }
+]

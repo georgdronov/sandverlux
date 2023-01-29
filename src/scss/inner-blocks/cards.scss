@@ -2,15 +2,6 @@
   $card-items-gap: 1.875rem;
   $arrow-gap: 2.2rem;
 
-  // &__container {
-  // }
-  // &__heading {
-  // }
-  &__text {
-    color: $heading-color;
-    font-size: 16px;
-    font-weight: 300;
-  }
   &__items {
     @extend %row-wrapper;
     margin-top: -$card-items-gap;
@@ -88,9 +79,6 @@
     %cards-arrow-4n + & {
       @extend %cards-items-next-to-arrows !optional;
     }
-    &:last-child {
-      @extend %cards-last-item !optional;
-    }
   }
   &__item-inner {
     height: 100%;
@@ -99,7 +87,17 @@
     text-align: center;
     background-color: $white;
 
-    %cards-last-item & {
+    @media ($desktop-min) {
+      transform: translateY(0);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-3px);
+
+        @extend %cards-item-inner-hover !optional;
+      }
+    }
+    &._green-border {
       border-color: $primary-color;
     }
   }
@@ -109,6 +107,15 @@
       height: 4.0625rem;
       min-width: 38px;
       min-height: 38px;
+
+      @media ($desktop-min) {
+        transform: scale(1);
+        transition: transform 0.3s;
+  
+        %cards-item-inner-hover & {
+          transform: scale(1.1);
+        }
+      }
     }
     %cards-even-items & {
       color: $primary-color;

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "О компании | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/about-company.json'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/about-company-content-01.json')
+      @@include('./src/html/inner-blocks/cards.html', {
+      'title': 'Наши сильные стороны',
+      'text': '',
+      'cards-json': '../json/inner-content/about-company-cards.json'
+      })
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/about-company-content-02.json')
+      @@include('./src/html/inner-blocks/logos.html', {
+      'json-path': '../json/inner-content/about-company-logos.json'
+      })
+      @@include('./src/html/inner-blocks/custom-content.html', {
+      "contents": "<h2>Сертификаты, награды</h2>"
+      })
+      @@include('./src/html/inner-blocks/custom-content.html', {
+      "contents": "<h2>Команда</h2><p>Мы видим свою миссию в том, чтобы <strong>предоставлять клиентам лучший сервис в сегменте продажи дверей.</strong></p>"
+      })
+      @@include('./src/html/inner-blocks/three-in-a-row.html', {
+      'json-path': '../json/inner-content/about-company-tiar.json'
+      })
+      @@include('./src/html/our-shops.html')
+    </div>
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': false
+  })
+</body>
+
+</html>

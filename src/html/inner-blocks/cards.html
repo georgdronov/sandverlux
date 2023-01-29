@@ -1,13 +1,5 @@
 <div class="cards">
-  <div class="cards__container container">
-    @@if (title != "") {
-      <h2 class="cards__heading heading">@@title</h2>
-    }
-    @@if (text != "") {
-      <div class="cards__text">
-        @@text
-      </div>
-    }
+  <div class="container">
     <div class="cards__items">
       @@loop('./src/html/include/cards-item.html', '@@cards-json')
     </div>

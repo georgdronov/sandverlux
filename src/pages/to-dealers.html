@@ -19,8 +19,9 @@
     })
     <div class="_inner-content">
       @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/to-dealers-content-01.json')
-      @@include('./src/html/our-virtues.html', {
-      'title': 'Причины выбрать дверной рай в качестве партнера'
+      @@include('./src/html/our-virtues.html')
+      @@include('./src/html/inner-blocks/custom-content.html', {
+        "contents": "<h2>Как стать дилером дверной компании “дверной рай”?</h2>"
       })
       @@include('./src/html/inner-blocks/cards.html', {
       'title': 'Как стать дилером дверной компании “дверной рай”?',

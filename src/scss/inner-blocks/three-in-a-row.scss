@@ -1,0 +1,35 @@
+.tiar {
+  $tiar-gap: 2.5rem;
+  $tiar-gap-mobile: 1.5rem;
+
+  padding: 1.05rem 0;
+
+  &__items {
+    @extend %row-wrapper;
+    margin-top: -$tiar-gap;
+    margin-left: -$tiar-gap;
+    justify-content: center;
+
+    @media ($tablet-mad) {
+      margin-top: -$tiar-gap-mobile;
+      margin-left: -$tiar-gap-mobile;
+    }
+  }
+  &__item {
+    flex: 1 1 33.3333%;
+    max-width: 33.3333%;
+    margin-top: $tiar-gap;
+    padding-left: $tiar-gap;
+
+    @media ($tablet-mad) {
+      margin-top: $tiar-gap-mobile;
+      padding-left: $tiar-gap-mobile;
+    }
+  }
+  &__image-wrapper {
+    height: 0;
+    padding-top: 60%;
+  }
+  // &__image {
+  // }
+}

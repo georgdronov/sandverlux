@@ -1,8 +1,5 @@
 <section class="our-virtues">
-  <div class="our-virtues__container container">
-    @@if (title != "") {
-      <h2 class="our-virtues__heading heading">@@title</h2>
-    }
+  <div class="container">
     <div class="our-virtues__items row not-default-row">
       @@loop('./src/html/include/our-virtues-item.html', '../json/our-virtues.json')
     </div>

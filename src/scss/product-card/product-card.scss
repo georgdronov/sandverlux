@@ -10,8 +10,6 @@
     padding-top: 1.1rem;
   }
 
-  // &__container {
-  // }
   &__wrapper {
     @extend %row-wrapper;
     margin-left: -$product-card-gap;

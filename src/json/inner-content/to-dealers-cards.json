@@ -1,22 +1,27 @@
 [
   {
     "imageSrc": "images/icons.svg#document",
-    "text": "заполнить анкету"
+    "text": "заполнить анкету",
+    "greenBorder": false
   },
   {
     "imageSrc": "",
-    "text": ""
+    "text": "",
+    "greenBorder": false
   },
   {
     "imageSrc": "images/icons.svg#worker",
-    "text": "созвониться с менеджером, приехать на встречу"
+    "text": "созвониться с менеджером, приехать на встречу",
+    "greenBorder": false
   },
   {
     "imageSrc": "",
-    "text": ""
+    "text": "",
+    "greenBorder": false
   },
   {
     "imageSrc": "images/icons.svg#discount",
-    "text": "подписать договор"
+    "text": "подписать договор",
+    "greenBorder": true
   }
 ]
