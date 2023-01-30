@@ -57,6 +57,11 @@
                 text-align: center;
             }
 
+            .icon-box img {
+                width: 80px;
+                height: 80px;
+            }
+
             .icon {
                 display: inline-block;
             }
@@ -105,6 +110,7 @@ They might well be outsourced to an external stylesheet of course.
 -->
 
 <style>
+ .svg-assembling-dims { width: 10px; height: 10px; }
  .svg-building-dims { width: 9.08px; height: 10px; }
  .svg-call-us-dims { width: 10px; height: 10px; }
  .svg-cart-dims { width: 10px; height: 10px; }
@@ -116,6 +122,7 @@ They might well be outsourced to an external stylesheet of course.
  .svg-clock-dims { width: 10px; height: 10px; }
  .svg-close-dims { width: 10px; height: 10px; }
  .svg-consultation-dims { width: 10px; height: 8.33px; }
+ .svg-control-dims { width: 10px; height: 10px; }
  .svg-customer-dims { width: 10px; height: 10px; }
  .svg-delivery-to-the-apartment-dims { width: 10px; height: 9.09px; }
  .svg-delivery-truck-dims { width: 10px; height: 8.1px; }
@@ -126,6 +133,7 @@ They might well be outsourced to an external stylesheet of course.
  .svg-documents-dims { width: 8.62px; height: 10px; }
  .svg-dollar-dims { width: 5.45px; height: 10px; }
  .svg-dooors-bath-and-sauna-dims { width: 10px; height: 10px; }
+ .svg-doorhandle-dims { width: 10px; height: 10px; }
  .svg-doors-double-dims { width: 10px; height: 10px; }
  .svg-doors-ecoveneer-dims { width: 10px; height: 10px; }
  .svg-doors-enamel-dims { width: 10px; height: 10px; }
@@ -144,6 +152,7 @@ They might well be outsourced to an external stylesheet of course.
  .svg-filter-dims { width: 9.33px; height: 10px; }
  .svg-form-block-background-dims { width: 10px; height: 9.19px; }
  .svg-four-shops-dims { width: 10px; height: 9.09px; }
+ .svg-frame-dims { width: 10px; height: 10px; }
  .svg-gear-dims { width: 8.46px; height: 10px; }
  .svg-heart-dims { width: 10px; height: 9.23px; }
  .svg-hot-sale-dims { width: 9.09px; height: 10px; }
@@ -160,6 +169,7 @@ They might well be outsourced to an external stylesheet of course.
  .svg-neat-installation-dims { width: 10px; height: 9.09px; }
  .svg-nine-years-of-successful-work-dims { width: 10px; height: 9.09px; }
  .svg-phone-dims { width: 10px; height: 10px; }
+ .svg-platbands-dims { width: 10px; height: 10px; }
  .svg-plus-dims { width: 10px; height: 9.52px; }
  .svg-polite-staff-dims { width: 10px; height: 9.09px; }
  .svg-profitable-dims { width: 10px; height: 9.09px; }
@@ -209,6 +219,12 @@ selector is used to show the very shape that is referenced by the fragment ident
 
             <ul>
 
+             <li title="assembling">
+                    <div class="icon-box">
+                        <img src="../icons.svg#assembling" class="svg-assembling-dims" alt="assembling">
+                    </div>
+                    <h2>assembling, </h2>
+                </li>
              <li title="building">
                     <div class="icon-box">
                         <img src="../icons.svg#building" class="svg-building-dims" alt="building">
@@ -275,6 +291,12 @@ selector is used to show the very shape that is referenced by the fragment ident
                     </div>
                     <h2>consultation, </h2>
                 </li>
+             <li title="control">
+                    <div class="icon-box">
+                        <img src="../icons.svg#control" class="svg-control-dims" alt="control">
+                    </div>
+                    <h2>control, </h2>
+                </li>
              <li title="customer">
                     <div class="icon-box">
                         <img src="../icons.svg#customer" class="svg-customer-dims" alt="customer">
@@ -334,6 +356,12 @@ selector is used to show the very shape that is referenced by the fragment ident
                         <img src="../icons.svg#dooors-bath-and-sauna" class="svg-dooors-bath-and-sauna-dims" alt="dooors-bath-and-sauna">
                     </div>
                     <h2>dooors-bath-and-sauna, </h2>
+                </li>
+             <li title="doorhandle">
+                    <div class="icon-box">
+                        <img src="../icons.svg#doorhandle" class="svg-doorhandle-dims" alt="doorhandle">
+                    </div>
+                    <h2>doorhandle, </h2>
                 </li>
              <li title="doors-double">
                     <div class="icon-box">
@@ -443,6 +471,12 @@ selector is used to show the very shape that is referenced by the fragment ident
                     </div>
                     <h2>four-shops, </h2>
                 </li>
+             <li title="frame">
+                    <div class="icon-box">
+                        <img src="../icons.svg#frame" class="svg-frame-dims" alt="frame">
+                    </div>
+                    <h2>frame, </h2>
+                </li>
              <li title="gear">
                     <div class="icon-box">
                         <img src="../icons.svg#gear" class="svg-gear-dims" alt="gear">
@@ -538,6 +572,12 @@ selector is used to show the very shape that is referenced by the fragment ident
                         <img src="../icons.svg#phone" class="svg-phone-dims" alt="phone">
                     </div>
                     <h2>phone, </h2>
+                </li>
+             <li title="platbands">
+                    <div class="icon-box">
+                        <img src="../icons.svg#platbands" class="svg-platbands-dims" alt="platbands">
+                    </div>
+                    <h2>platbands, </h2>
                 </li>
              <li title="plus">
                     <div class="icon-box">
@@ -673,7 +713,7 @@ selector is used to show the very shape that is referenced by the fragment ident
 
         </section>
         <footer>
-            <p>Generated at Mon, 30 Jan 2023 12:22:36 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+            <p>Generated at Mon, 30 Jan 2023 22:04:06 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
         </footer>
     </body>
 </html>

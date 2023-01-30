@@ -677,6 +677,12 @@ body {
 ._custom-content ol li + li {
   margin-top: 0.63em;
 }
+._custom-content br {
+  font-size: 0;
+}
+._custom-content br + p {
+  margin-top: 0;
+}
 ._custom-content > *:last-child {
   margin-bottom: 0;
 }
@@ -5288,6 +5294,9 @@ body {
     font-size: 14px;
     max-width: 250px;
   }
+}
+.cards__title > * + * {
+  margin-top: 0.2em;
 }
 
 .cards2__items {

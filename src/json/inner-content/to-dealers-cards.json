@@ -1,7 +1,7 @@
 [
   {
     "imageSrc": "images/icons.svg#document",
-    "text": "заполнить анкету",
+    "text": "<p>заполнить анкету</p>",
     "greenBorder": false
   },
   {
@@ -11,7 +11,7 @@
   },
   {
     "imageSrc": "images/icons.svg#worker",
-    "text": "созвониться с менеджером, приехать на встречу",
+    "text": "<p>созвониться с менеджером, приехать на встречу</p>",
     "greenBorder": false
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "imageSrc": "images/icons.svg#discount",
-    "text": "подписать договор",
+    "text": "<p>подписать договор</p>",
     "greenBorder": true
   }
 ]

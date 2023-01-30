@@ -1,22 +1,22 @@
 [
   {
     "imageSrc": "images/icons.svg#document",
-    "text": "сертифицированная фабричная продукция",
+    "text": "<p>сертифицированная фабричная продукция</p>",
     "greenBorder": false
   },
   {
     "imageSrc": "images/icons.svg#worker",
-    "text": "профессиональные замерщики, опытные монтажники",
+    "text": "<p>профессиональные замерщики, опытные монтажники</p>",
     "greenBorder": false
   },
   {
     "imageSrc": "images/icons.svg#discount",
-    "text": "накопительная система скидок",
+    "text": "<p>накопительная система скидок</p>",
     "greenBorder": false
   },
   {
     "imageSrc": "images/icons.svg#staff",
-    "text": "гибкий подход к каждому заказу",
+    "text": "<p>гибкий подход к каждому заказу</p>",
     "greenBorder": false
   }
 ]
