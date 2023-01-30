@@ -325,7 +325,7 @@
       const imageElement = elem.querySelector("img");
       if (!imageElement)
         return;
-      const imageLink = imageElement.getAttribute("data-src") || imageElement.getAttribute("src") || "images/placeholder.svg";
+      const imageLink = imageElement.getAttribute("data-src") || imageElement.getAttribute("src") || "images/placeholder.png";
       const imageSource = imageLink.replace("/thumbnails", "");
       elem.addEventListener("click", (event2) => {
         this.showGalleryElement(event2, imageSource);

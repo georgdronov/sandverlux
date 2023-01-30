@@ -408,7 +408,7 @@ function gallery() {
     const imageLink =
       imageElement.getAttribute("data-src") ||
       imageElement.getAttribute("src") ||
-      "images/placeholder.svg";
+      "images/placeholder.png";
     const imageSource = imageLink.replace("/thumbnails", "");
 
     elem.addEventListener("click", (event) => {
