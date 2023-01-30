@@ -15,17 +15,18 @@
     'title': 'Дилерам',
     'subtitle': 'Начините бизнес с Дверным Раем!',
     'text': 'Мы приложим все усилия, чтобы Ваш бизнес с нами был удобным и прибыльным',
-    'background-image': 'images/dealers-header.jpg'
+    'background-image': 'images/dealers-header.jpg',
+    'background-position': '50% 58.2%'
     })
     <div class="_inner-content">
       @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/to-dealers-content-01.json')
-      @@include('./src/html/our-virtues.html')
+      @@include('./src/html/our-virtues.html', {
+        'json-path': '../json/our-virtues.json'
+      })
       @@include('./src/html/inner-blocks/custom-content.html', {
         "contents": "<h2>Как стать дилером дверной компании “дверной рай”?</h2>"
       })
       @@include('./src/html/inner-blocks/cards.html', {
-      'title': 'Как стать дилером дверной компании “дверной рай”?',
-      'text': '',
       'cards-json': '../json/inner-content/to-dealers-cards.json'
       })
     </div>
@@ -38,7 +39,8 @@
   'checkout': false,
   'foundCheaper': false,
   'leaveAReview': false,
-  'orderAMeasurement': false
+  'orderAMeasurement': false,
+  'startCooperation': false
   })
 </body>
 

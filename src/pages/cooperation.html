@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Сотрудничество | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/to-dealers.json'
+    })
+    @@include('./src/html/inner-blocks/content-header.html', {
+    'title': 'Сотрудничество',
+    'subtitle': 'Начините бизнес с Дверным Раем!',
+    'text': 'Отправляйте заявку на сотрудничество и начинайте воплощать свои проекты в жизнь!',
+    'background-image': 'images/cooperation-header.jpg',
+    'background-position': '50% 33.7%'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/cooperation-content-01.json')
+      @@include('./src/html/inner-blocks/cards2.html', {
+      'cards-json': '../json/inner-content/cooperation-cards2.json'
+      })
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/cooperation-content-02.json')
+      @@include('./src/html/inner-blocks/cards.html', {
+      'cards-json': '../json/inner-content/cooperation-cards.json'
+      })
+    </div>
+    @@include('./src/html/list-image.html', {
+    'heading': 'Стартуем в один шаг',
+    'subheading': 'Вы выбираете удобный для Вас способ для связи:',
+    'popupID': 'start-cooperation',
+    'buttonName': 'Начать сотрудничество',
+    'imageSrc': 'images/thumbnails/cooperation-image-01.jpg',
+    'alt': 'Вид сайта sandverlux в интерьере',
+    'json-path': '../json/inner-content/cooperation-list-image.json'
+    })
+    @@include('./src/html/inner-blocks/custom-content.html', {
+    "contents": "<h2>Ваши преимущества в качестве партнера</h2>"
+    })
+    @@include('./src/html/our-virtues.html', {
+    'json-path': '../json/inner-content/cooperation-our-virtues.json'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': false,
+  'startCooperation': true
+  })
+</body>
+
+</html>

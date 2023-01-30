@@ -14,8 +14,6 @@
     <div class="_inner-content">
       @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/about-company-content-01.json')
       @@include('./src/html/inner-blocks/cards.html', {
-      'title': 'Наши сильные стороны',
-      'text': '',
       'cards-json': '../json/inner-content/about-company-cards.json'
       })
       @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/about-company-content-02.json')
@@ -38,15 +36,16 @@
       'item-path': './src/html/include/slider-item-tiar.html',
       'json-path': '../json/inner-content/about-company-tiar.json'
       })
-      @@include('./src/html/our-shops.html')
     </div>
+    @@include('./src/html/our-shops.html')
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html", {
   'checkout': false,
   'foundCheaper': false,
   'leaveAReview': false,
-  'orderAMeasurement': false
+  'orderAMeasurement': false,
+  'startCooperation': false
   })
 </body>
 

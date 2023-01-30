@@ -1,0 +1,19 @@
+<div class="contact-block">
+  <div class="contact-block__inner">
+    <div class="contact-block__contacts">
+      <a href="tel:@@phoneFormat" class="contact-block__phone">
+        <svg class="contact-block__phone-icon" width="28.3" height="28.3">
+          <use href="images/icons.svg#phone" />
+        </svg><span class="contact-block__phone-number">@@phone</span>
+      </a>
+      @@loop('./src/html/socials.html', '../json/socials.json')
+    </div>
+    <div class="contact-block__info">
+      <p class="contact-block__name">@@name</p>
+      <span class="contact-block__position">@@position</span>
+      @@if (email !== "") {
+      <a href="mailto:@@email" class="contact-block__email">@@email</a>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+[
+  {
+    "isContact": false,
+    "contactPath": "",
+    "text": "Позвонить по номеру телефона:"
+  },
+  {
+    "isContact": true,
+    "contactPath": "../json/inner-content/cooperation-contact-block.json",
+    "text": ""
+  },
+  {
+    "isContact": false,
+    "contactPath": "",
+    "text": "Оставить заявку на сотрудничество в форме ниже"
+  },
+  {
+    "isContact": false,
+    "contactPath": "",
+    "text": "Посетить офис «Дверной рай»  <a href='#'>Показать на карте</a>"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "instagram": true,
+    "instagramLink": "https://www.instagram.com/",
+    "telegram": true,
+    "telegramLink": "https://telegram.org/",
+    "facebook": true,
+    "facebookLink": "https://www.facebook.com/",
+    "youtube": true,
+    "youtubeLink": "https://www.youtube.com/",
+    "whatsapp": true,
+    "whatsappLink": "https://www.whatsapp.com/"
+  }
+]

@@ -614,14 +614,16 @@ document.addEventListener("DOMContentLoaded", function () {
       elem.addEventListener("click", (event) => {
         const currentButton = event.currentTarget;
         if (!currentButton) return;
+        if (currentButton.dataset.openPopup === "") {
+          return console.log("This button has an empty data attribute.");
+        }
         const currentPopup = document.getElementById(
           currentButton.dataset.openPopup
         );
         if (!currentPopup) {
-          console.log(
+          return console.log(
             `There is no pop-up with current ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
           );
-          return;
         }
         popupOverlay.show();
         currentPopup.classList.add(popupClassActive);

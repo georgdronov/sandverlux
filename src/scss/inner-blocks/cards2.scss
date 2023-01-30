@@ -1,0 +1,80 @@
+.cards2 {
+  $card2-items-gap: 2rem;
+
+  &__items {
+    @extend %row-wrapper;
+    margin-top: -$card2-items-gap;
+    margin-left: -$card2-items-gap;
+    justify-content: space-between;
+
+    @media ($mobile-max) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    flex: 1 1 0%;
+    max-width: 25%;
+    min-width: min-content;
+    margin-top: $card2-items-gap;
+    padding-left: $card2-items-gap;
+
+    @media ($tablet-max) and ($tablet-min) {
+      max-width: 50%;
+      flex-basis: 50%;
+    }
+    @media ($mobile-max) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+
+    &:nth-child(2n) {
+      @extend %cards2-odd-items !optional;
+    }
+    &:nth-child(2n + 1) {
+      @extend %cards2-even-items !optional;
+    }
+  }
+  &__item-inner {
+    height: 100%;
+    cursor: default;
+    padding: 2.15rem 1.75rem 2.6rem;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    background-color: $white;
+
+    @media ($desktop-min) {
+      transform: translateY(0);
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transform: translateY(3px);
+      }
+    }
+  }
+  &__heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.22;
+    margin-bottom: 1.4rem;
+
+    @media ($tablet-mad) {
+      font-size: 18px;
+    }
+
+    %cards2-odd-items & {
+      color: $yellow;
+    }
+    %cards2-even-items & {
+      color: $primary-color;
+    }
+  }
+  &__text {
+    font-size: 1.125rem;
+    line-height: 1.22;
+
+    @media ($tablet-mad) {
+      font-size: 14px;
+    }
+  }
+}

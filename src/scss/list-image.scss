@@ -1,0 +1,115 @@
+.list-image {
+  $list-item-gap: 6.25rem;
+
+  padding: 7.6rem 0 8.4rem;
+
+  &__items {
+    @extend %row-wrapper;
+    margin-top: calc($list-item-gap / -2);
+    margin-left: -$list-item-gap;
+  }
+  &__item {
+    margin-top: calc($list-item-gap / 2);
+    padding-left: $list-item-gap;
+
+    &:nth-child(1) {
+      flex: 1 1 48rem;
+      max-width: 48rem;
+
+      @media ($desktop-max) {
+        flex: 1 1 50%;
+        max-width: 50%;
+      }
+    }
+    &:nth-child(2) {
+      flex: 1 1 0%;
+      max-width: 100%;
+
+      @media ($desktop-max) {
+        flex: 1 1 50%;
+        max-width: 50%;
+      }
+    }
+  }
+  &__item-inner {
+    height: 100%;
+  }
+  &__heading {
+    color: $heading-color;
+    font-size: 1.5625rem;
+    margin-top: -0.13em;
+    line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 2.85rem;
+  }
+  &__list {
+    color: $heading-color;
+    font-size: 18px;
+    font-weight: 300;
+
+    @media ($desktop-max) and ($tablet-min) {
+      font-size: 16px;
+    }
+  }
+  &__list-item {
+    position: relative;
+
+    &:not(._no-badge) {
+      padding-left: 2.5em;
+
+      &:before {
+        top: -0.1em;
+        left: 0;
+        width: 1.6666em;
+        height: 1.6666em;
+        content: "";
+        position: absolute;
+        background: url("../images/icons.svg#check-round");
+      }
+    }
+    & + & {
+      margin-top: 2rem;
+    }
+    %contact-block {
+      max-width: 475px;
+    }
+    a:not([class]) {
+      color: $primary-color;
+      font-weight: 700;
+      text-decoration: none;
+      @include link-hover-underline($color: $primary-color);
+
+      @media ($tablet-max) {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__button {
+    margin-top: 3.2rem;
+  }
+  &__image-wrapper {
+    height: 100%;
+    cursor: pointer;
+    min-height: 250px;
+
+    @media ($desktop-min) {
+      &::after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        content: "";
+        position: absolute;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        background-color: $white;
+      }
+      &:hover::after {
+        opacity: 0.1;
+      }
+    }
+  }
+  // &__image {
+  // }
+}

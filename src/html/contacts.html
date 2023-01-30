@@ -8,13 +8,7 @@
             <use href="images/icons.svg#phone" />
           </svg><span>+375 44 533-25-22</span>
         </a>
-        @@include('./src/html/socials.html', {
-          'telegram': @@telegram,
-          'instagram': @@instagram,
-          'facebook': @@facebook,
-          'youtube': @@youtube,
-          'whatsapp': @@whatsapp
-        })
+        @@loop('./src/html/socials.html', '../json/socials.json')
       </div>
     </div>
   </div>

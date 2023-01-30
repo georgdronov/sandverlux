@@ -5,13 +5,7 @@
         <div class="footer__inner">
           <p class="footer__heading">Для покупателей</p>
           <div class="footer__socials">
-            @@include('./src/html/socials.html', {
-              'telegram': true,
-              'instagram': true,
-              'facebook': true,
-              'youtube': true,
-              'whatsapp': true
-            })
+            @@loop('./src/html/socials.html', '../json/socials-footer.json')
           </div>
           <div class="footer__info">
             <p>ООО «Дверной Рай»<br>
@@ -50,7 +44,7 @@
           <p class="footer__heading">Для партнеров</p>
           <ul class="footer__links-list">
             <li class="footer__list-item">
-              <a href="#" class="footer__link">Сотрудничество</a>
+              <a href="/cooperation" class="footer__link">Сотрудничество</a>
             </li>
             <li class="footer__list-item">
               <a href="/to-dealers" class="footer__link">Дилерам</a>

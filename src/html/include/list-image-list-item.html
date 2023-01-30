@@ -1,0 +1,6 @@
+<li class="list-image__list-item @@if(isContact){_no-badge}">
+  @@if (isContact === true) {
+    @@loop('./src/html/include/contact-block.html', '@@contactPath')
+  }
+  @@if (isContact === false) { @@text }
+</li>

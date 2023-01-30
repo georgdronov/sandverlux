@@ -14,7 +14,9 @@
     @@include('./src/html/our-goods.html')
     @@include('./src/html/how-we-work.html')
     @@include('./src/html/about-us.html')
-    @@include('./src/html/our-virtues.html')
+    @@include('./src/html/our-virtues.html', {
+      'json-path': '../json/our-virtues.json'
+    })
     @@include('./src/html/reviews.html')
     @@include('./src/html/our-shops.html')
     @@include('./src/html/footer.html')
@@ -23,7 +25,8 @@
     'checkout': false,
     'foundCheaper': false,
     'leaveAReview': false,
-    'orderAMeasurement': false
+    'orderAMeasurement': false,
+    'startCooperation': false
   })
 </body>
 

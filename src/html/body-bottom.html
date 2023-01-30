@@ -39,6 +39,13 @@
     'form-src': './src/html/forms/request-a-call.html'
     })
   }
+  @@if (startCooperation) {
+    @@include("./src/html/popup.html", {
+    'id': 'start-cooperation',
+    'title': 'Начать сотрудничество',
+    'form-src': './src/html/forms/start-cooperation.html'
+    })
+  }
 </section>
 @@include("./src/html/include/scroll-top.html")
 <script src="scripts/main.js"></script>

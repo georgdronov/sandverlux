@@ -40,11 +40,19 @@
     color: $items-border;
     height: 3.75rem;
     min-height: 45px;
+
+    %inner-page & {
+      height: 3.3rem;
+    }
   }
   &__content {
     margin-top: 0.9375rem;
     border-top: 1px solid $items-border;
     padding-top: 0.9375rem;
+
+    %inner-page & {
+      border-width: 2px;
+    }
   }
   &__title {
     color: $heading-color;
@@ -56,6 +64,10 @@
     }
     @media ($mobile-max) {
       font-size: 16px;
+    }
+
+    %inner-page & {
+      font-weight: 600;
     }
   }
   &__text {
@@ -70,6 +82,11 @@
     }
     @media ($mobile-max) {
       font-size: 14px;
+    }
+
+    %inner-page & {
+      max-width: none;
+      line-height: 1.875;
     }
   }
 }

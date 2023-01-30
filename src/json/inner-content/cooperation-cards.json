@@ -1,0 +1,22 @@
+[
+  {
+    "imageSrc": "images/icons.svg#building",
+    "text": "Архитектор",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#developer",
+    "text": "Застройщик",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#documents",
+    "text": "Специалист по закупкам (тендеры)",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#designer",
+    "text": "Дизайнер",
+    "greenBorder": false
+  }
+]
