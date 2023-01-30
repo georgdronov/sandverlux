@@ -1,8 +1,8 @@
-.product-slider {
+.custom-slider {
   padding: 4.6875rem 0;
   overflow: hidden;
 
-  @extend %product-slider !optional;
+  @extend %custom-slider !optional;
 
   @media ($tablet-mad) {
     padding: 2.4rem 0 2rem;
@@ -11,7 +11,7 @@
   // &__heading {
   // }
   &__slider-wrapper {
-    @extend %product-slider-wrapper !optional;
+    @extend %custom-slider-wrapper !optional;
   }
   &__swiper {
     padding: 0;
@@ -23,7 +23,7 @@
     margin-right: 0;
 
     &:not(&-initialized) {
-      @extend %product-slider-not-initialized !optional;
+      @extend %custom-slider-not-initialized !optional;
     }
     &:not(.locked) {
       @media ($desktop-min-xl) {
@@ -55,7 +55,7 @@
     flex-direction: column;
     transition-property: transform;
 
-    %product-slider-not-initialized & {
+    %custom-slider-not-initialized & {
       width: 20%;
     }
     %product {

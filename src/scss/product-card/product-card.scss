@@ -381,18 +381,18 @@
     @media ($mobile-max) {
       margin-top: 2.1rem;
 
-      %product-slider-wrapper {
+      %custom-slider-wrapper {
         margin-top: 0.5rem;
       }
     }
   }
   &__similar {
-    %product-slider {
+    %custom-slider {
       padding: 2.5rem 0;
     }
   }
   &__viewed {
-    %product-slider {
+    %custom-slider {
       padding: 2.5rem 0;
     }
   }

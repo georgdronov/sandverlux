@@ -202,24 +202,25 @@ export function mapOverlay() {
     if (!overlay) return;
 
     let timer = null;
-    overlay.addEventListener(
-      "wheel",
-      () => {
-        if (timer !== null) return;
-
-        overlay.classList.add("active");
-        timer = setTimeout(function () {
-          overlay.classList.remove("active");
-          clearTimeout(timer);
-          timer = null;
-        }, 2000);
-      },
-      {
-        passive: true,
-      }
-    );
+    overlay.addEventListener("wheel", () => toggleMapOverlay(timer, overlay), {
+      passive: true,
+    });
+    overlay.addEventListener("touchmove", () => toggleMapOverlay(timer, overlay), {
+      passive: true,
+    });
     overlay.addEventListener("click", () => overlay.remove());
   });
+
+  function toggleMapOverlay(timer, overlay) {
+    if (timer !== null) return;
+
+    overlay.classList.add("active");
+    timer = setTimeout(function () {
+      overlay.classList.remove("active");
+      clearTimeout(timer);
+      timer = null;
+    }, 2000);
+  }
 }
 
 export function scrollToTop() {

@@ -195,13 +195,17 @@
   </div>
   <aside class="product-card__bottom-slides">
     <article class="product-card__similar">
-      @@include('./src/html/product-slider.html', {
-      'title': 'Похожие модели'
+      @@include('./src/html/custom-slider.html', {
+      'title': 'Похожие модели',
+      'item-path': './src/html/include/slider-item-product.html',
+      'json-path': '../json/products.json'
       })
     </article>
     <article class="product-card__viewed">
-      @@include('./src/html/product-slider.html', {
-      'title': 'Вы просматривали'
+      @@include('./src/html/custom-slider.html', {
+      'title': 'Вы просматривали',
+      'item-path': './src/html/include/slider-item-product.html',
+      'json-path': '../json/products.json'
       })
     </article>
   </aside>

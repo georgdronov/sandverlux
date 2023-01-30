@@ -1,0 +1,25 @@
+.slider-tiar {
+  width: 34.1rem;
+  max-width: 100%;
+
+  @media ($tablet-max) and ($tablet-min) {
+    width: 25rem;
+  }
+  @media ($mobile-max) {
+    width: 100%;
+  }
+
+  &__image-wrapper {
+    height: 0;
+    cursor: pointer;
+    padding-top: 60%;
+
+    @media ($tablet-min) {
+      max-width: none;
+      padding-top: 62.5%;
+      margin-right: -22px;
+    }
+  }
+  // &__image {
+  // }
+}

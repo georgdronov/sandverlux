@@ -25,10 +25,17 @@
       @@include('./src/html/inner-blocks/custom-content.html', {
       "contents": "<h2>Сертификаты, награды</h2>"
       })
+      @@include('./src/html/custom-slider.html', {
+      'title': '',
+      'item-path': './src/html/include/slider-item-certificate.html',
+      'json-path': '../json/inner-content/about-company-certificates.json'
+      })
       @@include('./src/html/inner-blocks/custom-content.html', {
       "contents": "<h2>Команда</h2><p>Мы видим свою миссию в том, чтобы <strong>предоставлять клиентам лучший сервис в сегменте продажи дверей.</strong></p>"
       })
-      @@include('./src/html/inner-blocks/three-in-a-row.html', {
+      @@include('./src/html/custom-slider.html', {
+      'title': '',
+      'item-path': './src/html/include/slider-item-tiar.html',
       'json-path': '../json/inner-content/about-company-tiar.json'
       })
       @@include('./src/html/our-shops.html')

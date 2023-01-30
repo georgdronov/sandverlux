@@ -156,24 +156,24 @@
       if (!overlay)
         return;
       let timer = null;
-      overlay.addEventListener(
-        "wheel",
-        () => {
-          if (timer !== null)
-            return;
-          overlay.classList.add("active");
-          timer = setTimeout(function() {
-            overlay.classList.remove("active");
-            clearTimeout(timer);
-            timer = null;
-          }, 2e3);
-        },
-        {
-          passive: true
-        }
-      );
+      overlay.addEventListener("wheel", () => toggleMapOverlay(timer, overlay), {
+        passive: true
+      });
+      overlay.addEventListener("touchmove", () => toggleMapOverlay(timer, overlay), {
+        passive: true
+      });
       overlay.addEventListener("click", () => overlay.remove());
     });
+    function toggleMapOverlay(timer, overlay) {
+      if (timer !== null)
+        return;
+      overlay.classList.add("active");
+      timer = setTimeout(function() {
+        overlay.classList.remove("active");
+        clearTimeout(timer);
+        timer = null;
+      }, 2e3);
+    }
   }
   function scrollToTop() {
     const scrollTopElement = document.querySelector(".scroll-top");
@@ -6865,10 +6865,10 @@
       );
     }
     const psSlides = document.querySelectorAll(
-      ".product-slider__swiper-wrapper > *"
+      ".custom-slider__swiper-wrapper > *"
     );
     if (psSlides.length) {
-      const psSwiper = new core_default(".product-slider__swiper", {
+      const psSwiper = new core_default(".custom-slider__swiper", {
         modules: [Navigation],
         loop: false,
         rewind: false,
@@ -6876,13 +6876,13 @@
         slidesPerView: "auto",
         spaceBetween: 60,
         setWrapperSize: true,
-        containerModifierClass: "product-slider__swiper-",
-        wrapperClass: "product-slider__swiper-wrapper",
+        containerModifierClass: "custom-slider__swiper-",
+        wrapperClass: "custom-slider__swiper-wrapper",
         navigation: {
-          nextEl: ".product-slider__nav-btn_next",
-          prevEl: ".product-slider__nav-btn_prev",
-          lockClass: "product-slider__nav-btn_lock",
-          disabledClass: "product-slider__nav-btn_disabled"
+          nextEl: ".custom-slider__nav-btn_next",
+          prevEl: ".custom-slider__nav-btn_prev",
+          lockClass: "custom-slider__nav-btn_lock",
+          disabledClass: "custom-slider__nav-btn_disabled"
         },
         breakpoints: {
           0: {

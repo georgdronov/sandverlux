@@ -311,12 +311,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // product slider swiper //
   const psSlides = document.querySelectorAll(
-    ".product-slider__swiper-wrapper > *"
+    ".custom-slider__swiper-wrapper > *"
   );
 
   if (psSlides.length) {
     // eslint-disable-next-line no-unused-vars
-    const psSwiper = new Swiper(".product-slider__swiper", {
+    const psSwiper = new Swiper(".custom-slider__swiper", {
       modules: [Navigation],
       loop: false,
       rewind: false,
@@ -324,14 +324,14 @@ document.addEventListener("DOMContentLoaded", function () {
       slidesPerView: "auto",
       spaceBetween: 60,
       setWrapperSize: true,
-      containerModifierClass: "product-slider__swiper-",
-      wrapperClass: "product-slider__swiper-wrapper",
+      containerModifierClass: "custom-slider__swiper-",
+      wrapperClass: "custom-slider__swiper-wrapper",
 
       navigation: {
-        nextEl: ".product-slider__nav-btn_next",
-        prevEl: ".product-slider__nav-btn_prev",
-        lockClass: "product-slider__nav-btn_lock",
-        disabledClass: "product-slider__nav-btn_disabled",
+        nextEl: ".custom-slider__nav-btn_next",
+        prevEl: ".custom-slider__nav-btn_prev",
+        lockClass: "custom-slider__nav-btn_lock",
+        disabledClass: "custom-slider__nav-btn_disabled",
       },
       breakpoints: {
         0: {

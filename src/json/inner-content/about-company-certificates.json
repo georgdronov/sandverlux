@@ -1,0 +1,32 @@
+[
+  {
+    "imageSrc": "images/certificates/thumbnails/certificate-01.jpg",
+    "alt": "Сертификат 01",
+    "title": "сертифицированная фабричная продукция"
+  },
+  {
+    "imageSrc": "images/certificates/thumbnails/certificate-02.jpg",
+    "alt": "Сертификат 02",
+    "title": "сертифицированная фабричная продукция"
+  },
+  {
+    "imageSrc": "images/certificates/thumbnails/certificate-01.jpg",
+    "alt": "Сертификат 03",
+    "title": "сертифицированная фабричная продукция"
+  },
+  {
+    "imageSrc": "images/certificates/thumbnails/certificate-02.jpg",
+    "alt": "Сертификат 04",
+    "title": "сертифицированная фабричная продукция"
+  },
+  {
+    "imageSrc": "images/certificates/thumbnails/certificate-01.jpg",
+    "alt": "Сертификат 05",
+    "title": "сертифицированная фабричная продукция"
+  },
+  {
+    "imageSrc": "images/certificates/thumbnails/certificate-02.jpg",
+    "alt": "Сертификат 06",
+    "title": "сертифицированная фабричная продукция"
+  }
+]
