@@ -1,0 +1,22 @@
+<section class="content-image">
+  <div class="container">
+    <h2 class="content-image__heading heading">@@heading</h2>
+    <div class="content-image__items @@if(reverse){_reverse}">
+      <div class="content-image__item content-image__item_content">
+        <div class="content-image__inner">
+          <div class="content-image__content _custom-content">
+            @@contents
+          </div>
+        </div>
+      </div>
+      <div class="content-image__item content-image__item_image">
+        <div class="content-image__inner">
+          <p class="content-image__image-wrapper _image-wrapper">
+            <img src="@@imageSrc" alt="@@alt"
+              class="content-image__image _bkgr-image @@imageAdditionalClasses">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

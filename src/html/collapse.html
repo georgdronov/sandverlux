@@ -1,0 +1,10 @@
+<section class="collapse">
+  <div class="container">
+    @@if (heading) {
+    <h2 class="collapse__heading heading">@@heading</h2>
+    }
+    <div class="collapse__items" data-toggle-container="toggle">
+      @@loop('./src/html/include/collapse-item.html', '@@json-path')
+    </div>
+  </div>
+</section>

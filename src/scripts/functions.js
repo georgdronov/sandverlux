@@ -59,6 +59,7 @@ export function toggleElements() {
     const toggleElements = container.querySelectorAll("[data-toggle]");
     const toggleTargets = container.querySelectorAll("[data-target]");
     if (!toggleElements.length && !toggleTargets.length) return;
+    const isToggle = container.dataset.toggleContainer ? true : false;
 
     toggleElements.forEach((elem) => {
       switch (elem.tagName.toLowerCase()) {
@@ -76,23 +77,41 @@ export function toggleElements() {
           break;
         default:
           elem.addEventListener("click", (event) => {
-            toggleContent(event.currentTarget, toggleTargets, toggleElements);
+            toggleContent(
+              event.currentTarget,
+              toggleTargets,
+              toggleElements,
+              true,
+              isToggle
+            );
           });
           break;
       }
     });
   });
 
-  function toggleContent(current, targets, buttons = null, state = true) {
+  function toggleContent(
+    current,
+    targets,
+    buttons = null,
+    state = true,
+    toggle = false
+  ) {
     if (state !== true) return;
     const tag = current.tagName.toLowerCase(),
       value = toggleValue(tag, current);
 
-    targets.forEach((target) => toggleClass(target, value, state));
+    targets.forEach((target) => toggleClass(target, value, toggle));
 
     if (buttons === null) return;
 
+    let isAreaExpanded = current.getAttribute("aria-expanded") === "true";
     buttons.forEach((button) => button.setAttribute("aria-expanded", false));
+
+    if (toggle) {
+      current.setAttribute("aria-expanded", !isAreaExpanded);
+      return;
+    }
     current.setAttribute("aria-expanded", true);
   }
 
@@ -100,7 +119,11 @@ export function toggleElements() {
     if (tag === "select") return element.value;
     return element.dataset.toggle;
   }
-  function toggleClass(target, value) {
+  function toggleClass(target, value, toggle) {
+    if (toggle === true && target.classList.contains("active")) {
+      target.classList.remove("active");
+      return;
+    }
     if (target.dataset.target === value) {
       target.classList.add("active");
       return;
@@ -205,9 +228,13 @@ export function mapOverlay() {
     overlay.addEventListener("wheel", () => toggleMapOverlay(timer, overlay), {
       passive: true,
     });
-    overlay.addEventListener("touchmove", () => toggleMapOverlay(timer, overlay), {
-      passive: true,
-    });
+    overlay.addEventListener(
+      "touchmove",
+      () => toggleMapOverlay(timer, overlay),
+      {
+        passive: true,
+      }
+    );
     overlay.addEventListener("click", () => overlay.remove());
   });
 

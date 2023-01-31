@@ -1,7 +1,9 @@
 .custom-content {
   padding: 1.05rem 0;
 
-  & + *:not(&) {
+  @extend %custom-content !optional;
+
+  & + *:not(&):not(.footer) {
     padding-top: 0.55rem;
   }
 }

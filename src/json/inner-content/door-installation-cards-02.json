@@ -1,0 +1,22 @@
+[
+  {
+    "imageSrc": "images/icons.svg#doors-interior",
+    "text": "<p>Сборку стандартной двери</p>",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#doorhandle",
+    "text": "<p>Врезку петель, ручек, установку межкомнатных защелок</p>",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#frame",
+    "text": "<p>Зарезку и установку стандартной коробки в проем</p>",
+    "greenBorder": false
+  },
+  {
+    "imageSrc": "images/icons.svg#platbands",
+    "text": "<p>Разметку и зарезку наличника на две стороны. Установку наличников</p>",
+    "greenBorder": false
+  }
+]

@@ -61,6 +61,7 @@
   &__item {
     flex: 2 0 0%;
     min-width: 120px;
+    min-width: min-content;
     max-width: 420px;
     margin-top: $card-items-gap;
     margin-left: $card-items-gap;

@@ -17,6 +17,16 @@ $button-background-hover: #e3b100;
     max-height: 100%;
     object-fit: contain;
   }
+  &--higher {
+    top: 20%;
+    transform: translate(-50%, -20%) scale(1.005);
+    object-position: 50% 20%;
+  }
+  &--lower {
+    top: 80%;
+    transform: translate(-50%, -80%) scale(1.005);
+    object-position: 50% 80%;
+  }
 }
 ._image-wrapper {
   color: inherit;
@@ -641,7 +651,7 @@ body {
   font-weight: 300;
   line-height: 1.875;
 
-  @media ($tablet-mad) {
+  @media ($tablet-max) {
     font-size: 14px;
     line-height: 1.79;
   }
@@ -658,6 +668,10 @@ body {
   }
   & > * {
     margin: 0;
+
+    @media ($desktop-min-xl) {
+      max-width: 1340px;
+    }
   }
   & > * + * {
     margin-top: 1em;
@@ -695,7 +709,47 @@ body {
       margin-top: 0;
     }
   }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  tr {
+    &:nth-child(2n + 1) {
+      background-color: $white;
+    }
+    &:nth-child(2n) {
+      background-color: $form-grey-color;
+    }
+  }
+  th,
+  td:first-child {
+    color: $heading-color;
+    padding: 11px 10px 10px 1rem;
+    text-align: left;
+    font-weight: 500;
+
+    @media ($mobile-max) {
+      padding-top: 8px;
+      padding-bottom: 7px;
+    }
+  }
+  td {
+    padding: 11px 2rem 10px 10px;
+    text-align: right;
+
+    @media ($mobile-max) {
+      padding-top: 8px;
+      padding-bottom: 7px;
+    }
+  }
   & > *:last-child {
     margin-bottom: 0;
+  }
+  %inner-page > *:not(&) + %custom-content {
+    margin-top: -3.5rem;
+
+    @media ($tablet-mad) {
+      margin-top: -1.5rem;
+    }
   }
 }
