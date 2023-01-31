@@ -666,19 +666,6 @@ body {
   h2 {
     margin-bottom: 1.3em;
   }
-  & > * {
-    margin: 0;
-
-    @media ($desktop-min-xl) {
-      max-width: 1340px;
-    }
-  }
-  & > * + * {
-    margin-top: 1em;
-  }
-  & > * + h2 {
-    margin-top: 2.35em;
-  }
   ul,
   ol {
     list-style: none;
@@ -702,6 +689,14 @@ body {
       }
     }
   }
+  a {
+    color: $primary-color;
+    line-height: 1.2;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    @include link-hover-underline($color: $primary-color);
+  }
   br {
     font-size: 0;
 
@@ -710,7 +705,8 @@ body {
     }
   }
   table {
-    width: 100%;
+    min-width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
   }
   tr {
@@ -741,6 +737,19 @@ body {
       padding-top: 8px;
       padding-bottom: 7px;
     }
+  }
+  & > * {
+    margin: 0;
+
+    @media ($desktop-min-xl) {
+      max-width: 1340px;
+    }
+  }
+  & > * + * {
+    margin-top: 1em;
+  }
+  & > * + h2 {
+    margin-top: 2.35em;
   }
   & > *:last-child {
     margin-bottom: 0;

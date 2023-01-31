@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Вопрос-ответ | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/faq.json'
+    })
+    <div class="_inner-content">
+      @@include('./src/html/inner-blocks/custom-content.html', {
+        "contents": "<h1>Вопрос-ответ</h1>"
+        })
+      @@include('./src/html/collapse.html', {
+        'heading': 'Общие вопросы',
+        'json-path': '../json/inner-content/faq-collapse.json'
+      })
+    </div>
+    @@include('./src/html/inner-blocks/form-block.html', {
+    'form-src': './src/html/forms/any-questions.html'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': false,
+  'startCooperation': false
+  })
+</body>
+
+</html>
