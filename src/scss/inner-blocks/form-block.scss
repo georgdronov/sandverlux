@@ -40,6 +40,7 @@
     width: 860px;
     margin: 0 auto;
     padding: 3.3rem 6.7rem 2.7rem;
+    position: relative;
     max-width: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
     background-color: $white;
@@ -58,6 +59,22 @@
     }
     @media ($mobile-max) {
       padding: 2.9rem 1.7rem 2.7rem;
+    }
+
+    &::before {
+      left: 0;
+      width: 10rem;
+      bottom: 6rem;
+      height: 26rem;
+      z-index: -1;
+      position: absolute;
+      transform: translateX(-58%) rotate(-22.65deg);
+      background: url("../images/forms/form-block-door.jpg") right bottom /
+        contain no-repeat transparent;
+
+      @media ($tablet-min) {
+        content: "";
+      }
     }
   }
   &__item-wrapper {
@@ -82,7 +99,6 @@
   }
   %form-item-wrapper {
     label {
-      cursor: pointer;
       margin-top: 14px;
     }
   }
@@ -90,7 +106,6 @@
   %form-checkbox {
     width: 15px;
     height: 15px;
-    cursor: pointer;
     margin: 0 11px 0 0;
     border: 1px solid $text-color;
     padding: 0.125em;
@@ -184,13 +199,74 @@
       font-size: 13px;
     }
   }
+  label > %form-label:first-child {
+    color: $heading-color;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
   %form-input[type="date"] {
     padding-right: 20px;
+  }
+  %form-file {
+    & + %form-label {
+      border: 1px dashed $text-color-lighter;
+      display: flex;
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+
+      &::after {
+        color: $white;
+        content: "Выбрать";
+        padding: 0.5rem 0.8rem;
+        margin-left: 1rem;
+        background-color: $text-color-lighter;
+      }
+      @media ($desktop-min) {
+        &::after {
+          transition: background-color 0.3s;
+        }
+        &:hover::after {
+          background-color: $text-color;
+        }
+      }
+      &._reddish {
+        &::after {
+          background-color: #b08787;
+        }
+        @media ($desktop-min) {
+          &:hover::after {
+            background-color: #bd6262;
+          }
+        }
+      }
+    }
+    &:focus-visible {
+      & + %form-label::after {
+        background-color: $text-color;
+      }
+    }
   }
   %form-buttons-wrapper {
     margin-top: 0.8rem;
   }
   %form-button {
     width: calc(100% - 1rem);
+  }
+  a {
+    color: $primary-color;
+    line-height: 1.2;
+    font-weight: 500;
+    text-decoration: none;
+    @include link-hover-underline($color: $primary-color);
+  }
+  p {
+    color: $heading-color;
+    font-size: 14px;
+
+    & + p {
+      margin-top: 1.5rem;
+    }
   }
 }

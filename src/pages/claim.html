@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Оформить рекламацию | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/claim.json'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/claim-content-01.json')
+    </div>
+    @@include('./src/html/inner-blocks/form-block.html', {
+    'form-src': './src/html/forms/claim.html'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': false,
+  'startCooperation': false
+  })
+</body>
+
+</html>

@@ -758,6 +758,27 @@ document.addEventListener("DOMContentLoaded", function () {
       date.min = new Date().toISOString().split("T")[0];
     });
   }
+
+  // file validation //
+  const fileInputs = document.querySelectorAll("input[type='file']");
+
+  if (fileInputs.length) {
+    fileInputs.forEach((fileInput) =>
+      fileInput.addEventListener("change", () =>
+        myFunctions.validateFile(fileInput)
+      )
+    );
+  }
+
+  // phone validation //
+  const phoneInputs = document.querySelectorAll("input[type='tel']");
+
+  if (phoneInputs.length) {
+    phoneInputs.forEach((phoneInput) =>
+      myFunctions.validatePhoneNumber(phoneInput)
+    );
+  }
+
   // myFunctions.wheelToHide();
 });
 

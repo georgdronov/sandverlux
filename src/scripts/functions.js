@@ -397,6 +397,82 @@ export function myLazyLoad() {
   }
 }
 
+export function validateFile(inputElement) {
+  console.log(inputElement);
+  const fileErrorClass = "error";
+  const inputLabel =
+    inputElement.parentElement.querySelector(".form__label") ||
+    inputElement.parentElement.querySelector("span");
+
+  if (!inputElement.files.length) {
+    inputElement.classList.add(fileErrorClass);
+    inputLabel.textContent = "Файл не выбран.";
+    return;
+  }
+
+  // init state //
+  const maxFileSize = inputElement.dataset?.maxSize * Math.pow(1024, 2) || 5e6,
+    firstFile = inputElement.files[0],
+    fileName = firstFile.name,
+    fileSize = firstFile.size;
+
+  // clear validation //
+  inputElement.classList.remove(fileErrorClass);
+  inputLabel.textContent = "";
+
+  const fileNameToShow =
+      fileName.length > 25
+        ? `${fileName.slice(0, 10)}...${fileName.slice(-10)}`
+        : fileName,
+    fileSizeToShow = formatBytes(fileSize);
+
+  if (fileSize > maxFileSize) {
+    inputElement.classList.add(fileErrorClass);
+    inputLabel.textContent = `Файл больше ${formatBytes(maxFileSize)}`;
+    return;
+  }
+
+  inputLabel.textContent = `Файл: ${fileNameToShow} (${fileSizeToShow})`;
+}
+
+export function validatePhoneNumber(inputElement) {
+  const phoneFormat = (value) =>
+    value
+      .replace(/((?!\+)\D+)+/g, "")
+      .match(/^(\+375)(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+
+  inputElement.addEventListener("click", (e) => {
+    if (e.target.value === "" || !phoneFormat(e.target.value))
+      e.target.value = "+375";
+  });
+  inputElement.addEventListener("input", (e) => {
+    const elem = e.target;
+    let cursorPosition = elem.selectionStart;
+    elem.value =
+      elem.value.slice(0, cursorPosition) +
+      elem.value.slice(cursorPosition + 1);
+    elem.selectionEnd = cursorPosition;
+
+    let x = phoneFormat(elem.value);
+    let phoneArray = "";
+
+    if (x === null || !x[1]) {
+      phoneArray = "";
+    } else if (x[1] && !x[2]) {
+      phoneArray = `${x[1]}`;
+    } else if (x[1] && x[2] && !x[3]) {
+      phoneArray = `${x[1]} (${x[2]}`;
+    } else if (x[1] && x[2] && x[3] && !x[4]) {
+      phoneArray = `${x[1]} (${x[2]}) ${x[3]}`;
+    } else if (x[1] && x[2] && x[3] && x[4] && !x[5]) {
+      phoneArray = `${x[1]} (${x[2]}) ${x[3]}-${x[4]}`;
+    } else {
+      phoneArray = `${x[1]} (${x[2]}) ${x[3]}-${x[4]}-${x[5]}`;
+    }
+    elem.value = phoneArray;
+  });
+}
+
 function gallery() {
   const galleryObjects = document.querySelectorAll("[data-gallery]");
 
@@ -479,4 +555,16 @@ function popupOverlay() {
       headerElement.style = "";
     }, 300);
   };
+}
+
+function formatBytes(bytes, decimals = 2) {
+  if (!+bytes) return "0 Байт";
+
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ["Байт", "КБ", "МБ", "ГБ", "ТБ", "ПБ", "ЭБ", "ЗБ", "ЙБ"];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }

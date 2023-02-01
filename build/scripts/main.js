@@ -317,6 +317,56 @@
       }
     }
   }
+  function validateFile(inputElement) {
+    var _a;
+    console.log(inputElement);
+    const fileErrorClass = "error";
+    const inputLabel = inputElement.parentElement.querySelector(".form__label") || inputElement.parentElement.querySelector("span");
+    if (!inputElement.files.length) {
+      inputElement.classList.add(fileErrorClass);
+      inputLabel.textContent = "\u0424\u0430\u0439\u043B \u043D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D.";
+      return;
+    }
+    const maxFileSize = ((_a = inputElement.dataset) == null ? void 0 : _a.maxSize) * Math.pow(1024, 2) || 5e6, firstFile = inputElement.files[0], fileName = firstFile.name, fileSize = firstFile.size;
+    inputElement.classList.remove(fileErrorClass);
+    inputLabel.textContent = "";
+    const fileNameToShow = fileName.length > 25 ? `${fileName.slice(0, 10)}...${fileName.slice(-10)}` : fileName, fileSizeToShow = formatBytes(fileSize);
+    if (fileSize > maxFileSize) {
+      inputElement.classList.add(fileErrorClass);
+      inputLabel.textContent = `\u0424\u0430\u0439\u043B \u0431\u043E\u043B\u044C\u0448\u0435 ${formatBytes(maxFileSize)}`;
+      return;
+    }
+    inputLabel.textContent = `\u0424\u0430\u0439\u043B: ${fileNameToShow} (${fileSizeToShow})`;
+  }
+  function validatePhoneNumber(inputElement) {
+    const phoneFormat = (value) => value.replace(/((?!\+)\D+)+/g, "").match(/^(\+375)(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+    inputElement.addEventListener("click", (e) => {
+      if (e.target.value === "" || !phoneFormat(e.target.value))
+        e.target.value = "+375";
+    });
+    inputElement.addEventListener("input", (e) => {
+      const elem = e.target;
+      let cursorPosition = elem.selectionStart;
+      elem.value = elem.value.slice(0, cursorPosition) + elem.value.slice(cursorPosition + 1);
+      elem.selectionEnd = cursorPosition;
+      let x = phoneFormat(elem.value);
+      let phoneArray = "";
+      if (x === null || !x[1]) {
+        phoneArray = "";
+      } else if (x[1] && !x[2]) {
+        phoneArray = `${x[1]}`;
+      } else if (x[1] && x[2] && !x[3]) {
+        phoneArray = `${x[1]} (${x[2]}`;
+      } else if (x[1] && x[2] && x[3] && !x[4]) {
+        phoneArray = `${x[1]} (${x[2]}) ${x[3]}`;
+      } else if (x[1] && x[2] && x[3] && x[4] && !x[5]) {
+        phoneArray = `${x[1]} (${x[2]}) ${x[3]}-${x[4]}`;
+      } else {
+        phoneArray = `${x[1]} (${x[2]}) ${x[3]}-${x[4]}-${x[5]}`;
+      }
+      elem.value = phoneArray;
+    });
+  }
   function gallery() {
     const galleryObjects = document.querySelectorAll("[data-gallery]");
     if (!galleryObjects.length)
@@ -383,6 +433,15 @@
         headerElement.style = "";
       }, 300);
     };
+  }
+  function formatBytes(bytes, decimals = 2) {
+    if (!+bytes)
+      return "0 \u0411\u0430\u0439\u0442";
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["\u0411\u0430\u0439\u0442", "\u041A\u0411", "\u041C\u0411", "\u0413\u0411", "\u0422\u0411", "\u041F\u0411", "\u042D\u0411", "\u0417\u0411", "\u0419\u0411"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
   }
 
   // node_modules/nouislider/dist/nouislider.mjs
@@ -7262,6 +7321,21 @@
       dateMin.forEach((date) => {
         date.min = new Date().toISOString().split("T")[0];
       });
+    }
+    const fileInputs = document.querySelectorAll("input[type='file']");
+    if (fileInputs.length) {
+      fileInputs.forEach(
+        (fileInput) => fileInput.addEventListener(
+          "change",
+          () => validateFile(fileInput)
+        )
+      );
+    }
+    const phoneInputs = document.querySelectorAll("input[type='tel']");
+    if (phoneInputs.length) {
+      phoneInputs.forEach(
+        (phoneInput) => validatePhoneNumber(phoneInput)
+      );
     }
   });
 })();

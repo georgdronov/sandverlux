@@ -379,18 +379,19 @@ label {
     display: none !important;
   }
 }
-.popup-product, .payment-and-delivery__content-wrapper, .payment-and-delivery__navigation, .additional-info__list, .additional-info, .full-price__bottom, .full-price__top, .product-card__colors, .product-card__installment, .product-card__features, .product-card__price, .product-card__wrapper, .products .products__items.list .product__bottom, .subcategories__list, .content-image__items, .contact-block__contacts, .logos__items, .cards2__items, .cards__items, .collapse__items, .list-image__items, .wishlist__items, .footer__payment, .reviews__items, .how-we-work__items, .our-goods__filter, .product__color-label, .product__colors, .mfb__item .form__item, .mfb, .mft, .main-filter__items, .form__buttons-wrapper, .form__rating, .form__item-wrapper_row, .row {
+.popup-product, .payment-and-delivery__content-wrapper, .payment-and-delivery__navigation, .additional-info__list, .additional-info, .full-price__bottom, .full-price__top, .product-card__colors, .product-card__installment, .product-card__features, .product-card__price, .product-card__wrapper, .products .products__items.list .product__bottom, .subcategories__list, .content-image__items, .contact-block__contacts, .logos__items, .cards2__items, .cards__items, .collapse__items, .list-image__items, .wishlist__items, .footer__payment, .reviews__items, .how-we-work__items, .our-goods__filter, .product__color-label, .product__colors, .mfb__item .form__item, .mfb, .mft, .main-filter__items, .form__buttons-wrapper, .form__rating, .form__gallery-button-wrapper,
+.form .fgbw, .form__item-wrapper_row, .row {
   display: flex;
   flex-wrap: wrap;
 }
 
-.popup__close, .sliders-switcher__button-wrapper, .sliders-switcher, .filler, .custom-slider__nav-btn, .our-goods__nav-btn, .product__features-inner, .popular-categories__nav-btn, .mft__item [type=radio].form__input + .form__label, .feature-buttons__link, .map__overlay {
+.popup__close, .sliders-switcher__button-wrapper, .sliders-switcher, .filler, .custom-slider__nav-btn, .our-goods__nav-btn, .product__features-inner, .popular-categories__nav-btn, .mft__item [type=radio].form__input + .form__label, .feature-buttons__link, ._custom-content figure::before, .map__overlay {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.filter__reset, .filter__toggle-item, .list-image__list-item a:not([class]), .footer__link, .review__link, .header-bottom__link, .socials-links__link, .contacts__link, .header-top__our-shops, .header-top__link, .logo, ._custom-content a {
+.filter__reset, .filter__toggle-item, .form-block a, .list-image__list-item a:not([class]), .footer__link, .review__link, .header-bottom__link, .socials-links__link, .contacts__link, .header-top__our-shops, .header-top__link, .logo, ._custom-content a {
   margin: -5px;
   padding: 5px;
 }
@@ -718,9 +719,14 @@ body {
   margin-top: 0;
 }
 ._custom-content table {
-  min-width: 100%;
+  width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
+}
+@media (min-width: 1200px) {
+  ._custom-content table {
+    max-width: 50%;
+  }
 }
 ._custom-content tr:nth-child(2n+1) {
   background-color: #fff;
@@ -751,6 +757,35 @@ body {
     padding-top: 8px;
     padding-bottom: 7px;
   }
+}
+._custom-content figure {
+  display: flex;
+  padding: 1rem 2.5rem 1rem 1.5rem;
+  margin-top: 2em;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+}
+._custom-content figure::before {
+  width: 4.625rem;
+  color: #2d2d2d;
+  height: 4.625rem;
+  content: "!";
+  min-width: 35px;
+  font-size: 48px;
+  min-height: 35px;
+  flex-shrink: 0;
+  line-height: 1;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: #f9c201;
+}
+._custom-content figure + * {
+  margin-top: 2em;
+}
+._custom-content figure figcaption {
+  margin-left: 1.5rem;
 }
 ._custom-content > * {
   margin: 0;
@@ -1186,7 +1221,7 @@ body {
   content: normal;
 }
 
-.mft__item [type=radio].form__input + .form__label, .form__checkbox input ~ .form__label:before, .form__select, .form__input[type=file] ~ label, .form__input {
+.mft__item [type=radio].form__input + .form__label, .form__checkbox input ~ .form__label:before, .form__select, .form__input[type=file] ~ .form__label, .form__input {
   border: none;
   background-color: #f4f4f4;
 }
@@ -1307,32 +1342,40 @@ body {
   -moz-appearance: textfield;
   appearance: textfield;
 }
-.form__input[type=file] ~ label {
+.form__input[type=file] ~ .form__label {
   width: 100%;
   color: #585858;
   cursor: pointer;
   display: block;
-  background: url("../images/form-file-icon.svg") 98% 15px/15px auto no-repeat #fff;
-  background-position: right 15px top 18px;
 }
 @media (max-width: 991.98px) {
-  .form__input[type=file] ~ label {
+  .form__input[type=file] ~ .form__label {
     font-size: 15px;
   }
 }
 @media (min-width: 576px) {
-  .form__input[type=file] ~ label {
+  .form__input[type=file] ~ .form__label {
     padding: 15px 15px 15px 25px;
   }
 }
 @media (max-width: 575.98px) {
-  .form__input[type=file] ~ label {
+  .form__input[type=file] ~ .form__label {
     padding: 13px 29px;
     font-size: 14px;
   }
 }
+.form__input[type=file].error ~ .form__label {
+  color: #b65c5c;
+  font-weight: 500;
+}
+.form__input[type=file]:focus-visible + .form__label {
+  box-shadow: 0 0 0 2px #f9c201;
+}
 .form__input[type=radio]:focus-visible + .form__label {
   box-shadow: 0 0 0 2px #fff;
+}
+.form__input[type=date] {
+  cursor: pointer;
 }
 .form__input_error.form__input {
   box-shadow: 0 0 10px #b65c5c;
@@ -1399,8 +1442,42 @@ body {
     min-height: 93px;
   }
 }
+.form__radio {
+  cursor: pointer;
+}
+.form__radio + .form__label {
+  cursor: pointer;
+}
 .form__slider {
   width: 100%;
+}
+.form__gallery-button-wrapper,
+.form .fgbw {
+  margin-left: -3.4375rem;
+  margin-bottom: 1.25rem;
+}
+.form__gallery-button-wrapper__button,
+.form .fgbw__button {
+  flex: 1 1 33.3333%;
+  border: none;
+  padding: 0;
+  display: flex;
+  max-width: 33.3333%;
+  text-align: left;
+  align-items: center;
+  padding-left: 3.4375rem;
+  margin-bottom: 1.25rem;
+  background-color: white;
+}
+.form__gallery-button-wrapper__button img,
+.form .fgbw__button img {
+  margin-right: 1rem;
+  border-radius: 5px;
+}
+.form__gallery-button-wrapper__button .form__label,
+.form .fgbw__button .form__label {
+  color: #585858;
+  font-size: 12px;
 }
 .form__color-wrapper {
   margin-right: -26px;
@@ -1452,10 +1529,13 @@ body {
   color: #f9c201;
 }
 .form__checkbox {
+  cursor: pointer;
   margin-right: 32px;
 }
-.form__checkbox input ~ .form__label {
+.form__checkbox + .form__label {
   cursor: pointer;
+}
+.form__checkbox input ~ .form__label {
   display: block;
   position: relative;
   min-height: 0;
@@ -3020,7 +3100,6 @@ body {
 }
 .mft__item [type=radio].form__input + .form__label {
   flex: 1 0 50%;
-  cursor: pointer;
   padding: 0 1.0625rem;
 }
 @media (min-width: 576px) {
@@ -5290,10 +5369,12 @@ body {
 }
 .collapse__content {
   border: 1px solid #84a878;
-  padding: 0.5rem 1.5rem 1rem;
+  padding: 0.5rem 1.5rem 0;
 }
 .collapse__content table {
-  margin: -0.5rem -1.5rem -1rem;
+  width: calc(100% + 3rem);
+  margin: -0.5rem -1.5rem 0;
+  max-width: none;
 }
 
 .content-header {
@@ -5597,6 +5678,7 @@ body {
   width: 860px;
   margin: 0 auto;
   padding: 3.3rem 6.7rem 2.7rem;
+  position: relative;
   max-width: 100%;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.04);
   background-color: #fff;
@@ -5624,6 +5706,21 @@ body {
     padding: 2.9rem 1.7rem 2.7rem;
   }
 }
+.form-block__wrapper::before {
+  left: 0;
+  width: 10rem;
+  bottom: 6rem;
+  height: 26rem;
+  z-index: -1;
+  position: absolute;
+  transform: translateX(-58%) rotate(-22.65deg);
+  background: url("../images/forms/form-block-door.jpg") right bottom/contain no-repeat transparent;
+}
+@media (min-width: 576px) {
+  .form-block__wrapper::before {
+    content: "";
+  }
+}
 .form-block__item-wrapper {
   margin: 0 -5px;
   opacity: 0;
@@ -5644,14 +5741,12 @@ body {
   margin-bottom: 0.7rem;
 }
 .form-block .form__item-wrapper label {
-  cursor: pointer;
   margin-top: 14px;
 }
 .form-block .form__radio,
 .form-block .form__checkbox {
   width: 15px;
   height: 15px;
-  cursor: pointer;
   margin: 0 11px 0 0;
   border: 1px solid #585858;
   padding: 0.125em;
@@ -5753,14 +5848,92 @@ body {
     font-size: 13px;
   }
 }
+.form-block label > .form__label:first-child {
+  color: #2d2d2d;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
 .form-block [type=date].form__input {
   padding-right: 20px;
+}
+.form-block .form__input[type=file] + .form__label {
+  border: 1px dashed #898989;
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-block .form__input[type=file] + .form__label::after {
+  color: #fff;
+  content: "Выбрать";
+  padding: 0.5rem 0.8rem;
+  margin-left: 1rem;
+  background-color: #898989;
+}
+@media (min-width: 992px) {
+  .form-block .form__input[type=file] + .form__label::after {
+    transition: background-color 0.3s;
+  }
+  .form-block .form__input[type=file] + .form__label:hover::after {
+    background-color: #585858;
+  }
+}
+.form-block .form__input[type=file] + ._reddish.form__label::after {
+  background-color: #b08787;
+}
+@media (min-width: 992px) {
+  .form-block .form__input[type=file] + ._reddish.form__label:hover::after {
+    background-color: #bd6262;
+  }
+}
+.form-block .form__input[type=file]:focus-visible + .form__label::after {
+  background-color: #585858;
 }
 .form-block .form__buttons-wrapper {
   margin-top: 0.8rem;
 }
 .form-block .form__button {
   width: calc(100% - 1rem);
+}
+.form-block a {
+  color: #84a878;
+  line-height: 1.2;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+@media (min-width: 992px) {
+  .form-block a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 4px;
+    height: 1px;
+    opacity: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    background-color: #84a878;
+  }
+  .form-block a:hover {
+    transform: translateY(-2px);
+  }
+  .form-block a:hover::after {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+.form-block p {
+  color: #2d2d2d;
+  font-size: 14px;
+}
+.form-block p + p {
+  margin-top: 1.5rem;
 }
 
 .logos {

@@ -1,0 +1,32 @@
+[
+  {
+    "imageSrc": "images/forms/thumbnails/claim-full.jpg",
+    "alt": "Полотно целиком с одной стороны",
+    "title": "Полотно целиком с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-01.jpg",
+    "alt": "Фото дефекта 1",
+    "title": "Фото дефекта 1"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-02.jpg",
+    "alt": "Фото дефекта  2",
+    "title": "Фото дефекта  2"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-03.jpg",
+    "alt": "Фото дефекта  3",
+    "title": "Фото дефекта  3"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-stamp.jpg",
+    "alt": "Штамп ОТК",
+    "title": "Штамп ОТК"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-sticker.jpg",
+    "alt": "Фото стикера на упаковке",
+    "title": "Фото стикера на упаковке"
+  }
+]

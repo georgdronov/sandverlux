@@ -27,6 +27,7 @@ export const path = {
     favicon: `${srcFolder}/images/favicon/**/*.*`,
     scripts: `${srcFolder}/scripts/main.js`,
     svgs: `${srcFolder}/svg/*.svg`,
+    svgSprite: `${srcFolder}/images/`,
   },
   watch: {
     html: `${srcFolder}/**/*.html`,
@@ -38,10 +39,6 @@ export const path = {
   clean: [
     `${buildFolder}/**`,
     `!${buildFolder}/fonts/**`,
-    `!${buildFolder}/images/**`,
-    `${buildFolder}/images/**.*`,
-    `!${buildFolder}/images/stack/`,
-    `!${buildFolder}/images/icons.svg`,
   ],
   buildFolder: buildFolder,
   srcFolder: srcFolder,

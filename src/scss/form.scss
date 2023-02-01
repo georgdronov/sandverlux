@@ -128,15 +128,14 @@
       appearance: textfield;
     }
     &[type="file"] {
-      & ~ label {
+      @extend %form-file !optional;
+
+      & ~ %form-label {
         width: 100%;
         color: $text-color;
         cursor: pointer;
         display: block;
         @extend %f-item-element;
-        background: url("../images/form-file-icon.svg") 98% 15px/15px auto
-          no-repeat $white;
-        background-position: right 15px top 18px;
 
         @media ($tablet-max) {
           font-size: 15px;
@@ -149,6 +148,17 @@
           font-size: 14px;
         }
       }
+      &.error {
+        & ~ %form-label {
+          color: $required-and-error;
+          font-weight: 500;
+        }
+      }
+      &:focus-visible {
+        & + %form-label {
+          @include focus-styles($color: $yellow);
+        }
+      }
     }
     &[type="radio"] {
       &:focus-visible {
@@ -156,6 +166,9 @@
           @include focus-styles($color: $white);
         }
       }
+    }
+    &[type="date"] {
+      cursor: pointer;
     }
     &_error%form-input {
       box-shadow: 0 0 10px $required-and-error;
@@ -235,12 +248,50 @@
     }
   }
   &__radio {
+    cursor: pointer;
+
     @extend %form-radio !optional;
+
+    & + %form-label {
+      cursor: pointer;
+    }
   }
   &__slider {
     width: 100%;
 
     @extend %form-slider !optional;
+  }
+  &__gallery-button-wrapper,
+  .fgbw {
+    $gbw-gap: 3.4375rem;
+    $gbw-bottom-gap: 1.25rem;
+
+    margin-left: -$gbw-gap;
+    margin-bottom: $gbw-bottom-gap;
+
+    @extend %row-wrapper;
+
+    &__button {
+      flex: 1 1 33.3333%;
+      border: none;
+      padding: 0;
+      display: flex;
+      max-width: 33.3333%;
+      text-align: left;
+      align-items: center;
+      padding-left: $gbw-gap;
+      margin-bottom: $gbw-bottom-gap;
+      background-color: white;
+
+      img {
+        margin-right: 1rem;
+        border-radius: 5px;
+      }
+      %form-label {
+        color: $text-color;
+        font-size: 12px;
+      }
+    }
   }
   &__color-wrapper {
     margin-right: -26px;
@@ -304,13 +355,16 @@
     }
   }
   &__checkbox {
+    cursor: pointer;
     margin-right: 32px;
 
     @extend %form-checkbox !optional;
 
+    & + %form-label {
+      cursor: pointer;
+    }
     input {
       & ~ %form-label {
-        cursor: pointer;
         display: block;
         position: relative;
         min-height: 0;

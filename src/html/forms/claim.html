@@ -1,0 +1,201 @@
+<form class="form" name="claim" novalidate>
+  <h2 class="heading">Заполните форму</h2>
+  <div class="form__item">
+    <span class="form__item-heading">Укажите данные для связи:</span>
+    <label>
+      <span class="form__item-heading sr-only">Контактное лицо (ФИО)</span>
+      <input class="form__input" type="text" name="name" placeholder="Контактное лицо (ФИО)">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading sr-only">Ваша должность:</span>
+      <input class="form__input" type="text" name="position" placeholder="Ваша должность:">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading sr-only">Телефон</span>
+      <input class="form__input" type="tel" name="phone" placeholder="Телефон">
+    </label>
+  </div>
+  <div class="form__item">
+    <span class="form__item-heading">Информация о договоре:</span>
+    <label>
+      <span class="form__item-heading sr-only">Номер договора</span>
+      <input class="form__input" type="text" name="contract" placeholder="Номер договора">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading sr-only">Дата договора</span>
+      <input class="form__input" type="date" name="contract-date">
+    </label>
+  </div>
+  <div data-toggle-container="">
+    <div class="form__item">
+      <fieldset class="form__item-wrapper">
+        <legend class="form__item-heading">Тип двери:</legend>
+        <label>
+          <input class="form__radio" type="radio" name="door-type" value="interior" data-toggle="">
+          <span class="form__label">Межкомнатная</span>
+        </label><br>
+        <label>
+          <input class="form__radio" type="radio" name="door-type" value="entrance" data-toggle="entrance-type">
+          <span class="form__label">Входная</span>
+        </label>
+      </fieldset>
+    </div>
+    <div class="form-block__item-wrapper" data-target="entrance-type">
+      <div class="form__item">
+        <fieldset class="form__item-wrapper">
+          <legend class="form__item-heading sr-only">Тип входной двери:</legend>
+          <label>
+            <input class="form__radio" type="radio" name="entrance-type" value="outside">
+            <span class="form__label">С выходом на улицу</span>
+          </label><br>
+          <label>
+            <input class="form__radio" type="radio" name="entrance-type" value="indoors">
+            <span class="form__label">Внутри помещения</span>
+          </label>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  <div data-toggle-container="">
+    <div class="form__item">
+      <fieldset class="form__item-wrapper">
+        <legend class="form__item-heading">Установлено ли полотно?</legend>
+        <label>
+          <input class="form__radio" type="radio" name="door-leaf" value="yes" data-toggle="door-leaf">
+          <span class="form__label">Да</span>
+        </label><br>
+        <label>
+          <input class="form__radio" type="radio" name="door-leaf" value="no" data-toggle="">
+          <span class="form__label">Нет</span>
+        </label>
+      </fieldset>
+    </div>
+    <div class="form-block__item-wrapper" data-target="door-leaf">
+      <div class="form__item">
+        <label>
+          <span class="form__label">Дата установки:</span>
+          <input class="form__input" type="date" name="installation-date">
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form__item">
+    <span class="form__item-heading">Информация о товаре:</span>
+    <label>
+      <span class="form__item-heading sr-only">Модель - например: Дверь металлическая ЧБ, Волкодав</span>
+      <input class="form__input" type="text" name="model"
+        placeholder="Модель - например: Дверь металлическая ЧБ, Волкодав">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading sr-only">Размер - например: 700x2000</span>
+      <input class="form__input" type="text" name="size" placeholder="Размер - например: 700x2000">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading sr-only">Цвет - например: Эшвайт белый</span>
+      <input class="form__input" type="text" name="color" placeholder="Цвет - например: Эшвайт белый">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading sr-only">Количество - например: 1 шт</span>
+      <input class="form__input" type="text" name="quantity" placeholder="Количество - например: 1 шт">
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading">Описание дефекта:</span>
+      <textarea class="form__input" name="description"
+        placeholder="Поле заполняется с точным указанием дефекта товара Наример: Темные пятна на внутренней стороне двери"></textarea>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <span class="form__item-heading">Желаемое решение по товару</span>
+      <select class="form__select" name="country" data-toggle="">
+        <option value="" disabled>Выберите желаемое решение</option>
+        <option value="discount">Скидка</option>
+        <option value="replacement">Замена комплектующих</option>
+      </select>
+    </label>
+  </div>
+  <div class="form__item">
+    <span class="form__item-heading">Фото дефекта</span>
+    <p>Прикрепленные фотографии дефекта должны быть хорошего качества. Количество изображений соответствует типу двери –
+      у каждого поставщика товара свои регламенты рассмотрения рекламации.</p>
+    <p>Обязательно приложите минимум 3 фото дефекта двери. Примеры необходимых изображений смотрите здесь.</p>
+  </div>
+  <div class="form__gallery-button-wrapper fgbw">
+    @@loop('./src/html/include/form-gallery-button-item.html', '../json/inner-content/claim-form-gallery-buttons.json')
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-full" accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2"
+        data-max-size="5">
+      <span class="form__label">Фото - Полотно целиком с одной стороны</span>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-defect-01"
+        accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2" data-max-size="5">
+      <span class="form__label _reddish">Фото - Дефект 1</span>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-defect-02"
+        accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2" data-max-size="5">
+      <span class="form__label _reddish">Фото - Дефект 2</span>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-defect-03"
+        accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2" data-max-size="5">
+      <span class="form__label _reddish">Фото - Дефект 3</span>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-stamp" accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2"
+        data-max-size="5">
+      <span class="form__label">Фото - Штамп ОТК</span>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-sticker" accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2"
+        data-max-size="5">
+      <span class="form__label">Фото - Стикер на упаковке</span>
+    </label>
+  </div>
+  <div class="form__item">
+    <label>
+      <input class="form__input sr-only" type="file" name="image-additional"
+        accept=".jpg,.jpeg,.png,.tiff,.webp,.bmp,.jp2" data-max-size="5">
+      <span class="form__label">Дополнительное фото</span>
+    </label>
+  </div>
+  <br>
+  <div class="form__item">
+    <label>
+      <input class="form__checkbox" type="checkbox" name="agree">
+      <span class="form__label">Я согласен с <a href="#">Условиями подачи рекламации</a></span>
+    </label>
+  </div>
+  <div class="form__item">
+    <div class="form__buttons-wrapper">
+      <button class="form__button _btn" type="submit" name="claim-submit">Отправить форму</button>
+    </div>
+  </div>
+</form>

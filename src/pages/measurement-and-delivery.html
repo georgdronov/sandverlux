@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Замер и доставка | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/measurement-and-delivery.json'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/measurement-and-delivery-content-01.json')
+      @@include('./src/html/collapse.html', {
+      'heading': '',
+      'json-path': '../json/inner-content/measurement-and-delivery-collapse.json'
+      })
+    </div>
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': true,
+  'startCooperation': false
+  })
+</body>
+
+</html>

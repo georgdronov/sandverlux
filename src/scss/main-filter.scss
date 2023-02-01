@@ -199,7 +199,6 @@
     & %form-input {
       &[type="radio"] + %form-label {
         flex: 1 0 50%;
-        cursor: pointer;
         padding: 0 1.0625rem;
         @extend %flex-center;
         @extend %f-item-element;
