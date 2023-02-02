@@ -743,6 +743,9 @@ body {
       margin-left: 1.5rem;
     }
   }
+  ._btn {
+    min-width: 16.875rem;
+  }
   & > * {
     margin: 0;
 
@@ -765,5 +768,16 @@ body {
     @media ($tablet-mad) {
       margin-top: -1.5rem;
     }
+  }
+  ._price {
+    color: $primary-color;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 700;
+  }
+  ._bigger {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 500;
   }
 }

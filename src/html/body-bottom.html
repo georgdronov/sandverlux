@@ -11,48 +11,64 @@
   'title': 'Оплата онлайн',
   'form-src': './src/html/forms/online-payment.html'
   })
-  @@if (checkout) {
+  @@if (context.checkout) {
     @@include("./src/html/popup.html", {
     'id': 'checkout',
     'title': 'Оформить заказ',
     'form-src': './src/html/forms/checkout.html'
     })
   }
-  @@if (foundCheaper) {
+  @@if (context.foundCheaper) {
     @@include("./src/html/popup.html", {
     'id': 'found-cheaper',
     'title': 'Нашли дешевле?',
     'form-src': './src/html/forms/found-cheaper.html'
     })
   }
-  @@if (leaveAReview) {
+  @@if (context.leaveAReview) {
     @@include("./src/html/popup.html", {
     'id': 'leave-a-review',
     'title': 'Оставить отзыв',
     'form-src': './src/html/forms/leave-a-review.html'
     })
   }
-  @@if (orderAMeasurement) {
+  @@if (context.orderAMeasurement) {
     @@include("./src/html/popup.html", {
     'id': 'order-a-measurement',
     'title': 'Заказать замер',
     'form-src': './src/html/forms/request-a-call.html'
     })
   }
-  @@if (startCooperation) {
+  @@if (context.startCooperation) {
     @@include("./src/html/popup.html", {
     'id': 'start-cooperation',
     'title': 'Начать сотрудничество',
     'form-src': './src/html/forms/start-cooperation.html'
     })
   }
-  @@if (claimAnnotation) {
+  @@if (context.claimAnnotation) {
     @@include("./src/html/popup.html", {
     'id': 'claim-annotation',
     'title': '<small>Ознакомьтесь со списком <span>ОБЯЗАТЕЛЬНЫХ</span> фотографий для оформления рекламации</small>',
     'form-src': './src/html/forms/claim-annotation.html'
     })
   }
+  @@if (context.requestRepair) {
+    @@include("./src/html/popup.html", {
+    'id': 'request-a-repair',
+    'title': 'Заказать услугу ремонта',
+    'form-src': './src/html/forms/request-a-repair.html'
+    })
+  }
 </section>
+@@if (false) {
+<div style="position:fixed;left:0;bottom:0;">
+  <button type="button" data-open-popup="checkout">Checkout</button>
+  <button type="button" data-open-popup="found-cheaper">foundCheaper</button>
+  <button type="button" data-open-popup="leave-a-review">leaveAReview</button>
+  <button type="button" data-open-popup="start-cooperation">startCooperation</button>
+  <button type="button" data-open-popup="order-a-measurement">orderAMeasurement</button>
+</div>
+}
 @@include("./src/html/include/scroll-top.html")
 <script src="scripts/main.js"></script>

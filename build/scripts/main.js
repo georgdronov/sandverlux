@@ -7205,16 +7205,15 @@
     );
     if (openPopupButtons.length) {
       openPopupButtons.forEach((button) => {
-        button.addEventListener(
-          "click",
-          () => openPopup(button.dataset.openPopup)
-        );
+        button.addEventListener("click", () => {
+          popupTitleChange(button.dataset.title);
+          openPopup(button.dataset.openPopup);
+        });
       });
     }
     function openPopup(buttonTarget) {
-      if (buttonTarget === "") {
+      if (buttonTarget === "")
         return console.log("This button has an empty data attribute.");
-      }
       const currentPopup = document.getElementById(buttonTarget);
       if (!currentPopup) {
         return console.log(
@@ -7231,6 +7230,10 @@
       setTimeout(() => {
         hasFocusableElement.focus();
       }, 300);
+    }
+    function popupTitleChange(title) {
+      if (!title)
+        return;
     }
     function changePlaceholderState(elemValue, label, event2 = "init") {
       if (!elemValue && event2 == "init" || !!elemValue && event2 == "focusout") {

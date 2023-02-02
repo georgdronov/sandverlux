@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Ремонт дверей | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/claim.json'
+    })
+    @@include('./src/html/inner-blocks/content-header.html', {
+    'title': 'Ремонт дверей',
+    'subtitle': 'Только у нас - полный спектр услуг для дверей и дверной фурнитуры',
+    'text': 'Ежедневно с 9.00 до 21.00 без обеда и выходных. Телефон: <a href="tel:+375447709354">+375 (44) 770-93-54</a>',
+    'background-image': 'images/repair-header.jpg',
+    'background-position': '50% 37.2%'
+    })
+    @@include('./src/html/inner-blocks/anchor-navigation.html', {
+    'json-path': '../json/inner-content/repair-anchor-navigation.json'
+    })
+    @@loop('./src/html/inner-blocks/content-image.html', '../json/inner-content/repair-content-image.json')
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'requestRepair': true
+  })
+</body>
+
+</html>
