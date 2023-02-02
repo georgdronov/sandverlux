@@ -771,13 +771,21 @@ body {
   }
   ._price {
     color: $primary-color;
-    font-size: 25px;
+    font-size: 1.5625rem;
     line-height: 1;
     font-weight: 700;
+
+    @media ($tablet-max) {
+      font-size: 18px;
+    }
   }
   ._bigger {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.5;
     font-weight: 500;
+
+    @media ($tablet-max) {
+      font-size: 16px;
+    }
   }
 }

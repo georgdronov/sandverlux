@@ -1,4 +1,4 @@
-<section class="content-image @@if(context.biggerImage){_bigger-image}">
+<section @@if(context.id){id='@@id'} class="content-image @@if(context.biggerImage){_bigger-image}">
   <div class="container">
     @@if (context.heading) {
       <h2 class="content-image__heading heading">@@heading</h2>

@@ -43,7 +43,7 @@
       max-width: 100%;
     }
   }
-  &__button {
+  &__link {
     width: 100%;
     color: $heading-color;
     height: 100%;
@@ -51,6 +51,7 @@
     @extend %flex-center;
     padding: 0.5rem 2rem;
     font-size: 1rem;
+    text-align: center;
     min-height: 6.1875rem;
     font-weight: 500;
     line-height: 1.22;

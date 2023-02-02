@@ -1,5 +1,6 @@
 [
   {
+    "id": "lock-replacement",
     "biggerImage": true,
     "contents": "<h2>Замена замка</h2><p class='_price'>от 20 руб.</p><br><p class='_bigger'>Цена зависит от модели замка и конструкции двери. Иногда приходится разобрать дверь, чтобы заменить замок.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать замену замка' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-01.jpg",
@@ -7,6 +8,7 @@
     "imageAdditionalClasses": ""
   },
   {
+    "id": "lock-repair",
     "biggerImage": true,
     "contents": "<h2>Ремонт замка</h2><p class='_price'>от 20 руб.</p><br><p class='_bigger'>Замки и расходные материалы у нас в наличии</p><p class='_bigger'>Работа занимает примерно до 1 часа. Это зависит от модели замка, сложности внутреннего механизма и степени поломки.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать ремонт замка' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-02.jpg",
@@ -14,6 +16,7 @@
     "imageAdditionalClasses": ""
   },
   {
+    "id": "lock-installation",
     "biggerImage": true,
     "contents": "<h2>Установка замка</h2><p class='_price'>от 20 руб.</p><br><p class='_bigger'>Более 250 моделей замков в наличии</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать установку замка' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-03.jpg",
@@ -21,6 +24,7 @@
     "imageAdditionalClasses": ""
   },
   {
+    "id": "doorhandle-repair",
     "biggerImage": true,
     "contents": "<h2>Ремонт ручек</h2><p class='_price'>от 20 руб.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать ремонт ручек' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-04.jpg",
@@ -28,16 +32,34 @@
     "imageAdditionalClasses": ""
   },
   {
+    "id": "door-restoration",
     "biggerImage": true,
-    "contents": "<h2>Реставрация и обшивка дверей</h2><p class='_price'>от 20 руб.</p><br><p class='_bigger'>Кожвинил (Польша, Украина, Россия)<br>Покраска, лак<br>Антивандальная пленка<br>МДФ панели<br>Фанера<br>Натуральное дерево</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать реставрацию и обшивку дверей' type='button'>Заказать</button>",
+    "contents": "<h2>Реставрация и обшивка дверей</h2><p class='_price'>от 50 руб.</p><br><p class='_bigger'>Кожвинил (Польша, Украина, Россия)<br>Покраска, лак<br>Антивандальная пленка<br>МДФ панели<br>Фанера<br>Натуральное дерево</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать реставрацию и обшивку дверей' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-05.jpg",
     "alt": "Реставрация и обшивка дверей",
     "imageAdditionalClasses": ""
   },
   {
+    "id": "door-repair",
     "biggerImage": true,
     "contents": "<h2>Ремонт двери</h2><p class='_price'>от 20 руб.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать ремонт двери' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-06.jpg",
+    "alt": "Ремонт двери",
+    "imageAdditionalClasses": ""
+  },
+  {
+    "id": "welding",
+    "biggerImage": true,
+    "contents": "<h2>Сварочные работы</h2><p class='_price'>от 80 руб.</p><br><p class='_bigger'>При поломке дверных петель. Цена на ремонт петли зависит от ее типа: скрытая петля, открытая петля. А также от количества петель.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Заказать cварочные работы' type='button'>Заказать</button>",
+    "imageSrc": "images/content/repair-07.jpg",
+    "alt": "Сварочные работы",
+    "imageAdditionalClasses": ""
+  },
+  {
+    "id": "door-installation",
+    "biggerImage": true,
+    "contents": "<h2>Установка двери и др. виды ремонтных работ</h2><p class='_price'>от 80 руб.</p><br><p class='_bigger'>Устанавливаем металлические, деревянные, пластиковые входные двери, а также межкомнатные. Ремонтируем просевшие двери, выполняем утепление и уплотнение двери.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Установка двери и др. виды ремонтных работ' type='button'>Заказать</button>",
+    "imageSrc": "images/content/repair-08.jpg",
     "alt": "Ремонт двери",
     "imageAdditionalClasses": ""
   }

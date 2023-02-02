@@ -7205,13 +7205,13 @@
     );
     if (openPopupButtons.length) {
       openPopupButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          popupTitleChange(button.dataset.title);
-          openPopup(button.dataset.openPopup);
-        });
+        button.addEventListener(
+          "click",
+          () => openPopup(button.dataset.openPopup, button.dataset.setTitle)
+        );
       });
     }
-    function openPopup(buttonTarget) {
+    function openPopup(buttonTarget, title = null) {
       if (buttonTarget === "")
         return console.log("This button has an empty data attribute.");
       const currentPopup = document.getElementById(buttonTarget);
@@ -7220,6 +7220,7 @@
           `There is no pop-up with current ID ("${buttonTarget}") or ID is wrong.`
         );
       }
+      popupTitleChange(title, currentPopup);
       popupOverlay2.show();
       currentPopup.classList.add(popupClassActive);
       const hasFocusableElement = currentPopup.querySelector(
@@ -7231,9 +7232,15 @@
         hasFocusableElement.focus();
       }, 300);
     }
-    function popupTitleChange(title) {
+    function popupTitleChange(title, popup) {
       if (!title)
         return;
+      const targetInput = popup.querySelector("input[data-set-title]");
+      const popupHeading = popup.querySelector(".popup__heading");
+      if (!targetInput && !popupHeading)
+        return;
+      targetInput.setAttribute("value", title);
+      popupHeading.textContent = title;
     }
     function changePlaceholderState(elemValue, label, event2 = "init") {
       if (!elemValue && event2 == "init" || !!elemValue && event2 == "focusout") {
