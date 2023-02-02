@@ -319,7 +319,6 @@
   }
   function validateFile(inputElement) {
     var _a;
-    console.log(inputElement);
     const fileErrorClass = "error";
     const inputLabel = inputElement.parentElement.querySelector(".form__label") || inputElement.parentElement.querySelector("span");
     if (!inputElement.files.length) {

@@ -137,15 +137,11 @@
         display: block;
         @extend %f-item-element;
 
-        @media ($tablet-max) {
-          font-size: 15px;
-        }
         @media ($tablet-min) {
           padding: 15px 15px 15px 25px;
         }
         @media ($mobile-max) {
           padding: 13px 29px;
-          font-size: 14px;
         }
       }
       &.error {
@@ -261,11 +257,12 @@
 
     @extend %form-slider !optional;
   }
-  &__gallery-button-wrapper,
-  .fgbw {
+  .fgbw,
+  &__gallery-button-wrapper {
     $gbw-gap: 3.4375rem;
     $gbw-bottom-gap: 1.25rem;
 
+    margin-top: $gbw-bottom-gap;
     margin-left: -$gbw-gap;
     margin-bottom: $gbw-bottom-gap;
 
@@ -276,20 +273,53 @@
       border: none;
       padding: 0;
       display: flex;
+      flex-wrap: wrap;
       max-width: 33.3333%;
       text-align: left;
-      align-items: center;
       padding-left: $gbw-gap;
       margin-bottom: $gbw-bottom-gap;
       background-color: white;
+
+      @media ($desktop-min) {
+        align-items: center;
+      }
+      @media ($tablet-max) {
+        flex-direction: column;
+      }
+      @media ($mobile-max) {
+        flex: 1 1 50%;
+        max-width: 50%;
+      }
 
       img {
         margin-right: 1rem;
         border-radius: 5px;
       }
       %form-label {
+        flex: 1 1 0%;
         color: $text-color;
         font-size: 12px;
+
+        @media ($tablet-max) {
+          margin-top: 0.5rem;
+        }
+      }
+
+      @media ($desktop-min) {
+        img,
+        %form-label {
+          transform: translate(0) scale(1);
+          transition: transform 0.3s, color 0.3s;
+        }
+        &:hover {
+          img {
+            transform: scale(1.15);
+          }
+          %form-label {
+            color: $primary-color;
+            transform: translateX(2px);
+          }
+        }
       }
     }
   }

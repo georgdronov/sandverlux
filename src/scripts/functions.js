@@ -398,7 +398,6 @@ export function myLazyLoad() {
 }
 
 export function validateFile(inputElement) {
-  console.log(inputElement);
   const fileErrorClass = "error";
   const inputLabel =
     inputElement.parentElement.querySelector(".form__label") ||

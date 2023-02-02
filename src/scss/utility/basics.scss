@@ -262,30 +262,6 @@ label {
     }
   }
 }
-// ._wheel-to-hide {
-//   &::before {
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     z-index: 50;
-//     opacity: 0;
-//     content: "";
-//     display: block;
-//     position: absolute;
-//     animation: wheel-to-hide 2s infinite;
-//     visibility: hidden;
-//     transition: opacity 0.5s, visibility 0.5s;
-//     background: url("../images/icons/mouse-wheel.png") 50% 50%/30px auto
-//       no-repeat rgba(255, 255, 255, 0.5);
-//   }
-//   &.active {
-//     &::before {
-//       opacity: 1;
-//       visibility: visible;
-//     }
-//   }
-// }
 %hide-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -414,24 +390,6 @@ label {
     opacity: 0;
   }
 }
-// @keyframes wheel-to-hide {
-//   30% {
-//     background-position: 50% 45%;
-//     // transform: translateY(-10px);
-//   }
-//   40% {
-//     background-position: 50% 54%;
-//     // transform: translateY(8px);
-//   }
-//   55% {
-//     background-position: 50% 42.5%;
-//     // transform: translateY(-5px);
-//   }
-//   75% {
-//     background-position: 50% 50.5%;
-//     // transform: translateY(1px);
-//   }
-// }
 
 html {
   font-size: calc(0.580208rem + 0.35vw);
@@ -529,6 +487,16 @@ body {
     @media ($mobile-max) {
       @include padding-x(7.5px);
     }
+  }
+}
+@mixin row($gapT, $gapL) {
+  @extend %row-wrapper;
+  margin-top: -$gapT;
+  margin-left: -$gapL;
+
+  & > * {
+    margin-top: $gapT;
+    padding-left: $gapL;
   }
 }
 %heading-styles {
@@ -744,7 +712,7 @@ body {
   }
   figure {
     display: flex;
-    padding: 1rem 2.5rem 1rem 1.5rem;
+    padding: 1rem 2.5rem 1rem 1.1rem;
     margin-top: 2em;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
     align-items: center;
@@ -758,8 +726,9 @@ body {
       @extend %flex-center;
       content: "!";
       min-width: 35px;
-      font-size: 48px;
+      font-size: 3rem;
       min-height: 35px;
+      align-self: flex-start;
       flex-shrink: 0;
       line-height: 1;
       font-weight: 500;
