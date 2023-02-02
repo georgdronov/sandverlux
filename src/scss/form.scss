@@ -268,17 +268,29 @@
 
     @extend %row-wrapper;
 
+    @media ($mobile-max) {
+      margin-left: -$gbw-bottom-gap;
+    }
+
+    & > * {
+      padding-left: $gbw-gap;
+      margin-bottom: $gbw-bottom-gap;
+
+      @media ($mobile-max) {
+        padding-left: $gbw-bottom-gap;
+      }
+    }
     &__button {
       flex: 1 1 33.3333%;
       border: none;
-      padding: 0;
       display: flex;
       flex-wrap: wrap;
       max-width: 33.3333%;
       text-align: left;
-      padding-left: $gbw-gap;
-      margin-bottom: $gbw-bottom-gap;
-      background-color: white;
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      background-color: transparent;
 
       @media ($desktop-min) {
         align-items: center;
@@ -292,13 +304,19 @@
       }
 
       img {
+        color: $catalog-background;
+        font-size: 12px;
         margin-right: 1rem;
         border-radius: 5px;
+        background-color: $catalog-background;
       }
       %form-label {
         flex: 1 1 0%;
         color: $text-color;
         font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 0;
+        text-transform: none;
 
         @media ($tablet-max) {
           margin-top: 0.5rem;
@@ -320,6 +338,19 @@
             transform: translateX(2px);
           }
         }
+      }
+    }
+    %form-item-heading {
+      flex: 1 1 100%;
+      max-width: 100%;
+      font-size: 16px;
+      margin-top: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      text-transform: none;
+
+      @media ($mobile-max) {
+        font-size: 14px;
       }
     }
   }

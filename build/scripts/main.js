@@ -380,16 +380,16 @@
     document.body.appendChild(galleryWrapper);
     galleryWrapper.appendChild(closeButton);
     const galleryImage = new Image();
-    this.show = () => galleryWrapper.classList.add(galleryClassActive);
-    this.hide = () => galleryWrapper.classList.remove(galleryClassActive);
-    closeButton.addEventListener("click", () => {
-      myPopupOverlay.hide();
-      this.hide();
-    });
-    galleryWrapper.addEventListener("click", () => {
-      myPopupOverlay.hide();
-      this.hide();
-    });
+    this.show = () => {
+      myPopupOverlay.element.style.zIndex = "1055";
+      galleryWrapper.classList.add(galleryClassActive);
+    };
+    this.hide = () => {
+      myPopupOverlay.element.style = "";
+      galleryWrapper.classList.remove(galleryClassActive);
+    };
+    closeButton.addEventListener("click", () => this.hideGalleryElement());
+    galleryWrapper.addEventListener("click", () => this.hideGalleryElement());
     galleryObjects.forEach((elem) => {
       const imageElement = elem.querySelector("img");
       if (!imageElement)
@@ -412,6 +412,12 @@
       galleryImage.src = imageSource;
       galleryImage.alt = event2.target.alt;
       this.show();
+    };
+    this.hideGalleryElement = () => {
+      this.hide();
+      if (document.querySelectorAll(".popup_active").length)
+        return;
+      myPopupOverlay.hide();
     };
   }
   function popupOverlay() {
@@ -7198,29 +7204,33 @@
       "_expanded"
     );
     if (openPopupButtons.length) {
-      openPopupButtons.forEach((elem) => {
-        elem.addEventListener("click", (event2) => {
-          const currentButton = event2.currentTarget;
-          if (!currentButton)
-            return;
-          if (currentButton.dataset.openPopup === "") {
-            return console.log("This button has an empty data attribute.");
-          }
-          const currentPopup = document.getElementById(
-            currentButton.dataset.openPopup
-          );
-          if (!currentPopup) {
-            return console.log(
-              `There is no pop-up with current ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
-            );
-          }
-          popupOverlay2.show();
-          currentPopup.classList.add(popupClassActive);
-          setTimeout(() => {
-            currentPopup.querySelector("input:not(disabled):not(hidden):not(.sr-only)").focus();
-          }, 300);
-        });
+      openPopupButtons.forEach((button) => {
+        button.addEventListener(
+          "click",
+          () => openPopup(button.dataset.openPopup)
+        );
       });
+    }
+    function openPopup(buttonTarget) {
+      if (buttonTarget === "") {
+        return console.log("This button has an empty data attribute.");
+      }
+      const currentPopup = document.getElementById(buttonTarget);
+      if (!currentPopup) {
+        return console.log(
+          `There is no pop-up with current ID ("${buttonTarget}") or ID is wrong.`
+        );
+      }
+      popupOverlay2.show();
+      currentPopup.classList.add(popupClassActive);
+      const hasFocusableElement = currentPopup.querySelector(
+        "input:not(disabled):not(hidden):not(.sr-only)"
+      );
+      if (!hasFocusableElement)
+        return;
+      setTimeout(() => {
+        hasFocusableElement.focus();
+      }, 300);
     }
     function changePlaceholderState(elemValue, label, event2 = "init") {
       if (!elemValue && event2 == "init" || !!elemValue && event2 == "focusout") {
@@ -7335,6 +7345,10 @@
       phoneInputs.forEach(
         (phoneInput) => validatePhoneNumber(phoneInput)
       );
+    }
+    const claimPopup = document.getElementById("claim-annotation");
+    if (claimPopup) {
+      openPopup("claim-annotation");
     }
   });
 })();

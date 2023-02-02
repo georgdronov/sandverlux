@@ -491,17 +491,17 @@ function gallery() {
   galleryWrapper.appendChild(closeButton);
   const galleryImage = new Image();
 
-  this.show = () => galleryWrapper.classList.add(galleryClassActive);
-  this.hide = () => galleryWrapper.classList.remove(galleryClassActive);
+  this.show = () => {
+    myPopupOverlay.element.style.zIndex = "1055";
+    galleryWrapper.classList.add(galleryClassActive);
+  };
+  this.hide = () => {
+    myPopupOverlay.element.style = "";
+    galleryWrapper.classList.remove(galleryClassActive);
+  };
 
-  closeButton.addEventListener("click", () => {
-    myPopupOverlay.hide();
-    this.hide();
-  });
-  galleryWrapper.addEventListener("click", () => {
-    myPopupOverlay.hide();
-    this.hide();
-  });
+  closeButton.addEventListener("click", () => this.hideGalleryElement());
+  galleryWrapper.addEventListener("click", () => this.hideGalleryElement());
 
   galleryObjects.forEach((elem) => {
     const imageElement = elem.querySelector("img");
@@ -531,6 +531,12 @@ function gallery() {
     galleryImage.src = imageSource;
     galleryImage.alt = event.target.alt;
     this.show();
+  };
+
+  this.hideGalleryElement = () => {
+    this.hide();
+    if (document.querySelectorAll(".popup_active").length) return;
+    myPopupOverlay.hide();
   };
 }
 

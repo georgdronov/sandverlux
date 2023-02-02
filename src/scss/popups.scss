@@ -30,10 +30,10 @@
   transition: opacity $transition3, visibility $transition3;
 
   @media ($desktop-min-xl) {
-    padding: 50px $container-padding-desktop $container-padding-desktop;
+    padding: 70px $container-padding-desktop $container-padding-desktop;
   }
   @media ($desktop-max) and ($tablet-min) {
-    padding: 50px $container-padding-tablet $container-padding-tablet;
+    padding: 60px $container-padding-tablet $container-padding-tablet;
   }
   @media ($mobile-max) {
     padding: 50px $container-padding-mobile $container-padding-mobile;
@@ -101,6 +101,19 @@
   &__heading {
     font-weight: 600;
     margin-bottom: 1.7rem;
+
+    small {
+      font-size: 20px;
+      text-transform: none;
+
+      @media ($mobile-max) {
+        font-size: 18px;
+      }
+    }
+    span {
+      color: $primary-color;
+      font-weight: 700;
+    }
   }
   %form-item {
     & + * {

@@ -46,6 +46,13 @@
     'form-src': './src/html/forms/start-cooperation.html'
     })
   }
+  @@if (claimAnnotation) {
+    @@include("./src/html/popup.html", {
+    'id': 'claim-annotation',
+    'title': '<small>Ознакомьтесь со списком <span>ОБЯЗАТЕЛЬНЫХ</span> фотографий для оформления рекламации</small>',
+    'form-src': './src/html/forms/claim-annotation.html'
+    })
+  }
 </section>
 @@include("./src/html/include/scroll-top.html")
 <script src="scripts/main.js"></script>

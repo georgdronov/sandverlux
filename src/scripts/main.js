@@ -610,30 +610,32 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   if (openPopupButtons.length) {
-    openPopupButtons.forEach((elem) => {
-      elem.addEventListener("click", (event) => {
-        const currentButton = event.currentTarget;
-        if (!currentButton) return;
-        if (currentButton.dataset.openPopup === "") {
-          return console.log("This button has an empty data attribute.");
-        }
-        const currentPopup = document.getElementById(
-          currentButton.dataset.openPopup
-        );
-        if (!currentPopup) {
-          return console.log(
-            `There is no pop-up with current ID ("${currentButton.dataset.openPopup}") or ID is wrong.`
-          );
-        }
-        popupOverlay.show();
-        currentPopup.classList.add(popupClassActive);
-        setTimeout(() => {
-          currentPopup
-            .querySelector("input:not(disabled):not(hidden):not(.sr-only)")
-            .focus();
-        }, 300);
-      });
+    openPopupButtons.forEach((button) => {
+      button.addEventListener("click", () =>
+        openPopup(button.dataset.openPopup)
+      );
     });
+  }
+
+  function openPopup(buttonTarget) {
+    if (buttonTarget === "") {
+      return console.log("This button has an empty data attribute.");
+    }
+    const currentPopup = document.getElementById(buttonTarget);
+    if (!currentPopup) {
+      return console.log(
+        `There is no pop-up with current ID ("${buttonTarget}") or ID is wrong.`
+      );
+    }
+    popupOverlay.show();
+    currentPopup.classList.add(popupClassActive);
+    const hasFocusableElement = currentPopup.querySelector(
+      "input:not(disabled):not(hidden):not(.sr-only)"
+    );
+    if (!hasFocusableElement) return;
+    setTimeout(() => {
+      hasFocusableElement.focus();
+    }, 300);
   }
 
   function changePlaceholderState(elemValue, label, event = "init") {
@@ -777,6 +779,14 @@ document.addEventListener("DOMContentLoaded", function () {
     phoneInputs.forEach((phoneInput) =>
       myFunctions.validatePhoneNumber(phoneInput)
     );
+  }
+
+  // claim page auto annotation popup //
+
+  const claimPopup = document.getElementById("claim-annotation");
+
+  if (claimPopup) {
+    openPopup("claim-annotation");
   }
 
   // myFunctions.wheelToHide();

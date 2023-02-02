@@ -1,0 +1,172 @@
+[
+  {
+    "imageSrc": "",
+    "alt": "",
+    "title": "<strong>1. Для межкомнатной двери,</strong> если дверь не установлена:"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-full.jpg",
+    "alt": "Полотно целиком с одной стороны",
+    "title": "Полотно целиком с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-01.jpg",
+    "alt": "Фото дефекта 1",
+    "title": "Фото дефекта 1"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-02.jpg",
+    "alt": "Фото дефекта  2",
+    "title": "Фото дефекта  2"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-03.jpg",
+    "alt": "Фото дефекта  3",
+    "title": "Фото дефекта  3"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-stamp.jpg",
+    "alt": "Штамп ОТК",
+    "title": "Штамп ОТК"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-sticker.jpg",
+    "alt": "Фото стикера на упаковке",
+    "title": "Фото стикера на упаковке"
+  },
+  {
+    "imageSrc": "",
+    "alt": "",
+    "title": "<strong>2. Для межкомнатной двери,</strong> если дверь установлена:"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-full.jpg",
+    "alt": "Полотно целиком с одной стороны",
+    "title": "Полотно целиком с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-01.jpg",
+    "alt": "Фото дефекта 1",
+    "title": "Фото дефекта 1"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-02.jpg",
+    "alt": "Фото дефекта  2",
+    "title": "Фото дефекта  2"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-03.jpg",
+    "alt": "Фото дефекта  3",
+    "title": "Фото дефекта  3"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-stamp.jpg",
+    "alt": "Штамп ОТК",
+    "title": "Штамп ОТК"
+  },
+  {
+    "imageSrc": "",
+    "alt": "",
+    "title": "<strong>3. Для входной двери,</strong> если дверь не установлена:"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-passport.jpg",
+    "alt": "Паспорт двери",
+    "title": "Паспорт двери"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-full.jpg",
+    "alt": "Полотно целиком с одной стороны",
+    "title": "Полотно целиком с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-01.jpg",
+    "alt": "Фото дефекта 1",
+    "title": "Фото дефекта 1"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-04.jpg",
+    "alt": "Фото дефекта  2",
+    "title": "Фото дефекта  2"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-05.jpg",
+    "alt": "Фото дефекта  3",
+    "title": "Фото дефекта  3"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-side-01.jpg",
+    "alt": "Фото упаковки с одной стороны",
+    "title": "Фото упаковки с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-side-02.jpg",
+    "alt": "Фото упаковки со второй стороны",
+    "title": "Фото упаковки со второй стороны"
+  },
+  {
+    "imageSrc": "",
+    "alt": "",
+    "title": "<strong>4. Для входной двери,</strong> если дверь установлена внутри помещения:"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-passport.jpg",
+    "alt": "Паспорт двери",
+    "title": "Паспорт двери"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-full.jpg",
+    "alt": "Полотно целиком с одной стороны",
+    "title": "Полотно целиком с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-01.jpg",
+    "alt": "Фото дефекта 1",
+    "title": "Фото дефекта 1"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-04.jpg",
+    "alt": "Фото дефекта  2",
+    "title": "Фото дефекта  2"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-05.jpg",
+    "alt": "Фото дефекта  3",
+    "title": "Фото дефекта  3"
+  },
+  {
+    "imageSrc": "",
+    "alt": "",
+    "title": "<strong>5. Для входной двери,</strong> если дверь установлена с выходом на улицу:"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-passport.jpg",
+    "alt": "Паспорт двери",
+    "title": "Паспорт двери"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-full.jpg",
+    "alt": "Полотно целиком с одной стороны",
+    "title": "Полотно целиком с одной стороны"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-01.jpg",
+    "alt": "Фото дефекта 1",
+    "title": "Фото дефекта 1"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-04.jpg",
+    "alt": "Фото дефекта  2",
+    "title": "Фото дефекта  2"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-defect-05.jpg",
+    "alt": "Фото дефекта  3",
+    "title": "Фото дефекта  3"
+  },
+  {
+    "imageSrc": "images/forms/thumbnails/claim-visor.jpg",
+    "alt": "Фото двери с козырьком",
+    "title": "Фото двери с козырьком"
+  }
+]
