@@ -1,5 +1,5 @@
 <div class="socials-links">
-  @@if (telegram === true) {
+  @@if (context.telegramLink) {
   <a class="socials-links__link" href="@@telegramLink">
     <span class="sr-only">Telegram</span>
     <svg class="socials-links__icon" width="20" height="20">
@@ -7,7 +7,7 @@
     </svg>
   </a>
   }
-  @@if (instagram === true) {
+  @@if (context.instagramLink) {
   <a class="socials-links__link" href="@@instagramLink">
     <span class="sr-only">Instagram</span>
     <svg class="socials-links__icon" width="20" height="20">
@@ -15,7 +15,7 @@
     </svg>
   </a>
   }
-  @@if (facebook === true) {
+  @@if (context.facebookLink) {
   <a class="socials-links__link" href="@@facebookLink">
     <span class="sr-only">Facebook</span>
     <svg class="socials-links__icon" width="20" height="20">
@@ -23,7 +23,7 @@
     </svg>
   </a>
   }
-  @@if (youtube === true) {
+  @@if (context.youtubeLink) {
   <a class="socials-links__link" href="@@youtubeLink">
     <span class="sr-only">YouTube</span>
     <svg class="socials-links__icon" width="20" height="20">
@@ -31,11 +31,19 @@
     </svg>
   </a>
   }
-  @@if (whatsapp === true) {
+  @@if (context.whatsappLink) {
   <a class="socials-links__link" href="@@whatsappLink">
     <span class="sr-only">WhatsApp</span>
     <svg class="socials-links__icon" width="20" height="20">
       <use href="images/icons.svg#whatsapp" />
+    </svg>
+  </a>
+  }
+  @@if (context.viberLink) {
+  <a class="socials-links__link" href="@@viberLink">
+    <span class="sr-only">Viber</span>
+    <svg class="socials-links__icon" width="20" height="20">
+      <use href="images/icons.svg#viber" />
     </svg>
   </a>
   }

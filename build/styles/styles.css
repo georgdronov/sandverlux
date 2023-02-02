@@ -390,7 +390,7 @@ label {
   justify-content: center;
 }
 
-.filter__reset, .filter__toggle-item, .form-block a, .content-header__text a, .list-image__list-item a:not([class]), .footer__link, .review__link, .header-bottom__link, .socials-links__link, .contacts__link, .header-top__our-shops, .header-top__link, .logo, ._custom-content a {
+.filter__reset, .filter__toggle-item, .form-block a, .content-header__text a, .list-image__list-item a:not([class]), .footer__link, .review__link, .header-bottom__link, .socials-links__link, .contacts__link, .header-top__our-shops, .header-top__link, .logo, ._custom-content a:not(.socials-links__link) {
   margin: -5px;
   padding: 5px;
 }
@@ -684,13 +684,15 @@ body {
   font-weight: 500;
   white-space: nowrap;
   text-decoration: none;
+}
+._custom-content a:not(.socials-links__link) {
   display: inline-block;
   position: relative;
   transform: translateY(0);
   transition: transform 0.3s ease-out;
 }
 @media (min-width: 992px) {
-  ._custom-content a::after {
+  ._custom-content a:not(.socials-links__link)::after {
     content: "";
     display: block;
     position: absolute;
@@ -703,10 +705,10 @@ body {
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     background-color: #84a878;
   }
-  ._custom-content a:hover {
+  ._custom-content a:not(.socials-links__link):hover {
     transform: translateY(-2px);
   }
-  ._custom-content a:hover::after {
+  ._custom-content a:not(.socials-links__link):hover::after {
     opacity: 1;
     transform: translateY(2px);
   }

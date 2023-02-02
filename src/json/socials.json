@@ -1,14 +1,6 @@
 [
   {
-    "instagram": true,
     "instagramLink": "https://www.instagram.com/",
-    "telegram": true,
-    "telegramLink": "https://telegram.org/",
-    "facebook": false,
-    "facebookLink": "https://www.facebook.com/",
-    "youtube": false,
-    "youtubeLink": "https://www.youtube.com/",
-    "whatsapp": false,
-    "whatsappLink": "https://www.whatsapp.com/"
+    "telegramLink": "https://telegram.org/"
   }
 ]

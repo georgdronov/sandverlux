@@ -663,7 +663,10 @@ body {
     font-weight: 500;
     white-space: nowrap;
     text-decoration: none;
-    @include link-hover-underline($color: $primary-color);
+
+    &:not(.socials-links__link) {
+      @include link-hover-underline($color: $primary-color);
+    }
   }
   br {
     font-size: 0;

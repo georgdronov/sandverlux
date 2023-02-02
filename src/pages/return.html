@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Возврат товара | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/return.json'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/return-content-01.json')
+      @@include('./src/html/collapse.html', {
+      'heading': 'Выдержки из законодательных актов, регламентирующие возврат (замену) товара',
+      'json-path': '../json/inner-content/return-collapse.json'
+      })
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/return-content-02.json')
+    </div>
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'checkout': false,
+  'foundCheaper': false,
+  'leaveAReview': false,
+  'orderAMeasurement': true,
+  'startCooperation': false,
+  'claimAnnotation': false
+  })
+</body>
+
+</html>
