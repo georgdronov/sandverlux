@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Рассрочка | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/installment.json'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/installment-content-01.json')
+      @@include('./src/html/inner-blocks/anchor-navigation.html', {
+      'json-path': '../json/inner-content/installment-anchor-navigation.json',
+      'columns': 5
+      })
+    </div>
+    @@loop('./src/html/inner-blocks/content-image.html', '../json/inner-content/installment-content-image.json')
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>

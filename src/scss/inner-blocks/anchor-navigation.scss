@@ -16,6 +16,9 @@
   &__list {
     @extend %row-wrapper;
 
+    &._anl-5 {
+      @extend %anl-5-columns !optional;
+    }
     & > * {
       margin-top: $an-gap;
       padding-left: $an-gap;
@@ -42,6 +45,13 @@
       flex: 1 1 100%;
       max-width: 100%;
     }
+
+    %anl-5-columns & {
+      @media ($desktop-min) {
+        flex: 1 1 20%;
+        max-width: 20%;
+      }
+    }
   }
   &__link {
     width: 100%;
@@ -55,7 +65,6 @@
     min-height: 6.1875rem;
     font-weight: 500;
     line-height: 1.22;
-    text-transform: uppercase;
     text-decoration: none;
     background-color: $white;
 
@@ -70,11 +79,6 @@
     @media ($desktop-max) {
       font-size: 14px;
       min-height: 60px;
-    }
-
-    small {
-      font-size: inherit;
-      text-transform: none;
     }
   }
 }

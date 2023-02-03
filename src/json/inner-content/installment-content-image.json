@@ -1,0 +1,91 @@
+[
+  {
+    "id": "i01",
+    "biggerImage": true,
+    "contents": "<h2>Рассрочка \"БЕЗ БАНКА\" от 12 до 24 месяцев</h2><ul class='_marked'><li>одобряем 99,9% заявок</li><li>можно без предоплаты</li></ul><br><h3>Условия и преимущества</h3><ul><li>Акции и скидки действуют при покупке в рассрочку</li><li>Купить можно без предоплаты</li><li>Либо с предоплатой в размере 10%, 20%, 30%, 40%, остаток  делится на 12, 18, 24 месяца на выбор</li><li>Процент комиссии: 1.4%, 1.5%, 1.8% либо 1.9% в месяц в зависимости от суммы аванса. Или 2% в случае покупки без первоначального взноза</li><li>Быстрое принятие решения</li></ul><br><p><b>ПРИМЕР: 2.500 руб. сумма договора<br>АВАНС: 500 руб.<br>СРОК: 24 месяца<br>Процент комиссии: 1.5% в месяц</b></p><br><p><b>ЕЖЕМЕСЯЧНЫЙ ПЛАТЕЖ СОСТАВИТ: 128,23 руб. в месяц</b></p>",
+    "imageSrc": "images/content/installment-01.jpg",
+    "alt": "Рассрочка \"БЕЗ БАНКА\"",
+    "imageAdditionalClasses": ""
+  },
+  {
+    "id": "i02",
+    "biggerImage": true,
+    "responsiveHeight": true,
+    "contents": "<h2>ОНЛАЙН Рассрочка СТАТУСБАНК <span class='_red'>(ВРЕМЕННО НЕДОСТУПНА)</span></h2><p>- Рассрочка 2 месяца (БЕЗ ПЕРЕПЛАТ). До 3500 р. Без справки о доходах, только паспорт или вид на жительство.</p><br><p>Рассрочка на 4 месяцев удорожание на 4%, на 6 месяцев удорожание на 8%</p>",
+    "imageSrc": "images/content/statusbank-logo.png",
+    "alt": "ОНЛАЙН Рассрочка СТАТУСБАНК",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i03",
+    "biggerImage": true,
+    "responsiveHeight": true,
+    "contents": "<h2>Рассрочка Белагропромбанк <span class='_red'>(ВРЕМЕННО НЕДОСТУПНА)</span></h2><p>Рассрочка 5 месяцев (БЕЗ ПЕРЕПЛАТ). <strong>До 10 000 р. При оформлении на сумму до 2500 р - без справки о доходах</strong>, только паспорт или вид на жительство, свыше 2500 необходимо предоставить:</p><br><ol><li>Паспорт или вид на жительство</li><li>Справка с места работы за 3 месяца. <strong>Оформление в любом отделении Белагропромбанка.</strong></li></ol>",
+    "imageSrc": "images/content/belagroprombank-logo.png",
+    "alt": "Рассрочка Белагропромбанк",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i04",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>Халва МТ Банк</h2><p>Рассрочка <b>2 месяца (БЕЗ ПЕРЕПЛАТ)</b></p><br><p>Вот ссылка на <a href='https://www.halva.by/halva/' rel='nofollow' target='_blank'>онлайн оформление карты «Халва»</a>, если у Вас её ещё нет. «Карта рассрочки №1 «Халва» от МТБанка - это принципиально новый подход к совершению покупок,  когда вам предоставляется  рассрочка на  100% стоимости товара.  Вы оплачиваете  приобретенные товары равными частями  на протяжении 2 месяцев. Всё, что вам надо сделать: это выбрать то, что вам действительно  необходимо, и совершить оплату по «Карте рассрочки №1 «Халва».</p>",
+    "imageSrc": "images/content/mtbank-card.png",
+    "alt": "Халва МТ Банк",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i05",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>Черепаха ВТБ Банк</h2><p>Рассрочка на <b>8 месяцев (БЕЗ ПЕРЕПЛАТ)</b></p>",
+    "imageSrc": "images/content/vtb-cherepaha-card.png",
+    "alt": "Черепаха ВТБ Банк",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i06",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>SMART Карта</h2><p>Рассрочка на <b>3 месяцев (БЕЗ ПЕРЕПЛАТ)</b></p>",
+    "imageSrc": "images/content/smartcard-card.png",
+    "alt": "SMART Карта",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i07",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>Магнит Беларусбанк</h2><p>Рассрочка на <b>3 месяцев (БЕЗ ПЕРЕПЛАТ)</b></p>",
+    "imageSrc": "images/content/magnit-card.png",
+    "alt": "Магнит Беларусбанк",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i08",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>Карта FUN</h2><p>Рассрочка на <b>3 месяцев (БЕЗ ПЕРЕПЛАТ). (БПС Сбербанк).</b></p>",
+    "imageSrc": "images/content/sber-fun-card.png",
+    "alt": "Карта FUN",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i09",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>Карта покупок</h2><p>Рассрочка на <b>3 месяцев (БЕЗ ПЕРЕПЛАТ)</b> (Белгазпромбанк ОАО).</p>",
+    "imageSrc": "images/content/belgazprombank-card.png",
+    "alt": "Карта покупок",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  },
+  {
+    "id": "i10",
+    "biggerImage": true,
+    "fixedHeight": true,
+    "contents": "<h2>Рассрочка ВТБ</h2><p>Рассрочка до <b>4-х месяцев (БЕЗ ПЕРЕПЛАТ) БЕЗ ПЕРВОНАЧАЛЬНОГО ВЗНОСА, онлайн одобрение</b>, если у Вас нет карточек \"Халва\", \"Черепаха\" и т.д.</p><br><p>Первоначальный взнос - по желанию клиента. Без страховок.. Без пакетного обеспечения.</p><br><p>Рассмотрение заявки на рассрочку - 15 минут.</p><br><p>Требование: паспорт или вид на жительство, справка с места работы за 3 месяца.</p>",
+    "imageSrc": "images/content/vtb-card.png",
+    "alt": "Рассрочка ВТБ",
+    "imageAdditionalClasses": "_bkgr-image--contain"
+  }
+]

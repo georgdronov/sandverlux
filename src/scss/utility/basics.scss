@@ -634,6 +634,11 @@ body {
   h2 {
     margin-bottom: 1.3em;
   }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
   ul,
   ol {
     list-style: none;
@@ -656,6 +661,46 @@ body {
         margin-top: 0.63em;
       }
     }
+    &._marked {
+      font-size: 18px;
+      padding-left: 0;
+
+      @media ($desktop-max) and ($tablet-min) {
+        font-size: 16px;
+      }
+      @media ($mobile-max) {
+        font-size: 14px;
+      }
+
+      li:not(._no-badge) {
+        padding-left: 2.35em;
+
+        @media ($mobile-max) {
+          padding-left: 44px;
+        }
+
+        &:before {
+          top: 0.1em;
+          left: 0;
+          width: 1.6666em;
+          height: 1.6666em;
+          content: "";
+          position: absolute;
+          min-width: 30px;
+          font-size: inherit;
+          min-height: 30px;
+          background: url("../images/icons.svg#check-round") center / contain
+            no-repeat transparent;
+
+          @media ($mobile-max) {
+            top: -0.3em;
+          }
+        }
+        & + li {
+          margin-top: 0.75em;
+        }
+      }
+    }
   }
   a {
     color: $primary-color;
@@ -664,7 +709,7 @@ body {
     white-space: nowrap;
     text-decoration: none;
 
-    &:not(.socials-links__link) {
+    &:not([class]) {
       @include link-hover-underline($color: $primary-color);
     }
   }
@@ -765,13 +810,6 @@ body {
   & > *:last-child {
     margin-bottom: 0;
   }
-  %inner-page > *:not(&) + %custom-content {
-    margin-top: -3.5rem;
-
-    @media ($tablet-mad) {
-      margin-top: -1.5rem;
-    }
-  }
   ._price {
     color: $primary-color;
     font-size: 1.5625rem;
@@ -790,5 +828,8 @@ body {
     @media ($tablet-max) {
       font-size: 16px;
     }
+  }
+  ._red {
+    color: $bestseller-color;
   }
 }

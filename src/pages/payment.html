@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Оплата | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/payment.json'
+    })
+    <div class="_inner-content">
+      @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/payment-content-01.json')
+      @@include('./src/html/inner-blocks/anchor-navigation.html', {
+      'json-path': '../json/inner-content/payment-anchor-navigation.json',
+      'columns': 5
+      })
+    </div>
+    @@include('./src/html/inner-blocks/custom-content.html', {
+    "contents": "<br><h2>Оплата карточкой онлайн</h2>"
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>

@@ -13,6 +13,12 @@
   &._bigger-image {
     @extend %content-image-bigger !optional;
   }
+  &._resp-height {
+    @extend %content-image-resp-height !optional;
+  }
+  &._fixed-height {
+    @extend %content-image-fixed-height !optional;
+  }
   &__items {
     @extend %row-wrapper;
     margin-top: -$content-image-gap;
@@ -88,6 +94,20 @@
       height: 0;
       min-height: 100%;
       padding-bottom: 38.777%;
+    }
+    %content-image-fixed-height & {
+      height: 20rem;
+      min-height: 0;
+      padding-bottom: 0;
+
+      @media ($mobile-max) {
+        height: 180px;
+      }
+    }
+    %content-image-resp-height & {
+      height: 100%;
+      min-height: 0;
+      padding-bottom: 0;
     }
   }
   // &__image {

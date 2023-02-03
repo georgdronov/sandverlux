@@ -1,7 +1,8 @@
-<section @@if(context.id){id='@@id'} class="content-image @@if(context.biggerImage){_bigger-image}">
+<article @@if(context.id){id='@@id' }
+  class="content-image@@if(context.biggerImage){ _bigger-image}@@if(context.responsiveHeight){ _resp-height}@@if(context.fixedHeight){ _fixed-height}">
   <div class="container">
     @@if (context.heading) {
-      <h2 class="content-image__heading heading">@@heading</h2>
+    <h2 class="content-image__heading heading">@@heading</h2>
     }
     <div class="content-image__items @@if(context.reverse){_reverse}">
       <div class="content-image__item content-image__item_content">
@@ -14,11 +15,11 @@
       <div class="content-image__item content-image__item_image">
         <div class="content-image__inner">
           <p class="content-image__image-wrapper _image-wrapper">
-            <img src="@@imageSrc" alt="@@alt"
-              class="content-image__image _bkgr-image @@imageAdditionalClasses">
+            <img src="@@imageSrc" alt="@@alt" class="content-image__image _bkgr-image @@imageAdditionalClasses"
+              width="982" height="500">
           </p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</article>

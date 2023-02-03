@@ -103,4 +103,11 @@
       max-width: none;
     }
   }
+  %inner-page > & + %custom-content {
+    margin-top: -3.5rem;
+
+    @media ($tablet-mad) {
+      margin-top: -1.5rem;
+    }
+  }
 }
