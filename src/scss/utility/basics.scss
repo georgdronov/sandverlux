@@ -832,4 +832,43 @@ body {
   ._red {
     color: $bestseller-color;
   }
+  .form,
+  %form-item-wrapper-row {
+    $cc-form-gap: 1.875rem;
+
+    margin-top: -$cc-form-gap;
+    margin-left: -$cc-form-gap;
+
+    & > * {
+      margin-top: $cc-form-gap;
+      padding-left: $cc-form-gap;
+    }
+
+    %form-input,
+    %form-select,
+    %form-textarea {
+      font-size: 14px;
+      min-height: 50px;
+      padding-left: 1.5rem;
+
+      @media ($mobile-max) {
+        width: 100%;
+      }
+    }
+    label {
+      width: 100%;
+    }
+  }
+  %form-item-wrapper-row {
+    & > * {
+      @media ($mobile-max) {
+        width: 100%;
+      }
+    }
+  }
+  %form-button {
+    @media ($mobile-max) {
+      flex-grow: 1;
+    }
+  }
 }

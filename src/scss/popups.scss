@@ -140,6 +140,9 @@
     margin-top: 0;
     min-height: 0;
   }
+  %form-buttons-wrapper {
+    margin-top: -0.4rem;
+  }
   %form-button {
     &:focus-visible {
       box-shadow: 0 0 0 2px $primary-color;

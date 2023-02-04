@@ -576,7 +576,7 @@
   $fbw-gap: 1rem;
   &__buttons-wrapper {
     @extend %row-wrapper;
-    margin-top: calc(0rem - $fbw-gap + 0.6rem);
+    margin-top: -$fbw-gap;
     align-items: center;
     margin-left: -$fbw-gap;
 

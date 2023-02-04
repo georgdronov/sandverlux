@@ -18,9 +18,7 @@
       'columns': 5
       })
     </div>
-    @@include('./src/html/inner-blocks/custom-content.html', {
-    "contents": "<br><h2>Оплата карточкой онлайн</h2>"
-    })
+    @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/payment-content-02.json')
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html")

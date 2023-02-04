@@ -80,5 +80,9 @@
       font-size: 14px;
       min-height: 60px;
     }
+
+    &[href^="/"] {
+      text-decoration: underline;
+    }
   }
 }
