@@ -60,7 +60,7 @@
     "biggerImage": true,
     "contents": "<h2>Установка двери и др. виды ремонтных работ</h2><p class='_price'>от 80 руб.</p><br><p class='_bigger'>Устанавливаем металлические, деревянные, пластиковые входные двери, а также межкомнатные. Ремонтируем просевшие двери, выполняем утепление и уплотнение двери.</p><br><button class='_btn' data-open-popup='request-a-repair' data-set-title='Установка двери и др. виды ремонтных работ' type='button'>Заказать</button>",
     "imageSrc": "images/content/repair-08.jpg",
-    "alt": "Ремонт двери",
+    "alt": "Установка двери",
     "imageAdditionalClasses": ""
   }
 ]

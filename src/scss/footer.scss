@@ -202,6 +202,7 @@
   }
   &__payment-item {
     width: auto;
+    height: 35px;
     @include padding-x(7px);
   }
   &__btn-wrapper {

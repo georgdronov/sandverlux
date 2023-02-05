@@ -357,9 +357,17 @@ function easeOutQuart(timeFraction) {
 }
 
 export function myLazyLoad() {
-  const lazyObjects = document.querySelectorAll("[data-lazyload]");
+  const lazyObjects = document.querySelectorAll("img[loading='lazy']");
 
   if (!lazyObjects.length) return;
+
+  if ("loading" in HTMLImageElement.prototype) {
+    lazyObjects.forEach((img) => {
+      if (!img.hasAttribute("data-src")) return;
+      img.src = img.dataset.src;
+    });
+    return;
+  }
 
   if ("IntersectionObserver" in window) {
     const options = {

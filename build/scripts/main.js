@@ -283,9 +283,17 @@
     return timeFraction === 1 ? 1 : 1 - Math.pow(2, -10 * timeFraction);
   }
   function myLazyLoad() {
-    const lazyObjects = document.querySelectorAll("[data-lazyload]");
+    const lazyObjects = document.querySelectorAll("img[loading='lazy']");
     if (!lazyObjects.length)
       return;
+    if ("loading" in HTMLImageElement.prototype) {
+      lazyObjects.forEach((img) => {
+        if (!img.hasAttribute("data-src"))
+          return;
+        img.src = img.dataset.src;
+      });
+      return;
+    }
     if ("IntersectionObserver" in window) {
       const options = {
         // root: document.querySelector( '#viewport' ),
