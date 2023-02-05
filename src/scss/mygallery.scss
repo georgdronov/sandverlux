@@ -71,6 +71,69 @@
       transform: rotate(45deg);
     }
   }
+  // &__prev,
+  // &__next {
+  //   top: 50%;
+  //   width: 40px;
+  //   height: 40px;
+  //   border: none;
+  //   padding: 0;
+  //   display: flex;
+  //   position: absolute;
+  //   transform: scale(1);
+  //   align-items: center;
+  //   border-radius: 50%;
+  //   justify-content: center;
+  //   background-color: $text-color;
+  //   box-shadow: 0 3px 5px rgba($color: #000, $alpha: 0.3);
+
+  //   @media ($desktop-min) {
+  //     transition: transform $transition3, box-shadow $transition3;
+
+  //     &:hover {
+  //       box-shadow: 0 3px 15px rgba($color: #000, $alpha: 0.2);
+  //       transform: scale(1.15);
+  //     }
+  //   }
+  // }
+  // %my-gallery-arrow-pseudo {
+  //   content: "";
+  //   width: 15px;
+  //   height: 2px;
+  //   display: block;
+  //   position: absolute;
+  //   background-color: $white;
+
+  //   @media ($mobile-max) {
+  //     width: 25px;
+  //   }
+  // }
+  // &__prev {
+  //   left: 50px;
+  //   &:before {
+  //     @extend %my-gallery-arrow-pseudo;
+  //     transform-origin: left center;
+  //     transform: rotate(-45deg);
+  //   }
+  //   &:after {
+  //     @extend %my-gallery-arrow-pseudo;
+  //     transform-origin: left center;
+  //     transform: rotate(45deg);
+  //   }
+  // }
+  // &__next {
+  //   right: 50px;
+  //   &:before {
+  //     @extend %my-gallery-arrow-pseudo;
+  //     transform-origin: right center;
+  //     transform: rotate(-45deg);
+  //   }
+  //   &:after {
+  //     @extend %my-gallery-arrow-pseudo;
+  //     transform-origin: right center;
+  //     transform: rotate(45deg);
+  //   }
+  // }
 
   img {
     border: 5px solid #fff;
@@ -78,6 +141,7 @@
     max-height: 90%;
     max-width: calc(100% - 50px);
     max-height: calc(100% - 50px);
+    transition: width 0.3s, height 0.3s;
     box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.02);
     // border-radius: 15px;
 
@@ -126,7 +190,8 @@
     width: 25px;
     height: 25px;
     opacity: 0;
-    background: url("../images/fullscreen.svg") center/contain no-repeat transparent;
+    background: url("../images/fullscreen.svg") center/contain no-repeat
+      transparent;
     transition: opacity $transition3;
   }
 }

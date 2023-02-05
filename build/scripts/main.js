@@ -287,11 +287,7 @@
     if (!lazyObjects.length)
       return;
     if ("loading" in HTMLImageElement.prototype) {
-      lazyObjects.forEach((img) => {
-        if (!img.hasAttribute("data-src"))
-          return;
-        img.src = img.dataset.src;
-      });
+      lazyObjects.forEach((img) => replaceAttributes(img));
       return;
     }
     if ("IntersectionObserver" in window) {
@@ -319,10 +315,10 @@
       return true;
     }
     function replaceAttributes(item) {
-      if (item.hasAttribute("data-src")) {
-        item.setAttribute("src", item.getAttribute("data-src"));
-        item.removeAttribute("data-src");
-      }
+      if (!item.hasAttribute("data-src"))
+        return;
+      item.setAttribute("src", item.getAttribute("data-src"));
+      item.removeAttribute("data-src");
     }
   }
   function validateFile(inputElement) {
@@ -398,27 +394,27 @@
     };
     closeButton.addEventListener("click", () => this.hideGalleryElement());
     galleryWrapper.addEventListener("click", () => this.hideGalleryElement());
-    galleryObjects.forEach((elem) => {
+    galleryObjects.forEach((elem, index2) => {
       const imageElement = elem.querySelector("img");
       if (!imageElement)
         return;
       const imageLink = imageElement.getAttribute("data-src") || imageElement.getAttribute("src") || "images/placeholder.png";
-      const imageSource = imageLink.replace("/thumbnails", "");
+      const imageSrc = imageLink.replace("/thumbnails", "");
       elem.addEventListener("click", (event2) => {
-        this.showGalleryElement(event2, imageSource);
+        this.showGalleryElement(event2, imageSrc, imageElement);
       });
       elem.addEventListener("keydown", (e) => {
         if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
-          this.showGalleryElement(e, imageSource);
+          this.showGalleryElement(e, imageSrc, imageElement);
         }
       });
     });
-    this.showGalleryElement = (event2, imageSource) => {
+    this.showGalleryElement = (event2, imageSrc, imageElement) => {
       event2.preventDefault();
       myPopupOverlay.show();
       galleryImage.onload = () => galleryWrapper.appendChild(galleryImage);
-      galleryImage.src = imageSource;
-      galleryImage.alt = event2.target.alt;
+      galleryImage.src = imageSrc;
+      galleryImage.alt = imageElement.alt;
       this.show();
     };
     this.hideGalleryElement = () => {

@@ -362,10 +362,7 @@ export function myLazyLoad() {
   if (!lazyObjects.length) return;
 
   if ("loading" in HTMLImageElement.prototype) {
-    lazyObjects.forEach((img) => {
-      if (!img.hasAttribute("data-src")) return;
-      img.src = img.dataset.src;
-    });
+    lazyObjects.forEach((img) => replaceAttributes(img));
     return;
   }
 
@@ -398,10 +395,9 @@ export function myLazyLoad() {
   }
 
   function replaceAttributes(item) {
-    if (item.hasAttribute("data-src")) {
-      item.setAttribute("src", item.getAttribute("data-src"));
-      item.removeAttribute("data-src");
-    }
+    if (!item.hasAttribute("data-src")) return;
+    item.setAttribute("src", item.getAttribute("data-src"));
+    item.removeAttribute("data-src");
   }
 }
 
@@ -488,15 +484,25 @@ function gallery() {
   // init
   const galleryWrapper = document.createElement("div");
   const closeButton = document.createElement("button");
+  // const prevButton = document.createElement("button");
+  // const nextButton = document.createElement("button");
   const galleryClassActive = "my-gallery_active";
 
   galleryWrapper.className = "my-gallery";
   closeButton.type = "button";
   closeButton.className = "my-gallery__close";
   closeButton.innerHTML = "<span class='sr-only'>Закрыть</span>";
+  // prevButton.type = "button";
+  // prevButton.className = "my-gallery__prev";
+  // prevButton.innerHTML = "<span class='sr-only'>Предыдущее</span>";
+  // nextButton.type = "button";
+  // nextButton.className = "my-gallery__next";
+  // nextButton.innerHTML = "<span class='sr-only'>Следующее</span>";
 
   document.body.appendChild(galleryWrapper);
   galleryWrapper.appendChild(closeButton);
+  // galleryWrapper.appendChild(prevButton);
+  // galleryWrapper.appendChild(nextButton);
   const galleryImage = new Image();
 
   this.show = () => {
@@ -510,8 +516,11 @@ function gallery() {
 
   closeButton.addEventListener("click", () => this.hideGalleryElement());
   galleryWrapper.addEventListener("click", () => this.hideGalleryElement());
+  // prevButton.addEventListener("click", () => this.galleryPrev());
+  // nextButton.addEventListener("click", () => this.galleryNext());
 
-  galleryObjects.forEach((elem) => {
+  // eslint-disable-next-line no-unused-vars
+  galleryObjects.forEach((elem, index) => {
     const imageElement = elem.querySelector("img");
     if (!imageElement) return;
 
@@ -519,25 +528,25 @@ function gallery() {
       imageElement.getAttribute("data-src") ||
       imageElement.getAttribute("src") ||
       "images/placeholder.png";
-    const imageSource = imageLink.replace("/thumbnails", "");
+    const imageSrc = imageLink.replace("/thumbnails", "");
 
     elem.addEventListener("click", (event) => {
-      this.showGalleryElement(event, imageSource);
+      this.showGalleryElement(event, imageSrc, imageElement);
     });
     elem.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
-        this.showGalleryElement(e, imageSource);
+        this.showGalleryElement(e, imageSrc, imageElement);
       }
     });
   });
 
-  this.showGalleryElement = (event, imageSource) => {
+  this.showGalleryElement = (event, imageSrc, imageElement) => {
     event.preventDefault();
     myPopupOverlay.show();
 
     galleryImage.onload = () => galleryWrapper.appendChild(galleryImage);
-    galleryImage.src = imageSource;
-    galleryImage.alt = event.target.alt;
+    galleryImage.src = imageSrc;
+    galleryImage.alt = imageElement.alt;
     this.show();
   };
 
