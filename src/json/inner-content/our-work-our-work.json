@@ -1,0 +1,32 @@
+[
+  {
+    "category": "Двери Эмаль",
+    "link": "/our-work---dveri-mal",
+    "imageSrc": "images/our-work/door-01.jpg"
+  },
+  {
+    "category": "Двери Экошпон",
+    "link": "/our-work---dveri-mal",
+    "imageSrc": "images/our-work/door-02.jpg"
+  },
+  {
+    "category": "Двери из массива",
+    "link": "/our-work---dveri-mal",
+    "imageSrc": "images/our-work/door-03.jpg"
+  },
+  {
+    "category": "Порталы",
+    "link": "/our-work---dveri-mal",
+    "imageSrc": "images/our-work/door-04.jpg"
+  },
+  {
+    "category": "Плинтус МФД",
+    "link": "/our-work---dveri-mal",
+    "imageSrc": "images/our-work/door-03.jpg"
+  },
+  {
+    "category": "Фурнитура",
+    "link": "/our-work---dveri-mal",
+    "imageSrc": "images/our-work/door-04.jpg"
+  }
+]

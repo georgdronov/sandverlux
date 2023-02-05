@@ -1,0 +1,127 @@
+.our-work {
+  $ow-gap: 4.75rem;
+
+  padding: 4rem 0;
+
+  &__items {
+    @extend %row-wrapper;
+    margin-top: -$ow-gap;
+    margin-left: -$ow-gap;
+    justify-content: center;
+
+    & > * {
+      margin-top: $ow-gap;
+      padding-left: $ow-gap;
+    }
+
+    @media ($desktop-max) and ($tablet-mid) {
+      margin-top: calc($ow-gap / -2);
+      margin-left: calc($ow-gap / -2);
+
+      & > * {
+        margin-top: calc($ow-gap / 2);
+        padding-left: calc($ow-gap / 2);
+      }
+    }
+    @media ($tablet-mad) {
+      margin-top: calc($ow-gap / -3);
+      margin-left: calc($ow-gap / -3);
+
+      & > * {
+        margin-top: calc($ow-gap / 3);
+        padding-left: calc($ow-gap / 3);
+      }
+    }
+  }
+  &__item {
+    flex: 1 1 25%;
+    max-width: 25%;
+    @extend %flex-center;
+    position: relative;
+
+    @media ($tablet-max) and ($tablet-min) {
+      flex: 1 1 33.3333%;
+      max-width: 33.3333%;
+    }
+    @media ($mobile-max) {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+  }
+  &__image-wrapper {
+    width: 100%;
+    height: 0;
+    padding-bottom: 144.1%;
+
+    @media ($desktop-min) {
+      transform: scale(1);
+      transition: transform 0.3s;
+
+      %our-work-link-hover + &,
+      &%our-work-link-gallery-hover {
+        transform: scale(0.95);
+      }
+    }
+
+    %our-work-link-hover + &,
+    &%our-work-link-gallery-hover {
+      @extend %our-work-link-hover-image-wrapper !optional;
+    }
+    &::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      z-index: 1;
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $primary-color;
+
+      @media ($desktop-min) {
+        transition: opacity 0.3s;
+
+        %our-work-link-hover + & {
+          opacity: 0.15;
+        }
+      }
+    }
+
+    &[data-gallery] {
+      cursor: pointer;
+
+      &:hover {
+        @extend %our-work-link-gallery-hover !optional;
+      }
+    }
+  }
+  &__image {
+    @media ($desktop-min) {
+      transition: transform 0.3s;
+
+      %our-work-link-hover-image-wrapper & {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+  }
+  &__link {
+    margin: 1.5rem;
+    z-index: 2;
+    position: absolute;
+
+    &:hover {
+      @extend %our-work-link-hover !optional;
+    }
+
+    @media ($tablet-mad) {
+      padding: 10px 17px;
+    }
+    @media ($tablet-mad) and ($tablet-min) {
+      font-size: 14px;
+    }
+    @media ($mobile-max) {
+      font-size: 12px;
+    }
+  }
+}

@@ -639,10 +639,12 @@ body {
     font-weight: 600;
     text-transform: uppercase;
   }
-  ul,
-  ol {
+  ol,
+  ul {
     list-style: none;
     margin-top: 0.65em;
+  }
+  ul {
     padding-left: 0.65em;
 
     li {
@@ -699,6 +701,17 @@ body {
         & + li {
           margin-top: 0.75em;
         }
+      }
+    }
+  }
+  ol {
+    padding-left: 0;
+    counter-reset: ordered;
+
+    li {
+      &:before {
+        counter-increment: ordered;
+        content: counter(ordered) ") ";
       }
     }
   }

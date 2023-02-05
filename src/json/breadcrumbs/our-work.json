@@ -1,0 +1,20 @@
+[
+  {
+    "number": "1",
+    "name": "Главная",
+    "link": "/",
+    "current": false
+  },
+  {
+    "number": "2",
+    "name": "О компании",
+    "link": "/about-company",
+    "current": false
+  },
+  {
+    "number": "3",
+    "name": "Наши работы",
+    "link": "",
+    "current": true
+  }
+]

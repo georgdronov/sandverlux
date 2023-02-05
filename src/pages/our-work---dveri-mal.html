@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Наши работы - двери эмаль | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/our-work---dveri-mal.json'
+    })
+    @@include('./src/html/inner-blocks/custom-content.html', {
+    "contents": "<h1>Наши работы - двери эмаль</h1>"
+    })
+    @@include('./src/html/inner-blocks/our-work.html', {
+    'template': './src/html/include/our-work-item.html',
+    'json-path': '../json/inner-content/our-work-our-work.json'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>
