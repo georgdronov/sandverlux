@@ -113,11 +113,6 @@
     & + & {
       margin-top: 2rem;
     }
-    %contact-block {
-      @media ($tablet-min) {
-        max-width: 29.6875rem;
-      }
-    }
     a:not([class]) {
       color: $primary-color;
       font-weight: 700;

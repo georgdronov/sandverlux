@@ -715,7 +715,7 @@ body {
       }
     }
   }
-  a {
+  a:not([class]) {
     color: $primary-color;
     line-height: 1.2;
     font-weight: 500;
@@ -872,11 +872,21 @@ body {
       width: 100%;
     }
   }
+  .form {
+    max-width: none;
+  }
   %form-item-wrapper-row {
     & > * {
+      flex: 1 1 auto;
+      max-width: 50%;
+
       @media ($mobile-max) {
         width: 100%;
+        max-width: 100%;
       }
+    }
+    %form-button {
+      flex-grow: 1;
     }
   }
   %form-button {

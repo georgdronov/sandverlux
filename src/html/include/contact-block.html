@@ -9,10 +9,18 @@
       @@loop('./src/html/socials.html', '../json/socials.json')
     </div>
     <div class="contact-block__info">
+      @@if (context.name) {
       <p class="contact-block__name">@@name</p>
-      <span class="contact-block__position">@@position</span>
-      @@if (email !== "") {
-      <a href="mailto:@@email" class="contact-block__email">@@email</a>
+      }
+      @@if (context.text) {
+      <span class="contact-block__text">@@text</span>
+      }
+      @@if (context.email) {
+      <a href="mailto:@@email" class="contact-block__email">
+        <svg class="contact-block__email-icon" width="20" height="20">
+          <use href="images/icons.svg#email"></use>
+        </svg><span class="contact-block__email-address">@@email</span>
+      </a>
       }
     </div>
   </div>

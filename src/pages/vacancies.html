@@ -15,8 +15,12 @@
       @@include('./src/html/inner-blocks/custom-content.html', {
       "contents": "<h1>Вакансии</h1>"
       })
+      @@loop('./src/html/inner-blocks/content-image.html', '../json/inner-content/vacancies-content-image.json')
+      @@include('./src/html/inner-blocks/anchor-navigation.html', {
+      'json-path': '../json/inner-content/vacancies-anchor-navigation.json'
+      })
     </div>
-    @@loop('./src/html/inner-blocks/content-image.html', '../json/inner-content/repair-content-image.json')
+    @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/vacancies-custom-content.json')
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html", {
