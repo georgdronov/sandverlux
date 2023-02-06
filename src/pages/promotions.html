@@ -15,12 +15,13 @@
       @@include('./src/html/inner-blocks/custom-content.html', {
       "contents": "<h1>Акции</h1>"
       })
+      @@include('./src/html/promotions.html', {
+      'json-path': '../json/promotions.json'
+      })
     </div>
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html", {
-  'requestRepair': true
-  })
+  @@include("./src/html/body-bottom.html")
 </body>
 
 </html>

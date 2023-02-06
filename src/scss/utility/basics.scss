@@ -291,6 +291,11 @@ label {
     display: none !important;
   }
 }
+@media ($mobile-max) {
+  ._desktop-and-tablet-only {
+    display: none !important;
+  }
+}
 @media ($desktop-min-xl), ($tablet-min) {
   ._tablet-only {
     display: none !important;

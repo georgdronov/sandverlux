@@ -1,0 +1,138 @@
+.promotions {
+  $prom-gap: 3.125rem;
+  $prom-gap-tablet: 1.875rem;
+
+  padding: 4rem 0;
+
+  @media ($tablet-mad) {
+    padding: 2rem 0;
+  }
+
+  // &__heading {
+  // }
+  &__items {
+    @extend %row-wrapper;
+    margin-top: -$prom-gap;
+    margin-left: -$prom-gap;
+
+    & > * {
+      margin-top: $prom-gap;
+      padding-left: $prom-gap;
+    }
+
+    @media ($desktop-max) {
+      margin-top: -$prom-gap-tablet;
+      margin-left: -$prom-gap-tablet;
+
+      & > * {
+        margin-top: $prom-gap-tablet;
+        padding-left: $prom-gap-tablet;
+      }
+    }
+  }
+  &__item {
+    flex: 1 1 33.3333%;
+    max-width: 33.3333%;
+
+    @media ($tablet-max) and ($tablet-min) {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+    @media ($mobile-max) {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+  &__image-wrapper {
+    width: 100%;
+    padding-bottom: 56.53%;
+
+    &:hover {
+      @extend %promotions-image-wrapper-hover !optional;
+    }
+
+    @media ($desktop-min) {
+      &::after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        transition: opacity 0.3s;
+        background-color: $white;
+
+        &%promotions-image-wrapper-hover {
+          opacity: 0.1;
+        }
+      }
+    }
+  }
+  &__image {
+    @media ($desktop-min) {
+      transition: transform 0.3s;
+
+      %promotions-image-wrapper-hover & {
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+    }
+  }
+  &__content {
+    border: 1px solid $items-border;
+    padding: 0.8rem 1.4rem 1.4rem;
+    font-size: 16px;
+
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
+  }
+  &__title {
+    color: $heading-color;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.25;
+
+    @media ($desktop-max) {
+      font-size: 16px;
+    }
+  }
+  &__period {
+    margin-top: 1.2rem;
+    font-weight: 600;
+  }
+  &__text {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 0.9rem;
+    line-height: 1.875;
+    text-overflow: ellipsis;
+    margin-bottom: auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  &__link {
+    color: $primary-color;
+    margin-top: 0.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    @include link-hover-underline($color: $primary-color);
+  }
+}
+.promotion-entry {
+  padding: 4rem 0;
+
+  @media ($tablet-mad) {
+    padding: 2rem 0;
+  }
+
+  &__heading {
+    text-align: center;
+    text-transform: none;
+  }
+  &__content {
+    margin: 0 auto;
+    max-width: 76.25rem;
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Акция 2 по цене 1 | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/promotion-akciya-2-po-cene-1.json'
+    })
+    @@include('./src/html/promotion-entry.html', {
+      'heading': 'Акция 2 по цене 1',
+      'contents': '<p>Смелые дизайнерские идеи разрушают стереотипы прошлого, но оставляют дверям главное – функциональность. Сейчас популярны распашные и раздвижные системы. Обе имеют общее, плюсы, минусы, поэтому выбор проблематичен. Рассмотрим, когда вложиться в тот или иной тип. мелые дизайнерские идеи разрушают стереотипы прошлого, но оставляют дверям главное – функциональность. Сейчас популярны распашные и раздвижные системы. Обе имеют общее, плюсы, минусы, поэтому выбор проблематичен. Рассмотрим, когда вложиться в тот или иной тип.</p>'
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html", {
+  'requestRepair': true
+  })
+</body>
+
+</html>
