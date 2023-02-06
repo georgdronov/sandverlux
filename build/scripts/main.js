@@ -293,8 +293,8 @@
     if ("IntersectionObserver" in window) {
       const options = {
         // root: document.querySelector( '#viewport' ),
-        rootMargin: "50px",
-        threshold: [0, 0.5]
+        rootMargin: "250px",
+        threshold: 0
       };
       lazyObjects.forEach((item) => {
         const observer = new IntersectionObserver(manageIntersection, options);
@@ -319,19 +319,6 @@
         return;
       item.setAttribute("src", item.getAttribute("data-src"));
       item.removeAttribute("data-src");
-      if (item.parentElement.nodeName !== "PICTURE")
-        return;
-      for (const child of item.parentElement.children) {
-        if (!child.hasAttribute("srcset"))
-          return;
-        const targetPath = child.getAttribute("srcset"), sourcePath = item.getAttribute("src");
-        if (!targetPath.includes("placeholder"))
-          return;
-        child.setAttribute(
-          "srcset",
-          `${sourcePath.substring(0, sourcePath.lastIndexOf("."))}.webp}`
-        );
-      }
     }
   }
   function validateFile(inputElement) {
