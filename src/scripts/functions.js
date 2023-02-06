@@ -361,7 +361,7 @@ export function myLazyLoad() {
 
   if (!lazyObjects.length) return;
 
-  if ("loading" in HTMLImageElement.prototype) {
+  if (!("loading" in HTMLImageElement.prototype)) {
     lazyObjects.forEach((img) => replaceAttributes(img));
     return;
   }
@@ -411,10 +411,7 @@ export function myLazyLoad() {
 
       child.setAttribute(
         "srcset",
-        `${sourcePath.substring(
-          0,
-          sourcePath.lastIndexOf(".")
-        )}${targetPath.substring(targetPath.lastIndexOf("."))}`
+        `${sourcePath.substring(0, sourcePath.lastIndexOf("."))}.webp}`
       );
     }
   }
