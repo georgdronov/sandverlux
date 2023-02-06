@@ -319,6 +319,22 @@
         return;
       item.setAttribute("src", item.getAttribute("data-src"));
       item.removeAttribute("data-src");
+      if (item.parentElement.nodeName !== "PICTURE")
+        return;
+      for (const child of item.parentElement.children) {
+        if (!child.hasAttribute("srcset"))
+          return;
+        const targetPath = child.getAttribute("srcset"), sourcePath = item.getAttribute("src");
+        if (!targetPath.includes("placeholder"))
+          return;
+        child.setAttribute(
+          "srcset",
+          `${sourcePath.substring(
+            0,
+            sourcePath.lastIndexOf(".")
+          )}${targetPath.substring(targetPath.lastIndexOf("."))}`
+        );
+      }
     }
   }
   function validateFile(inputElement) {

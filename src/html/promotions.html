@@ -1,0 +1,10 @@
+<section class="promotions">
+  <div class="container">
+    @@if (context.heading) {
+      <h2 class="promotions__heading heading">@@heading</h2>
+    }
+    <div class="promotions__items">
+      @@loop('./src/html/include/promotions-item.html', '@@json-path')
+    </div>
+  </div>
+</section>

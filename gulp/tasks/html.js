@@ -12,7 +12,7 @@ export const html = () => {
       app.plugins.if(
         app.isBuild,
         gulpHtmlImgWrapper({
-          logger: true,
+          logger: false,
           extensions: [".jpg", ".jpeg"],
         })
       )
