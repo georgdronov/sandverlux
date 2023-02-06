@@ -2,6 +2,11 @@
   // &__heading {
   // }
 
+  &__content {
+    table {
+      max-width: 100%;
+    }
+  }
   th,
   td:first-child {
     padding-left: 3.3%;

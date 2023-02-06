@@ -5625,6 +5625,7 @@ body {
 .promotions__image-wrapper {
   width: 100%;
   padding-bottom: 56.53%;
+  background-color: #f4f4f4;
 }
 @media (min-width: 992px) {
   .promotions__image-wrapper::after {
@@ -8630,6 +8631,9 @@ body {
   }
 }
 
+.characteristics__content table {
+  max-width: 100%;
+}
 .characteristics th,
 .characteristics td:first-child {
   padding-left: 3.3%;

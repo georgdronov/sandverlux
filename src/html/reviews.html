@@ -1,8 +1,10 @@
 <section class="reviews">
   <div class="container">
-    <h2 class="reviews__heading heading">Отзывы покупателей</h2>
+    @@if (context.heading) {
+      <h2 class="reviews__heading heading">@@heading</h2>
+    }
     <div class="reviews__items">
-      @@loop('./src/html/include/reviews-item.html', '../json/reviews.json')
+      @@loop('./src/html/include/reviews-item.html', '@@json-path')
     </div>
   </div>
 </section>

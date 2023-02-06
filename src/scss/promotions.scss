@@ -46,6 +46,7 @@
   &__image-wrapper {
     width: 100%;
     padding-bottom: 56.53%;
+    background-color: $form-grey-color;
 
     &:hover {
       @extend %promotions-image-wrapper-hover !optional;

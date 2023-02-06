@@ -9,18 +9,17 @@
   <div class="wrapper">
     @@include('./src/html/header.html')
     @@include('./src/html/breadcrumbs.html', {
-      'json-path': '../json/breadcrumbs/reviews.json'
+    'json-path': '../json/breadcrumbs/reviews.json'
     })
-
+    @@include('./src/html/reviews.html', {
+    'full': true,
+    'heading': 'Отзывы на магазин',
+    'json-path': '../json/reviews.json'
+    })
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html", {
-    'checkout': false,
-    'foundCheaper': false,
-    'leaveAReview': true,
-    'orderAMeasurement': false,
-    'startCooperation': false,
-  'claimAnnotation': false
+  'leaveAReview': true
   })
 </body>
 

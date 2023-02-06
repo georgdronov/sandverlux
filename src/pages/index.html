@@ -15,21 +15,16 @@
     @@include('./src/html/how-we-work.html')
     @@include('./src/html/about-us.html')
     @@include('./src/html/our-virtues.html', {
-      'heading': '',
       'json-path': '../json/our-virtues.json'
     })
-    @@include('./src/html/reviews.html')
+    @@include('./src/html/reviews.html', {
+      'heading': 'Отзывы покупателей',
+      'json-path': '../json/reviews.json'
+    })
     @@include('./src/html/our-shops.html')
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html", {
-    'checkout': false,
-    'foundCheaper': false,
-    'leaveAReview': false,
-    'orderAMeasurement': false,
-    'startCooperation': false,
-  'claimAnnotation': false
-  })
+  @@include("./src/html/body-bottom.html")
 </body>
 
 </html>
