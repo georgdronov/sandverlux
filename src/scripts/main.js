@@ -803,6 +803,69 @@ document.addEventListener("DOMContentLoaded", function () {
     openPopup("claim-annotation");
   }
 
+  // reviews overall values //
+
+  const rwElement = document.querySelector(".reviews-widget");
+
+  reviewsWidget(rwElement);
+
+  function reviewsWidget(element) {
+    if (!element) return;
+
+    const ratingEl = document.querySelector(".reviews-widget__overall-rating");
+    const amountEl = document.querySelector(".reviews-widget__overall-amount");
+    const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
+
+    fetch("/files/reviews-stats.json")
+      .then((response) => response.json())
+      .then((result) => {
+        let summOfAllRates = 0;
+
+        allRatingsEl.forEach((rate, index) => {
+          const rateProgress = rate.querySelector(".reviews-widget__progress");
+          const rateAmount = rate.querySelector(".reviews-widget__amount");
+
+          if (!rateProgress && !rateAmount) return;
+
+          summOfAllRates += result.reviews[index + 1] * (index + 1);
+
+          rateProgress.style.flexGrow =
+            +result.reviews[5 - index] / +result.reviews.amount;
+          rateAmount.textContent = result.reviews[5 - index] + "x";
+        });
+
+        const amountOfReviews = +result.reviews.amount,
+          finalRating = summOfAllRates / amountOfReviews,
+          stepRate = 150,
+          step = Math.ceil(amountOfReviews / stepRate),
+          stepFloat = 0.23;
+
+        // amount of all reviews animation //
+        const amountTimer = setInterval(function () {
+          let currentValue = +amountEl.textContent;
+          if (currentValue >= amountOfReviews) {
+            clearInterval(amountTimer);
+            amountEl.textContent = amountOfReviews;
+            return;
+          }
+          amountEl.textContent = currentValue + step;
+        }, stepRate / step);
+
+        // overall score animation //
+        const overallTimer = setInterval(function () {
+          let currentValue = +ratingEl.textContent;
+          if (currentValue >= finalRating - stepFloat) {
+            clearInterval(overallTimer);
+            ratingEl.textContent = finalRating;
+            return;
+          }
+          ratingEl.textContent = (currentValue + stepFloat).toFixed(1);
+        }, 8 / stepFloat);
+
+        // overall stars //
+      });
+  }
+
   // myFunctions.wheelToHide();
 });
 

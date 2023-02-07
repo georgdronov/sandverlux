@@ -473,13 +473,38 @@
     </div>
   </div>
 </nav>
-    <section class="reviews">
+    <section class="reviews _full-review">
   <div class="container">
     
-      <h2 class="reviews__heading heading">Отзывы на магазин</h2>
+    <h2 class="reviews__heading heading">Отзывы на магазин</h2>
     
-    <div class="reviews__items">
-      <article class="review" itemscope itemtype="https://schema.org/Review">
+    <div class="reviews__wrapper">
+      <div class="reviews__items">
+        
+        <nav class="pagination">
+  <ul class="pagination__list">
+    <li class="pagination__list-item active">
+      <span class="pagination__link">1</span>
+    </li>
+    <li class="pagination__list-item">
+      <a class="pagination__link" href="reviews?page=2">2</a>
+    </li>
+    <li class="pagination__list-item">
+      <a class="pagination__link" href="reviews?page=3">3</a>
+    </li>
+    <li class="pagination__list-item">
+      <a class="pagination__link" href="reviews?page=4">></a>
+    </li>
+    <li class="pagination__list-item">
+      <a class="pagination__link" href="reviews?page=42">>|</a>
+    </li>
+  </ul>
+  <div class="pagination__description-wrapper">
+    <p class="pagination__description">Показано с 1 по 15 из 42 (всего 3 страниц)</p>
+  </div>
+</nav>
+        
+        <article class="review" itemscope itemtype="https://schema.org/Review">
   <header class="review__top">
     <h4 class="review__author" itemprop="author">Алексей</h4>
     <div class="review__rating">
@@ -572,7 +597,130 @@
       <a href="#" class="review__link">Читать полностью</a>
     </div>
   </div>
+</article><article class="review" itemscope itemtype="https://schema.org/Review">
+  <header class="review__top">
+    <h4 class="review__author" itemprop="author">Алексей</h4>
+    <div class="review__rating">
+      <span itemprop="reviewRating" hidden>5</span>
+      <svg class="review__star active" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star active" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star active" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star active" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star active" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+    </div>
+    <time class="review__time" itemprop="datePublished" datetime="2022-10-21">21.10.2022</time>
+  </header>
+  <div class="review__bottom">
+    <div class="review__text _custom-content" itemprop="reviewBody">
+      Дверь — элемент стеновой конструкции, предназначенный для заполнения дверных проемов и состоящий из дверного блока, крепления дверного блока к проему, монтажных швов, системы уплотнений и облицовки и обеспечивающий при закрытом положении дверного полотна защиту от климатических, шумовых и других воздействий, а также от несанкционированного прохода.
+    </div>
+    <div class="review__button-wrapper">
+      <a href="#" class="review__link">Читать полностью</a>
+    </div>
+  </div>
 </article>
+      </div>
+      
+      <div class="reviews__side">
+        <section class="reviews-widget">
+          <h3 class="reviews-widget__heading">Средняя оценка магазина</h3>
+          <div class="reviews-widget__overall-wrapper">
+            <span class="reviews-widget__overall-rating">0</span>
+            <div class="reviews-widget__overall-inner">
+              <div class="reviews-widget__overall-stars">
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+              </div>
+              <p class="reviews-widget__overall-title">Всего оценок: <span
+                  class="reviews-widget__overall-amount">0</span></p>
+            </div>
+          </div>
+          <div class="reviews-widget__ratings">
+            
+            <div class="reviews-widget__rating">
+              <span class="reviews-widget__score">5</span>
+              <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <div class="reviews-widget__progress"></div>
+              <span class="reviews-widget__amount">0x</span>
+            </div>
+            
+            <div class="reviews-widget__rating">
+              <span class="reviews-widget__score">4</span>
+              <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <div class="reviews-widget__progress"></div>
+              <span class="reviews-widget__amount">0x</span>
+            </div>
+            
+            <div class="reviews-widget__rating">
+              <span class="reviews-widget__score">3</span>
+              <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <div class="reviews-widget__progress"></div>
+              <span class="reviews-widget__amount">0x</span>
+            </div>
+            
+            <div class="reviews-widget__rating">
+              <span class="reviews-widget__score">2</span>
+              <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <div class="reviews-widget__progress"></div>
+              <span class="reviews-widget__amount">0x</span>
+            </div>
+            
+            <div class="reviews-widget__rating">
+              <span class="reviews-widget__score">1</span>
+              <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <div class="reviews-widget__progress"></div>
+              <span class="reviews-widget__amount">0x</span>
+            </div>
+            
+          </div>
+          <button class="reviews-widget__button _btn" data-open-popup="leave-a-review" type="button">Оставить
+            отзыв</button>
+        </section>
+      </div>
+      
     </div>
   </div>
 </section>

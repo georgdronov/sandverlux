@@ -8,13 +8,19 @@
     padding: 2.4rem 0;
   }
 
+  &._full-review {
+    @extend %full-reviews !optional;
+  }
+
   &__heading {
     @media ($mobile-max) {
       margin-bottom: 1.7em;
     }
   }
-  &__items {
-    @extend %row-wrapper;
+  &__wrapper {
+    %full-reviews & {
+      @extend %row-wrapper;
+    }
 
     @media ($desktop-min-xl) {
       margin-left: -$items-gap;
@@ -22,11 +28,21 @@
     @media ($desktop-max) {
       margin-left: -$items-tablet-gap;
     }
-    @media ($tablet-max) {
-      margin-bottom: -2rem;
+  }
+  &__items {
+    @extend %row-wrapper;
+
+    %full-reviews & {
+      flex: 1 1 0%;
+      max-width: 100%;
+      margin-top: -2.5rem;
     }
 
-    %review {
+    @media ($tablet-max) {
+      margin-top: -2rem;
+    }
+
+    & > * {
       width: 100%;
 
       @media ($desktop-min-xl) {
@@ -42,8 +58,154 @@
         margin-left: $items-tablet-gap;
       }
       @media ($tablet-max) {
-        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+
+      %full-reviews & {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-top: 2.5rem;
       }
     }
+
+    %pagination {
+      order: 1;
+    }
+  }
+  &__side {
+    flex: 0 1 auto;
+    max-width: 100%;
+    margin-left: $items-gap;
+
+    @media ($tablet-mad) {
+      flex: 1 1 100%;
+      margin-top: 4rem;
+      margin-left: $items-tablet-gap;
+    }
+  }
+}
+.reviews-widget {
+  top: 100px;
+  color: $heading-color;
+  padding: 3rem 3.5rem 2.5rem 3.75rem;
+  position: sticky;
+  font-size: 18px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  background-color: $white;
+
+  @media ($desktop-max) and ($tablet-min) {
+    padding: 2rem 2.5rem 2rem 2.75rem;
+    font-size: 16px;
+  }
+  @media ($mobile-max) {
+    padding: 1.5rem 2rem;
+    font-size: 14px;
+  }
+
+  &__heading {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 600;
+
+    @media ($tablet-max) {
+      font-size: 16px;
+    }
+  }
+  &__overall-wrapper {
+    display: flex;
+    margin-top: 1.6rem;
+    align-items: center;
+    margin-right: 4.55rem;
+
+    @media ($desktop-max) and ($tablet-min) {
+      margin-right: 2rem;
+    }
+    @media ($mobile-max) {
+      margin-right: 0;
+    }
+  }
+  &__overall-rating {
+    color: $white;
+    width: 6.1875rem;
+    height: 5.875rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-right: 1.4rem;
+    border-radius: 0.625rem;
+    @extend %flex-center;
+    background-color: $primary-color;
+  }
+  &__overall-stars {
+    display: flex;
+    align-items: center;
+  }
+  &__overall-star {
+    color: $yellow;
+    width: 2.375rem;
+    height: 2.375rem;
+    position: relative;
+    min-width: 26px;
+    min-height: 26px;
+
+    & + & {
+      margin-left: 0.6rem;
+    }
+    svg {
+      position: relative;
+    }
+    &::after {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      display: block;
+      overflow: hidden;
+      position: absolute;
+      transform: scale(1.03);
+      background: url("../images/icons.svg#star-grey") center / 0 100%
+        no-repeat transparent;
+    }
+  }
+  &__overall-title {
+    margin-top: 0.8rem;
+  }
+  // &__overall-amount {
+  // }
+  &__ratings {
+    margin-top: 2.3rem;
+  }
+  &__rating {
+    display: flex;
+    align-items: center;
+
+    & + & {
+      margin-top: 0.5rem;
+    }
+  }
+  &__score {
+    width: 0.9rem;
+    text-align: center;
+    margin-right: 3px;
+  }
+  &__star {
+    color: $yellow;
+  }
+  &__progress {
+    height: 1.1rem;
+    flex-grow: 0;
+    min-height: 12px;
+    transition: flex-grow 1s;
+    margin-left: 1.4rem;
+    border-radius: 5px;
+    background-color: $primary-color;
+  }
+  &__amount {
+    margin-left: 0.6rem;
+  }
+  &__button {
+    width: 100%;
+    margin-top: 18px;
   }
 }

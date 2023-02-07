@@ -14,7 +14,11 @@
     @@include('./src/html/reviews.html', {
     'full': true,
     'heading': 'Отзывы на магазин',
-    'json-path': '../json/reviews.json'
+    'json-path': '../json/reviews.json',
+    'widget': {
+    'heading': 'Средняя оценка магазина',
+    'json-path': '../json/reviews-stats.json'
+    }
     })
     @@include('./src/html/footer.html')
   </div>

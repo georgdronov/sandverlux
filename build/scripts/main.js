@@ -7364,6 +7364,46 @@
     if (claimPopup) {
       openPopup("claim-annotation");
     }
+    const rwElement = document.querySelector(".reviews-widget");
+    reviewsWidget(rwElement);
+    function reviewsWidget(element) {
+      if (!element)
+        return;
+      const ratingEl = document.querySelector(".reviews-widget__overall-rating");
+      const amountEl = document.querySelector(".reviews-widget__overall-amount");
+      const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
+      fetch("/files/reviews-stats.json").then((response) => response.json()).then((result) => {
+        let summOfAllRates = 0;
+        allRatingsEl.forEach((rate, index2) => {
+          const rateProgress = rate.querySelector(".reviews-widget__progress");
+          const rateAmount = rate.querySelector(".reviews-widget__amount");
+          if (!rateProgress && !rateAmount)
+            return;
+          summOfAllRates += result.reviews[index2 + 1] * (index2 + 1);
+          rateProgress.style.flexGrow = +result.reviews[5 - index2] / +result.reviews.amount;
+          rateAmount.textContent = result.reviews[5 - index2] + "x";
+        });
+        const amountOfReviews = +result.reviews.amount, finalRating = summOfAllRates / amountOfReviews, stepRate = 150, step = Math.ceil(amountOfReviews / stepRate), stepFloat = 0.23;
+        const amountTimer = setInterval(function() {
+          let currentValue = +amountEl.textContent;
+          if (currentValue >= amountOfReviews) {
+            clearInterval(amountTimer);
+            amountEl.textContent = amountOfReviews;
+            return;
+          }
+          amountEl.textContent = currentValue + step;
+        }, stepRate / step);
+        const overallTimer = setInterval(function() {
+          let currentValue = +ratingEl.textContent;
+          if (currentValue >= finalRating - stepFloat) {
+            clearInterval(overallTimer);
+            ratingEl.textContent = finalRating;
+            return;
+          }
+          ratingEl.textContent = (currentValue + stepFloat).toFixed(1);
+        }, 8 / stepFloat);
+      });
+    }
   });
 })();
 //# sourceMappingURL=main.js.map

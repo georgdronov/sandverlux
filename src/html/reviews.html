@@ -1,10 +1,72 @@
-<section class="reviews">
+<section class="reviews @@if(context.full){_full-review}">
   <div class="container">
     @@if (context.heading) {
-      <h2 class="reviews__heading heading">@@heading</h2>
+    <h2 class="reviews__heading heading">@@heading</h2>
     }
-    <div class="reviews__items">
-      @@loop('./src/html/include/reviews-item.html', '@@json-path')
+    <div class="reviews__wrapper">
+      <div class="reviews__items">
+        @@if (context.full) {
+        @@include('./src/html/include/pagination.html', {
+        'page-url': 'reviews'
+        })
+        }
+        @@loop('./src/html/include/reviews-item.html', '@@json-path')
+      </div>
+      @@if (context.full) {
+      <div class="reviews__side">
+        <section class="reviews-widget">
+          <h3 class="reviews-widget__heading">@@widget.heading</h3>
+          <div class="reviews-widget__overall-wrapper">
+            <span class="reviews-widget__overall-rating">0</span>
+            <div class="reviews-widget__overall-inner">
+              <div class="reviews-widget__overall-stars">
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+                <div class="reviews-widget__overall-star">
+                  <svg width="38" height="38" aria-hidden="true">
+                    <use href="images/icons.svg#star" />
+                  </svg>
+                </div>
+              </div>
+              <p class="reviews-widget__overall-title">Всего оценок: <span
+                  class="reviews-widget__overall-amount">0</span></p>
+            </div>
+          </div>
+          <div class="reviews-widget__ratings">
+            @@for (var i = 5; i > 0; i--) {
+            <div class="reviews-widget__rating">
+              <span class="reviews-widget__score">`+[i]+`</span>
+              <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
+                <use href="images/icons.svg#star" />
+              </svg>
+              <div class="reviews-widget__progress"></div>
+              <span class="reviews-widget__amount">0x</span>
+            </div>
+            }
+          </div>
+          <button class="reviews-widget__button _btn" data-open-popup="leave-a-review" type="button">Оставить
+            отзыв</button>
+        </section>
+      </div>
+      }
     </div>
   </div>
 </section>
