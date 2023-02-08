@@ -522,58 +522,93 @@ body {
   @extend %heading !optional;
 }
 .breadcrumbs {
-  padding: 14px 0;
+  padding: 19px 0;
   position: relative;
+  font-size: 12px;
+  line-height: 1.4166;
 
   @media ($mobile-max) {
     padding: 9px 0;
+    font-size: 10px;
+    line-height: 1.5;
   }
 
-  &::before {
-    top: 50%;
-    left: 0;
-    right: 0;
-    content: "";
-    position: absolute;
-    border-bottom: 1px solid $items-border;
-  }
-  &__list-wrapper {
-    padding: 0 20px;
-    margin: 0 -20px;
-    display: inline-block;
-    position: relative;
-    background-color: $white;
+  .container {
+    background: linear-gradient(0deg, $items-border 1px, transparent 1px) center
+      9px/100% 17px repeat-y transparent;
 
     @media ($mobile-max) {
-      padding: 0 10px;
-      margin: 0 -10px;
+      background-size: 100% 15px;
+      background-position: center 8px;
     }
   }
-  // &__list {
-  // }
+  &__list-wrapper {
+    display: inline-block;
+  }
+  &__list {
+    font-size: 0;
+  }
   &__list-item {
     display: inline-block;
+
+    &:first-child {
+      margin-left: -4px;
+
+      @media ($tablet-min) {
+        margin-left: -20px;
+      }
+
+      @extend %bcr-li-first !optional;
+    }
+    &:last-child {
+      margin-right: -4px;
+
+      @media ($tablet-min) {
+        margin-right: -20px;
+      }
+
+      @extend %bcr-li-last !optional;
+    }
+    & + &::before {
+      content: "\\";
+      padding: 0 4px;
+      font-size: 12px;
+      background-color: $white;
+
+      @media ($mobile-max) {
+        font-size: 10px;
+      }
+    }
+  }
+  &__link {
+    color: $text-color;
+    padding: 0 4px;
+    display: inline;
+    position: relative;
     font-size: 12px;
-    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: $white;
+
+    %bcr-li-first & {
+      @media ($tablet-min) {
+        padding-left: 20px;
+      }
+    }
+    %bcr-li-last & {
+      @media ($tablet-min) {
+        padding-right: 20px;
+      }
+    }
 
     @media ($mobile-max) {
       font-size: 10px;
     }
 
-    & + &::before {
-      content: "\\";
-      padding: 0 4px;
-    }
-  }
-  &__link {
-    color: $text-color;
-    padding: 7px 0;
-    display: inline-block;
-    text-transform: uppercase;
-    text-decoration: none;
-
     &[href] {
       @media ($desktop-min) {
+        transition: color 0.2s;
+
         &:hover {
           color: $heading-color;
         }
@@ -629,6 +664,9 @@ body {
     line-height: 1.79;
   }
 
+  &:not(._table-full) {
+    @extend %table-full !optional;
+  }
   & > h1,
   & > h2 {
     @extend %heading-styles;
@@ -643,6 +681,10 @@ body {
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
+
+    @media ($mobile-max) {
+      font-size: 16px;
+    }
   }
   & > ol,
   & > ul {
@@ -744,7 +786,9 @@ body {
     border-collapse: collapse;
 
     @media ($desktop-min-xl) {
-      max-width: 50%;
+      %table-full & {
+        max-width: 50%;
+      }
     }
   }
   tr {
@@ -904,6 +948,20 @@ body {
   %form-button {
     @media ($mobile-max) {
       flex-grow: 1;
+    }
+  }
+  & > %custom-slider {
+    max-width: none;
+    margin-left: -$container-padding-desktop;
+    margin-right: -$container-padding-desktop;
+
+    @media ($desktop-max) {
+      margin-left: -$container-padding-tablet;
+      margin-right: -$container-padding-tablet;
+    }
+    @media ($mobile-max) {
+      margin-left: -$container-padding-mobile;
+      margin-right: -$container-padding-mobile;
     }
   }
 }

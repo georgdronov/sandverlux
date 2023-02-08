@@ -88,6 +88,7 @@
     padding: 0.8rem 1.4rem 1.4rem;
     flex-grow: 1;
     font-size: 16px;
+    align-items: flex-start;
     flex-direction: column;
 
     @media ($desktop-max) {
@@ -134,8 +135,11 @@
   }
 
   &__heading {
-    text-align: center;
     text-transform: none;
+
+    @media ($tablet-mid) {
+      text-align: center;
+    }
   }
   &__content {
     margin: 0 auto;
@@ -146,23 +150,13 @@
     }
     & > h2 {
       font-size: 20px;
+
+      @media ($mobile-max) {
+        font-size: 18px;
+      }
     }
     & > h3 {
       text-transform: none;
-    }
-    %custom-slider {
-      max-width: none;
-      margin-left: -$container-padding-desktop;
-      margin-right: -$container-padding-desktop;
-
-      @media ($desktop-max) {
-        margin-left: -$container-padding-tablet;
-        margin-right: -$container-padding-tablet;
-      }
-      @media ($mobile-max) {
-        margin-left: -$container-padding-mobile;
-        margin-right: -$container-padding-mobile;
-      }
     }
   }
 }

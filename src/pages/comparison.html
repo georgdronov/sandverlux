@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Сравнение | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/comparison.json'
+    })
+    <div class="_inner-content">
+      @@include('./src/html/inner-blocks/custom-content.html', {
+      "contents": "<h1>Сравнение</h1>"
+      })
+    </div>
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>

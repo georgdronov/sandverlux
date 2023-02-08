@@ -551,6 +551,10 @@
       font-size: 18px;
       text-align: center;
       background-color: $white;
+
+      &:focus-visible {
+        @include focus-styles($color: $yellow, $inset: true);
+      }
     }
   }
   &__error-message {
