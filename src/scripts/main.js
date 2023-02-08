@@ -814,6 +814,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const ratingEl = document.querySelector(".reviews-widget__overall-rating");
     const amountEl = document.querySelector(".reviews-widget__overall-amount");
+    const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
     const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
 
     fetch("/files/reviews-stats.json")
@@ -863,6 +864,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 8 / stepFloat);
 
         // overall stars //
+        starsEl.forEach((star, index) => {
+          if (Math.ceil(finalRating) == index + 1)
+            return (star.querySelector("svg").style.width =
+              Math.floor((finalRating % 1) * Math.pow(10, 2)) + "%");
+          if (finalRating < index + 1) return;
+          star.querySelector("svg").style.width = 100 + "%";
+        });
       });
   }
 

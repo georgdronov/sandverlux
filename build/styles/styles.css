@@ -4498,18 +4498,34 @@ body {
 .reviews-widget__overall-star {
   color: #f9c201;
   width: 2.375rem;
-  height: 2.375rem;
+  height: 2.14875rem;
   position: relative;
   min-width: 26px;
-  min-height: 26px;
+  min-height: 23.5238px;
+  transform: translateZ(0);
 }
 .reviews-widget__overall-star + .reviews-widget__overall-star {
   margin-left: 0.6rem;
 }
 .reviews-widget__overall-star svg {
+  width: 0%;
+  height: 100%;
   position: relative;
+  transition: width 0.25s;
 }
-.reviews-widget__overall-star::after {
+.reviews-widget__overall-star:nth-child(2) svg {
+  transition-delay: 0.25s;
+}
+.reviews-widget__overall-star:nth-child(3) svg {
+  transition-delay: 0.5s;
+}
+.reviews-widget__overall-star:nth-child(4) svg {
+  transition-delay: 0.75s;
+}
+.reviews-widget__overall-star:nth-child(5) svg {
+  transition-delay: 1s;
+}
+.reviews-widget__overall-star::before {
   top: 0;
   left: 0;
   right: 0;
@@ -4518,11 +4534,11 @@ body {
   display: block;
   overflow: hidden;
   position: absolute;
-  transform: scale(1.03);
-  background: url("../images/icons.svg#star-grey") center/0 100% no-repeat transparent;
+  transform: scale(0.98);
+  background: url("../images/icons.svg#star-grey") left center/100% auto no-repeat transparent;
 }
 .reviews-widget__overall-title {
-  margin-top: 0.8rem;
+  margin-top: 1rem;
 }
 .reviews-widget__ratings {
   margin-top: 2.3rem;

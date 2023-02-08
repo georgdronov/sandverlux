@@ -143,18 +143,34 @@
   &__overall-star {
     color: $yellow;
     width: 2.375rem;
-    height: 2.375rem;
+    height: 2.14875rem;
     position: relative;
     min-width: 26px;
-    min-height: 26px;
+    min-height: 23.5238px;
+    transform: translateZ(0);
 
     & + & {
       margin-left: 0.6rem;
     }
     svg {
+      width: 0%;
+      height: 100%;
       position: relative;
+      transition: width 0.25s;
     }
-    &::after {
+    &:nth-child(2) svg {
+      transition-delay: 0.25s;
+    }
+    &:nth-child(3) svg {
+      transition-delay: 0.5s;
+    }
+    &:nth-child(4) svg {
+      transition-delay: 0.75s;
+    }
+    &:nth-child(5) svg {
+      transition-delay: 1s;
+    }
+    &::before {
       top: 0;
       left: 0;
       right: 0;
@@ -163,13 +179,13 @@
       display: block;
       overflow: hidden;
       position: absolute;
-      transform: scale(1.03);
-      background: url("../images/icons.svg#star-grey") center / 0 100%
+      transform: scale(0.98);
+      background: url("../images/icons.svg#star-grey") left center/100% auto
         no-repeat transparent;
     }
   }
   &__overall-title {
-    margin-top: 0.8rem;
+    margin-top: 1rem;
   }
   // &__overall-amount {
   // }

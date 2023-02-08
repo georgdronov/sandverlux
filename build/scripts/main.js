@@ -7371,6 +7371,7 @@
         return;
       const ratingEl = document.querySelector(".reviews-widget__overall-rating");
       const amountEl = document.querySelector(".reviews-widget__overall-amount");
+      const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
       const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
       fetch("/files/reviews-stats.json").then((response) => response.json()).then((result) => {
         let summOfAllRates = 0;
@@ -7402,6 +7403,13 @@
           }
           ratingEl.textContent = (currentValue + stepFloat).toFixed(1);
         }, 8 / stepFloat);
+        starsEl.forEach((star, index2) => {
+          if (Math.ceil(finalRating) == index2 + 1)
+            return star.querySelector("svg").style.width = Math.floor(finalRating % 1 * Math.pow(10, 2)) + "%";
+          if (finalRating < index2 + 1)
+            return;
+          star.querySelector("svg").style.width = 100 + "%";
+        });
       });
     }
   });
