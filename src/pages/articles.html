@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Статьи | Sandverlux"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/articles.json'
+    })
+    <div class="_inner-content">
+      @@include('./src/html/inner-blocks/custom-content.html', {
+      "contents": "<h1>Статьи</h1>"
+      })
+      @@include('./src/html/articles.html', {
+      'json-path': '../json/articles.json'
+      })
+    </div>
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "number": "1",
+    "name": "Главная",
+    "link": "/",
+    "current": false
+  },
+  {
+    "number": "2",
+    "name": "Акции",
+    "link": "/articles",
+    "current": false
+  },
+  {
+    "number": "3",
+    "name": "Выбираем двери: распашные или раздвижные?",
+    "link": "",
+    "current": true
+  }
+]

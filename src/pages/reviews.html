@@ -11,15 +11,19 @@
     @@include('./src/html/breadcrumbs.html', {
     'json-path': '../json/breadcrumbs/reviews.json'
     })
-    @@include('./src/html/reviews.html', {
-    'full': true,
-    'heading': 'Отзывы на магазин',
-    'json-path': '../json/reviews.json',
-    'widget': {
-    'heading': 'Средняя оценка магазина',
-    'json-path': '../json/reviews-stats.json'
-    }
-    })
+    <div class="_inner-content">
+      @@include('./src/html/inner-blocks/custom-content.html', {
+      "contents": "<h1>Отзывы на магазин</h1>"
+      })
+      @@include('./src/html/reviews.html', {
+      'full': true,
+      'json-path': '../json/reviews.json',
+      'widget': {
+      'heading': 'Средняя оценка магазина',
+      'json-path': '../json/reviews-stats.json'
+      }
+      })
+    </div>
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html", {

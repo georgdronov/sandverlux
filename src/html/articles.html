@@ -1,0 +1,15 @@
+<section class="articles">
+  <div class="container">
+    @@if (context.heading) {
+    <h2 class="articles__heading heading">@@heading</h2>
+    }
+    <div class="articles__wrapper">
+      <div class="articles__items">
+        @@include('./src/html/include/pagination.html', {
+        'page-url': 'articles'
+        })
+        @@loop('./src/html/include/articles-item.html', '@@json-path')
+      </div>
+    </div>
+  </div>
+</section>

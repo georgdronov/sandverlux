@@ -1,4 +1,4 @@
-.promotions {
+.articles {
   $prom-gap: 3.125rem;
   $prom-gap-tablet: 1.875rem;
 
@@ -29,6 +29,12 @@
         padding-left: $prom-gap-tablet;
       }
     }
+
+    %pagination {
+      order: 1;
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
   &__item {
     flex: 1 1 33.3333%;
@@ -47,7 +53,7 @@
   }
   &__image-wrapper {
     width: 100%;
-    padding-bottom: 56.53%;
+    height: 261px;
     background-color: $form-grey-color;
 
     &:hover {
@@ -72,6 +78,12 @@
         }
       }
     }
+    @media ($desktop-max) and ($tablet-mid) {
+      height: 220px;
+    }
+    @media ($tablet-mad) {
+      height: 202px;
+    }
   }
   &__image {
     @media ($desktop-min) {
@@ -85,9 +97,10 @@
   &__content {
     border: 1px solid $items-border;
     display: flex;
-    padding: 0.8rem 1.4rem 1.4rem;
+    padding: 1.4rem;
     flex-grow: 1;
     font-size: 16px;
+    align-items: flex-start;
     flex-direction: column;
 
     @media ($desktop-max) {
@@ -104,9 +117,9 @@
       font-size: 16px;
     }
   }
-  &__period {
+  &__date {
+    display: block;
     margin-top: 1.2rem;
-    font-weight: 600;
   }
   &__text {
     display: -webkit-box;
@@ -115,7 +128,7 @@
     line-height: 1.875;
     text-overflow: ellipsis;
     margin-bottom: auto;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
   &__link {
@@ -126,7 +139,7 @@
     @include link-hover-underline($color: $primary-color);
   }
 }
-.promotion-entry {
+.article-entry {
   padding: 4rem 0;
 
   @media ($tablet-mad) {

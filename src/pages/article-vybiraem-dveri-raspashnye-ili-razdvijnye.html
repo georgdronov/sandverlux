@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Выбираем двери: распашные или раздвижные? | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/article-vybiraem-dveri-raspashnye-ili-razdvijnye.json'
+    })
+    @@loop('./src/html/article-entry.html', '../json/inner-content/article-vybiraem-dveri-raspashnye-ili-razdvijnye-content.json')
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>
