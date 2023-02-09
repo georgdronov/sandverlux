@@ -3,6 +3,10 @@
 
   padding: 4.6875rem 0;
 
+  &._centered {
+    @extend %collapse-centered !optional;
+  }
+
   @media ($tablet-mad) {
     padding: 2.4rem 0;
   }
@@ -13,12 +17,34 @@
     @extend %row-wrapper;
     margin-top: -$collapse-gap;
     margin-left: -$collapse-gap;
+
+    %collapse-centered & {
+      margin-left: 0;
+    }
   }
   &__item {
     flex: 1 1 50%;
     max-width: 50%;
     margin-top: $collapse-gap;
     padding-left: $collapse-gap;
+
+    %collapse-centered & {
+      flex: 1 1 860px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+
+      @media ($desktop-max) and ($desktop-min) {
+        max-width: 740px;
+      }
+      @media ($tablet-max) and ($tablet-mid) {
+        max-width: 650px;
+      }
+      @media ($tablet-mad) and ($tablet-min) {
+        max-width: 550px;
+      }
+    }
 
     @media ($desktop-max) {
       flex: 1 1 100%;

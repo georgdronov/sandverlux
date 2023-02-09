@@ -13,10 +13,11 @@
     })
     <div class="_inner-content">
       @@include('./src/html/inner-blocks/custom-content.html', {
+      "centered": true,
       "contents": "<h1>Вопрос-ответ</h1>"
       })
       @@include('./src/html/collapse.html', {
-      'heading': 'Общие вопросы',
+      'centered': true,
       'json-path': '../json/inner-content/faq-collapse.json'
       })
     </div>
@@ -25,14 +26,7 @@
     })
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html", {
-  'checkout': false,
-  'foundCheaper': false,
-  'leaveAReview': false,
-  'orderAMeasurement': false,
-  'startCooperation': false,
-  'claimAnnotation': false
-  })
+  @@include("./src/html/body-bottom.html")
 </body>
 
 </html>

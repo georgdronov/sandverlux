@@ -60,7 +60,8 @@
       const toggleTargets = container.querySelectorAll("[data-target]");
       if (!toggleElements2.length && !toggleTargets.length)
         return;
-      const isToggle = container.dataset.toggleContainer ? true : false;
+      const isToggle = container.dataset.toggleContainer.includes("toggle") ? true : false;
+      const isSelf = container.dataset.toggleContainer.includes("self") ? true : false;
       toggleElements2.forEach((elem) => {
         switch (elem.tagName.toLowerCase()) {
           case "select":
@@ -81,35 +82,33 @@
                 event2.currentTarget,
                 toggleTargets,
                 toggleElements2,
-                true,
-                isToggle
+                isToggle,
+                isSelf
               );
             });
             break;
         }
       });
     });
-    function toggleContent(current, targets, buttons = null, state = true, toggle = false) {
-      if (state !== true)
-        return;
+    function toggleContent(current, targets, buttons = null, toggle = false, self = false) {
       const tag = current.tagName.toLowerCase(), value = toggleValue(tag, current);
-      targets.forEach((target) => toggleClass2(target, value, toggle));
+      targets.forEach((target) => toggleClass2(target, value, toggle, self));
       if (buttons === null)
         return;
-      let isAreaExpanded = current.getAttribute("aria-expanded") === "true";
-      buttons.forEach((button) => button.setAttribute("aria-expanded", false));
-      if (toggle) {
-        current.setAttribute("aria-expanded", !isAreaExpanded);
-        return;
-      }
-      current.setAttribute("aria-expanded", true);
+      toggleExpanded(current, buttons, toggle, self);
     }
     function toggleValue(tag, element) {
       if (tag === "select")
         return element.value;
       return element.dataset.toggle;
     }
-    function toggleClass2(target, value, toggle) {
+    function toggleClass2(target, value, toggle, self) {
+      if (self === true && target.dataset.target !== value)
+        return;
+      if (self === true && target.dataset.target === value) {
+        target.classList.toggle("active");
+        return;
+      }
       if (toggle === true && target.classList.contains("active")) {
         target.classList.remove("active");
         return;
@@ -119,6 +118,19 @@
         return;
       }
       target.classList.remove("active");
+    }
+    function toggleExpanded(current, buttons, toggle, self) {
+      let isAreaExpanded = current.getAttribute("aria-expanded") === "true";
+      if (self) {
+        current.setAttribute("aria-expanded", !isAreaExpanded);
+        return;
+      }
+      buttons.forEach((button) => button.setAttribute("aria-expanded", false));
+      if (toggle) {
+        current.setAttribute("aria-expanded", !isAreaExpanded);
+        return;
+      }
+      current.setAttribute("aria-expanded", true);
     }
   }
   function setAnchorsEvents() {

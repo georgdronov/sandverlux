@@ -1,5 +1,5 @@
 <div @@if(context.id){id="@@id"} class="custom-content">
-  <div class="container _custom-content">
+  <div class="container _custom-content @@if(context.centered){_centered}">
     @@contents
   </div>
 </div>
