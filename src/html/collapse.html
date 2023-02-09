@@ -3,7 +3,7 @@
     @@if (context.heading) {
     <h2 class="collapse__heading heading">@@heading</h2>
     }
-    <div class="collapse__items" data-toggle-container="toggle" role="tablist">
+    <div class="collapse__items" data-toggle-container="toggle@@if(context.self){,self}" role="tablist">
       @@loop('./src/html/include/collapse-item.html', '@@json-path')
     </div>
   </div>

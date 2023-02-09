@@ -137,6 +137,7 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 1.25;
+    white-space: nowrap;
     text-decoration: none;
     @include link-hover-underline();
 

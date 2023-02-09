@@ -664,9 +664,6 @@ body {
     line-height: 1.79;
   }
 
-  &:not(._table-full) {
-    @extend %table-full !optional;
-  }
   & > h1,
   & > h2 {
     @extend %heading-styles;
@@ -785,10 +782,8 @@ body {
     overflow-x: auto;
     border-collapse: collapse;
 
-    @media ($desktop-min-xl) {
-      %table-full & {
-        max-width: 50%;
-      }
+    %inner-page & {
+      width: 50%;
     }
   }
   tr {

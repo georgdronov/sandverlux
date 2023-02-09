@@ -33,9 +33,9 @@
 
     @extend %product-image-wrapper !optional;
 
-    @media ($desktop-min) {
-      border-bottom: 2px solid $primary-color;
-    }
+    // @media ($desktop-min) {
+    //   border-bottom: 2px solid $primary-color;
+    // }
     @media ($mobile-max) {
       padding-bottom: 220px;
     }
@@ -56,16 +56,30 @@
     @media ($mobile-max) {
       font-size: 14px;
     }
+
+    @at-root {
+      .products__items > *:nth-child(2) & {
+        position: static;
+      }
+    }
   }
   &__features {
-    top: -45px;
+    top: -55px; //-45px;
     left: 0;
     right: 0;
-    height: 45px;
+    height: 55px; //45px;
     overflow: hidden;
     position: absolute;
 
     @extend %product-features !optional;
+
+    @at-root {
+      .products__items > *:nth-child(2) & {
+        top: 0;
+        left: auto;
+        height: auto;
+      }
+    }
   }
   &__features-inner {
     @extend %flex-center;
@@ -76,13 +90,29 @@
     @media ($desktop-min) {
       transform: translateY(100%);
       transition: transform $transition3;
-      background-color: $primary-color;
+      // background-color: $primary-color;
 
       %product-hover & {
         transform: translateY(0);
       }
       &:focus-within {
         transform: translateY(0);
+      }
+
+      @at-root {
+        .products__items > *:nth-child(2) & {
+          opacity: 0;
+          transform: none;
+          transition: opacity 0.3s;
+        }
+        %product-hover & {
+          opacity: 1;
+        }
+      }
+    }
+    @at-root {
+      .products__items > *:nth-child(2) & {
+        flex-direction: column;
       }
     }
   }
@@ -115,6 +145,19 @@
     & + & {
       margin-left: 7px;
     }
+
+    @at-root {
+      .products__items > *:nth-child(2) & {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: $primary-color;
+
+        & + * {
+          margin-left: 0;
+          margin-top: 7px;
+        }
+      }
+    }
   }
   &__features-button-icon {
     color: $yellow;
@@ -130,6 +173,21 @@
 
     %product-features-button-active & {
       color: $white;
+    }
+
+    @at-root {
+      .products__items > *:nth-child(2) & {
+        width: auto;
+        color: $white;
+        height: 1.2rem;
+      }
+      @media ($desktop-min) {
+        %product-features-button-hover & {
+          .products__items > *:nth-child(2) & {
+            color: $yellow;
+          }
+        }
+      }
     }
   }
   &__heading-link {

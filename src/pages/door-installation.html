@@ -25,6 +25,7 @@
     </div>
     @@include('./src/html/collapse.html', {
       'heading': 'Стоимость работ',
+      'self': true,
       'json-path': '../json/inner-content/door-installation-collapse.json'
     })
     @@loop('./src/html/inner-blocks/custom-content.html', '../json/inner-content/door-installation-content-04.json')
