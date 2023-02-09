@@ -3731,10 +3731,6 @@ body {
     font-size: 14px;
   }
 }
-.products__items > *:nth-child(2) .product__content {
-  position: static;
-}
-
 .product__features {
   top: -55px;
   left: 0;
@@ -3743,12 +3739,6 @@ body {
   overflow: hidden;
   position: absolute;
 }
-.products__items > *:nth-child(2) .product__features {
-  top: 0;
-  left: auto;
-  height: auto;
-}
-
 .product__features-inner {
   height: 100%;
 }
@@ -3763,19 +3753,7 @@ body {
   .product__features-inner:focus-within {
     transform: translateY(0);
   }
-  .products__items > *:nth-child(2) .product__features-inner {
-    opacity: 0;
-    transform: none;
-    transition: opacity 0.3s;
-  }
-  .product:hover .product__features-inner {
-    opacity: 1;
-  }
 }
-.products__items > *:nth-child(2) .product__features-inner {
-  flex-direction: column;
-}
-
 .product__features-button {
   width: 2.1875rem;
   border: none;
@@ -3798,16 +3776,6 @@ body {
 .product__features-button + .product__features-button {
   margin-left: 7px;
 }
-.products__items > *:nth-child(2) .product__features-button {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #84a878;
-}
-.products__items > *:nth-child(2) .product__features-button + * {
-  margin-left: 0;
-  margin-top: 7px;
-}
-
 .product__features-button-icon {
   color: #f9c201;
   transition: color 0.2s;
@@ -3819,17 +3787,6 @@ body {
 }
 .product__features-button.active .product__features-button-icon {
   color: #fff;
-}
-.products__items > *:nth-child(2) .product__features-button-icon {
-  width: auto;
-  color: #fff;
-  height: 1.2rem;
-}
-
-@media (min-width: 992px) {
-  .products__items > *:nth-child(2) .product__features-button:hover .product__features-button-icon {
-    color: #f9c201;
-  }
 }
 .product__heading-link {
   margin-bottom: auto;
@@ -7803,6 +7760,39 @@ body {
     top: -25px;
   }
 }
+.products__items .product:nth-child(2) .product__content {
+  position: static;
+}
+.products__items .product:nth-child(2) .product__features {
+  top: 0;
+  left: auto;
+  height: auto;
+}
+.products__items .product:nth-child(2) .product__features-inner {
+  transform: none;
+  transition: opacity 0.3s;
+}
+@media (min-width: 992px) {
+  .products__items .product:nth-child(2) .product__features-inner {
+    opacity: 0;
+  }
+}
+.products__items .product:nth-child(2) .product__features-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #84a878;
+}
+.products__items .product:nth-child(2) .product__features-button:hover .product__features-button-icon {
+  color: #f9c201;
+}
+.products__items .product:nth-child(2) .product__features-button-icon {
+  width: auto;
+  color: #fff;
+  height: 1.2rem;
+}
+.products__items .product:hover:nth-child(2) .product__features-inner {
+  opacity: 1;
+}
 .products .products__items.grid .product {
   flex: 1 1 calc(25% - 3.5rem);
   max-width: calc(25% - 3.5rem);
@@ -7824,6 +7814,13 @@ body {
     flex: 1 1 calc(50% - 30px);
     max-width: calc(50% - 30px);
   }
+}
+.products .products__items.grid .product:nth-child(2) .product__features-inner {
+  flex-direction: column;
+}
+.products .products__items.grid .product:nth-child(2) .product__features-button + * {
+  margin-left: 0;
+  margin-top: 7px;
 }
 .products .products__items.grid .product__inner {
   padding: 0;
@@ -7853,6 +7850,13 @@ body {
     max-width: calc(100% - 30px);
   }
 }
+.products .products__items.grid2 .product:nth-child(2) .product__features-inner {
+  flex-direction: column;
+}
+.products .products__items.grid2 .product:nth-child(2) .product__features-button + * {
+  margin-left: 0;
+  margin-top: 7px;
+}
 .products .products__items.grid2 .product__inner {
   padding: 0;
 }
@@ -7867,6 +7871,9 @@ body {
 .products .products__items.list .product {
   flex: 1 1 calc(100% - 3.5rem);
   max-width: calc(100% - 3.5rem);
+}
+.products .products__items.list .product:nth-child(2) .product__features-inner {
+  opacity: 1;
 }
 .products .products__items.list .product__inner {
   padding: 0;
@@ -9640,3 +9647,4 @@ body {
   background: url("../images/fullscreen.svg") center/contain no-repeat transparent;
   transition: opacity 0.3s ease-out;
 }
+/*# sourceMappingURL=styles.min.css.map */

@@ -20,6 +20,6 @@ export const scripts = () => {
         ],
       })
     )
-    .pipe(app.gulp.dest(app.path.build.scripts))
+    .pipe(app.gulp.dest(app.path.build.scripts, { sourcemaps: '.' }))
     .pipe(app.plugins.browsersync.stream());
 };

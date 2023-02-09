@@ -177,6 +177,47 @@
           top: -25px;
         }
       }
+      &:nth-child(2) {
+        %product-content {
+          position: static;
+        }
+        %product-features {
+          top: 0;
+          left: auto;
+          height: auto;
+        }
+        %product-features-inner {
+          transform: none;
+          transition: opacity 0.3s;
+
+          @media ($desktop-min) {
+            opacity: 0;
+          }
+        }
+        %product-features-button {
+          width: 2.5rem;
+          height: 2.5rem;
+          background-color: $primary-color;
+
+          &:hover {
+            %product-features-button-icon {
+              color: $yellow;
+            }
+          }
+        }
+        %product-features-button-icon {
+          width: auto;
+          color: $white;
+          height: 1.2rem;
+        }
+      }
+      &:hover {
+        &:nth-child(2) {
+          %product-features-inner {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
   %products-items-grid {
@@ -196,6 +237,18 @@
       @media ($mobile-max) {
         flex: 1 1 calc(50% - $items-gap-mobile);
         max-width: calc(50% - $items-gap-mobile);
+      }
+
+      &:nth-child(2) {
+        %product-features-inner {
+          flex-direction: column;
+        }
+        %product-features-button {
+          & + * {
+            margin-left: 0;
+            margin-top: 7px;
+          }
+        }
       }
     }
     %product-inner {
@@ -223,6 +276,18 @@
         flex: 1 1 calc(100% - $items-gap-mobile);
         max-width: calc(100% - $items-gap-mobile);
       }
+
+      &:nth-child(2) {
+        %product-features-inner {
+          flex-direction: column;
+        }
+        %product-features-button {
+          & + * {
+            margin-left: 0;
+            margin-top: 7px;
+          }
+        }
+      }
     }
     %product-inner {
       padding: 0;
@@ -243,6 +308,12 @@
     %product {
       flex: 1 1 calc(100% - $items-gap);
       max-width: calc(100% - $items-gap);
+
+      &:nth-child(2) {
+        %product-features-inner {
+          opacity: 1;
+        }
+      }
     }
     %product-inner {
       padding: 0;
