@@ -6214,6 +6214,45 @@ body {
   text-transform: none;
 }
 
+.comparison__table-wrapper {
+  overflow-x: auto;
+}
+.comparison__table {
+  min-width: 100%;
+  border-spacing: 0;
+}
+.comparison__table thead th {
+  border-bottom: 1px solid #d1d1d1;
+}
+.comparison__table tr:nth-child(2n+2) {
+  background-color: #f4f4f4;
+}
+.comparison__table tr > * {
+  width: 25%;
+  padding: 5px 2.5rem;
+  border-right: 1px solid #d1d1d1;
+}
+.comparison__link {
+  color: #84a878;
+  font-size: 16px;
+  font-weight: 600;
+}
+.comparison__link + .comparison__link {
+  margin-top: 0.5rem;
+}
+.comparison__product-link {
+  text-decoration: none;
+}
+.comparison__product-image-wrapper {
+  height: 226px;
+  margin-bottom: 1rem;
+}
+.comparison__product-heading {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
 .content-header {
   margin: 1.55rem 0;
   padding: 2.7rem 0 3.2rem;

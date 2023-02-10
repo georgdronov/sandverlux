@@ -1,5 +1,94 @@
 <section class="comparison">
   <div class="container">
-    <h1 class="comparison__heading heading">Сравнение</h1>
+    @@if (context.heading) {
+    <h2 class="comparison__heading heading">Сравнение</h2>
+    }
+    <div class="comparison__table-wrapper">
+      <table class="comparison__table" data-toggle-container="">
+        <caption class="sr-only">Сравнение товаров</caption>
+        <thead>
+          <tr>
+            <td class="comparison__links">
+              <div class="form__item">
+                <fieldset class="form__item-wrapper">
+                  <legend class="sr-only">Какие характеристики отобразить?</legend>
+                  <label>
+                    <input class="form__radio" type="radio" name="specs" value="all" data-toggle="">
+                    <span class="form__label">Все характеристики</span>
+                  </label><br>
+                  <label>
+                    <input class="form__radio" type="radio" name="specs" value="different" data-toggle="has-experience">
+                    <span class="form__label">Только различия</span>
+                  </label>
+                </fieldset>
+              </div>
+              <a href="?clear=default" class="comparison__link">Очистить категорию</a>
+            </td>
+            <th scope="col">
+              <div class="comparison__product">
+                <a href="f24---dinmar" class="comparison__product-link">
+                  <p class="comparison__product-image-wrapper _image-wrapper">
+                    <img src="images/products/our-goods-example.png" alt="БОСТОН - ВЕНГЕ, ГЛУХАЯ"
+                      class="comparison__product-image _bkgr-image _bkgr-image--contain">
+                  </p>
+                  <span class="comparison__product-heading heading">БОСТОН - ВЕНГЕ, ГЛУХАЯ</span>
+                </a>
+                <button class="comparison__product-button _btn" data-open-popup="checkout" type="button">Купить</button>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="comparison__product">
+                <a href="f24---dinmar" class="comparison__product-link">
+                  <p class="comparison__product-image-wrapper _image-wrapper">
+                    <img src="images/products/our-goods-example.png" alt="БОСТОН - ВЕНГЕ, ГЛУХАЯ"
+                      class="comparison__product-image _bkgr-image _bkgr-image--contain">
+                  </p>
+                  <span class="comparison__product-heading heading">БОСТОН - ВЕНГЕ, ГЛУХАЯ</span>
+                </a>
+                <button class="comparison__product-button _btn" data-open-popup="checkout" type="button">Купить</button>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="comparison__product">
+                <a href="f24---dinmar" class="comparison__product-link">
+                  <p class="comparison__product-image-wrapper _image-wrapper">
+                    <img src="images/products/our-goods-example.png" alt="БОСТОН - ВЕНГЕ, ГЛУХАЯ"
+                      class="comparison__product-image _bkgr-image _bkgr-image--contain">
+                  </p>
+                  <span class="comparison__product-heading heading">БОСТОН - ВЕНГЕ, ГЛУХАЯ</span>
+                </a>
+                <button class="comparison__product-button _btn" data-open-popup="checkout" type="button">Купить</button>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Цена</th>
+            <td>601.00 р.</td>
+            <td>601.00 р.</td>
+            <td>601.00 р.</td>
+          </tr>
+          <tr>
+            <th scope="row">Длина</th>
+            <td>брус хвойных пород</td>
+            <td>брус хвойных пород</td>
+            <td>брус хвойных пород</td>
+          </tr>
+          <tr>
+            <th scope="row">Длина</th>
+            <td>770 мм</td>
+            <td>770 мм</td>
+            <td>770 мм</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="comparison__notice">
+    <svg class="comparison__notice-icon" width="26.87" height="20">
+      <use href="images/icons.svg#scales" />
+    </svg>
+    <i class="comparison__notice-count">3</i> товара в сравнении
   </div>
 </section>

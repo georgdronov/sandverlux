@@ -12,11 +12,16 @@
     'json-path': '../json/breadcrumbs/comparison.json'
     })
     <div class="_inner-content">
+      @@include('./src/html/inner-blocks/custom-content.html', {
+      "contents": "<h1>Сравнение</h1>"
+      })
       @@include('./src/html/comparison.html')
     </div>
     @@include('./src/html/footer.html')
   </div>
-  @@include("./src/html/body-bottom.html")
+  @@include("./src/html/body-bottom.html", {
+    'checkout': true
+  })
 </body>
 
 </html>
