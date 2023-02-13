@@ -842,7 +842,7 @@ document.addEventListener("DOMContentLoaded", function () {
           stepFloat = 0.23;
 
         // amount of all reviews animation //
-        const amountTimer = setInterval(function () {
+        let amountTimer = setInterval(function () {
           let currentValue = +amountEl.textContent;
           if (currentValue >= amountOfReviews) {
             clearInterval(amountTimer);
@@ -853,7 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, stepRate / step);
 
         // overall score animation //
-        const overallTimer = setInterval(function () {
+        let overallTimer = setInterval(function () {
           let currentValue = +ratingEl.textContent;
           if (currentValue >= finalRating - stepFloat) {
             clearInterval(overallTimer);
@@ -872,6 +872,47 @@ document.addEventListener("DOMContentLoaded", function () {
           star.querySelector("svg").style.width = 100 + "%";
         });
       });
+  }
+
+  // comparison remove action //
+
+  const comparison = document.querySelector(".comparison");
+
+  if (comparison) {
+    const comparisonRemoveButtons = document.querySelectorAll(
+      ".comparison__remove"
+    );
+    comparisonRemoveButtons.forEach((button) =>
+      button.addEventListener("click", () => compRemove(button))
+    );
+  }
+
+  function compRemove(button) {
+    const index = button.closest("th, td").cellIndex;
+    const toRemoveEl = comparison.querySelectorAll(
+      `tr > *:nth-child(${+index + 1})`
+    );
+    toRemoveEl.forEach((el) => {
+      el.classList.add("_animate");
+      let remDelay = setInterval(function () {
+        el.remove();
+        clearInterval(remDelay);
+      }, 300);
+    });
+  }
+
+  // comparison altering rows //
+
+  if (comparison) {
+    let compTableRows = comparison.querySelectorAll(
+      "tbody tr:not(._same):not(:first-child)"
+    );
+
+    compTableRows.forEach((row, index) => altRows(row, index));
+  }
+
+  function altRows(row, index) {
+    +index % 2 === 0 ? row.classList.add("_grey") : null;
   }
 
   // myFunctions.wheelToHide();

@@ -1,63 +1,284 @@
 .comparison {
-  &__heading {
+  &__heading-wrapper {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+  }
+  // &__heading {
+  // }
+  &__notice {
+    color: $white;
+    padding: 0.58rem 1.4rem 0.58rem 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: auto;
+    @extend %flex-center;
+    background-color: $comparison-button;
+
+    &._absolute {
+      top: -33px;
+      right: 0;
+      position: absolute;
+      transform: translateY(-100%);
+    }
+    &-icon {
+      margin-right: 1rem;
+    }
+    &-count {
+      font-style: normal;
+      margin-right: 0.3em;
+    }
   }
   &__table-wrapper {
     overflow-x: auto;
+    @include small-scrollbar($secondary-color, $catalog-background);
   }
   &__table {
+    color: $heading-color;
+    font-size: 16px;
     min-width: 100%;
+    table-layout: fixed;
     border-spacing: 0;
 
+    @media ($desktop-max) and ($tablet-min) {
+      font-size: 14px;
+    }
+    @media ($mobile-max) {
+      font-size: 12px;
+    }
+
     thead {
-      th {
-        border-bottom: 1px solid $items-border;
+      height: 100%;
+      text-align: left;
+
+      & > * {
+        height: 100%;
+      }
+    }
+    tbody {
+      tr {
+        &:first-child {
+          font-weight: 700;
+
+          th {
+            padding-top: 1.15rem;
+          }
+        }
+        th {
+          text-align: right;
+          font-weight: 500;
+        }
+        & > * {
+          padding: 0.66rem 2.5rem;
+
+          @media ($desktop-max) {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+        }
       }
     }
     tr {
-      &:nth-child(2n + 2) {
+      &._grey > * {
         background-color: $form-grey-color;
       }
       & > * {
-        width: 25%;
-        padding: 5px 2.5rem;
+        opacity: 1;
+        max-width: calc(25vw - ($container-padding-desktop * 2) / 4);
+        min-width: calc(25vw - ($container-padding-desktop * 2) / 4);
+        transition: transform 0.28s, opacity 0.28s, background-color 0.5s;
         border-right: 1px solid $items-border;
+        background-color: $white;
+
+        @media ($desktop-max) and ($desktop-min) {
+          max-width: calc(25vw - ($container-padding-tablet * 2) / 4);
+          min-width: calc(25vw - ($container-padding-tablet * 2) / 4);
+        }
+        @media ($tablet-max) and ($tablet-min) {
+          max-width: calc(33.3333vw - ($container-padding-tablet * 2) / 3);
+          min-width: calc(33.3333vw - ($container-padding-tablet * 2) / 3);
+        }
+        @media ($mobile-max) {
+          max-width: none;
+          min-width: calc(33.3333vw - ($container-padding-mobile * 2) / 3);
+        }
+
+        &:first-child {
+          left: 0;
+          z-index: 5;
+          position: sticky;
+        }
+        &._animate {
+          opacity: 0;
+          transform: scale(0.8);
+        }
       }
     }
   }
   &__links {
+    padding: 0.5rem 1rem;
+    vertical-align: top;
+
+    %form-item {
+      %form-label {
+        font-size: 16px;
+
+        @media ($desktop-max) and ($tablet-min) {
+          font-size: 14px;
+        }
+        @media ($mobile-max) {
+          font-size: 12px;
+        }
+      }
+      label ~ label {
+        margin-top: 0.75rem;
+      }
+    }
+    %form-radio {
+      width: 1.25em;
+      height: 1.25em;
+      margin: 0 0.875em 0 0;
+      border: 1px solid $text-color;
+      padding: 0.25em;
+      display: inline-block;
+      position: relative;
+      appearance: none;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      line-height: 1em;
+      border-radius: 50%;
+      vertical-align: -0.25em;
+      background-color: $white;
+
+      &:checked {
+        border-color: $yellow;
+      }
+      &:focus {
+        box-shadow: 0 0 0 2px $yellow;
+      }
+      &:checked:focus {
+        border-color: $text-color;
+      }
+      &:before {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        content: "";
+        display: block;
+        position: relative;
+        transition: opacity 0.3s;
+        border-radius: 50%;
+        background-color: $yellow;
+      }
+      &:checked:before {
+        opacity: 1;
+      }
+    }
   }
   &__link {
     color: $primary-color;
-    font-size: 16px;
+    display: inline-block;
+    font-size: inherit;
+    margin-top: 2.2rem;
     font-weight: 600;
+    text-decoration: none;
 
-    & + & {
-      margin-top: 0.5rem;
+    & ~ & {
+      margin-top: 0.8rem;
+    }
+  }
+  &__remove {
+    position: absolute;
+    top: -0.75rem;
+    width: 40px;
+    right: -0.75rem;
+    height: 40px;
+    border: none;
+    padding: 0;
+    z-index: 1;
+    background-color: transparent;
+    @extend %flex-center;
+
+    @media ($desktop-min) {
+      transform: scale(1);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &%my-gallery-close-pseudo {
+      content: "";
+      width: 20px;
+      height: 2px;
+      display: block;
+      position: absolute;
+      border-radius: 2px;
+      background-color: $items-border;
+
+      @media ($desktop-min) {
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: $text-color;
+        }
+      }
+    }
+    &:before {
+      @extend %my-gallery-close-pseudo;
+      transform: rotate(-45deg);
+    }
+    &:after {
+      @extend %my-gallery-close-pseudo;
+      transform: rotate(45deg);
     }
   }
   &__product {
+    height: 100%;
+    margin: 0 1.25rem;
+    display: flex;
+    padding: 0 1.25rem 1.8rem;
+    position: relative;
+    border-bottom: 1px solid $items-border;
+    flex-direction: column;
+
+    @media ($desktop-max) {
+      margin: 0 0.75rem;
+      padding: 0 0.75rem 1.5rem;
+    }
+
     &-link {
       text-decoration: none;
     }
     &-image-wrapper {
       height: 226px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
+
+      @media ($desktop-max) and ($tablet-min) {
+        height: 190px;
+      }
+      @media ($mobile-max) {
+        height: 160px;
+      }
     }
-    &-image {
-    }
+    // &-image {
+    // }
     &-heading {
       display: block;
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 500;
       margin-bottom: 1rem;
+
+      @media ($mobile-max) {
+        font-size: 12px;
+      }
     }
     &-button {
+      padding: 0.77rem 2.83rem;
+      font-size: 14px;
+      margin-top: auto;
+      align-self: flex-start;
     }
-  }
-  &__notice {
-  }
-  &__notice-icon {
-  }
-  &__notice-count {
   }
 }

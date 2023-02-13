@@ -95,6 +95,7 @@
       targets.forEach((target) => toggleClass2(target, value, toggle, self));
       if (buttons === null)
         return;
+      console.log(toggle);
       toggleExpanded(current, buttons, toggle, self);
     }
     function toggleValue(tag, element) {
@@ -103,6 +104,7 @@
       return element.dataset.toggle;
     }
     function toggleClass2(target, value, toggle, self) {
+      console.log(target, value, toggle, self);
       if (self === true && target.dataset.target !== value)
         return;
       if (self === true && target.dataset.target === value) {
@@ -7397,7 +7399,7 @@
           rateAmount.textContent = result.reviews[5 - index2] + "x";
         });
         const amountOfReviews = +result.reviews.amount, finalRating = summOfAllRates / amountOfReviews, stepRate = 150, step = Math.ceil(amountOfReviews / stepRate), stepFloat = 0.23;
-        const amountTimer = setInterval(function() {
+        let amountTimer = setInterval(function() {
           let currentValue = +amountEl.textContent;
           if (currentValue >= amountOfReviews) {
             clearInterval(amountTimer);
@@ -7406,7 +7408,7 @@
           }
           amountEl.textContent = currentValue + step;
         }, stepRate / step);
-        const overallTimer = setInterval(function() {
+        let overallTimer = setInterval(function() {
           let currentValue = +ratingEl.textContent;
           if (currentValue >= finalRating - stepFloat) {
             clearInterval(overallTimer);
@@ -7423,6 +7425,37 @@
           star.querySelector("svg").style.width = 100 + "%";
         });
       });
+    }
+    const comparison = document.querySelector(".comparison");
+    if (comparison) {
+      const comparisonRemoveButtons = document.querySelectorAll(
+        ".comparison__remove"
+      );
+      comparisonRemoveButtons.forEach(
+        (button) => button.addEventListener("click", () => compRemove(button))
+      );
+    }
+    function compRemove(button) {
+      const index2 = button.closest("th, td").cellIndex;
+      const toRemoveEl = comparison.querySelectorAll(
+        `tr > *:nth-child(${+index2 + 1})`
+      );
+      toRemoveEl.forEach((el) => {
+        el.classList.add("_animate");
+        let remDelay = setInterval(function() {
+          el.remove();
+          clearInterval(remDelay);
+        }, 300);
+      });
+    }
+    if (comparison) {
+      let compTableRows = comparison.querySelectorAll(
+        "tbody tr:not(._same):not(:first-child)"
+      );
+      compTableRows.forEach((row, index2) => altRows(row, index2));
+    }
+    function altRows(row, index2) {
+      +index2 % 2 === 0 ? row.classList.add("_grey") : null;
     }
   });
 })();

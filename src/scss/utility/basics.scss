@@ -452,7 +452,7 @@ body {
 
   @extend %container !optional;
 
-  @media ($desktop-max) {
+  @media ($desktop-max) and ($tablet-min) {
     padding-left: $container-padding-tablet;
     padding-right: $container-padding-tablet;
   }

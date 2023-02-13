@@ -102,13 +102,14 @@ export function toggleElements() {
     toggle = false,
     self = false
   ) {
+    //console.log(current, targets, buttons, toggle, self);
     const tag = current.tagName.toLowerCase(),
       value = toggleValue(tag, current);
 
     targets.forEach((target) => toggleClass(target, value, toggle, self));
 
     if (buttons === null) return;
-
+    console.log(toggle);
     toggleExpanded(current, buttons, toggle, self);
   }
 
@@ -117,6 +118,7 @@ export function toggleElements() {
     return element.dataset.toggle;
   }
   function toggleClass(target, value, toggle, self) {
+    console.log(target, value, toggle, self);
     if (self === true && target.dataset.target !== value) return;
     if (self === true && target.dataset.target === value) {
       target.classList.toggle("active");
