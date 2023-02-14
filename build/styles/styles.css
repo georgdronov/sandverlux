@@ -6242,6 +6242,8 @@ body {
   margin-right: 0.3em;
 }
 .comparison__table-wrapper {
+  display: inline-block;
+  max-width: 100%;
   overflow-x: auto;
   scrollbar-color: #9ab98f #e6ede4;
   scrollbar-width: thin;
@@ -6332,6 +6334,7 @@ body {
 }
 .comparison__table tr > *:first-child {
   left: 0;
+  width: 0;
   z-index: 5;
   position: sticky;
 }

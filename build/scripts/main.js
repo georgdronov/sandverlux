@@ -65,46 +65,61 @@
       toggleElements2.forEach((elem) => {
         switch (elem.tagName.toLowerCase()) {
           case "select":
-            toggleContent(elem, toggleTargets);
+            toggleContent({
+              current: elem,
+              targets: toggleTargets,
+              select: true
+            });
             elem.addEventListener("change", (event2) => {
-              toggleContent(event2.target, toggleTargets);
+              toggleContent({
+                current: event2.target,
+                targets: toggleTargets,
+                select: true
+              });
             });
             break;
           case "input":
-            toggleContent(elem, toggleTargets, toggleElements2, elem.checked);
+            toggleContent({
+              current: elem,
+              targets: toggleTargets
+              //buttons: toggleElements,
+              //checked: elem.checked,
+            });
             elem.addEventListener("click", (event2) => {
-              toggleContent(event2.target, toggleTargets);
+              toggleContent({ current: event2.target, targets: toggleTargets });
             });
             break;
           default:
             elem.addEventListener("click", (event2) => {
-              toggleContent(
-                event2.currentTarget,
-                toggleTargets,
-                toggleElements2,
-                isToggle,
-                isSelf
-              );
+              toggleContent({
+                current: event2.currentTarget,
+                targets: toggleTargets,
+                buttons: toggleElements2,
+                toggle: isToggle,
+                self: isSelf
+              });
             });
             break;
         }
       });
     });
-    function toggleContent(current, targets, buttons = null, toggle = false, self = false) {
-      const tag = current.tagName.toLowerCase(), value = toggleValue(tag, current);
-      targets.forEach((target) => toggleClass2(target, value, toggle, self));
+    function toggleContent(obj) {
+      let current = obj.current, targets = obj.targets, buttons = obj.targets || null, toggle = obj.toggle || false, self = obj.self || false, checked = obj.checked || null, select = obj.select || false;
+      const value = toggleValue(select, current);
+      targets.forEach(
+        (target) => toggleClass2(target, value, toggle, self, checked)
+      );
       if (buttons === null)
         return;
-      console.log(toggle);
       toggleExpanded(current, buttons, toggle, self);
     }
-    function toggleValue(tag, element) {
-      if (tag === "select")
+    function toggleValue(select, element) {
+      if (select === true)
         return element.value;
       return element.dataset.toggle;
     }
-    function toggleClass2(target, value, toggle, self) {
-      console.log(target, value, toggle, self);
+    function toggleClass2(target, value, toggle, self, checked) {
+      console.log(target, value, toggle, self, checked);
       if (self === true && target.dataset.target !== value)
         return;
       if (self === true && target.dataset.target === value) {

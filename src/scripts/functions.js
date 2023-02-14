@@ -59,6 +59,7 @@ export function toggleElements() {
     const toggleElements = container.querySelectorAll("[data-toggle]");
     const toggleTargets = container.querySelectorAll("[data-target]");
     if (!toggleElements.length && !toggleTargets.length) return;
+
     const isToggle = container.dataset.toggleContainer.includes("toggle")
       ? true
       : false;
@@ -69,56 +70,71 @@ export function toggleElements() {
     toggleElements.forEach((elem) => {
       switch (elem.tagName.toLowerCase()) {
         case "select":
-          toggleContent(elem, toggleTargets);
+          toggleContent({
+            current: elem,
+            targets: toggleTargets,
+            select: true,
+          });
           elem.addEventListener("change", (event) => {
-            toggleContent(event.target, toggleTargets);
+            toggleContent({
+              current: event.target,
+              targets: toggleTargets,
+              select: true,
+            });
           });
           break;
         case "input":
-          toggleContent(elem, toggleTargets, toggleElements, elem.checked);
+          toggleContent({
+            current: elem,
+            targets: toggleTargets,
+            //buttons: toggleElements,
+            //checked: elem.checked,
+          });
           elem.addEventListener("click", (event) => {
-            toggleContent(event.target, toggleTargets);
+            toggleContent({ current: event.target, targets: toggleTargets });
           });
           break;
         default:
           elem.addEventListener("click", (event) => {
-            toggleContent(
-              event.currentTarget,
-              toggleTargets,
-              toggleElements,
-              isToggle,
-              isSelf
-            );
+            toggleContent({
+              current: event.currentTarget,
+              targets: toggleTargets,
+              buttons: toggleElements,
+              toggle: isToggle,
+              self: isSelf,
+            });
           });
           break;
       }
     });
   });
 
-  function toggleContent(
-    current,
-    targets,
-    buttons = null,
-    toggle = false,
-    self = false
-  ) {
-    //console.log(current, targets, buttons, toggle, self);
-    const tag = current.tagName.toLowerCase(),
-      value = toggleValue(tag, current);
+  function toggleContent(obj) {
+    let current = obj.current,
+      targets = obj.targets,
+      buttons = obj.targets || null,
+      toggle = obj.toggle || false,
+      self = obj.self || false,
+      checked = obj.checked || null,
+      select = obj.select || false;
 
-    targets.forEach((target) => toggleClass(target, value, toggle, self));
+    //console.log(current, targets, buttons, toggle, self);
+    const value = toggleValue(select, current);
+
+    targets.forEach((target) =>
+      toggleClass(target, value, toggle, self, checked)
+    );
 
     if (buttons === null) return;
-    console.log(toggle);
     toggleExpanded(current, buttons, toggle, self);
   }
-
-  function toggleValue(tag, element) {
-    if (tag === "select") return element.value;
+  function toggleValue(select, element) {
+    if (select === true) return element.value;
     return element.dataset.toggle;
   }
-  function toggleClass(target, value, toggle, self) {
-    console.log(target, value, toggle, self);
+  function toggleClass(target, value, toggle, self, checked) {
+    console.log(target, value, toggle, self, checked);
+
     if (self === true && target.dataset.target !== value) return;
     if (self === true && target.dataset.target === value) {
       target.classList.toggle("active");

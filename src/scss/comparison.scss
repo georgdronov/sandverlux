@@ -30,6 +30,8 @@
     }
   }
   &__table-wrapper {
+    display: inline-block;
+    max-width: 100%;
     overflow-x: auto;
     @include small-scrollbar($secondary-color, $catalog-background);
   }
@@ -105,6 +107,7 @@
 
         &:first-child {
           left: 0;
+          width: 0;
           z-index: 5;
           position: sticky;
         }
