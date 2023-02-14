@@ -81,9 +81,8 @@
           case "input":
             toggleContent({
               current: elem,
-              targets: toggleTargets
-              //buttons: toggleElements,
-              //checked: elem.checked,
+              targets: toggleTargets,
+              checked: elem.checked
             });
             elem.addEventListener("click", (event2) => {
               toggleContent({ current: event2.target, targets: toggleTargets });
@@ -104,7 +103,7 @@
       });
     });
     function toggleContent(obj) {
-      let current = obj.current, targets = obj.targets, buttons = obj.targets || null, toggle = obj.toggle || false, self = obj.self || false, checked = obj.checked || null, select = obj.select || false;
+      let current = obj.current, targets = obj.targets, buttons = obj.buttons || null, toggle = obj.toggle || false, self = obj.self || false, checked = obj.checked !== void 0 ? obj.checked : null, select = obj.select || false;
       const value = toggleValue(select, current);
       targets.forEach(
         (target) => toggleClass2(target, value, toggle, self, checked)
@@ -118,35 +117,25 @@
         return element.value;
       return element.dataset.toggle;
     }
-    function toggleClass2(target, value, toggle, self, checked) {
-      console.log(target, value, toggle, self, checked);
-      if (self === true && target.dataset.target !== value)
+    function toggleClass2(t, value, toggle, self, checked) {
+      const tValue = t.dataset.target;
+      if (checked === false || self === true && tValue !== value)
         return;
-      if (self === true && target.dataset.target === value) {
-        target.classList.toggle("active");
-        return;
-      }
-      if (toggle === true && target.classList.contains("active")) {
-        target.classList.remove("active");
-        return;
-      }
-      if (target.dataset.target === value) {
-        target.classList.add("active");
-        return;
-      }
-      target.classList.remove("active");
+      if (self === true && tValue === value)
+        return t.classList.toggle("active");
+      if (toggle === true && t.classList.contains("active"))
+        return t.classList.remove("active");
+      if (tValue === value)
+        return t.classList.add("active");
+      return t.classList.remove("active");
     }
     function toggleExpanded(current, buttons, toggle, self) {
       let isAreaExpanded = current.getAttribute("aria-expanded") === "true";
-      if (self) {
-        current.setAttribute("aria-expanded", !isAreaExpanded);
-        return;
-      }
+      if (self)
+        return current.setAttribute("aria-expanded", !isAreaExpanded);
       buttons.forEach((button) => button.setAttribute("aria-expanded", false));
-      if (toggle) {
-        current.setAttribute("aria-expanded", !isAreaExpanded);
-        return;
-      }
+      if (toggle)
+        return current.setAttribute("aria-expanded", !isAreaExpanded);
       current.setAttribute("aria-expanded", true);
     }
   }
@@ -7464,13 +7453,29 @@
       });
     }
     if (comparison) {
-      let compTableRows = comparison.querySelectorAll(
+      const compAllRows = comparison.querySelectorAll(
+        "tbody tr:not(:first-child)"
+      );
+      const compDiffRows = comparison.querySelectorAll(
         "tbody tr:not(._same):not(:first-child)"
       );
-      compTableRows.forEach((row, index2) => altRows(row, index2));
+      const compSwitcher = comparison.querySelectorAll("input[name='specs']");
+      if (compSwitcher.length) {
+        compSwitcher.forEach((item) => {
+          if (item.value === "all" && item.checked)
+            compAllRows.forEach((row, index2) => altRows(row, index2));
+          if (item.value !== "all" && item.checked)
+            compDiffRows.forEach((row, index2) => altRows(row, index2));
+          item.addEventListener("change", () => {
+            if (item.value === "all")
+              return compAllRows.forEach((row, index2) => altRows(row, index2));
+            return compDiffRows.forEach((row, index2) => altRows(row, index2));
+          });
+        });
+      }
     }
     function altRows(row, index2) {
-      +index2 % 2 === 0 ? row.classList.add("_grey") : null;
+      +index2 % 2 === 0 ? row.classList.add("_grey") : row.classList.remove("_grey");
     }
   });
 })();

@@ -49,6 +49,16 @@
       font-size: 12px;
     }
 
+    &:not(.active) {
+      ._same {
+        & > * {
+          opacity: 0;
+          font-size: 0;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
     thead {
       height: 100%;
       text-align: left;
@@ -88,7 +98,7 @@
         opacity: 1;
         max-width: calc(25vw - ($container-padding-desktop * 2) / 4);
         min-width: calc(25vw - ($container-padding-desktop * 2) / 4);
-        transition: transform 0.28s, opacity 0.28s, background-color 0.5s;
+        transition: transform 0.28s, opacity 0.28s, background-color 0.5s, font-size 0.5s, padding 0.5s;
         border-right: 1px solid $items-border;
         background-color: $white;
 

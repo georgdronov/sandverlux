@@ -904,15 +904,34 @@ document.addEventListener("DOMContentLoaded", function () {
   // comparison altering rows //
 
   if (comparison) {
-    let compTableRows = comparison.querySelectorAll(
+    const compAllRows = comparison.querySelectorAll(
+      "tbody tr:not(:first-child)"
+    );
+    const compDiffRows = comparison.querySelectorAll(
       "tbody tr:not(._same):not(:first-child)"
     );
+    const compSwitcher = comparison.querySelectorAll("input[name='specs']");
 
-    compTableRows.forEach((row, index) => altRows(row, index));
+    if (compSwitcher.length) {
+      compSwitcher.forEach((item) => {
+        if (item.value === "all" && item.checked)
+          compAllRows.forEach((row, index) => altRows(row, index));
+        if (item.value !== "all" && item.checked)
+          compDiffRows.forEach((row, index) => altRows(row, index));
+
+        item.addEventListener("change", () => {
+          if (item.value === "all")
+            return compAllRows.forEach((row, index) => altRows(row, index));
+          return compDiffRows.forEach((row, index) => altRows(row, index));
+        });
+      });
+    }
   }
 
   function altRows(row, index) {
-    +index % 2 === 0 ? row.classList.add("_grey") : null;
+    +index % 2 === 0
+      ? row.classList.add("_grey")
+      : row.classList.remove("_grey");
   }
 
   // myFunctions.wheelToHide();

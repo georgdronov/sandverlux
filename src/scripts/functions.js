@@ -60,9 +60,11 @@ export function toggleElements() {
     const toggleTargets = container.querySelectorAll("[data-target]");
     if (!toggleElements.length && !toggleTargets.length) return;
 
+    // toggle means element can make action when even active
     const isToggle = container.dataset.toggleContainer.includes("toggle")
       ? true
       : false;
+    // self means element can't affect on others
     const isSelf = container.dataset.toggleContainer.includes("self")
       ? true
       : false;
@@ -87,8 +89,7 @@ export function toggleElements() {
           toggleContent({
             current: elem,
             targets: toggleTargets,
-            //buttons: toggleElements,
-            //checked: elem.checked,
+            checked: elem.checked,
           });
           elem.addEventListener("click", (event) => {
             toggleContent({ current: event.target, targets: toggleTargets });
@@ -112,13 +113,12 @@ export function toggleElements() {
   function toggleContent(obj) {
     let current = obj.current,
       targets = obj.targets,
-      buttons = obj.targets || null,
+      buttons = obj.buttons || null,
       toggle = obj.toggle || false,
       self = obj.self || false,
-      checked = obj.checked || null,
+      checked = obj.checked !== undefined ? obj.checked : null,
       select = obj.select || false;
 
-    //console.log(current, targets, buttons, toggle, self);
     const value = toggleValue(select, current);
 
     targets.forEach((target) =>
@@ -132,37 +132,29 @@ export function toggleElements() {
     if (select === true) return element.value;
     return element.dataset.toggle;
   }
-  function toggleClass(target, value, toggle, self, checked) {
-    console.log(target, value, toggle, self, checked);
+  function toggleClass(t, value, toggle, self, checked) {
+    const tValue = t.dataset.target;
 
-    if (self === true && target.dataset.target !== value) return;
-    if (self === true && target.dataset.target === value) {
-      target.classList.toggle("active");
-      return;
-    }
-    if (toggle === true && target.classList.contains("active")) {
-      target.classList.remove("active");
-      return;
-    }
-    if (target.dataset.target === value) {
-      target.classList.add("active");
-      return;
-    }
-    target.classList.remove("active");
+    if (checked === false || (self === true && tValue !== value)) return;
+
+    if (self === true && tValue === value) return t.classList.toggle("active");
+
+    if (toggle === true && t.classList.contains("active"))
+      return t.classList.remove("active");
+
+    if (tValue === value) return t.classList.add("active");
+
+    return t.classList.remove("active");
   }
   function toggleExpanded(current, buttons, toggle, self) {
     let isAreaExpanded = current.getAttribute("aria-expanded") === "true";
 
-    if (self) {
-      current.setAttribute("aria-expanded", !isAreaExpanded);
-      return;
-    }
+    if (self) return current.setAttribute("aria-expanded", !isAreaExpanded);
+
     buttons.forEach((button) => button.setAttribute("aria-expanded", false));
 
-    if (toggle) {
-      current.setAttribute("aria-expanded", !isAreaExpanded);
-      return;
-    }
+    if (toggle) return current.setAttribute("aria-expanded", !isAreaExpanded);
+
     current.setAttribute("aria-expanded", true);
   }
 }
