@@ -6335,7 +6335,7 @@ body {
 @media (max-width: 575.98px) {
   .comparison__table tr > * {
     max-width: none;
-    min-width: calc(33.3333vw - 13.3333333333px);
+    min-width: calc(50vw - 13.3333333333px);
   }
 }
 .comparison__table tr > *:first-child {
@@ -6343,6 +6343,11 @@ body {
   width: 0;
   z-index: 5;
   position: sticky;
+}
+@media (max-width: 575.98px) {
+  .comparison__table tr > *:first-child {
+    min-width: min-content;
+  }
 }
 .comparison__table tr > *._animate {
   opacity: 0;
@@ -6509,6 +6514,12 @@ body {
   font-size: 14px;
   margin-top: auto;
   align-self: flex-start;
+}
+@media (max-width: 575.98px) {
+  .comparison__product-button {
+    padding: 0.5rem 1.65rem;
+    font-size: 12px;
+  }
 }
 
 .content-header {

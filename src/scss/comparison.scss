@@ -112,7 +112,7 @@
         }
         @media ($mobile-max) {
           max-width: none;
-          min-width: calc(33.3333vw - ($container-padding-mobile * 2) / 3);
+          min-width: calc(50vw - ($container-padding-mobile * 2) / 3);
         }
 
         &:first-child {
@@ -120,6 +120,10 @@
           width: 0;
           z-index: 5;
           position: sticky;
+
+          @media ($mobile-max) {
+            min-width: min-content;
+          }
         }
         &._animate {
           opacity: 0;
@@ -292,6 +296,11 @@
       font-size: 14px;
       margin-top: auto;
       align-self: flex-start;
+
+      @media ($mobile-max) {
+        padding: 0.5rem 1.65rem;
+        font-size: 12px;
+      }
     }
   }
 }
