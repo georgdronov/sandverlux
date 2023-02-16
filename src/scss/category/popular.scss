@@ -39,13 +39,17 @@
     max-height: 3.9rem;
     margin-top: -$items-gap-top;
     margin-left: -$items-gap-left;
-    padding-right: 7rem;
+    padding-right: 120px;
 
+    @media ($desktop-max) and ($tablet-min) {
+      padding-right: 105px;
+    }
     @media ($tablet-max) and ($tablet-min) {
-      max-height: 8rem;
+      max-height: 7.75rem;
     }
     @media ($mobile-max) {
-      max-height: 7.8rem;
+      overflow: hidden;
+      max-height: 123px;
       margin-top: -$items-gap-top-mobile;
       margin-left: -$items-gap-left-mobile;
       padding-right: 0;
@@ -141,7 +145,7 @@
     color: $white;
     height: 30px;
     // margin: -7px 0 -7px 10px;
-    margin: -7px 0 -7px 8px;
+    margin: -0.4375rem 0 -0.4375rem 8px;
     display: inline-block;
     font-size: 20px;
     line-height: 30px;
