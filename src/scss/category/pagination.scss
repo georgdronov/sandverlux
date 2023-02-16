@@ -7,10 +7,12 @@
     display: flex;
     justify-content: center;
   }
-  &__list-item {
+  &__list-item,
+  .page-item {
     display: inline-block;
   }
-  &__link {
+  &__link,
+  .page-link {
     color: $heading-color;
     display: block;
     padding: 0 8px;
