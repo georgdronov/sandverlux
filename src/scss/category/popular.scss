@@ -5,6 +5,8 @@
   $items-gap-left-mobile: 13px;
 
   padding: 1.5625rem 2.125rem;
+  overflow: hidden;
+  position: relative;
   margin-top: 2.5rem;
   background-color: $form-grey-color;
 
@@ -34,12 +36,24 @@
     }
   }
   &__list-wrapper {
+    max-height: 3.9rem;
     margin-top: -$items-gap-top;
     margin-left: -$items-gap-left;
+    padding-right: 7rem;
 
+    @media ($tablet-max) and ($tablet-min) {
+      max-height: 8rem;
+    }
     @media ($mobile-max) {
+      max-height: 7.8rem;
       margin-top: -$items-gap-top-mobile;
       margin-left: -$items-gap-left-mobile;
+      padding-right: 0;
+      margin-bottom: 3rem;
+    }
+
+    %popular-expanded & {
+      max-height: none;
     }
   }
   &__list {
@@ -79,9 +93,12 @@
     }
   }
   &__button {
+    right: $items-gap-left;
     color: $primary-color;
+    bottom: 1.6rem;
     border: none;
     padding: 0;
+    position: absolute;
     font-size: 1.125rem;
     margin-top: $items-gap-top;
     font-weight: 700;
@@ -123,7 +140,8 @@
     width: 30px;
     color: $white;
     height: 30px;
-    margin: -7px 0 -7px 10px;
+    // margin: -7px 0 -7px 10px;
+    margin: -7px 0 -7px 8px;
     display: inline-block;
     font-size: 20px;
     line-height: 30px;

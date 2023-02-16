@@ -7736,6 +7736,8 @@ body {
 
 .popular {
   padding: 1.5625rem 2.125rem;
+  overflow: hidden;
+  position: relative;
   margin-top: 2.5rem;
   background-color: #f4f4f4;
 }
@@ -7765,14 +7767,27 @@ body {
   }
 }
 .popular__list-wrapper {
+  max-height: 3.9rem;
   margin-top: -2.125rem;
   margin-left: -2.375rem;
+  padding-right: 7rem;
+}
+@media (max-width: 991.98px) and (min-width: 576px) {
+  .popular__list-wrapper {
+    max-height: 8rem;
+  }
 }
 @media (max-width: 575.98px) {
   .popular__list-wrapper {
+    max-height: 7.8rem;
     margin-top: -8px;
     margin-left: -13px;
+    padding-right: 0;
+    margin-bottom: 3rem;
   }
+}
+.popular._expanded .popular__list-wrapper {
+  max-height: none;
 }
 .popular__list {
   display: inline;
@@ -7813,9 +7828,12 @@ body {
   }
 }
 .popular__button {
+  right: 2.375rem;
   color: #84a878;
+  bottom: 1.6rem;
   border: none;
   padding: 0;
+  position: absolute;
   font-size: 1.125rem;
   margin-top: 2.125rem;
   font-weight: 700;
@@ -7855,7 +7873,7 @@ body {
   width: 30px;
   color: #fff;
   height: 30px;
-  margin: -7px 0 -7px 10px;
+  margin: -7px 0 -7px 8px;
   display: inline-block;
   font-size: 20px;
   line-height: 30px;
