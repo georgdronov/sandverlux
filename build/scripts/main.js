@@ -7477,6 +7477,19 @@
     function altRows(row, index2) {
       +index2 % 2 === 0 ? row.classList.add("_grey") : row.classList.remove("_grey");
     }
+    const cookieElement = document.querySelector(".cookie");
+    if (cookieElement) {
+      if (!document.cookie.includes("cookie_notice")) {
+        cookieElement.removeAttribute("hidden");
+        setTimeout(() => cookieElement.classList.add("active"), 300);
+        cookieElement.querySelector(".cookie__btn").addEventListener("click", () => {
+          cookieElement.classList.remove("active");
+          document.cookie = "cookie_notice=true; max-age=604800; samesite=lax";
+        });
+        return;
+      }
+      return;
+    }
   });
 })();
 //# sourceMappingURL=main.js.map

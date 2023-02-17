@@ -395,7 +395,7 @@ label {
   justify-content: center;
 }
 
-.filter__reset, .filter__toggle-item, .form-block a, .content-header__text a, .articles__link, .promotions__link, .list-image__list-item a:not([class]), .footer__link, .review__link, .header-bottom__link, .socials-links__link, .contacts__link, .header-top__our-shops, .header-top__link, .logo, ._custom-content a:not([class]):not([class]) {
+.filter__reset, .filter__toggle-item, .form-block a, .content-header__text a, .articles__link, .promotions__link, .list-image__list-item a:not([class]), .footer__link, .review__link, .header-bottom__link, .socials-links__link, .contacts__link, .header-top__our-shops, .header-top__link, .logo, .cookie__text a, ._custom-content a:not([class]):not([class]) {
   margin: -5px;
   padding: 5px;
 }
@@ -1008,6 +1008,92 @@ body {
 }
 ._custom-content._centered h1 {
   text-align: center;
+}
+
+.cookie {
+  left: 0;
+  right: 0;
+  width: 1105px;
+  bottom: 0;
+  margin: 0 auto 2rem;
+  opacity: 0;
+  z-index: 9999;
+  padding: 1.2rem 3rem;
+  position: fixed;
+  max-width: calc(100% - 180px);
+  visibility: hidden;
+  text-align: center;
+  transition: opacity 0.5s, visibility 0.5s;
+  box-shadow: 0 0 39px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-color: rgba(63, 81, 67, 0.85);
+}
+@media (max-width: 1199.98px) {
+  .cookie {
+    padding: 1.2rem 2rem 1.5rem;
+    max-width: calc(100% - 110px);
+  }
+}
+@media (max-width: 575.98px) {
+  .cookie {
+    max-width: calc(100% - 70px);
+  }
+}
+.cookie.active {
+  opacity: 1;
+  visibility: visible;
+}
+.cookie__text {
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.5625;
+}
+@media (max-width: 1199.98px) {
+  .cookie__text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767.98px) {
+  .cookie__text {
+    font-size: 12px;
+  }
+}
+.cookie__text a {
+  color: #f9c201;
+  line-height: 1.2;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+@media (min-width: 992px) {
+  .cookie__text a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 4px;
+    height: 1px;
+    opacity: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    background-color: #f9c201;
+  }
+  .cookie__text a:hover {
+    transform: translateY(-2px);
+  }
+  .cookie__text a:hover::after {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+.cookie__btn {
+  padding: 12px 33px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 /* Functional styling;

@@ -1,6 +1,6 @@
 <div class="popup-overlay"></div>
 <section class="popups-wrapper">
-  <h3 class="sr-only">Всплывающие окна</h3>
+  <span class="sr-only">Всплывающие окна</span>
   @@include("./src/html/popup.html", {
   'id': 'request-a-call',
   'title': 'Заказать звонок',
@@ -61,14 +61,6 @@
     })
   }
 </section>
-@@if (false) {
-<div style="position:fixed;left:0;bottom:0;">
-  <button type="button" data-open-popup="checkout">Checkout</button>
-  <button type="button" data-open-popup="found-cheaper">foundCheaper</button>
-  <button type="button" data-open-popup="leave-a-review">leaveAReview</button>
-  <button type="button" data-open-popup="start-cooperation">startCooperation</button>
-  <button type="button" data-open-popup="order-a-measurement">orderAMeasurement</button>
-</div>
-}
+@@include("./src/html/include/cookie.html")
 @@include("./src/html/include/scroll-top.html")
 <script src="scripts/main.js"></script>

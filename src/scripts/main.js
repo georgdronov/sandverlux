@@ -934,6 +934,24 @@ document.addEventListener("DOMContentLoaded", function () {
       : row.classList.remove("_grey");
   }
 
+  const cookieElement = document.querySelector(".cookie");
+
+  if (cookieElement) {
+    if (!document.cookie.includes("cookie_notice")) {
+      cookieElement.removeAttribute("hidden");
+      setTimeout(() => cookieElement.classList.add("active"), 300);
+
+      cookieElement
+        .querySelector(".cookie__btn")
+        .addEventListener("click", () => {
+          cookieElement.classList.remove("active");
+          document.cookie = "cookie_notice=true; max-age=604800; samesite=lax";
+        });
+      return;
+    }
+    return;
+  }
+
   // myFunctions.wheelToHide();
 });
 

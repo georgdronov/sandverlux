@@ -1,0 +1,56 @@
+.cookie {
+  left: 0;
+  right: 0;
+  width: 1105px;
+  bottom: 0;
+  margin: 0 auto 2rem;
+  opacity: 0;
+  z-index: 9999;
+  padding: 1.2rem 3rem;
+  position: fixed;
+  max-width: calc(100% - calc($container-padding-desktop * 2 + 40px));
+  visibility: hidden;
+  text-align: center;
+  transition: opacity 0.5s, visibility 0.5s;
+  box-shadow: 0 0 39px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-color: rgba(63, 81, 67, 0.85);
+
+  @media ($desktop-max) {
+    padding: 1.2rem 2rem 1.5rem;
+    max-width: calc(100% - calc($container-padding-tablet * 2 + 30px));
+  }
+  @media ($mobile-max) {
+    max-width: calc(100% - calc($container-padding-mobile * 2 + 30px));
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__text {
+    color: $white;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5625;
+
+    @media ($desktop-max) {
+      font-size: 14px;
+    }
+    @media ($tablet-mad) {
+      font-size: 12px;
+    }
+
+    a {
+      color: $yellow;
+      line-height: 1.2;
+      text-decoration: none;
+      @include link-hover-underline($yellow);
+    }
+  }
+  &__btn {
+    padding: 12px 33px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
