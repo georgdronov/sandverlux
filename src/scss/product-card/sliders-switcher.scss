@@ -1,24 +1,37 @@
 .sliders-switcher {
   $ss-gap: 2rem;
 
-  flex-wrap: wrap;
-  margin-top: calc(2.3rem - $ss-gap/2);
-  margin-left: calc(20% - 40px + calc($product-card-gap - $ss-gap));
-  @extend %flex-center;
+  border: 2px solid $primary-color;
+  margin-top: 2.3rem;
+  margin-left: calc(14.3% + $product-card-gap);
 
   @media ($desktop-max-xl) and ($desktop-min-xl) {
-    margin-left: calc(20% - 29px + calc($product-card-gap - $ss-gap));
+    margin-left: calc(15.05% + $product-card-gap);
   }
-  @media ($desktop-max) {
-    margin-left: calc(20% - 29px + calc($product-card-tablet-gap - $ss-gap));
+  @media ($desktop-max) and ($desktop-min) {
+    margin-left: calc(16.35% + $product-card-tablet-gap);
+  }
+  @media ($tablet-max) and ($tablet-mid) {
+    margin-left: 0;
+  }
+  @media ($tablet-mad) and ($tablet-min) {
+    margin-left: calc(16.85% + $product-card-gap);
   }
   @media ($mobile-max) {
-    margin-left: -$ss-gap;
+    margin-left: 0;
   }
+  &__wrapper {
+    @extend %flex-center;
+    flex-wrap: wrap;
 
-  & > * {
-    margin-top: calc($ss-gap/2);
-    margin-left: $ss-gap;
+    margin-top: calc($ss-gap / -2);
+    margin-left: -$ss-gap;
+    padding: calc($ss-gap / 2);
+
+    & > * {
+      margin-top: calc($ss-gap / 2);
+      margin-left: $ss-gap;
+    }
   }
   &__text {
     color: $heading-color;

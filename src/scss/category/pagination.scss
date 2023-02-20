@@ -4,39 +4,64 @@
   text-align: center;
 
   &__list {
-    display: flex;
-    justify-content: center;
+    @extend %flex-center;
   }
-  &__list-item,
-  .page-item {
-    display: inline-block;
-  }
-  &__link,
-  .page-link {
-    color: $heading-color;
-    display: block;
-    padding: 0 8px;
-    font-size: 20px;
-    line-height: 1;
-    font-weight: 600;
-    text-decoration: none;
+  @at-root {
+    .page-item {
+      display: inline-block;
 
-    @media ($desktop-min) {
-      transform: scale(1);
-      transition: transform 0.2s;
-
-      &[href]:hover {
-        transform: scale(1.2);
+      &:first-child {
+        @extend %pagination-first-item !optional;
+      }
+      &:last-child {
+        @extend %pagination-last-item !optional;
       }
     }
-    @media ($mobile-max) {
-      font-size: 18px;
-    }
+  }
+  @at-root {
+    .page-link {
+      color: $heading-color;
+      display: block;
+      padding: 0 8px;
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 600;
+      text-decoration: none;
 
-    &:not([href]) {
-      color: $primary-color;
-      cursor: default;
-      text-decoration: underline;
+      @media ($desktop-min) {
+        transform: scale(1);
+        transition: transform 0.2s;
+
+        &[href]:hover {
+          transform: scale(1.2);
+        }
+      }
+      @media ($mobile-max) {
+        font-size: 18px;
+      }
+
+      &:not([href]) {
+        color: $primary-color;
+        cursor: default;
+        text-decoration: underline;
+      }
+      %pagination-first-item &[href],
+      %pagination-last-item &[href] {
+        @media ($desktop-min) {
+          &:hover {
+            transform: scale(1.03);
+          }
+        }
+        @media ($tablet-mid) {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        @media ($tablet-mad) {
+          span {
+            display: none;
+          }
+        }
+      }
     }
   }
   &__description-wrapper {
