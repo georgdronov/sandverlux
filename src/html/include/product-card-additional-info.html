@@ -2,7 +2,6 @@
   <div class="additional-info__left-column">
     <section class="additional-info__characteristics-and-reviews">
       <header class="additional-info__header">
-        <h3 class="sr-only">Характеристики и отзывы</h3>
         <nav class="additional-info__navigation">
           <ol class="additional-info__list">
             <li class="additional-info__list-item">
@@ -15,13 +14,13 @@
         </nav>
       </header>
       <section id="characteristics" class="characteristics">
-        <h3 class="characteristics__heading additional-info__heading heading">Характеристики</h3>
+        <strong class="characteristics__heading additional-info__heading heading">Характеристики</strong>
         <div class="characteristics__content _custom-content">
           @@loop('./src/html/inner-blocks/contents.html', '../json/characteristics-content.json')
         </div>
       </section>
       <section id="product-card-reviews" class="product-card-reviews">
-        <h3 class="product-card-reviews__heading additional-info__heading heading">Отзывы</h3>
+        <strong class="product-card-reviews__heading additional-info__heading heading">Отзывы</strong>
         <div class="product-card-reviews__wrapper">
           @@loop('./src/html/include/reviews-item.html', '../json/product-card-reviews.json')
         </div>
@@ -34,7 +33,6 @@
   </div>
   <div class="additional-info__right-column">
     <section class="payment-and-delivery" data-toggle-container="">
-      <h3 class="sr-only">Оплата, замер и доставка</h3>
       <nav class="payment-and-delivery__navigation" role="tablist">
         <button class="payment-and-delivery__tab" data-toggle="delivery" type="button" aria-expanded="true"
           aria-controls="delivery" role="tab">Замер и доставка</button>

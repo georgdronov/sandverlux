@@ -1,0 +1,27 @@
+.filter {
+  #mse2_filters {
+    .mse2_number_slider {
+      width: calc(100% - 2em);
+      border: none;
+      cursor: pointer;
+      margin: 25px 1em 10px;
+      font-size: 5px;
+      border-radius: 0;
+      margin-bottom: 10px;
+      background-color: $form-grey-color;
+    }
+    .ui-slider-handle {
+      top: -0.8em;
+      width: 2em;
+      border: none;
+      height: 2.4em;
+      cursor: pointer;
+      margin-left: -1em;
+      border-radius: 0;
+      background-color: $yellow;
+    }
+    .ui-slider-range {
+      background-color: $yellow;
+    }
+  }
+}

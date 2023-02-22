@@ -1,7 +1,12 @@
 <div class="our-work">
   <div class="container">
+    <div class="our-work__list-wrapper">
+      <ul class="our-work__list">
+        @@loop('./src/html/include/our-work-list-item.html', '@@json-list')
+      </ul>
+    </div>
     <div class="our-work__items">
-      @@loop('@@template', '@@json-path')
+      @@loop('./src/html/include/our-work-item.html', '@@json-items')
     </div>
   </div>
 </div>

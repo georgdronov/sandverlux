@@ -394,13 +394,25 @@
       return;
     const galleryWrapper = document.createElement("div");
     const closeButton = document.createElement("button");
+    const prevButton = document.createElement("button");
+    const nextButton = document.createElement("button");
     const galleryClassActive = "my-gallery_active";
+    this.imageIndex = 0;
+    this.maxImageIndex = galleryObjects.length - 1;
     galleryWrapper.className = "my-gallery";
     closeButton.type = "button";
     closeButton.className = "my-gallery__close";
     closeButton.innerHTML = "<span class='sr-only'>\u0417\u0430\u043A\u0440\u044B\u0442\u044C</span>";
+    prevButton.type = "button";
+    prevButton.className = "my-gallery__prev";
+    prevButton.innerHTML = "<span class='sr-only'>\u041F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0435\u0435</span>";
+    nextButton.type = "button";
+    nextButton.className = "my-gallery__next";
+    nextButton.innerHTML = "<span class='sr-only'>\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0435</span>";
     document.body.appendChild(galleryWrapper);
     galleryWrapper.appendChild(closeButton);
+    galleryWrapper.appendChild(prevButton);
+    galleryWrapper.appendChild(nextButton);
     const galleryImage = new Image();
     this.show = () => {
       myPopupOverlay.element.style.zIndex = "1055";
@@ -410,28 +422,57 @@
       myPopupOverlay.element.style = "";
       galleryWrapper.classList.remove(galleryClassActive);
     };
-    closeButton.addEventListener("click", () => this.hideGalleryElement());
     galleryWrapper.addEventListener("click", () => this.hideGalleryElement());
+    closeButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.hideGalleryElement();
+    });
+    prevButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.galleryPrev();
+    });
+    nextButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.galleryNext();
+    });
     galleryObjects.forEach((elem, index2) => {
       const imageElement = elem.querySelector("img");
       if (!imageElement)
         return;
-      const imageLink = imageElement.getAttribute("data-src") || imageElement.getAttribute("src") || "images/placeholder.png";
-      const imageSrc = imageLink.replace("/thumbnails", "");
       elem.addEventListener("click", (event2) => {
-        this.showGalleryElement(event2, imageSrc, imageElement);
+        event2.preventDefault();
+        this.showGalleryElement(imageElement, index2);
       });
       elem.addEventListener("keydown", (e) => {
         if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
-          this.showGalleryElement(e, imageSrc, imageElement);
+          e.preventDefault();
+          this.showGalleryElement(imageElement, index2);
         }
       });
     });
-    this.showGalleryElement = (event2, imageSrc, imageElement) => {
-      event2.preventDefault();
+    document.addEventListener("keydown", (e) => {
+      if (!document.querySelector(`.${galleryClassActive}`))
+        return;
+      if (e.key === "ArrowLeft")
+        this.galleryPrev();
+      if (e.key === "ArrowRight")
+        this.galleryNext();
+      if (e.key === "Escape")
+        this.hideGalleryElement();
+    });
+    this.imageUrl = (image) => {
+      return (image.getAttribute("data-src") || image.getAttribute("src") || "images/placeholder.png").replace("/thumbnails", "");
+    };
+    this.showGalleryElement = (imageElement, i) => {
+      var _a;
+      if (!imageElement)
+        return;
+      this.imageIndex = i;
+      this.arrowsManage();
       myPopupOverlay.show();
+      (_a = galleryWrapper.querySelector("img")) == null ? void 0 : _a.remove();
       galleryImage.onload = () => galleryWrapper.appendChild(galleryImage);
-      galleryImage.src = imageSrc;
+      galleryImage.src = this.imageUrl(imageElement);
       galleryImage.alt = imageElement.alt;
       this.show();
     };
@@ -440,6 +481,32 @@
       if (document.querySelectorAll(".popup_active").length)
         return;
       myPopupOverlay.hide();
+    };
+    this.galleryPrev = () => {
+      if (this.imageIndex === 0)
+        return;
+      this.showGalleryElement(
+        galleryObjects[this.imageIndex - 1].querySelector("img"),
+        this.imageIndex - 1
+      );
+    };
+    this.galleryNext = () => {
+      if (this.imageIndex === this.maxImageIndex)
+        return;
+      this.showGalleryElement(
+        galleryObjects[this.imageIndex + 1].querySelector("img"),
+        this.imageIndex + 1
+      );
+    };
+    this.arrowsManage = () => {
+      if (this.imageIndex === 0)
+        prevButton.classList.add("disabled");
+      if (this.imageIndex !== 0)
+        prevButton.classList.remove("disabled");
+      if (this.imageIndex === this.maxImageIndex)
+        nextButton.classList.add("disabled");
+      if (this.imageIndex !== this.maxImageIndex)
+        nextButton.classList.remove("disabled");
     };
   }
   function popupOverlay() {
@@ -6813,6 +6880,8 @@
       const doorPriceMaxInput = document.querySelector(
         "input[name=door-price-max]"
       );
+      if (!doorPriceMinInput || !doorPriceMaxInput)
+        return;
       nouislider_default.create(doorPriceSlider, {
         start: [
           +doorPriceMinInput.value || 0,
@@ -6947,12 +7016,12 @@
       "_opened"
     );
     toggleClassOnClick(
-      "[name=filter-toggle-item]",
+      ".filter__toggle-item",
       "parent",
       "active"
     );
     toggleClassOnClick(
-      "[name=filter-toggle-checkboxes]",
+      ".filter__toggle-checkboxes",
       "previous",
       "active"
     );

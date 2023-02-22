@@ -128,6 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "input[name=door-price-max]"
     );
 
+    if (!doorPriceMinInput || !doorPriceMaxInput) return;
+
     noUiSlider.create(doorPriceSlider, {
       start: [
         +doorPriceMinInput.value || 0,
@@ -278,12 +280,12 @@ document.addEventListener("DOMContentLoaded", function () {
     "_opened"
   );
   myFunctions.toggleClassOnClick(
-    "[name=filter-toggle-item]",
+    ".filter__toggle-item",
     "parent",
     "active"
   );
   myFunctions.toggleClassOnClick(
-    "[name=filter-toggle-checkboxes]",
+    ".filter__toggle-checkboxes",
     "previous",
     "active"
   );

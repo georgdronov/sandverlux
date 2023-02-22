@@ -15,8 +15,11 @@
     "contents": "<h1>Наши работы</h1>"
     })
     @@include('./src/html/inner-blocks/our-work.html', {
-    'template': './src/html/include/our-work-category-item.html',
-    'json-path': '../json/inner-content/our-work-our-work.json'
+    'json-list': '../json/inner-content/our-work-our-work-list.json',
+    'json-items': '../json/inner-content/our-work-our-work-items.json'
+    })
+    @@include('./src/html/include/pagination.html', {
+      'page-url': 'our-work'
     })
     @@include('./src/html/footer.html')
   </div>
