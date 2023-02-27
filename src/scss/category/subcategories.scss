@@ -9,8 +9,25 @@
     @extend %row-wrapper;
   }
   &__list-item {
-    flex: 1 1 auto;
-    max-width: 21rem;
+    flex: 1 1 20%;
+    max-width: 20%;
+
+    @media ($desktop-max) and ($desktop-min) {
+      max-width: 25%;
+      flex-basis: 25%;
+    }
+    @media ($tablet-max) and ($tablet-mid) {
+      max-width: 33.3333%;
+      flex-basis: 33.3333%;
+    }
+    @media ($tablet-mad) and ($tablet-min) {
+      max-width: 50%;
+      flex-basis: 50%;
+    }
+    @media ($mobile-max) {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
   }
   &__link {
     color: $heading-color;

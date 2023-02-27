@@ -1529,6 +1529,20 @@ body {
   background-color: #f9c201;
 }
 
+.ui-autocomplete-loading {
+  background: #c4d7be url("jquery-ui/images/ui-anim_basic_16x16.gif") right 47px center no-repeat;
+}
+
+.ui-widget.ui-widget-content {
+  border: none;
+  background-color: #e6ede4;
+  z-index: 999;
+}
+
+.product-card-search {
+  background-color: #fff;
+}
+
 .mft__item [type=radio].form__input + .form__label, .form__checkbox input ~ .form__label:before, .form__select, .form__input[type=file] ~ .form__label, .form__input {
   border: none;
   background-color: #f4f4f4;
@@ -7903,8 +7917,32 @@ body {
   margin-left: -14px;
 }
 .subcategories__list-item {
-  flex: 1 1 auto;
-  max-width: 21rem;
+  flex: 1 1 20%;
+  max-width: 20%;
+}
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  .subcategories__list-item {
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+}
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .subcategories__list-item {
+    max-width: 33.3333%;
+    flex-basis: 33.3333%;
+  }
+}
+@media (max-width: 767.98px) and (min-width: 576px) {
+  .subcategories__list-item {
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+}
+@media (max-width: 575.98px) {
+  .subcategories__list-item {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
 }
 .subcategories__link {
   color: #2d2d2d;

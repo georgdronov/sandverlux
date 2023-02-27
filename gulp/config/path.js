@@ -28,6 +28,7 @@ export const path = {
     scripts: `${srcFolder}/scripts/main.js`,
     svgs: `${srcFolder}/svg/*.svg`,
     svgSprite: `${srcFolder}/images/`,
+    robots: `${srcFolder}/robots.txt`,
   },
   watch: {
     html: `${srcFolder}/**/*.html`,
