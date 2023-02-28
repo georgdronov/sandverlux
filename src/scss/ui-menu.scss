@@ -1,0 +1,28 @@
+.product-card-search {
+  display: flex;
+}
+.product-card-search__inner {
+  position: relative;
+  padding-left: 17px;
+}
+.product-card-search__img {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+.product-card-search__title {
+  text-decoration: none;
+}
+.product-card-search__title .arrow {
+  top: 0;
+  left: 0;
+  position: absolute;
+  line-height: 1.4em;
+}
+.product-card-search__availability:not(:empty) {
+  margin-top: 5px;
+}
+.product-card-search__price {
+  margin-top: 5px;
+  font-weight: 700;
+}

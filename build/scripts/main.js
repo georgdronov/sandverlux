@@ -7191,39 +7191,6 @@
         });
       });
     }
-    const wishButtons = document.querySelectorAll("[name=product-wish]");
-    const compareButtons = document.querySelectorAll("[name=product-compare]");
-    if (wishButtons.length) {
-      const productWishCounter = document.querySelectorAll(".wishlist-count");
-      wishButtons.forEach(
-        (button) => button.addEventListener(
-          "click",
-          (event2) => fakeButtonsActivation(event2, productWishCounter)
-        )
-      );
-    }
-    if (compareButtons.length) {
-      const productCompareCounter = document.querySelectorAll(".comparison-count");
-      compareButtons.forEach(
-        (button) => button.addEventListener(
-          "click",
-          (event2) => fakeButtonsActivation(event2, productCompareCounter)
-        )
-      );
-    }
-    function fakeButtonsActivation(event2, counter) {
-      if (!event2.currentTarget.classList.contains("active")) {
-        counter.forEach((counter2) => {
-          counter2.textContent = parseInt(counter2.textContent) + 1;
-        });
-        event2.currentTarget.classList.add("active");
-      } else {
-        counter.forEach((counter2) => {
-          counter2.textContent = parseInt(counter2.textContent) - 1;
-        });
-        event2.currentTarget.classList.remove("active");
-      }
-    }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {
       const pcSwiper = new core_default(".popular-categories__items-wrapper", {
@@ -7452,47 +7419,14 @@
     function reviewsWidget(element) {
       if (!element)
         return;
-      const ratingEl = document.querySelector(".reviews-widget__overall-rating");
-      const amountEl = document.querySelector(".reviews-widget__overall-amount");
       const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
-      const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
-      fetch("/files/reviews-stats.json").then((response) => response.json()).then((result) => {
-        let summOfAllRates = 0;
-        allRatingsEl.forEach((rate, index2) => {
-          const rateProgress = rate.querySelector(".reviews-widget__progress");
-          const rateAmount = rate.querySelector(".reviews-widget__amount");
-          if (!rateProgress && !rateAmount)
-            return;
-          summOfAllRates += result.reviews[index2 + 1] * (index2 + 1);
-          rateProgress.style.flexGrow = +result.reviews[5 - index2] / +result.reviews.amount;
-          rateAmount.textContent = result.reviews[5 - index2] + "x";
-        });
-        const amountOfReviews = +result.reviews.amount, finalRating = summOfAllRates / amountOfReviews, stepRate = 150, step = Math.ceil(amountOfReviews / stepRate), stepFloat = 0.23;
-        let amountTimer = setInterval(function() {
-          let currentValue = +amountEl.textContent;
-          if (currentValue >= amountOfReviews) {
-            clearInterval(amountTimer);
-            amountEl.textContent = amountOfReviews;
-            return;
-          }
-          amountEl.textContent = currentValue + step;
-        }, stepRate / step);
-        let overallTimer = setInterval(function() {
-          let currentValue = +ratingEl.textContent;
-          if (currentValue >= finalRating - stepFloat) {
-            clearInterval(overallTimer);
-            ratingEl.textContent = finalRating;
-            return;
-          }
-          ratingEl.textContent = (currentValue + stepFloat).toFixed(1);
-        }, 8 / stepFloat);
-        starsEl.forEach((star, index2) => {
-          if (Math.ceil(finalRating) == index2 + 1)
-            return star.querySelector("svg").style.width = Math.floor(finalRating % 1 * Math.pow(10, 2)) + "%";
-          if (finalRating < index2 + 1)
-            return;
-          star.querySelector("svg").style.width = 100 + "%";
-        });
+      const rating = +document.querySelector(".reviews-widget__overall-stars").dataset.rating;
+      starsEl.forEach((star, index2) => {
+        if (Math.ceil(rating) == index2 + 1)
+          return star.querySelector("svg").style.width = Math.floor(rating % 1 * Math.pow(10, 2)) + "%";
+        if (rating < index2 + 1)
+          return;
+        star.querySelector("svg").style.width = 100 + "%";
       });
     }
     const comparison = document.querySelector(".comparison");

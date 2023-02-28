@@ -179,7 +179,7 @@
       display: block;
       overflow: hidden;
       position: absolute;
-      transform: scale(0.98);
+      transform: translateZ(0);
       background: url("../images/icons.svg#star-grey") left center/100% auto
         no-repeat transparent;
     }

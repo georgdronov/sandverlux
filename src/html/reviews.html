@@ -15,11 +15,11 @@
       @@if (context.full) {
       <div class="reviews__side">
         <section class="reviews-widget">
-          <strong class="reviews-widget__heading">@@widget.heading</strong>
+          <span class="reviews-widget__heading">@@widget.heading</span>
           <div class="reviews-widget__overall-wrapper">
-            <span class="reviews-widget__overall-rating">0</span>
+            <span class="reviews-widget__overall-rating">3.8</span>
             <div class="reviews-widget__overall-inner">
-              <div class="reviews-widget__overall-stars">
+              <div class="reviews-widget__overall-stars" data-rating="3.8">
                 <div class="reviews-widget__overall-star">
                   <svg width="38" height="34.38" aria-hidden="true">
                     <use href="images/icons.svg#star-rating" />
@@ -47,7 +47,7 @@
                 </div>
               </div>
               <p class="reviews-widget__overall-title">Всего оценок: <span
-                  class="reviews-widget__overall-amount">0</span></p>
+                  class="reviews-widget__overall-amount">5</span></p>
             </div>
           </div>
           <div class="reviews-widget__ratings">
@@ -57,7 +57,7 @@
               <svg class="reviews-widget__star" width="20" height="20" aria-hidden="true">
                 <use href="images/icons.svg#star" />
               </svg>
-              <div class="reviews-widget__progress"></div>
+              <div class="reviews-widget__progress" style="width:10%"></div>
               <span class="reviews-widget__amount">0x</span>
             </div>
             }

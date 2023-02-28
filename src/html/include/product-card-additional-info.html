@@ -14,13 +14,13 @@
         </nav>
       </header>
       <section id="characteristics" class="characteristics">
-        <strong class="characteristics__heading additional-info__heading heading">Характеристики</strong>
+        <span class="characteristics__heading additional-info__heading heading">Характеристики</span>
         <div class="characteristics__content _custom-content">
           @@loop('./src/html/inner-blocks/contents.html', '../json/characteristics-content.json')
         </div>
       </section>
       <section id="product-card-reviews" class="product-card-reviews">
-        <strong class="product-card-reviews__heading additional-info__heading heading">Отзывы</strong>
+        <span class="product-card-reviews__heading additional-info__heading heading">Отзывы</span>
         <div class="product-card-reviews__wrapper">
           @@loop('./src/html/include/reviews-item.html', '../json/product-card-reviews.json')
         </div>
