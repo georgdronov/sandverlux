@@ -128,49 +128,49 @@ document.addEventListener("DOMContentLoaded", function () {
       "input[name=door-price-max]"
     );
 
-    if (!doorPriceMinInput || !doorPriceMaxInput) return;
-
-    noUiSlider.create(doorPriceSlider, {
-      start: [
-        +doorPriceMinInput.value || 0,
-        +doorPriceMaxInput.dataset.max || 100,
-      ],
-      step: 1,
-      format: {
-        to: function (value) {
-          return parseInt(value);
+    if (!doorPriceMinInput || !doorPriceMaxInput) {
+      noUiSlider.create(doorPriceSlider, {
+        start: [
+          +doorPriceMinInput.value || 0,
+          +doorPriceMaxInput.dataset.max || 100,
+        ],
+        step: 1,
+        format: {
+          to: function (value) {
+            return parseInt(value);
+          },
+          from: function (value) {
+            return parseInt(value);
+          },
         },
-        from: function (value) {
-          return parseInt(value);
+        handleAttributes: [
+          { "aria-label": "Минимальная цена" },
+          { "aria-label": "Максимальная цена" },
+        ],
+        connect: true,
+        range: {
+          min: +doorPriceMinInput.dataset.min || 0,
+          max: +doorPriceMaxInput.dataset.max || 100,
         },
-      },
-      handleAttributes: [
-        { "aria-label": "Минимальная цена" },
-        { "aria-label": "Максимальная цена" },
-      ],
-      connect: true,
-      range: {
-        min: +doorPriceMinInput.dataset.min || 0,
-        max: +doorPriceMaxInput.dataset.max || 100,
-      },
-    });
+      });
 
-    doorPriceSlider.noUiSlider.on("update", function (values, handle) {
-      let value = values[handle];
+      doorPriceSlider.noUiSlider.on("update", function (values, handle) {
+        let value = values[handle];
 
-      if (handle) {
-        doorPriceMaxInput.value = value;
-      } else {
-        doorPriceMinInput.value = value;
-      }
-    });
+        if (handle) {
+          doorPriceMaxInput.value = value;
+        } else {
+          doorPriceMinInput.value = value;
+        }
+      });
 
-    doorPriceMinInput.addEventListener("change", function () {
-      doorPriceSlider.noUiSlider.set([this.value, null]);
-    });
-    doorPriceMaxInput.addEventListener("change", function () {
-      doorPriceSlider.noUiSlider.set([null, this.value]);
-    });
+      doorPriceMinInput.addEventListener("change", function () {
+        doorPriceSlider.noUiSlider.set([this.value, null]);
+      });
+      doorPriceMaxInput.addEventListener("change", function () {
+        doorPriceSlider.noUiSlider.set([null, this.value]);
+      });
+    }
   }
 
   // our-goods swiper //
@@ -279,11 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".products__filter",
     "_opened"
   );
-  myFunctions.toggleClassOnClick(
-    ".filter__toggle-item",
-    "parent",
-    "active"
-  );
+  myFunctions.toggleClassOnClick(".filter__toggle-item", "parent", "active");
   myFunctions.toggleClassOnClick(
     ".filter__toggle-checkboxes",
     "previous",

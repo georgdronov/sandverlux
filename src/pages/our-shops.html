@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./src/html/head.html', {
+"title": "Наши магазины | Sandverlux"
+})
+
+<body>
+  <div class="wrapper _inner-page">
+    @@include('./src/html/header.html')
+    @@include('./src/html/breadcrumbs.html', {
+    'json-path': '../json/breadcrumbs/our-shops.json'
+    })
+    @@include('./src/html/inner-blocks/custom-content.html', {
+    "contents": "<h1>Наши магазины</h1>"
+    })
+    @@include('./src/html/our-shops.html', {
+      'detailed': true
+    })
+    @@include('./src/html/footer.html')
+  </div>
+  @@include("./src/html/body-bottom.html")
+</body>
+
+</html>

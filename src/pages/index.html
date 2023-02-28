@@ -21,7 +21,9 @@
       'heading': 'Отзывы покупателей',
       'json-path': '../json/reviews-main.json'
     })
-    @@include('./src/html/our-shops.html')
+    @@include('./src/html/our-shops.html', {
+      'heading': 'Наши магазины'
+    })
     @@include('./src/html/footer.html')
   </div>
   @@include("./src/html/body-bottom.html")
