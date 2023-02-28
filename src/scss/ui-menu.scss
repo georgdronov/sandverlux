@@ -1,12 +1,28 @@
-.ui-autocomplete-loading {
-  background: #c4d7be url("jquery-ui/images/ui-anim_basic_16x16.gif") right 47px
-    center no-repeat;
-}
-.ui-widget.ui-widget-content {
-  border: none;
-  background-color: #e6ede4;
-  z-index: 999;
-}
 .product-card-search {
-  background-color: $white;
+  display: flex;
+}
+.product-card-search__inner {
+  position: relative;
+  padding-left: 17px;
+}
+.product-card-search__img {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+.product-card-search__title {
+  text-decoration: none;
+}
+.product-card-search__title .arrow {
+  top: 0;
+  left: 0;
+  position: absolute;
+  line-height: 1.4em;
+}
+.product-card-search__availability:not(:empty) {
+  margin-top: 5px;
+}
+.product-card-search__price {
+  margin-top: 5px;
+  font-weight: 700;
 }

@@ -485,7 +485,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // features fake functionality //
-
+/*
   const wishButtons = document.querySelectorAll("[name=product-wish]");
   const compareButtons = document.querySelectorAll("[name=product-compare]");
 
@@ -519,7 +519,7 @@ document.addEventListener("DOMContentLoaded", function () {
       event.currentTarget.classList.remove("active");
     }
   }
-
+*/
   // popular categories //
 
   const popularCategories = document.querySelectorAll(".popular-categories");
@@ -814,11 +814,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function reviewsWidget(element) {
     if (!element) return;
 
-    const ratingEl = document.querySelector(".reviews-widget__overall-rating");
-    const amountEl = document.querySelector(".reviews-widget__overall-amount");
+    // const ratingEl = document.querySelector(".reviews-widget__overall-rating");
+    // const amountEl = document.querySelector(".reviews-widget__overall-amount");
     const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
-    const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
+    const rating = +document.querySelector(".reviews-widget__overall-stars").dataset.rating;
+    // const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
 
+    // overall stars //
+    starsEl.forEach((star, index) => {
+      if (Math.ceil(rating) == index + 1)
+        return (star.querySelector("svg").style.width =
+          Math.floor((rating % 1) * Math.pow(10, 2)) + "%");
+      if (rating < index + 1) return;
+      star.querySelector("svg").style.width = 100 + "%";
+    });
+/*
     fetch("/files/reviews-stats.json")
       .then((response) => response.json())
       .then((result) => {
@@ -873,7 +883,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (finalRating < index + 1) return;
           star.querySelector("svg").style.width = 100 + "%";
         });
-      });
+      });*/
   }
 
   // comparison remove action //
