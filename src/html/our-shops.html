@@ -1,6 +1,9 @@
-<section class="our-shops">
+<section class="our-shops @@if(context.detailed){_detailed}">
   <div class="container">
-    <h2 class="our-shops__heading heading">Наши магазины</h2>
+    @@if (context.heading) {
+      <h2 class="our-shops__heading heading">@@heading</h2>
+    }
+    @@if(!context.detailed){
     <div class="our-shops__items row">
       <div class="our-shops__item">
         <div class="our-shops__inner">
@@ -39,6 +42,7 @@
         </div>
       </div>
     </div>
+    }
     <div class="our-shops__map">
       <div class="map">
         <div class="map__overlay">

@@ -6880,46 +6880,46 @@
       const doorPriceMaxInput = document.querySelector(
         "input[name=door-price-max]"
       );
-      if (!doorPriceMinInput || !doorPriceMaxInput)
-        return;
-      nouislider_default.create(doorPriceSlider, {
-        start: [
-          +doorPriceMinInput.value || 0,
-          +doorPriceMaxInput.dataset.max || 100
-        ],
-        step: 1,
-        format: {
-          to: function(value) {
-            return parseInt(value);
+      if (!doorPriceMinInput || !doorPriceMaxInput) {
+        nouislider_default.create(doorPriceSlider, {
+          start: [
+            +doorPriceMinInput.value || 0,
+            +doorPriceMaxInput.dataset.max || 100
+          ],
+          step: 1,
+          format: {
+            to: function(value) {
+              return parseInt(value);
+            },
+            from: function(value) {
+              return parseInt(value);
+            }
           },
-          from: function(value) {
-            return parseInt(value);
+          handleAttributes: [
+            { "aria-label": "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0446\u0435\u043D\u0430" },
+            { "aria-label": "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0446\u0435\u043D\u0430" }
+          ],
+          connect: true,
+          range: {
+            min: +doorPriceMinInput.dataset.min || 0,
+            max: +doorPriceMaxInput.dataset.max || 100
           }
-        },
-        handleAttributes: [
-          { "aria-label": "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0446\u0435\u043D\u0430" },
-          { "aria-label": "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u0446\u0435\u043D\u0430" }
-        ],
-        connect: true,
-        range: {
-          min: +doorPriceMinInput.dataset.min || 0,
-          max: +doorPriceMaxInput.dataset.max || 100
-        }
-      });
-      doorPriceSlider.noUiSlider.on("update", function(values, handle) {
-        let value = values[handle];
-        if (handle) {
-          doorPriceMaxInput.value = value;
-        } else {
-          doorPriceMinInput.value = value;
-        }
-      });
-      doorPriceMinInput.addEventListener("change", function() {
-        doorPriceSlider.noUiSlider.set([this.value, null]);
-      });
-      doorPriceMaxInput.addEventListener("change", function() {
-        doorPriceSlider.noUiSlider.set([null, this.value]);
-      });
+        });
+        doorPriceSlider.noUiSlider.on("update", function(values, handle) {
+          let value = values[handle];
+          if (handle) {
+            doorPriceMaxInput.value = value;
+          } else {
+            doorPriceMinInput.value = value;
+          }
+        });
+        doorPriceMinInput.addEventListener("change", function() {
+          doorPriceSlider.noUiSlider.set([this.value, null]);
+        });
+        doorPriceMaxInput.addEventListener("change", function() {
+          doorPriceSlider.noUiSlider.set([null, this.value]);
+        });
+      }
     }
     const ogFilterButtons = document.querySelectorAll(".our-goods__button");
     let ogSlides = null;
@@ -7015,11 +7015,7 @@
       ".products__filter",
       "_opened"
     );
-    toggleClassOnClick(
-      ".filter__toggle-item",
-      "parent",
-      "active"
-    );
+    toggleClassOnClick(".filter__toggle-item", "parent", "active");
     toggleClassOnClick(
       ".filter__toggle-checkboxes",
       "previous",
