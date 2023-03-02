@@ -10,6 +10,9 @@
     .page-item {
       display: inline-block;
 
+      &.active {
+        @extend %pagination-active-item !optional;
+      }
       &:first-child {
         @extend %pagination-first-item !optional;
       }
@@ -40,9 +43,11 @@
         font-size: 18px;
       }
 
-      &:not([href]) {
+      &:not([href]),
+      %pagination-active-item & {
         color: $primary-color;
         cursor: default;
+        pointer-events: none;
         text-decoration: underline;
       }
       %pagination-first-item &[href],

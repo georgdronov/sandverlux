@@ -34,6 +34,7 @@ export const images = () => {
               quantTable: 7,
               trellis: true,
               trellisDC: true,
+              progressive: true,
             }),
             svgo({
               plugins: [
