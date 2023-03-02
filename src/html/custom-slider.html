@@ -4,7 +4,8 @@
     <h2 class="custom-slider__heading heading">@@title</h2>
     }
     <div class="custom-slider__slider-wrapper">
-      <div class="custom-slider__swiper">
+      <div class="custom-slider__swiper"@@if(context.smallGap){ data-gap="@@smallGap"}
+        @@if(context.slides){ data-slides="@@slides"}@@if(context.mobSlides){ data-mob-slides="@@mobSlides"}>
         <div class="custom-slider__swiper-wrapper">
           @@loop('@@item-path', '@@json-path')
         </div>

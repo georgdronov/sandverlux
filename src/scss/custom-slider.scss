@@ -25,6 +25,9 @@
     &:not(&-initialized) {
       @extend %custom-slider-not-initialized !optional;
     }
+    &:not([data-slides]) {
+      @extend %custom-slider-no-slides !optional;
+    }
     &:not(.locked) {
       @media ($desktop-min-xl) {
         margin-left: $container-padding-desktop;
@@ -38,6 +41,8 @@
         margin-left: $container-padding-mobile;
         margin-right: $container-padding-mobile;
       }
+
+      @extend %custom-slider-not-locked !optional;
     }
   }
   &__swiper-wrapper {
@@ -54,6 +59,8 @@
     flex-shrink: 0;
     flex-direction: column;
     transition-property: transform;
+
+    @extend %custom-slider-slide !optional;
 
     %custom-slider-not-initialized & {
       width: 20%;
@@ -98,6 +105,8 @@
     transition: opacity 0.3s, visibility 0.3s;
     user-select: none;
     background-color: transparent;
+
+    @extend %custom-slider-nav-btn !optional;
 
     @media ($desktop-min-xl) {
       width: calc($container-padding-desktop * 2);

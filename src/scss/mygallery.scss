@@ -77,6 +77,7 @@
   &__prev,
   &__next {
     top: 50%;
+    top: calc(50% - 20px);
     width: 40px;
     height: 40px;
     border: none;
@@ -116,34 +117,40 @@
     display: block;
     position: absolute;
     background-color: $white;
-
-    @media ($mobile-max) {
-      width: 25px;
-    }
   }
   &__prev {
     left: 50px;
+
+    @media ($mobile-max) {
+      left: 35px;
+    }
+
     &:before {
       @extend %my-gallery-arrow-pseudo;
-      transform-origin: left center;
+      transform-origin: left bottom;
       transform: rotate(-45deg);
     }
     &:after {
       @extend %my-gallery-arrow-pseudo;
-      transform-origin: left center;
+      transform-origin: left top;
       transform: rotate(45deg);
     }
   }
   &__next {
     right: 50px;
+
+    @media ($mobile-max) {
+      right: 35px;
+    }
+
     &:before {
       @extend %my-gallery-arrow-pseudo;
-      transform-origin: right center;
+      transform-origin: right top;
       transform: rotate(-45deg);
     }
     &:after {
       @extend %my-gallery-arrow-pseudo;
-      transform-origin: right center;
+      transform-origin: right bottom;
       transform: rotate(45deg);
     }
   }

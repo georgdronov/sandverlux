@@ -7039,43 +7039,49 @@
       ".custom-slider__swiper-wrapper > *"
     );
     if (psSlides.length) {
-      const psSwiper = new core_default(".custom-slider__swiper", {
-        modules: [Navigation],
-        loop: false,
-        rewind: false,
-        grabCursor: true,
-        slidesPerView: "auto",
-        spaceBetween: 60,
-        setWrapperSize: true,
-        containerModifierClass: "custom-slider__swiper-",
-        wrapperClass: "custom-slider__swiper-wrapper",
-        navigation: {
-          nextEl: ".custom-slider__nav-btn_next",
-          prevEl: ".custom-slider__nav-btn_prev",
-          lockClass: "custom-slider__nav-btn_lock",
-          disabledClass: "custom-slider__nav-btn_disabled"
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 2,
-            spaceBetween: 15
+      const csSwiper = document.querySelectorAll(".custom-slider__swiper");
+      const csNext = document.querySelectorAll(".custom-slider__nav-btn_next");
+      const csPrev = document.querySelectorAll(".custom-slider__nav-btn_prev");
+      csSwiper.forEach((slider, index2) => {
+        var _a, _b, _c, _d, _e;
+        const swiper = new core_default(slider, {
+          modules: [Navigation],
+          loop: false,
+          rewind: false,
+          grabCursor: true,
+          slidesPerView: ((_a = slider.dataset) == null ? void 0 : _a.slides) ? +slider.dataset.slides : "auto",
+          spaceBetween: ((_b = slider.dataset) == null ? void 0 : _b.gap) ? +slider.dataset.gap : 60,
+          setWrapperSize: true,
+          containerModifierClass: "custom-slider__swiper-",
+          wrapperClass: "custom-slider__swiper-wrapper",
+          navigation: {
+            nextEl: csNext[index2],
+            prevEl: csPrev[index2],
+            lockClass: "custom-slider__nav-btn_lock",
+            disabledClass: "custom-slider__nav-btn_disabled"
           },
-          576: {
-            slidesPerView: "auto",
-            spaceBetween: 60
+          breakpoints: {
+            0: {
+              slidesPerView: ((_c = slider.dataset) == null ? void 0 : _c.mobSlides) ? +slider.dataset.mobSlides : 2,
+              spaceBetween: 15
+            },
+            576: {
+              slidesPerView: ((_d = slider.dataset) == null ? void 0 : _d.slides) ? +slider.dataset.slides : "auto",
+              spaceBetween: ((_e = slider.dataset) == null ? void 0 : _e.gap) ? +slider.dataset.gap : 60
+            }
+          },
+          on: {
+            init: function() {
+              updateSliderLockedState(this);
+            },
+            update: function() {
+              updateSliderLockedState(this);
+            },
+            resize: function() {
+              updateSliderLockedState(this);
+            }
           }
-        },
-        on: {
-          init: function() {
-            updateSliderLockedState(this);
-          },
-          update: function() {
-            updateSliderLockedState(this);
-          },
-          resize: function() {
-            updateSliderLockedState(this);
-          }
-        }
+        });
       });
     }
     const pcsClass = "product-card-slider__", pcsSlidersClasses = ["pcs-slider-01", "pcs-slider-02"];

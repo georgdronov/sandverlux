@@ -1,0 +1,27 @@
+.slider-our-shops {
+  width: 100%;
+  max-width: 100%;
+
+  %custom-slider-no-slides & {
+    width: 19.35rem;
+
+    @media ($tablet-max) and ($tablet-min) {
+      width: 25rem;
+    }
+    @media ($mobile-max) {
+      width: 100%;
+    }
+  }
+
+  &__image-wrapper {
+    height: 152px;
+    cursor: pointer;
+
+    @media ($tablet-min) {
+      height: 0;
+      padding-top: 79%;
+    }
+  }
+  // &__image {
+  // }
+}

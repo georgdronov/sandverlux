@@ -307,51 +307,56 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // product slider swiper //
+  // custom slider swiper //
   const psSlides = document.querySelectorAll(
     ".custom-slider__swiper-wrapper > *"
   );
 
   if (psSlides.length) {
-    // eslint-disable-next-line no-unused-vars
-    const psSwiper = new Swiper(".custom-slider__swiper", {
-      modules: [Navigation],
-      loop: false,
-      rewind: false,
-      grabCursor: true,
-      slidesPerView: "auto",
-      spaceBetween: 60,
-      setWrapperSize: true,
-      containerModifierClass: "custom-slider__swiper-",
-      wrapperClass: "custom-slider__swiper-wrapper",
+    const csSwiper = document.querySelectorAll(".custom-slider__swiper");
+    const csNext = document.querySelectorAll(".custom-slider__nav-btn_next");
+    const csPrev = document.querySelectorAll(".custom-slider__nav-btn_prev");
+    csSwiper.forEach((slider, index) => {
+      // eslint-disable-next-line no-unused-vars
+      const swiper = new Swiper(slider, {
+        modules: [Navigation],
+        loop: false,
+        rewind: false,
+        grabCursor: true,
+        slidesPerView: slider.dataset?.slides ? +slider.dataset.slides : "auto",
+        spaceBetween: slider.dataset?.gap ? +slider.dataset.gap : 60,
+        setWrapperSize: true,
+        containerModifierClass: "custom-slider__swiper-",
+        wrapperClass: "custom-slider__swiper-wrapper",
 
-      navigation: {
-        nextEl: ".custom-slider__nav-btn_next",
-        prevEl: ".custom-slider__nav-btn_prev",
-        lockClass: "custom-slider__nav-btn_lock",
-        disabledClass: "custom-slider__nav-btn_disabled",
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 2,
-          spaceBetween: 15,
+        navigation: {
+          nextEl: csNext[index],
+          prevEl: csPrev[index],
+          lockClass: "custom-slider__nav-btn_lock",
+          disabledClass: "custom-slider__nav-btn_disabled",
         },
-        576: {
-          slidesPerView: "auto",
-          spaceBetween: 60,
+        breakpoints: {
+          0: {
+            slidesPerView: slider.dataset?.mobSlides ? +slider.dataset.mobSlides : 2,
+            spaceBetween: 15,
+          },
+          576: {
+            slidesPerView: slider.dataset?.slides ? +slider.dataset.slides : "auto",
+            spaceBetween: slider.dataset?.gap ? +slider.dataset.gap : 60,
+          },
         },
-      },
-      on: {
-        init: function () {
-          updateSliderLockedState(this);
+        on: {
+          init: function () {
+            updateSliderLockedState(this);
+          },
+          update: function () {
+            updateSliderLockedState(this);
+          },
+          resize: function () {
+            updateSliderLockedState(this);
+          },
         },
-        update: function () {
-          updateSliderLockedState(this);
-        },
-        resize: function () {
-          updateSliderLockedState(this);
-        },
-      },
+      });
     });
   }
 
@@ -481,7 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // features fake functionality //
-/*
+  /*
   const wishButtons = document.querySelectorAll("[name=product-wish]");
   const compareButtons = document.querySelectorAll("[name=product-compare]");
 
@@ -813,7 +818,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // const ratingEl = document.querySelector(".reviews-widget__overall-rating");
     // const amountEl = document.querySelector(".reviews-widget__overall-amount");
     const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
-    const rating = +document.querySelector(".reviews-widget__overall-stars").dataset.rating;
+    const rating = +document.querySelector(".reviews-widget__overall-stars")
+      .dataset.rating;
     // const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
 
     // overall stars //
@@ -824,7 +830,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (rating < index + 1) return;
       star.querySelector("svg").style.width = 100 + "%";
     });
-/*
+    /*
     fetch("/files/reviews-stats.json")
       .then((response) => response.json())
       .then((result) => {
