@@ -181,8 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (ogFilterButtons.length) {
     ogFilterButtons.forEach((button) =>
       button.addEventListener("click", (event) => {
-        showCorrectCategory(event.currentTarget.value);
-        switchCategoryButton(event.currentTarget);
+        showCorrectCategory(event.currentTarget.value, ogSlides);
+        switchCategoryButton(event.currentTarget, ogFilterButtons);
         ogSwiper.update();
       })
     );
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
         init: function () {
           updateSliderLockedState(this);
           ogSlides = this.slides;
-          showCorrectCategory("bestseller");
+          showCorrectCategory("bestseller", ogSlides);
         },
         // observerUpdate: function () {
         //   console.log("observerUpdate");
@@ -337,11 +337,15 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         breakpoints: {
           0: {
-            slidesPerView: slider.dataset?.mobSlides ? +slider.dataset.mobSlides : 2,
+            slidesPerView: slider.dataset?.mobSlides
+              ? +slider.dataset.mobSlides
+              : 2,
             spaceBetween: 15,
           },
           576: {
-            slidesPerView: slider.dataset?.slides ? +slider.dataset.slides : "auto",
+            slidesPerView: slider.dataset?.slides
+              ? +slider.dataset.slides
+              : "auto",
             spaceBetween: slider.dataset?.gap ? +slider.dataset.gap : 60,
           },
         },
@@ -485,6 +489,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // our work category switcher //
+
+  const owFilterButtons = document.querySelectorAll(".our-work__list-button");
+  const owItems = document.querySelectorAll(".our-work__item");
+
+  if (owFilterButtons.length && owItems.length) {
+    owFilterButtons.forEach((button) =>
+      button.addEventListener("click", () => {
+        showCorrectCategory(button.value, owItems);
+        switchCategoryButton(button, owFilterButtons);
+      })
+    );
+  }
+
   // features fake functionality //
   /*
   const wishButtons = document.querySelectorAll("[name=product-wish]");
@@ -568,20 +586,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function showCorrectCategory(category) {
-    if (ogSlides === null) return;
-    ogSlides.forEach((slide) => addCategoryClass(slide, category));
+  function showCorrectCategory(category, slides) {
+    if (slides === null) return;
+    slides.forEach((slide) => addCategoryClass(slide, category));
   }
 
   function addCategoryClass(slide, buttonCategory) {
     const slideCategories = slide.dataset.slideCategory.split(",");
-    slide.classList.remove("our-goods__slide-show");
+    if (buttonCategory === "")
+      return slide.classList.add(`${slide.classList[0]}_show`);
+    slide.classList.remove(`${slide.classList[0]}_show`);
     if (!slideCategories.includes(buttonCategory)) return;
-    slide.classList.add("our-goods__slide-show");
+    slide.classList.add(`${slide.classList[0]}_show`);
   }
 
-  function switchCategoryButton(button) {
-    ogFilterButtons.forEach((btn) => btn.classList.remove("active"));
+  function switchCategoryButton(button, allButtons) {
+    allButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
   }
 

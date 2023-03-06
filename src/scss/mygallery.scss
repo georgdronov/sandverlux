@@ -154,6 +154,11 @@
       transform: rotate(45deg);
     }
   }
+  @at-root {
+    [data-gallery] {
+      user-select: none;
+    }
+  }
 
   img {
     border: 5px solid #fff;

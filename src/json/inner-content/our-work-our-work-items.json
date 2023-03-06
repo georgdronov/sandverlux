@@ -1,50 +1,62 @@
 [
   {
     "imageSrc": "images/our-work/thumbnails/door-01.jpg",
-    "alt": "наши работы - двери эмаль 01"
+    "alt": "наши работы - двери эмаль 01",
+    "category": "c01"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-02.jpg",
-    "alt": "наши работы - двери эмаль 02"
+    "alt": "наши работы - двери эмаль 02",
+    "category": "c02"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-03.jpg",
-    "alt": "наши работы - двери эмаль 03"
+    "alt": "наши работы - двери эмаль 03",
+    "category": "c03"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-04.jpg",
-    "alt": "наши работы - двери эмаль 04"
+    "alt": "наши работы - двери эмаль 04",
+    "category": "c04"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-01.jpg",
-    "alt": "наши работы - двери эмаль 05"
+    "alt": "наши работы - двери эмаль 05",
+    "category": "c01"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-02.jpg",
-    "alt": "наши работы - двери эмаль 06"
+    "alt": "наши работы - двери эмаль 06",
+    "category": "c02"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-03.jpg",
-    "alt": "наши работы - двери эмаль 07"
+    "alt": "наши работы - двери эмаль 07",
+    "category": "c03"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-04.jpg",
-    "alt": "наши работы - двери эмаль 08"
+    "alt": "наши работы - двери эмаль 08",
+    "category": "c04"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-01.jpg",
-    "alt": "наши работы - двери эмаль 09"
+    "alt": "наши работы - двери эмаль 09",
+    "category": "c01"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-02.jpg",
-    "alt": "наши работы - двери эмаль 10"
+    "alt": "наши работы - двери эмаль 10",
+    "category": "c02"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-03.jpg",
-    "alt": "наши работы - двери эмаль 11"
+    "alt": "наши работы - двери эмаль 11",
+    "category": "c03"
   },
   {
     "imageSrc": "images/our-work/thumbnails/door-04.jpg",
-    "alt": "наши работы - двери эмаль 12"
+    "alt": "наши работы - двери эмаль 12",
+    "category": "c04"
   }
 ]

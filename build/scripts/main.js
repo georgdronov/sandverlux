@@ -398,6 +398,8 @@
     const nextButton = document.createElement("button");
     const galleryClassActive = "my-gallery_active";
     this.imageIndex = 0;
+    this.activeIndexes = [];
+    this.minImageIndex = 0;
     this.maxImageIndex = galleryObjects.length - 1;
     galleryWrapper.className = "my-gallery";
     closeButton.type = "button";
@@ -441,11 +443,13 @@
         return;
       elem.addEventListener("click", (event2) => {
         event2.preventDefault();
+        this.setActiveIndexes();
         this.showGalleryElement(imageElement, index2);
       });
       elem.addEventListener("keydown", (e) => {
         if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
           e.preventDefault();
+          this.setActiveIndexes();
           this.showGalleryElement(imageElement, index2);
         }
       });
@@ -483,30 +487,59 @@
       myPopupOverlay.hide();
     };
     this.galleryPrev = () => {
-      if (this.imageIndex === 0)
-        return;
+      const prevIndex = this.getIndex("prev");
       this.showGalleryElement(
-        galleryObjects[this.imageIndex - 1].querySelector("img"),
-        this.imageIndex - 1
+        galleryObjects[prevIndex].querySelector("img"),
+        prevIndex
       );
     };
     this.galleryNext = () => {
-      if (this.imageIndex === this.maxImageIndex)
-        return;
+      const nextIndex = this.getIndex("next");
       this.showGalleryElement(
-        galleryObjects[this.imageIndex + 1].querySelector("img"),
-        this.imageIndex + 1
+        galleryObjects[nextIndex].querySelector("img"),
+        nextIndex
       );
     };
     this.arrowsManage = () => {
-      if (this.imageIndex === 0)
+      if (this.imageIndex === this.minImageIndex)
         prevButton.classList.add("disabled");
-      if (this.imageIndex !== 0)
+      if (this.imageIndex !== this.minImageIndex)
         prevButton.classList.remove("disabled");
       if (this.imageIndex === this.maxImageIndex)
         nextButton.classList.add("disabled");
       if (this.imageIndex !== this.maxImageIndex)
         nextButton.classList.remove("disabled");
+    };
+    this.setActiveIndexes = () => {
+      this.activeIndexes.length = 0;
+      galleryObjects.forEach((obj, index2) => {
+        if (obj.offsetParent && window.getComputedStyle(obj).visibility !== "hidden")
+          this.activeIndexes.push(index2);
+      });
+      this.minImageIndex = this.activeIndexes[0];
+      this.maxImageIndex = this.activeIndexes[this.activeIndexes.length - 1];
+    };
+    this.getIndex = (direction) => {
+      if (!direction)
+        return -1;
+      if (direction === "prev") {
+        if (this.imageIndex === this.minImageIndex)
+          return -1;
+        for (let i = this.imageIndex - 1; i >= this.minImageIndex; i--) {
+          if (galleryObjects[i].offsetParent && window.getComputedStyle(galleryObjects[i]).visibility !== "hidden") {
+            return i;
+          }
+        }
+      }
+      if (direction === "next") {
+        if (this.imageIndex === this.maxImageIndex)
+          return -1;
+        for (let i = this.imageIndex + 1; i <= this.maxImageIndex; i++) {
+          if (galleryObjects[i].offsetParent && window.getComputedStyle(galleryObjects[i]).visibility !== "hidden") {
+            return i;
+          }
+        }
+      }
     };
   }
   function popupOverlay() {
@@ -6926,8 +6959,8 @@
     if (ogFilterButtons.length) {
       ogFilterButtons.forEach(
         (button) => button.addEventListener("click", (event2) => {
-          showCorrectCategory(event2.currentTarget.value);
-          switchCategoryButton(event2.currentTarget);
+          showCorrectCategory(event2.currentTarget.value, ogSlides);
+          switchCategoryButton(event2.currentTarget, ogFilterButtons);
           ogSwiper.update();
         })
       );
@@ -6984,7 +7017,7 @@
           init: function() {
             updateSliderLockedState(this);
             ogSlides = this.slides;
-            showCorrectCategory("bestseller");
+            showCorrectCategory("bestseller", ogSlides);
           },
           // observerUpdate: function () {
           //   console.log("observerUpdate");
@@ -7197,6 +7230,16 @@
         });
       });
     }
+    const owFilterButtons = document.querySelectorAll(".our-work__list-button");
+    const owItems = document.querySelectorAll(".our-work__item");
+    if (owFilterButtons.length && owItems.length) {
+      owFilterButtons.forEach(
+        (button) => button.addEventListener("click", () => {
+          showCorrectCategory(button.value, owItems);
+          switchCategoryButton(button, owFilterButtons);
+        })
+      );
+    }
     const popularCategories = document.querySelectorAll(".popular-categories");
     if (popularCategories.length) {
       const pcSwiper = new core_default(".popular-categories__items-wrapper", {
@@ -7239,20 +7282,22 @@
         }
       });
     }
-    function showCorrectCategory(category) {
-      if (ogSlides === null)
+    function showCorrectCategory(category, slides) {
+      if (slides === null)
         return;
-      ogSlides.forEach((slide) => addCategoryClass(slide, category));
+      slides.forEach((slide) => addCategoryClass(slide, category));
     }
     function addCategoryClass(slide, buttonCategory) {
       const slideCategories = slide.dataset.slideCategory.split(",");
-      slide.classList.remove("our-goods__slide-show");
+      if (buttonCategory === "")
+        return slide.classList.add(`${slide.classList[0]}_show`);
+      slide.classList.remove(`${slide.classList[0]}_show`);
       if (!slideCategories.includes(buttonCategory))
         return;
-      slide.classList.add("our-goods__slide-show");
+      slide.classList.add(`${slide.classList[0]}_show`);
     }
-    function switchCategoryButton(button) {
-      ogFilterButtons.forEach((btn) => btn.classList.remove("active"));
+    function switchCategoryButton(button, allButtons) {
+      allButtons.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
     }
     function updateSliderLockedState(slider) {

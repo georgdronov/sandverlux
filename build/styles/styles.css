@@ -389,7 +389,7 @@ label {
   flex-wrap: wrap;
 }
 
-.popup__close, .sliders-switcher__button-wrapper, .sliders-switcher__wrapper, .pagination__list, .our-work__item, .our-work__list-link, .anchor-navigation__link, .comparison__remove, .comparison__notice, .filler, .custom-slider__nav-btn, .our-shops__icon, .reviews-widget__overall-rating, .our-goods__nav-btn, .product__features-inner, .popular-categories__nav-btn, .mft__item [type=radio].form__input + .form__label, .feature-buttons__link, ._custom-content figure::before, .map__overlay {
+.popup__close, .sliders-switcher__button-wrapper, .sliders-switcher__wrapper, .pagination__list, .our-work__item, .our-work__list-button, .anchor-navigation__link, .comparison__remove, .comparison__notice, .filler, .custom-slider__nav-btn, .our-shops__icon, .reviews-widget__overall-rating, .our-goods__nav-btn, .product__features-inner, .popular-categories__nav-btn, .mft__item [type=radio].form__input + .form__label, .feature-buttons__link, ._custom-content figure::before, .map__overlay {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4192,7 +4192,7 @@ body {
 .our-goods__swiper:not(.our-goods__swiper-initialized) .our-goods__slide {
   width: 20%;
 }
-.our-goods__slide:not(.our-goods__slide-show) {
+.our-goods__slide:not(.our-goods__slide_show) {
   display: none;
 }
 .our-goods__slide .product {
@@ -7872,7 +7872,7 @@ body {
     max-width: 100%;
   }
 }
-.our-work__list-link {
+.our-work__list-button {
   width: 100%;
   color: #2d2d2d;
   height: 100%;
@@ -7886,21 +7886,21 @@ body {
   text-decoration: none;
   background-color: #fff;
 }
-.our-work__list-link.active {
+.our-work__list-button.active {
   color: #fff;
   background-color: #84a878;
 }
 @media (min-width: 992px) {
-  .our-work__list-link {
+  .our-work__list-button {
     transition: background-color 0.2s, color 0.2s;
   }
-  .our-work__list-link:hover {
+  .our-work__list-button:hover {
     color: #fff;
     background-color: #84a878;
   }
 }
 @media (max-width: 1199.98px) {
-  .our-work__list-link {
+  .our-work__list-button {
     font-size: 14px;
     min-height: 60px;
   }
@@ -7950,6 +7950,9 @@ body {
     flex: 1 1 50%;
     max-width: 50%;
   }
+}
+.our-work__item:not(.our-work__item_show) {
+  display: none;
 }
 .our-work__image-wrapper {
   width: 100%;
@@ -10411,6 +10414,10 @@ body {
   transform-origin: right bottom;
   transform: rotate(45deg);
 }
+[data-gallery] {
+  user-select: none;
+}
+
 .my-gallery img {
   border: 5px solid #fff;
   max-width: 90%;

@@ -1,23 +1,23 @@
 [
   {
     "category": "Все работы",
-    "link": "#",
+    "value": "",
     "active": true
   },
   {
     "category": "Двери входные металлические",
-    "link": "/our-work---dveri-vhodnye-metallicheskie"
+    "value": "c01"
   },
   {
     "category": "Системы открывания",
-    "link": "#"
+    "value": "c02"
   },
   {
     "category": "Дверные блоки СТБ",
-    "link": "#"
+    "value": "c03"
   },
   {
     "category": "Дверные специальные",
-    "link": "#"
+    "value": "c04"
   }
 ]

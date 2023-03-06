@@ -531,6 +531,8 @@ function gallery() {
   const nextButton = document.createElement("button");
   const galleryClassActive = "my-gallery_active";
   this.imageIndex = 0;
+  this.activeIndexes = [];
+  this.minImageIndex = 0;
   this.maxImageIndex = galleryObjects.length - 1;
 
   galleryWrapper.className = "my-gallery";
@@ -580,11 +582,13 @@ function gallery() {
 
     elem.addEventListener("click", (event) => {
       event.preventDefault();
+      this.setActiveIndexes();
       this.showGalleryElement(imageElement, index);
     });
     elem.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
         e.preventDefault();
+        this.setActiveIndexes();
         this.showGalleryElement(imageElement, index);
       }
     });
@@ -625,27 +629,68 @@ function gallery() {
   };
 
   this.galleryPrev = () => {
-    if (this.imageIndex === 0) return;
+    const prevIndex = this.getIndex("prev");
     this.showGalleryElement(
-      galleryObjects[this.imageIndex - 1].querySelector("img"),
-      this.imageIndex - 1
+      galleryObjects[prevIndex].querySelector("img"),
+      prevIndex
     );
   };
   this.galleryNext = () => {
-    if (this.imageIndex === this.maxImageIndex) return;
+    const nextIndex = this.getIndex("next");
     this.showGalleryElement(
-      galleryObjects[this.imageIndex + 1].querySelector("img"),
-      this.imageIndex + 1
+      galleryObjects[nextIndex].querySelector("img"),
+      nextIndex
     );
   };
 
   this.arrowsManage = () => {
-    if (this.imageIndex === 0) prevButton.classList.add("disabled");
-    if (this.imageIndex !== 0) prevButton.classList.remove("disabled");
+    if (this.imageIndex === this.minImageIndex)
+      prevButton.classList.add("disabled");
+    if (this.imageIndex !== this.minImageIndex)
+      prevButton.classList.remove("disabled");
     if (this.imageIndex === this.maxImageIndex)
       nextButton.classList.add("disabled");
     if (this.imageIndex !== this.maxImageIndex)
       nextButton.classList.remove("disabled");
+  };
+
+  this.setActiveIndexes = () => {
+    this.activeIndexes.length = 0;
+    galleryObjects.forEach((obj, index) => {
+      if (
+        obj.offsetParent &&
+        window.getComputedStyle(obj).visibility !== "hidden"
+      )
+        this.activeIndexes.push(index);
+    });
+    this.minImageIndex = this.activeIndexes[0];
+    this.maxImageIndex = this.activeIndexes[this.activeIndexes.length - 1];
+  };
+
+  this.getIndex = (direction) => {
+    if (!direction) return -1;
+    if (direction === "prev") {
+      if (this.imageIndex === this.minImageIndex) return -1;
+      for (let i = this.imageIndex - 1; i >= this.minImageIndex; i--) {
+        if (
+          galleryObjects[i].offsetParent &&
+          window.getComputedStyle(galleryObjects[i]).visibility !== "hidden"
+        ) {
+          return i;
+        }
+      }
+    }
+    if (direction === "next") {
+      if (this.imageIndex === this.maxImageIndex) return -1;
+      for (let i = this.imageIndex + 1; i <= this.maxImageIndex; i++) {
+        if (
+          galleryObjects[i].offsetParent &&
+          window.getComputedStyle(galleryObjects[i]).visibility !== "hidden"
+        ) {
+          return i;
+        }
+      }
+    }
   };
 }
 

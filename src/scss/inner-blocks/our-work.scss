@@ -45,7 +45,7 @@
       max-width: 100%;
     }
   }
-  &__list-link {
+  &__list-button {
     width: 100%;
     color: $heading-color;
     height: 100%;
@@ -121,6 +121,10 @@
     @media ($mobile-max) {
       flex: 1 1 50%;
       max-width: 50%;
+    }
+
+    &:not(&_show) {
+      display: none;
     }
   }
   &__image-wrapper {
