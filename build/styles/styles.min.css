@@ -1779,10 +1779,16 @@ body {
   .form textarea.form__input {
     min-height: 113px;
   }
+  .form textarea.form__input.form__input_small {
+    min-height: 60px;
+  }
 }
 @media (max-width: 575.98px) {
   .form textarea.form__input {
     min-height: 93px;
+  }
+  .form textarea.form__input.form__input_small {
+    min-height: 40px;
   }
 }
 .form__radio {

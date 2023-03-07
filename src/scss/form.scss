@@ -114,10 +114,13 @@
     @media ($mobile-max) {
       font-size: 14px;
     }
+
     &[aria-hidden="true"] {
       width: 1px;
     }
-
+    &_small {
+      @extend %form-input-small !optional;
+    }
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -238,9 +241,17 @@
 
     @media ($tablet-min) {
       min-height: 113px;
+
+      &%form-input-small {
+        min-height: 60px;
+      }
     }
     @media ($mobile-max) {
       min-height: 93px;
+
+      &%form-input-small {
+        min-height: 40px;
+      }
     }
   }
   &__radio {
