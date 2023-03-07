@@ -4910,6 +4910,17 @@ body {
     padding-top: 0.95rem;
   }
 }
+.review__features {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.review__features_positive {
+  color: #4bb748;
+}
+.review__features_negative {
+  color: #b65c5c;
+}
 .review__text {
   display: -webkit-box;
   overflow: hidden;
@@ -4923,6 +4934,14 @@ body {
   .review__text {
     line-height: 1.79;
   }
+}
+.review__text_positive {
+  color: #4bb748;
+  font-weight: 400;
+}
+.review__text_negative {
+  color: #b65c5c;
+  font-weight: 400;
 }
 ._full-review .review .review__text {
   display: block;

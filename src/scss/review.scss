@@ -76,7 +76,7 @@
   &__time {
     font-size: 16px;
     line-height: 1.25rem;
-    
+
     @media ($desktop-min-xl) {
       margin-right: 7px;
     }
@@ -102,6 +102,18 @@
       padding-top: 0.95rem;
     }
   }
+  &__features {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+
+    &_positive {
+      color: $novelty-color;
+    }
+    &_negative {
+      color: $required-and-error;
+    }
+  }
   &__text {
     display: -webkit-box;
     overflow: hidden;
@@ -115,6 +127,14 @@
       line-height: 1.79;
     }
 
+    &_positive {
+      color: $novelty-color;
+      font-weight: 400;
+    }
+    &_negative {
+      color: $required-and-error;
+      font-weight: 400;
+    }
     %full-review & {
       display: block;
     }

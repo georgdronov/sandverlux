@@ -1,0 +1,44 @@
+<article class="review" itemscope itemtype="https://schema.org/Review">
+  <header class="review__top">
+    <span class="review__author" itemprop="author">@@author</span>
+    <div class="review__rating">
+      <span itemprop="reviewRating" hidden>@@rating</span>
+      <svg class="review__star @@if(rating>0){active}" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>1){active}" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>2){active}" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>3){active}" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+      <svg class="review__star @@if(rating>4){active}" width="20" height="20" aria-hidden="true">
+        <use href="images/icons.svg#star" />
+      </svg>
+    </div>
+    <time class="review__time" itemprop="datePublished" datetime="@@date-format">@@date</time>
+  </header>
+  <div class="review__bottom">
+    <div class="review__text _custom-content" itemprop="reviewBody">
+      @@text
+    </div>
+    @@if (context.positive) {
+    <span class="review__features review__features_positive">Достоинства</span>
+    <div class="review__text review__text_positive _custom-content" itemprop="positiveNotes">
+      @@positive
+    </div>
+    }
+    @@if (context.negative) {
+    <span class="review__features review__features_negative">Недостатки</span>
+    <div class="review__text review__text_negative _custom-content" itemprop="negativeNotes">
+      @@negative
+    </div>
+    }
+    <div class="review__button-wrapper">
+      <a href="#" class="review__link">Читать полностью</a>
+    </div>
+  </div>
+</article>
