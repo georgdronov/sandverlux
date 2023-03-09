@@ -458,6 +458,7 @@ export function validateFile(inputElement) {
 
   // init state //
   const maxFileSize = inputElement.dataset?.maxSize * Math.pow(1024, 2) || 5e6,
+    filesCount = inputElement.files.length,
     firstFile = inputElement.files[0],
     fileName = firstFile.name,
     fileSize = firstFile.size;
@@ -478,7 +479,7 @@ export function validateFile(inputElement) {
     return;
   }
 
-  inputLabel.textContent = `Файл: ${fileNameToShow} (${fileSizeToShow})`;
+  inputLabel.textContent = `Файл${filesCount > 1 ? `ы(${filesCount})` : ``}: ${fileNameToShow} (${fileSizeToShow})`;
 }
 
 export function validatePhoneNumber(inputElement) {

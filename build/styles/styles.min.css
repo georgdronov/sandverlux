@@ -1695,17 +1695,32 @@ body {
   width: 100%;
   color: #585858;
   cursor: pointer;
-  display: block;
+  border: 1px dashed #898989;
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  line-height: 1.25;
+  align-items: center;
+  justify-content: space-between;
 }
-@media (min-width: 576px) {
-  .form__input[type=file] ~ .form__label {
-    padding: 15px 15px 15px 25px;
+@media (min-width: 992px) {
+  .form__input[type=file] ~ .form__label::after {
+    transition: background-color 0.3s;
+  }
+  .form__input[type=file] ~ .form__label:hover::after {
+    background-color: #585858;
   }
 }
 @media (max-width: 575.98px) {
   .form__input[type=file] ~ .form__label {
-    padding: 13px 29px;
+    font-size: 12px;
   }
+}
+.form__input[type=file] ~ .form__label::after {
+  color: #fff;
+  content: "Выбрать";
+  padding: 0.5rem 0.8rem;
+  margin-left: 1rem;
+  background-color: #898989;
 }
 .form__input[type=file].error ~ .form__label {
   color: #b65c5c;
@@ -1713,6 +1728,9 @@ body {
 }
 .form__input[type=file]:focus-visible + .form__label {
   box-shadow: 0 0 0 2px #f9c201;
+}
+.form__input[type=file]:focus-visible + .form__label::after {
+  background-color: #585858;
 }
 .form__input[type=radio]:focus-visible + .form__label {
   box-shadow: 0 0 0 2px #fff;
@@ -1811,24 +1829,24 @@ body {
   }
 }
 .form .fgbw > *, .form__gallery-button-wrapper > * {
-  padding-left: 3.4375rem;
+  flex: 1 1 calc(33.3333% - 3.4375rem);
+  max-width: calc(33.3333% - 3.4375rem);
+  margin-left: 3.4375rem;
   margin-bottom: 1.25rem;
 }
 @media (max-width: 575.98px) {
   .form .fgbw > *, .form__gallery-button-wrapper > * {
-    padding-left: 1.25rem;
+    flex: 1 1 calc(50% - 3.4375rem);
+    max-width: calc(50% - 3.4375rem);
+    margin-left: 1.25rem;
   }
 }
 .form .fgbw__button, .form__gallery-button-wrapper__button {
-  flex: 1 1 33.3333%;
   border: none;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  max-width: 33.3333%;
   text-align: left;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
   background-color: transparent;
 }
 @media (min-width: 992px) {
@@ -1839,12 +1857,6 @@ body {
 @media (max-width: 991.98px) {
   .form .fgbw__button, .form__gallery-button-wrapper__button {
     flex-direction: column;
-  }
-}
-@media (max-width: 575.98px) {
-  .form .fgbw__button, .form__gallery-button-wrapper__button {
-    flex: 1 1 50%;
-    max-width: 50%;
   }
 }
 .form .fgbw__button img, .form__gallery-button-wrapper__button img {
@@ -7373,34 +7385,6 @@ body {
 .form-block [type=date].form__input {
   padding-right: 20px;
 }
-.form-block .form__input[type=file] + .form__label {
-  border: 1px dashed #898989;
-  display: flex;
-  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-  line-height: 1.25;
-  align-items: center;
-  justify-content: space-between;
-}
-@media (max-width: 575.98px) {
-  .form-block .form__input[type=file] + .form__label {
-    font-size: 12px;
-  }
-}
-.form-block .form__input[type=file] + .form__label::after {
-  color: #fff;
-  content: "Выбрать";
-  padding: 0.5rem 0.8rem;
-  margin-left: 1rem;
-  background-color: #898989;
-}
-@media (min-width: 992px) {
-  .form-block .form__input[type=file] + .form__label::after {
-    transition: background-color 0.3s;
-  }
-  .form-block .form__input[type=file] + .form__label:hover::after {
-    background-color: #585858;
-  }
-}
 .form-block .form__input[type=file] + ._reddish.form__label::after {
   background-color: #b08787;
 }
@@ -7408,9 +7392,6 @@ body {
   .form-block .form__input[type=file] + ._reddish.form__label:hover::after {
     background-color: #bd6262;
   }
-}
-.form-block .form__input[type=file]:focus-visible + .form__label::after {
-  background-color: #585858;
 }
 .form-block .form__buttons-wrapper {
   margin-top: 0.8rem;

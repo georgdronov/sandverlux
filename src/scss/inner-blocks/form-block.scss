@@ -210,32 +210,6 @@
   }
   %form-file {
     & + %form-label {
-      border: 1px dashed $text-color-lighter;
-      display: flex;
-      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-      line-height: 1.25;
-      align-items: center;
-      justify-content: space-between;
-
-      @media ($mobile-max) {
-        font-size: 12px;
-      }
-
-      &::after {
-        color: $white;
-        content: "Выбрать";
-        padding: 0.5rem 0.8rem;
-        margin-left: 1rem;
-        background-color: $text-color-lighter;
-      }
-      @media ($desktop-min) {
-        &::after {
-          transition: background-color 0.3s;
-        }
-        &:hover::after {
-          background-color: $text-color;
-        }
-      }
       &._reddish {
         &::after {
           background-color: #b08787;
@@ -245,11 +219,6 @@
             background-color: #bd6262;
           }
         }
-      }
-    }
-    &:focus-visible {
-      & + %form-label::after {
-        background-color: $text-color;
       }
     }
   }

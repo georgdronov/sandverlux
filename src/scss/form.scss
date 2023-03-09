@@ -137,14 +137,33 @@
         width: 100%;
         color: $text-color;
         cursor: pointer;
-        display: block;
-        @extend %f-item-element;
+        border: 1px dashed $text-color-lighter;
+        display: flex;
+        padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+        line-height: 1.25;
+        align-items: center;
+        justify-content: space-between;
 
-        @media ($tablet-min) {
-          padding: 15px 15px 15px 25px;
+        @extend %f-item-element !optional;
+
+        @media ($desktop-min) {
+          &::after {
+            transition: background-color 0.3s;
+          }
+          &:hover::after {
+            background-color: $text-color;
+          }
         }
         @media ($mobile-max) {
-          padding: 13px 29px;
+          font-size: 12px;
+        }
+
+        &::after {
+          color: $white;
+          content: "Выбрать";
+          padding: 0.5rem 0.8rem;
+          margin-left: 1rem;
+          background-color: $text-color-lighter;
         }
       }
       &.error {
@@ -156,6 +175,10 @@
       &:focus-visible {
         & + %form-label {
           @include focus-styles($color: $yellow);
+
+          &::after {
+            background-color: $text-color;
+          }
         }
       }
     }
@@ -284,23 +307,23 @@
     }
 
     & > * {
-      padding-left: $gbw-gap;
+      flex: 1 1 calc(33.3333% - $gbw-gap);
+      max-width: calc(33.3333% - $gbw-gap);
+      margin-left: $gbw-gap;
       margin-bottom: $gbw-bottom-gap;
 
       @media ($mobile-max) {
-        padding-left: $gbw-bottom-gap;
+        flex: 1 1 calc(50% - $gbw-gap);
+        max-width: calc(50% - $gbw-gap);
+        margin-left: $gbw-bottom-gap;
       }
     }
     &__button {
-      flex: 1 1 33.3333%;
       border: none;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      max-width: 33.3333%;
       text-align: left;
-      padding-top: 0;
-      padding-right: 0;
-      padding-bottom: 0;
       background-color: transparent;
 
       @media ($desktop-min) {
@@ -308,10 +331,6 @@
       }
       @media ($tablet-max) {
         flex-direction: column;
-      }
-      @media ($mobile-max) {
-        flex: 1 1 50%;
-        max-width: 50%;
       }
 
       img {

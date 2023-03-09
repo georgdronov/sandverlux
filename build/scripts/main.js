@@ -348,7 +348,7 @@
       inputLabel.textContent = "\u0424\u0430\u0439\u043B \u043D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D.";
       return;
     }
-    const maxFileSize = ((_a = inputElement.dataset) == null ? void 0 : _a.maxSize) * Math.pow(1024, 2) || 5e6, firstFile = inputElement.files[0], fileName = firstFile.name, fileSize = firstFile.size;
+    const maxFileSize = ((_a = inputElement.dataset) == null ? void 0 : _a.maxSize) * Math.pow(1024, 2) || 5e6, filesCount = inputElement.files.length, firstFile = inputElement.files[0], fileName = firstFile.name, fileSize = firstFile.size;
     inputElement.classList.remove(fileErrorClass);
     inputLabel.textContent = "";
     const fileNameToShow = fileName.length > 25 ? `${fileName.slice(0, 10)}...${fileName.slice(-10)}` : fileName, fileSizeToShow = formatBytes(fileSize);
@@ -357,7 +357,7 @@
       inputLabel.textContent = `\u0424\u0430\u0439\u043B \u0431\u043E\u043B\u044C\u0448\u0435 ${formatBytes(maxFileSize)}`;
       return;
     }
-    inputLabel.textContent = `\u0424\u0430\u0439\u043B: ${fileNameToShow} (${fileSizeToShow})`;
+    inputLabel.textContent = `\u0424\u0430\u0439\u043B${filesCount > 1 ? `\u044B(${filesCount})` : ``}: ${fileNameToShow} (${fileSizeToShow})`;
   }
   function validatePhoneNumber(inputElement) {
     const phoneFormat = (value) => value.replace(/((?!\+)\D+)+/g, "").match(/^(\+375)(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
