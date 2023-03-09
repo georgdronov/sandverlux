@@ -27,13 +27,13 @@
     </div>
     @@if (context.positive) {
     <span class="review__features review__features_positive">Достоинства</span>
-    <div class="review__text review__text_positive _custom-content" itemprop="positiveNotes">
+    <div class="review__text _custom-content" itemprop="positiveNotes">
       @@positive
     </div>
     }
     @@if (context.negative) {
     <span class="review__features review__features_negative">Недостатки</span>
-    <div class="review__text review__text_negative _custom-content" itemprop="negativeNotes">
+    <div class="review__text _custom-content" itemprop="negativeNotes">
       @@negative
     </div>
     }
