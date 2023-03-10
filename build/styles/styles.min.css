@@ -5351,6 +5351,15 @@ body {
     margin-bottom: 18px;
   }
 }
+.footer__logo-icon {
+  width: 144px;
+  height: auto;
+}
+@media (max-width: 575.98px) {
+  .footer__logo-icon {
+    width: 110px;
+  }
+}
 .footer__socials .socials-links__icon {
   width: 35px;
   height: 35px;

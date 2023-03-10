@@ -101,6 +101,16 @@
       margin-bottom: 18px;
     }
   }
+  &__logo {
+    &-icon {
+      width: 144px;
+      height: auto;
+
+      @media ($mobile-max) {
+        width: 110px;
+      }
+    }
+  }
   &__socials {
     %socials-link-icon {
       width: 35px;
