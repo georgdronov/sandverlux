@@ -828,27 +828,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // reviews overall values //
 
-  const rwElement = document.querySelector(".reviews-widget");
+  const rwElements = document.querySelectorAll("[data-review-rating]");
 
-  reviewsWidget(rwElement);
+  rwElements.forEach((rwElement) => reviewsWidget(rwElement));
 
   function reviewsWidget(element) {
     if (!element) return;
 
     // const ratingEl = document.querySelector(".reviews-widget__overall-rating");
     // const amountEl = document.querySelector(".reviews-widget__overall-amount");
-    const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
-    const rating = +document.querySelector(".reviews-widget__overall-stars")
-      .dataset.rating;
+    const rating = +element.dataset.rating;
+    const starsEl = element.querySelectorAll("[data-star]");
     // const allRatingsEl = document.querySelectorAll(".reviews-widget__rating");
-
+    if (!rating) return;
     // overall stars //
     starsEl.forEach((star, index) => {
-      if (Math.ceil(rating) == index + 1)
-        return (star.querySelector("svg").style.width =
+      const svgEl =
+        star.nodeName.toLowerCase() === "svg"
+          ? star
+          : star.querySelector("svg");
+      console.log(Math.floor((rating % 1) * Math.pow(10, 2)));
+      if (Math.floor(rating) === index) {
+        return (svgEl.style.width =
           Math.floor((rating % 1) * Math.pow(10, 2)) + "%");
+      }
       if (rating < index + 1) return;
-      star.querySelector("svg").style.width = 100 + "%";
+      svgEl.style.width = 100 + "%";
     });
     /*
     fetch("/files/reviews-stats.json")

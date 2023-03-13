@@ -1,0 +1,55 @@
+
+<article class="our-shops__item">
+  <div class="our-shops__inner">
+    <h2 class="our-shops__title heading">@@name</h2>
+    <div class="our-shops__element-wrapper">
+      <div class="our-shops__icon">
+        <svg width="14" height="16">
+          <use href="images/icons.svg#map-marker" />
+        </svg>
+      </div>
+      <p class="our-shops__content">
+        <strong>Адрес магазина:</strong> @@address
+      </p>
+    </div>
+    <div class="our-shops__element-wrapper">
+      <span class="our-shops__icon">
+        <svg width="14" height="16">
+          <use href="images/icons.svg#clock" />
+        </svg>
+      </span>
+      <p class="our-shops__content">
+        <strong>График работы:</strong> @@schedule
+      </p>
+    </div>
+    <div class="our-shops__element-wrapper">
+      <span class="our-shops__icon">
+        <svg width="14" height="16">
+          <use href="images/icons.svg#phone" />
+        </svg>
+      </span>
+      <p class="our-shops__content">
+        <strong>Телефон:</strong> @@phoneElement
+      </p>
+    </div>
+    <div class="our-shops__element-wrapper">
+      <span class="our-shops__icon our-shops__icon--yellow">
+        <svg width="14" height="16">
+          <use href="images/icons.svg#email" />
+        </svg>
+      </span>
+      <p class="our-shops__content">
+        <strong>Почта:</strong> @@emailElement
+      </p>
+    </div>
+    <div class="our-shops__slider">
+      @@include('./src/html/custom-slider.html', {
+      'smallGap': 20,
+      'slides': 2,
+      'mobSlides': 1,
+      'item-path': './src/html/include/slider-item-our-shops.html',
+      'json-path': '../json/inner-content/our-shops-slides.json'
+      })
+    </div>
+  </div>
+</article>

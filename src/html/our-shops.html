@@ -5,38 +5,7 @@
     }
     @@if (!context.detailed) {
     <div class="our-shops__items row">
-      <div class="our-shops__item">
-        <div class="our-shops__inner">
-          <p class="our-shops__content">г. Минск, Каменногорская, 3 Горка Дом (2 этаж)</p>
-          <p class="our-shops__content">
-            <strong>График работы:</strong> пн-вс 10:00-21:00
-          </p>
-          <p class="our-shops__content">
-            <strong>Телефон:</strong> <a href="tel:+375445332522">+375 44 533 25 22</a>
-          </p>
-          @@if(false) {
-          <button class="our-shops__button" type="button" value="CCUrvYwMcD" name="our-shops-set-marker">Смотреть на
-            карте</button>
-          }
-          <a href="#our-shops-map" class="our-shops__button">Смотреть на карте</a>
-        </div>
-      </div>
-      <div class="our-shops__item">
-        <div class="our-shops__inner">
-          <p class="our-shops__content">Строительный рынок «Уручье» ул. Уручская 19, №2, 2-й этаж (Юркас)</p>
-          <p class="our-shops__content">
-            <strong>График работы:</strong> пн-вс 10:00-21:00
-          </p>
-          <p class="our-shops__content">
-            <strong>Телефон:</strong> <a href="tel:+375445332522">+375 44 533 25 22</a>
-          </p>
-          @@if(false) {
-          <button class="our-shops__button" type="button" value="CCUrv4ThSD" name="our-shops-set-marker">Смотреть на
-            карте</button>
-          }
-          <a href="#our-shops-map" class="our-shops__button">Смотреть на карте</a>
-        </div>
-      </div>
+      @@loop('./src/html/include/our-shops-item-short.html', '../json/our-shops.json')
     </div>
     }
     <div class="our-shops__map">
@@ -44,124 +13,13 @@
         <div class="map__overlay">
           <p class="map__message">Нажмите, чтобы взаимодействовать</p>
         </div>
-        @@if(false) {
-        <iframe id="our-shops-map" src="https://yandex.by/map-widget/v1/-/CCUrvBuUOA" width="1780" height="445"
-          allowfullscreen="true"></iframe>
-        }
         <iframe id="our-shops-map" width="1780" height="445" loading="lazy" title="Наши магазины (карта)"
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A28e2e91a91eb207316af2cae827e1825e63ca573cb080ad7c020de7d1c9e5a84&amp;source=constructor"></iframe>
       </div>
     </div>
     @@if (context.detailed) {
     <div class="our-shops__items row">
-      <article class="our-shops__item">
-        <div class="our-shops__inner">
-          <h2 class="our-shops__title heading">Название магазина или шоу-рума</h2>
-          <div class="our-shops__element-wrapper">
-            <div class="our-shops__icon">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#map-marker" />
-              </svg>
-            </div>
-            <p class="our-shops__content">
-              <strong>Адрес магазина:</strong> г. Минск, Каменногорская, 3 Горка Дом (2 этаж)
-            </p>
-          </div>
-          <div class="our-shops__element-wrapper">
-            <span class="our-shops__icon">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#clock" />
-              </svg>
-            </span>
-            <p class="our-shops__content">
-              <strong>График работы:</strong> пн-вс 10:00-21:00
-            </p>
-          </div>
-          <div class="our-shops__element-wrapper">
-            <span class="our-shops__icon">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#phone" />
-              </svg>
-            </span>
-            <p class="our-shops__content">
-              <strong>Телефон:</strong> <a href="tel:+375445332522">+375 44 533 25 22</a>
-            </p>
-          </div>
-          <div class="our-shops__element-wrapper">
-            <span class="our-shops__icon our-shops__icon--yellow">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#email" />
-              </svg>
-            </span>
-            <p class="our-shops__content">
-              <strong>Почта:</strong> <a href="mailto:sales@dvernoirai.by">sales@dvernoirai.by</a>
-            </p>
-          </div>
-          <div class="our-shops__slider">
-            @@include('./src/html/custom-slider.html', {
-            'smallGap': 40,
-            'slides': 2,
-            'mobSlides': 1,
-            'item-path': './src/html/include/slider-item-our-shops.html',
-            'json-path': '../json/inner-content/our-shops-slides.json'
-            })
-          </div>
-        </div>
-      </article>
-      <article class="our-shops__item">
-        <div class="our-shops__inner">
-          <h2 class="our-shops__title heading">Название магазина или шоу-рума</h2>
-          <div class="our-shops__element-wrapper">
-            <div class="our-shops__icon">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#map-marker" />
-              </svg>
-            </div>
-            <p class="our-shops__content">
-              <strong>Адрес магазина:</strong> г. Минск, Каменногорская, 3 Горка Дом (2 этаж)
-            </p>
-          </div>
-          <div class="our-shops__element-wrapper">
-            <span class="our-shops__icon">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#clock" />
-              </svg>
-            </span>
-            <p class="our-shops__content">
-              <strong>График работы:</strong> пн-вс 10:00-21:00
-            </p>
-          </div>
-          <div class="our-shops__element-wrapper">
-            <span class="our-shops__icon">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#phone" />
-              </svg>
-            </span>
-            <p class="our-shops__content">
-              <strong>Телефон:</strong> <a href="tel:+375445332522">+375 44 533 25 22</a>
-            </p>
-          </div>
-          <div class="our-shops__element-wrapper">
-            <span class="our-shops__icon our-shops__icon--yellow">
-              <svg width="14" height="16">
-                <use href="images/icons.svg#email" />
-              </svg>
-            </span>
-            <p class="our-shops__content">
-              <strong>Почта:</strong> <a href="mailto:sales@dvernoirai.by">sales@dvernoirai.by</a>
-            </p>
-          </div>
-          <div class="our-shops__slider">
-            @@include('./src/html/custom-slider.html', {
-            'smallGap': 40,
-            'slides': 2,
-            'mobSlides': 1,
-            'item-path': './src/html/include/slider-item-our-shops.html',
-            'json-path': '../json/inner-content/our-shops-slides.json'
-            })
-          </div>
-        </div>
-      </article>
+      @@loop('./src/html/include/our-shops-item-detailed.html', '../json/our-shops.json')
     </div>
     }
   </div>

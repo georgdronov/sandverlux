@@ -139,6 +139,27 @@
       display: block;
     }
   }
+  &__images {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 2rem;
+  }
+  &__images-inner {
+    display: flex;
+    margin-left: -1rem;
+
+    & > * {
+      flex: 1 0 6rem;
+      max-width: 6rem;
+      margin-left: 1rem;
+    }
+  }
+  &__image-wrapper {
+    height: 6rem;
+    cursor: pointer;
+  }
+  // &__image {
+  // }
   &__button-wrapper {
     margin-top: 1.3125rem;
     text-align: right;

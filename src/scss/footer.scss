@@ -194,12 +194,12 @@
   }
   &__star {
     color: $yellow;
-    width: 1.875rem;
+    width: 2rem;
     height: 1.875rem;
     margin-right: 8px;
 
     @media ($mobile-max) {
-      width: 30px;
+      width: 32px;
       height: 30px;
     }
   }

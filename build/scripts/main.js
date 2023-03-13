@@ -7465,19 +7465,24 @@
     if (claimPopup) {
       openPopup("claim-annotation");
     }
-    const rwElement = document.querySelector(".reviews-widget");
-    reviewsWidget(rwElement);
+    const rwElements = document.querySelectorAll("[data-review-rating]");
+    rwElements.forEach((rwElement) => reviewsWidget(rwElement));
     function reviewsWidget(element) {
       if (!element)
         return;
-      const starsEl = document.querySelectorAll(".reviews-widget__overall-star");
-      const rating = +document.querySelector(".reviews-widget__overall-stars").dataset.rating;
+      const rating = +element.dataset.rating;
+      const starsEl = element.querySelectorAll("[data-star]");
+      if (!rating)
+        return;
       starsEl.forEach((star, index2) => {
-        if (Math.ceil(rating) == index2 + 1)
-          return star.querySelector("svg").style.width = Math.floor(rating % 1 * Math.pow(10, 2)) + "%";
+        const svgEl = star.nodeName.toLowerCase() === "svg" ? star : star.querySelector("svg");
+        console.log(Math.floor(rating % 1 * Math.pow(10, 2)));
+        if (Math.floor(rating) === index2) {
+          return svgEl.style.width = Math.floor(rating % 1 * Math.pow(10, 2)) + "%";
+        }
         if (rating < index2 + 1)
           return;
-        star.querySelector("svg").style.width = 100 + "%";
+        svgEl.style.width = 100 + "%";
       });
     }
     const comparison = document.querySelector(".comparison");

@@ -1,5 +1,7 @@
 <article class="product-card-slider@@if(visible){ active}"@@if(!visible){ aria-hidden="true"}@@if(visible){ aria-hidden="false"}>
+  @@if (context.title) {
   <h2 class="product-card-slider__heading sr-only">@@title</h2>
+  }
   <div class="product-card-slider__wrapper">
     <div class="product-card-slider__swiper product-card-slider__swiper--main @@additionalClass">
       <div class="product-card-slider__swiper-wrapper">

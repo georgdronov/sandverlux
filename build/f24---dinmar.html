@@ -708,7 +708,7 @@
       <div class="product-card__item product-card__item_sliders">
         <div class="product-card__sliders-wrapper">
           <article class="product-card-slider active" aria-hidden="false">
-  <h2 class="product-card-slider__heading sr-only">Изображения двери</h2>
+  
   <div class="product-card-slider__wrapper">
     <div class="product-card-slider__swiper product-card-slider__swiper--main pcs-slider-01">
       <div class="product-card-slider__swiper-wrapper">
@@ -805,7 +805,7 @@
   </div>
 </article>
           <article class="product-card-slider" aria-hidden="true">
-  <h2 class="product-card-slider__heading sr-only">Изображения двери в интерьере</h2>
+  
   <div class="product-card-slider__wrapper">
     <div class="product-card-slider__swiper product-card-slider__swiper--main pcs-slider-02">
       <div class="product-card-slider__swiper-wrapper">
@@ -1014,11 +1014,9 @@
     </div>
   </div>
   <aside class="product-card__bottom-slides">
-    <article class="product-card__similar">
+    <div class="product-card__similar">
       <div class="custom-slider">
   <div class="container">
-    
-    <h2 class="custom-slider__heading heading">Похожие модели</h2>
     
     <div class="custom-slider__slider-wrapper">
       <div class="custom-slider__swiper"
@@ -2074,12 +2072,10 @@
     </div>
   </div>
 </div>
-    </article>
-    <article class="product-card__viewed">
+    </div>
+    <div class="product-card__viewed">
       <div class="custom-slider">
   <div class="container">
-    
-    <h2 class="custom-slider__heading heading">Вы просматривали</h2>
     
     <div class="custom-slider__slider-wrapper">
       <div class="custom-slider__swiper"
@@ -3135,7 +3131,7 @@
     </div>
   </div>
 </div>
-    </article>
+    </div>
   </aside>
 </div>
     <footer class="footer">
@@ -3193,25 +3189,35 @@
               <a href="/to-dealers" class="footer__link">Дилерам</a>
             </li>
           </ul>
-          <div class="footer__rating">
+          <div class="footer__rating" data-review-rating="" data-rating="4.4">
             <div class="footer__rating-stars">
-              <svg class="footer__star" width="30" height="30">
-                <use href="images/icons.svg#star" />
-              </svg>
-              <svg class="footer__star" width="30" height="30">
-                <use href="images/icons.svg#star" />
-              </svg>
-              <svg class="footer__star" width="30" height="30">
-                <use href="images/icons.svg#star" />
-              </svg>
-              <svg class="footer__star" width="30" height="30">
-                <use href="images/icons.svg#star" />
-              </svg>
-              <svg class="footer__star" width="30" height="30">
-                <use href="images/icons.svg#star" />
-              </svg>
+              <div class="footer__star" data-star="">
+                <svg width="32" height="30" aria-hidden="true">
+                  <use href="images/icons.svg#star-rating" />
+                </svg>
+              </div>
+              <div class="footer__star" data-star="">
+                <svg width="32" height="30" aria-hidden="true">
+                  <use href="images/icons.svg#star-rating" />
+                </svg>
+              </div>
+              <div class="footer__star" data-star="">
+                <svg width="32" height="30" aria-hidden="true">
+                  <use href="images/icons.svg#star-rating" />
+                </svg>
+              </div>
+              <div class="footer__star" data-star="">
+                <svg width="32" height="30" aria-hidden="true">
+                  <use href="images/icons.svg#star-rating" />
+                </svg>
+              </div>
+              <div class="footer__star" data-star="">
+                <svg width="32" height="30" aria-hidden="true">
+                  <use href="images/icons.svg#star-rating" />
+                </svg>
+              </div>
             </div>
-            <p>Наша оценка: 5 (на основе 1000 отзывов)</p>
+            <p>Наша оценка: 4.4 (на основе 1000 отзывов)</p>
             <a href="/reviews">Смотреть все отзывы</a>
           </div>
         </div>

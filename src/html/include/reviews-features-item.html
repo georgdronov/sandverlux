@@ -37,6 +37,28 @@
       @@negative
     </div>
     }
+    @@if (context.images) {
+    <div class="review__images">
+      <div class="review__images-inner">
+        @@loop('./src/html/include/reviews-features-item-image.html', [{
+        "alt": "image of product 01",
+        "src": "images/our-work/door-01.jpg"
+        },{
+        "alt": "image of product 02",
+        "src": "images/our-work/door-02.jpg"
+        },{
+        "alt": "image of product 03",
+        "src": "images/our-work/door-03.jpg"
+        },{
+        "alt": "image of product 03",
+        "src": "images/our-work/door-03.jpg"
+        },{
+        "alt": "image of product 03",
+        "src": "images/our-work/door-03.jpg"
+        }])
+      </div>
+    </div>
+    }
     <div class="review__button-wrapper">
       <a href="#" class="review__link">Читать полностью</a>
     </div>

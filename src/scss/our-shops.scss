@@ -11,49 +11,50 @@
   // &__heading {
   // }
   &__items {
-    margin-bottom: -2rem;
+    margin-bottom: -15px;
 
     %our-shops-detailed & {
       flex-wrap: wrap;
     }
-
-    @media ($tablet-min) {
-      flex-wrap: nowrap;
-    }
-
     & + * {
       margin-top: 2.5rem;
     }
   }
   &__item {
-    margin-bottom: 2rem;
+    margin-bottom: 15px;
 
     @media ($tablet-min) {
-      flex: 1 1 35.625rem;
-      max-width: 35.625rem;
+      flex: 1 1 33.3333%;
+      max-width: 33.3333%;
     }
     @media ($desktop-min) {
       %our-shops-detailed & {
-        flex: 1 1 50%;
-        max-width: 50%;
+        flex: 1 1 33.3333%;
+        max-width: 33.3333%;
       }
     }
     @media ($tablet-max) {
+      flex: 1 1 50%;
+      max-width: 50%;
+
       %our-shops-detailed & {
         flex: 1 1 100%;
         max-width: 100%;
       }
     }
-    @media ($mobile-max) {
+    @media ($tablet-mad) {
       flex: 1 1 100%;
       max-width: 100%;
     }
 
-    &:nth-child(2n + 1) {
-      @extend %os-odd-item;
+    &:nth-child(3n + 1) {
+      @extend %os-first-item !optional;
     }
-    &:nth-child(2n) {
-      @extend %os-even-item;
+    &:nth-child(3n + 2) {
+      @extend %os-second-item !optional;
+    }
+    &:nth-child(3n + 3) {
+      @extend %os-third-item !optional;
     }
   }
   &__inner {
@@ -96,17 +97,20 @@
       background-size: 4.9375rem auto;
       background-color: transparent;
       background-repeat: no-repeat;
+      background-position: 10px 18px;
 
-      %os-odd-item & {
+      %os-first-item & {
         background-image: url("../images/icons.svg#map-marker-yellow");
-        background-position: 10px 18px;
       }
-      %os-even-item & {
+      %os-second-item & {
         background-image: url("../images/icons.svg#map-marker-green");
-        background-position: right 28px center;
       }
-      %os-odd-item &,
-      %os-even-item & {
+      %os-third-item & {
+        background-image: url("../images/icons.svg#map-marker-orange");
+      }
+      %os-first-item &,
+      %os-second-item &,
+      %os-third-item & {
         %our-shops-detailed & {
           background-size: 12.2rem auto;
           background-position: right 3.4rem top 2.3rem;
@@ -132,6 +136,10 @@
 
     @media ($mobile-max) {
       font-size: 16px;
+    }
+
+    & + * {
+      margin-top: auto;
     }
   }
   &__element-wrapper {
@@ -185,6 +193,7 @@
   &__slider {
     width: 100%;
     max-width: 100%;
+    margin-top: auto;
   }
   &__button {
     color: $primary-color;
@@ -205,8 +214,8 @@
     }
   }
 
-  $os-cs-gap: 25px;
-  $os-cs-gap-mobile: 15px;
+  $os-cs-gap: 15px;
+  $os-cs-gap-mobile: 10px;
   %custom-slider {
     padding: 1.3rem 0;
 

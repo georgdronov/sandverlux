@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Салон дверей SandverLux на Маяковского",
+    "address": "г. Минск, ул. Маяковского д. 24, 1Н",
+    "schedule": "пн-вс 09:00-21:00",
+    "phoneElement": "<a href=\"tel:+375293133111\" target=\"_blank\">+375 29 313-31-11</a>",
+    "emailElement": "<a href=\"mailto:info@sandverlux.by\" target=\"_blank\">info@sandverlux.by</a>"
+  },
+  {
+    "name": "Салон дверей SandverLux на Каменногорской",
+    "address": "г. Минск, Каменногорская 3, 205 ProDom",
+    "schedule": "пн-вс 10:00-21:00",
+    "phoneElement": "<a href=\"tel:+375293133111\" target=\"_blank\">+375 29 313-31-11</a>",
+    "emailElement": "<a href=\"mailto:info@sandverlux.by\" target=\"_blank\">info@sandverlux.by</a>"
+  },
+  {
+    "name": "Салон дверей SandverLux на Уручье",
+    "address": "г. Минск, Уручская 19 (Стройрынок Уручье, Центральная аллея), павильон П2 (ст. м. Уручье)",
+    "schedule": "вт-вс 09:00-17:00",
+    "phoneElement": "<a href=\"tel:+375293133111\" target=\"_blank\">+375 29 313-31-11</a>",
+    "emailElement": "<a href=\"mailto:info@sandverlux.by\" target=\"_blank\">info@sandverlux.by</a>"
+  }
+]

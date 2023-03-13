@@ -169,7 +169,6 @@
           'slider-url': './src/html/include/product-card-slider-item.html',
           'slider-thumb-url': './src/html/include/product-card-slider-item-thumb.html',
           'gallery-url': '@@gallery-url',
-          'title': 'Изображения двери',
           'additionalClass': 'pcs-slider-01',
           'showBadges': true,
           'visible': true
@@ -178,7 +177,6 @@
           'slider-url': './src/html/include/product-card-slider-interior-item.html',
           'slider-thumb-url': './src/html/include/product-card-slider-interior-item-thumb.html',
           'gallery-url': '@@gallery-url',
-          'title': 'Изображения двери в интерьере',
           'additionalClass': 'pcs-slider-02',
           'showBadges': false,
           'visible': false
@@ -194,19 +192,17 @@
     </div>
   </div>
   <aside class="product-card__bottom-slides">
-    <article class="product-card__similar">
+    <div class="product-card__similar">
       @@include('./src/html/custom-slider.html', {
-      'title': 'Похожие модели',
       'item-path': './src/html/include/slider-item-product.html',
       'json-path': '../json/products.json'
       })
-    </article>
-    <article class="product-card__viewed">
+    </div>
+    <div class="product-card__viewed">
       @@include('./src/html/custom-slider.html', {
-      'title': 'Вы просматривали',
       'item-path': './src/html/include/slider-item-product.html',
       'json-path': '../json/products.json'
       })
-    </article>
+    </div>
   </aside>
 </div>
