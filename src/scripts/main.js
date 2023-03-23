@@ -743,7 +743,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const aILinks = document.querySelectorAll(".additional-info__link");
 
-  if (aILinks.length) {
+  if (aILinks.length) additionalLinksHighlight();
+
+  function additionalLinksHighlight() {
     class aIChain {
       constructor(link, target) {
         this.link = link;
