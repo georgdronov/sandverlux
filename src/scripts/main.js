@@ -849,7 +849,7 @@ document.addEventListener("DOMContentLoaded", function () {
         star.nodeName.toLowerCase() === "svg"
           ? star
           : star.querySelector("svg");
-      console.log(Math.floor((rating % 1) * Math.pow(10, 2)));
+      // console.log(Math.floor((rating % 1) * Math.pow(10, 2)));
       if (Math.floor(rating) === index) {
         return (svgEl.style.width =
           Math.floor((rating % 1) * Math.pow(10, 2)) + "%");
@@ -986,11 +986,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelector(".cookie__btn")
         .addEventListener("click", () => {
           cookieElement.classList.remove("active");
-          document.cookie = "cookie_notice=true; max-age=604800; samesite=lax";
+          document.cookie = "cookie_notice=true; max-age=604800; samesite=lax; path=/; Secure;";
         });
-      return;
     }
-    return;
   }
 
   // myFunctions.wheelToHide();

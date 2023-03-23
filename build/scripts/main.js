@@ -7478,7 +7478,6 @@
         return;
       starsEl.forEach((star, index2) => {
         const svgEl = star.nodeName.toLowerCase() === "svg" ? star : star.querySelector("svg");
-        console.log(Math.floor(rating % 1 * Math.pow(10, 2)));
         if (Math.floor(rating) === index2) {
           return svgEl.style.width = Math.floor(rating % 1 * Math.pow(10, 2)) + "%";
         }
@@ -7541,11 +7540,9 @@
         setTimeout(() => cookieElement.classList.add("active"), 300);
         cookieElement.querySelector(".cookie__btn").addEventListener("click", () => {
           cookieElement.classList.remove("active");
-          document.cookie = "cookie_notice=true; max-age=604800; samesite=lax";
+          document.cookie = "cookie_notice=true; max-age=604800; samesite=lax; path=/; Secure;";
         });
-        return;
       }
-      return;
     }
   });
 })();
