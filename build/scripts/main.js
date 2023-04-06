@@ -7248,6 +7248,7 @@
         rewind: false,
         grabCursor: true,
         slidesPerView: "auto",
+        initialSlide: 0,
         spaceBetween: 30,
         autoHeight: false,
         setWrapperSize: true,
@@ -7261,10 +7262,12 @@
         },
         breakpoints: {
           0: {
+            initialSlide: 1,
             spaceBetween: 10,
             centeredSlides: true
           },
           576: {
+            initialSlide: 0,
             spaceBetween: 30,
             centeredSlides: false
           }
