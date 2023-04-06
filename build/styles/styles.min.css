@@ -3936,8 +3936,10 @@ body {
   border-radius: 0;
   background-color: #84a878;
 }
-.product__features-button:hover .product__features-button-icon {
-  color: #f9c201;
+@media (min-width: 992px) {
+  .product__features-button:hover .product__features-button-icon {
+    color: #f9c201;
+  }
 }
 @media (min-width: 992px) {
   .product__features-button:hover {
@@ -4209,6 +4211,21 @@ body {
 }
 .our-goods__swiper:not(.our-goods__swiper-initialized) .our-goods__slide {
   width: 20%;
+}
+@media (max-width: 1366.98px) and (min-width: 1200px) {
+  .our-goods__swiper:not(.our-goods__swiper-initialized) .our-goods__slide {
+    width: 25%;
+  }
+}
+@media (max-width: 1199.98px) and (min-width: 768px) {
+  .our-goods__swiper:not(.our-goods__swiper-initialized) .our-goods__slide {
+    width: 33.3333%;
+  }
+}
+@media (max-width: 767.98px) {
+  .our-goods__swiper:not(.our-goods__swiper-initialized) .our-goods__slide {
+    width: 50%;
+  }
 }
 .our-goods__slide:not(.our-goods__slide_show) {
   display: none;
@@ -5609,6 +5626,21 @@ body {
 }
 .custom-slider__swiper:not(.custom-slider__swiper-initialized) .custom-slider__slide {
   width: 20%;
+}
+@media (max-width: 1366.98px) and (min-width: 1200px) {
+  .custom-slider__swiper:not(.custom-slider__swiper-initialized) .custom-slider__slide {
+    width: 25%;
+  }
+}
+@media (max-width: 1199.98px) and (min-width: 768px) {
+  .custom-slider__swiper:not(.custom-slider__swiper-initialized) .custom-slider__slide {
+    width: 33.3333%;
+  }
+}
+@media (max-width: 767.98px) {
+  .custom-slider__swiper:not(.custom-slider__swiper-initialized) .custom-slider__slide {
+    width: 50%;
+  }
 }
 .custom-slider__slide .product {
   flex-grow: 1;
@@ -9154,6 +9186,11 @@ body {
     padding-left: 2.5rem;
   }
 }
+@media (max-width: 767.98px) {
+  .product-card__item {
+    flex-basis: 100%;
+  }
+}
 .product-card__item_sliders {
   order: -1;
   position: relative;
@@ -9354,6 +9391,7 @@ body {
 }
 .product-card__installment-heading {
   font-size: 18px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .product-card__installment-calculation {

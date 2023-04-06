@@ -64,6 +64,16 @@
 
     %custom-slider-not-initialized & {
       width: 20%;
+
+      @media ($desktop-max-xl) and ($desktop-min-xl) {
+        width: 25%;
+      }
+      @media ($desktop-max) and ($tablet-mid) {
+        width: 33.3333%;
+      }
+      @media ($tablet-mad) {
+        width: 50%;
+      }
     }
     %product {
       flex-grow: 1;

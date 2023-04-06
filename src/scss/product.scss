@@ -107,9 +107,11 @@
     // background-color: $white;
     background-color: $primary-color;
 
-    &:hover {
-      %product-features-button-icon {
-        color: $yellow;
+    @media ($desktop-min) {
+      &:hover {
+        %product-features-button-icon {
+          color: $yellow;
+        }
       }
     }
 

@@ -28,6 +28,9 @@
     @media ($desktop-max) {
       padding-left: $product-card-tablet-gap;
     }
+    @media ($tablet-mad) {
+      flex-basis: 100%;
+    }
 
     &_sliders {
       order: -1;
@@ -237,6 +240,7 @@
     }
     &-heading {
       font-size: 18px;
+      font-weight: 600;
       text-transform: uppercase;
     }
     &-calculation {
