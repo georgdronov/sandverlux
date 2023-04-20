@@ -1,19 +1,33 @@
 .additional-info {
   $additional-info-gap: 1.5rem;
 
+  max-width: 100%;
   @extend %row-wrapper;
 
   &__left-column {
     flex: 2 1 0%;
     max-width: 50%;
-    margin-left: $product-card-gap;
-
-    @media ($desktop-max) {
+    
+    @media ($desktop-min-xl) {
+      margin-left: $product-card-gap;
+    }
+    @media ($desktop-max) and ($desktop-min) {
       margin-left: $product-card-tablet-gap;
     }
-    @media ($tablet-mad) {
+    @media ($tablet-max) {
       max-width: 100%;
       flex-basis: 100%;
+    }
+  }
+  &__right-column {
+    flex: 1 1 0%;
+    max-width: 100%;
+
+    @media ($tablet-max) and ($tablet-min) {
+      margin-top: 4rem;
+    }
+    @media ($mobile-max) {
+      margin-top: 2.7rem;
     }
   }
   // &__characteristics-and-reviews {
@@ -73,18 +87,6 @@
     &.active {
       color: $white;
       background-color: $primary-color;
-    }
-  }
-  &__right-column {
-    flex: 1 1 0%;
-    max-width: 100%;
-
-    @media ($tablet-mad) and ($mobile-max) {
-      margin-top: 4rem;
-    }
-    @media ($mobile-max) {
-      margin-top: 2.7rem;
-      margin-left: $product-card-tablet-gap;
     }
   }
 }

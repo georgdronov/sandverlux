@@ -9515,6 +9515,12 @@ body {
 .product-card__additional-info {
   margin-top: 6.3rem;
 }
+@media (max-width: 991.98px) {
+  .product-card__additional-info {
+    max-width: 100%;
+    padding-left: 2.5rem;
+  }
+}
 @media (max-width: 575.98px) {
   .product-card__additional-info {
     margin-top: 4.7rem;
@@ -9894,20 +9900,41 @@ body {
   font-weight: 600;
 }
 
+.additional-info {
+  max-width: 100%;
+}
 .additional-info__left-column {
   flex: 2 1 0%;
   max-width: 50%;
-  margin-left: 3.75rem;
 }
-@media (max-width: 1199.98px) {
+@media (min-width: 1200px) {
+  .additional-info__left-column {
+    margin-left: 3.75rem;
+  }
+}
+@media (max-width: 1199.98px) and (min-width: 992px) {
   .additional-info__left-column {
     margin-left: 2.5rem;
   }
 }
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .additional-info__left-column {
     max-width: 100%;
     flex-basis: 100%;
+  }
+}
+.additional-info__right-column {
+  flex: 1 1 0%;
+  max-width: 100%;
+}
+@media (max-width: 991.98px) and (min-width: 576px) {
+  .additional-info__right-column {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .additional-info__right-column {
+    margin-top: 2.7rem;
   }
 }
 .additional-info__header {
@@ -9969,31 +9996,21 @@ body {
   color: #fff;
   background-color: #84a878;
 }
-.additional-info__right-column {
-  flex: 1 1 0%;
-  max-width: 100%;
-}
-@media (max-width: 767.98px) and (max-width: 575.98px) {
-  .additional-info__right-column {
-    margin-top: 4rem;
-  }
-}
-@media (max-width: 575.98px) {
-  .additional-info__right-column {
-    margin-top: 2.7rem;
-    margin-left: 2.5rem;
-  }
-}
 
+.characteristics__content {
+  max-width: 100%;
+  overflow-x: auto;
+}
 .characteristics__content table {
   max-width: 100%;
+  line-height: 1.5;
 }
-.characteristics th,
-.characteristics td:first-child {
-  padding-left: 3.3%;
+.characteristics__content table strong {
+  font-size: 14px;
 }
 .characteristics td {
-  padding-right: 9.2%;
+  text-align: left;
+  padding-right: 10px;
 }
 
 .product-card-reviews__wrapper .review + .review {

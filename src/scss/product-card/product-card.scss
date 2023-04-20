@@ -372,6 +372,10 @@
   &__additional-info {
     margin-top: 6.3rem;
 
+    @media ($tablet-max) {
+      max-width: 100%;
+      padding-left: $product-card-tablet-gap;
+    }
     @media ($mobile-max) {
       margin-top: 4.7rem;
     }
