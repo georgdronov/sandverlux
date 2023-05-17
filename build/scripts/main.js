@@ -1355,6 +1355,7 @@
       } else if (handleNumber === options.handles - 1) {
         addClass(handle, options.cssClasses.handleUpper);
       }
+      origin.handle = handle;
       return origin;
     }
     function addConnect(base, add) {
@@ -1406,6 +1407,29 @@
     function isHandleDisabled(handleNumber) {
       var handleOrigin = scope_Handles[handleNumber];
       return handleOrigin.hasAttribute("disabled");
+    }
+    function disable(handleNumber) {
+      if (handleNumber !== null && handleNumber !== void 0) {
+        scope_Handles[handleNumber].setAttribute("disabled", "");
+        scope_Handles[handleNumber].handle.removeAttribute("tabindex");
+      } else {
+        scope_Target.setAttribute("disabled", "");
+        scope_Handles.forEach(function(handle) {
+          handle.handle.removeAttribute("tabindex");
+        });
+      }
+    }
+    function enable(handleNumber) {
+      if (handleNumber !== null && handleNumber !== void 0) {
+        scope_Handles[handleNumber].removeAttribute("disabled");
+        scope_Handles[handleNumber].handle.setAttribute("tabindex", "0");
+      } else {
+        scope_Target.removeAttribute("disabled");
+        scope_Handles.forEach(function(handle) {
+          handle.removeAttribute("disabled");
+          handle.handle.setAttribute("tabindex", "0");
+        });
+      }
     }
     function removeTooltips() {
       if (scope_Tooltips) {
@@ -2318,6 +2342,8 @@
       set: valueSet,
       setHandle: valueSetHandle,
       reset: valueReset,
+      disable,
+      enable,
       // Exposed for unit testing, don't use this in your application.
       __moveHandles: function(upward, proposal, handleNumbers) {
         moveHandles(upward, proposal, scope_Locations, handleNumbers);
@@ -3365,7 +3391,7 @@
       return dir === "next" && current >= target || dir === "prev" && current <= target;
     };
     const animate2 = () => {
-      time = new Date().getTime();
+      time = (/* @__PURE__ */ new Date()).getTime();
       if (startTime === null) {
         startTime = time;
       }
@@ -7448,7 +7474,7 @@
     const dateMin = document.querySelectorAll("input[type='date'][min]");
     if (dateMin.length) {
       dateMin.forEach((date) => {
-        date.min = new Date().toISOString().split("T")[0];
+        date.min = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
       });
     }
     const fileInputs = document.querySelectorAll("input[type='file']");
@@ -7486,7 +7512,7 @@
         }
         if (rating < index2 + 1)
           return;
-        svgEl.style.width = 100 + "%";
+        svgEl.style.width = "100%";
       });
     }
     const comparison = document.querySelector(".comparison");
