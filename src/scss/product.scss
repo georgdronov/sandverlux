@@ -110,7 +110,7 @@
     @media ($desktop-min) {
       &:hover {
         %product-features-button-icon {
-          color: $yellow;
+          color: $orange;
         }
       }
     }
@@ -119,15 +119,15 @@
 
     @media ($desktop-min) {
       &:hover {
-        // background-color: $yellow;
-        color: $yellow;
+        // background-color: $orange;
+        color: $orange;
 
         @extend %product-features-button-hover !optional;
       }
     }
 
     &.active {
-      background-color: $yellow;
+      background-color: $orange;
 
       @extend %product-features-button-active !optional;
     }
@@ -138,7 +138,7 @@
   }
   &__features-button-icon {
     width: auto;
-    // color: $yellow;
+    // color: $orange;
     color: $white;
     height: 1.2rem;
     
@@ -149,13 +149,13 @@
 
       %product-features-button-hover & {
         // color: $white;
-        color: $yellow;
+        color: $orange;
       }
     }
 
     %product-features-button-active & {
       // color: $white;
-      color: $yellow;
+      color: $orange;
     }
   }
   &__heading-link {
@@ -192,7 +192,7 @@
     }
   }
   &__installment {
-    color: $yellow;
+    color: $orange;
     font-size: 14px;
     margin-top: 9px;
     font-weight: 700;
@@ -325,7 +325,7 @@
       margin-top: 5px;
     }
     &_discount {
-      background-color: $yellow;
+      background-color: $orange;
     }
     &_novelty {
       background-color: $novelty-color;

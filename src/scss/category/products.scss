@@ -32,7 +32,7 @@
       flex-direction: column;
       transform: translateX(-100%);
       transition: transform $transition3;
-      @include small-scrollbar($yellow, $form-grey-color);
+      @include small-scrollbar($orange, $form-grey-color);
 
       &._opened {
         transform: translateX(0);

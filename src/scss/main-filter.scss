@@ -212,7 +212,8 @@
       }
       &[type="radio"]:checked {
         & + %form-label {
-          background-color: $yellow;
+          background-color: $orange;
+          color: $white
         }
       }
     }

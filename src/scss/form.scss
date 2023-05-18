@@ -174,7 +174,7 @@
       }
       &:focus-visible {
         & + %form-label {
-          @include focus-styles($color: $yellow);
+          @include focus-styles($color: $orange);
 
           &::after {
             background-color: $text-color;
@@ -252,7 +252,7 @@
       padding: 3px 17px;
 
       &:hover {
-        background-color: $yellow;
+        background-color: $orange;
       }
     }
   }
@@ -435,11 +435,11 @@
 
       &.active {
         svg {
-          color: $yellow;
+          color: $orange;
         }
         & ~ label {
           svg {
-            color: $yellow;
+            color: $orange;
           }
         }
       }
@@ -584,7 +584,7 @@
       background-color: $white;
 
       &:focus-visible {
-        @include focus-styles($color: $yellow, $inset: true);
+        @include focus-styles($color: $orange, $inset: true);
       }
     }
   }

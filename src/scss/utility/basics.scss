@@ -1,5 +1,5 @@
-$button-background: $yellow;
-$button-background-hover: #e3b100;
+$button-background: $orange;
+$button-background-hover: $orange-accent;
 
 ._bkgr-image {
   position: absolute;
@@ -45,7 +45,7 @@ button,
   transition: box-shadow $transition3;
   box-shadow: 0 0 0 1px transparent;
 }
-@mixin focus-styles($width: 2px, $color: $yellow, $inset: false) {
+@mixin focus-styles($width: 2px, $color: $orange, $inset: false) {
   @if $inset {
     box-shadow: inset 0 0 0 $width $color;
   } @else {
@@ -57,7 +57,7 @@ button,
 }
 *::selection {
   color: $white;
-  background-color: $yellow;
+  background-color: $orange;
 }
 *:focus-visible {
   outline: none;
@@ -101,18 +101,18 @@ button,
     @include focus-styles($color: $white);
   }
   &:disabled {
-    background-color: $form-grey-color;
+    background-color: $orange;
   }
   &:active {
     transform: translateY(2px);
   }
 
   &--green {
-    background-color: $primary-color;
+    background-color: $orange-accent;
 
     @media ($desktop-min) {
       &:hover {
-        background-color: $primary-hover;
+        background-color: $orange-accent;
       }
     }
 
@@ -127,7 +127,7 @@ button,
     @media ($desktop-min) {
       &:hover {
         color: $white;
-        background-color: $text-color;
+        background-color: $orange;
       }
     }
 
@@ -844,7 +844,7 @@ body {
       line-height: 1;
       font-weight: 500;
       border-radius: 5px;
-      background-color: $yellow;
+      background-color: $orange;
     }
     & + * {
       margin-top: 2em;
