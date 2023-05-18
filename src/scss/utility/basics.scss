@@ -101,18 +101,18 @@ button,
     @include focus-styles($color: $white);
   }
   &:disabled {
-    background-color: $form-grey-color;
+    background-color: $orange;
   }
   &:active {
     transform: translateY(2px);
   }
 
   &--green {
-    background-color: $primary-color;
+    background-color: $orange-accent;
 
     @media ($desktop-min) {
       &:hover {
-        background-color: $primary-hover;
+        background-color: $orange-accent;
       }
     }
 
