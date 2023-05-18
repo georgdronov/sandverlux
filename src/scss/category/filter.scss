@@ -93,7 +93,7 @@
     overflow: hidden;
     max-height: 110px;
     margin-bottom: 10px;
-    @include small-scrollbar($yellow, $form-grey-color);
+    @include small-scrollbar($orange, $form-grey-color);
 
     &.active {
       overflow-y: auto;

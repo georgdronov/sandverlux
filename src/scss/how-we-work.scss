@@ -82,7 +82,7 @@
     margin: 0 auto;
 
     %hww-even-item & {
-      color: $yellow;
+      color: $orange;
     }
     %hww-odd-item & {
       color: $primary-color;
@@ -99,7 +99,7 @@
       color: $primary-color;
     }
     %hww-odd-item & {
-      color: $yellow;
+      color: $orange;
     }
   }
   &__title {

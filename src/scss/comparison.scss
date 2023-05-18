@@ -168,10 +168,10 @@
       background-color: $white;
 
       &:checked {
-        border-color: $yellow;
+        border-color:$orange;
       }
       &:focus {
-        box-shadow: 0 0 0 2px $yellow;
+        box-shadow: 0 0 0 2px $orange;
       }
       &:checked:focus {
         border-color: $text-color;
@@ -185,7 +185,7 @@
         position: relative;
         transition: opacity 0.3s;
         border-radius: 50%;
-        background-color: $yellow;
+        background-color: $orange;
       }
       &:checked:before {
         opacity: 1;

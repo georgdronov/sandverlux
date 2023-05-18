@@ -42,10 +42,10 @@
     }
 
     a {
-      color: $yellow;
+      color: $orange;
       line-height: 1.2;
       text-decoration: none;
-      @include link-hover-underline($yellow);
+      @include link-hover-underline($orange);
     }
   }
   &__btn {

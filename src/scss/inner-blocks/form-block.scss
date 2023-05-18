@@ -104,7 +104,7 @@
   }
   %form-radio,
   %form-checkbox {
-    width: 15px;
+    width:  15px;
     height: 15px;
     margin: 0 11px 0 0;
     border: 1px solid $text-color;
@@ -120,10 +120,10 @@
     background-color: $white;
 
     &:checked {
-      border-color: $yellow;
+      border-color: $orange;
     }
     &:focus {
-      box-shadow: 0 0 0 2px $yellow;
+      box-shadow: 0 0 0 2px $orange;
     }
     &:checked:focus {
       border-color: $text-color;
@@ -137,7 +137,7 @@
       position: relative;
       transition: opacity 0.3s;
       border-radius: 50%;
-      background-color: $yellow;
+      background-color: $orange;
     }
     &:checked:before {
       opacity: 1;
@@ -154,7 +154,7 @@
     &::before {
       top: -4px;
       left: 0;
-      color: $yellow;
+      color: $orange;
       content: "✔";
       position: absolute;
       font-size: 20px;

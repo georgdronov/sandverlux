@@ -76,7 +76,7 @@
     height: 18px;
 
     &.active {
-      color: $yellow;
+      color: $orange;
     }
     & + & {
       margin-left: 5px;
@@ -192,7 +192,7 @@
     }
 
     &-button {
-      color: $yellow;
+      color: $orange;
       border: none;
       padding: 5px 0;
       margin-top: $features-top-gap;
@@ -261,7 +261,7 @@
       }
     }
     &-price {
-      color: $yellow;
+      color: $orange;
       font-size: 18px;
       font-weight: 700;
       margin-right: 20px;
@@ -358,7 +358,7 @@
     padding: 15px 20px;
     min-width: 200px;
 
-    &._btn--green:not(:hover) {
+    &._btn--secondary-color:not(:hover) {
       background-color: $secondary-color;
     }
   }
